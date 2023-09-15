@@ -1,0 +1,188 @@
+.navbar {
+    width : 100%;
+    height : 80px;
+    background-color: #000;
+    display : flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.navbarWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items : center;
+}
+
+.navbarLogoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.navbarLogoContainer > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbarLogoContainer > a > span {
+    color : #fff;
+    font-size: 18px;
+    font-weight: 350;
+}
+
+.navbarButtonsWrapper {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: stretch;
+    align-items: center;
+    gap: 4px;
+    margin : 0;
+    height : 36px
+}
+
+.navbarButtonsWrapper > li {
+    display: flex;
+    height : 100%
+}
+
+.navbarButtonsWrapper > li.navbarButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color : #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 400;
+    cursor: pointer;
+    gap: 2px;
+    transition: background-color 0.2s;
+}
+
+.navbarButtonsWrapper > li.navbarButton:hover {
+    background-color: #222;
+}
+
+
+.navbarDropdown {
+    position: absolute;
+    background-color: #000;
+    top: 45px;
+    min-width: 120px;
+    left: -12px;
+    padding-right : 20px;
+    display: flex;
+    padding-top : 10px;
+    padding-bottom: 10px;
+    z-index: 10;
+
+}
+
+.navbarDropdownColumn {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.navbarDropdownColumn > li.navbarButton {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    color : #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    height : 22px !important;
+    font-size: 14px;
+    font-weight: 350;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.navbarDropdown > .navbarDropdownColumn > li.navbarButton:hover {
+    background-color: #111;
+}
+
+.navbarDropdown > .navbarDropdownColumn > li.navbarButton > span {
+    text-transform: uppercase;
+}
+
+
+/* */
+
+@property --teamButtonColorA1 {
+    syntax: '<color>';
+    initial-value: #0050AD;
+    inherits: false;
+  }
+  
+  @property --teamButtonColorA2 {
+    syntax: '<color>';
+    initial-value: #0060bD;
+    inherits: false;
+  }
+
+.navbarButtonsWrapper > li.navbarButton.navbarButtonTeam {
+    background: linear-gradient(-25deg, var(--teamButtonColorA2), var(--teamButtonColorA1));
+    padding-left : 16px;
+    padding-right : 16px;
+    transition: color 0.2s, background-color 0.2s, --teamButtonColorA1 0.6s, --teamButtonColorA1 0.6s;
+}
+
+
+.navbarButtonsWrapper > li.navbarButton.navbarButtonTeam:hover {
+    --teamButtonColorA1: #1070cD;
+    --teamButtonColorA2: #1070aD;
+}
+
+
+.navbarButtonsWrapper > li.navbarButton.navbarButtonTeam > .navbarDropdown {
+    left : 0px;
+    background-color: #0050AD;
+    background: linear-gradient(-25deg, #00408D, #0060bD);
+}
+
+.navbarButtonsWrapper > li.navbarButton.navbarButtonTeam > .navbarDropdown > .navbarDropdownColumn > li.navbarButton {
+    padding-left: 16px;
+    width: 140px;
+}
+
+
+/* */
+
+.navbarDropdown > .navbarDropdownColumn > li.navbarButton.donateSecondaryButton {
+    background-color: #02c166;
+}
+
+.navbarDropdown > .navbarDropdownColumn > li.navbarButton.donateSecondaryButton:hover {
+    background-color: #01b156;
+}
+
+.navbarDropdown > .navbarDropdownColumn > li.navbarButton.sponsorSecondaryButton {
+    background-color: #0085ff;
+}
+
+.navbarDropdown > .navbarDropdownColumn > li.navbarButton.sponsorSecondaryButton:hover {
+    background-color: #0075ef;
+}
+
+.navbarDropdown > .navbarDropdownColumn > li.navbarButton.membersSecondaryButton {
+    background-color: transparent;
+}
+
+.navbarDropdown > .navbarDropdownColumn > li.navbarButton.membersSecondaryButton:hover {
+    background-color: #0075ef;
+}
+
+

@@ -1,0 +1,13 @@
+.subheaderShape {
+    width : 100vw;
+    max-width: 100%;
+}
+
+.subheaderShapeBody {
+    min-height: 260px;
+    width: 100%;
+    background-color: #f68313;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

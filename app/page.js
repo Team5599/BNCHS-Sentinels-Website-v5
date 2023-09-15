@@ -1,95 +1,46 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 
+import Navbar from '@components/Navbar/Navbar'
+import Header from '@components/Header/Header'
+import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
+
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+	return (
+		<div>
+			<Navbar/>
+			<Header height={700} imageClass={styles.headerOne} gradient={true}>
+				<div style={{color : '#fff', maxWidth : 800, textAlign: 'center', marginBottom : 60}}>
+					<p style={{fontWeight : 900, fontSize: 64}}>
+						WE ARE THE SENTINELS
+					</p>
+					<p style={{fontWeight : 500, fontSize : 24, letterSpacing: '0.03rem'}}>
+						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
+					</p>
+				</div>
+			</Header>
+			<SubheaderShape>
+				<div className='container'>
+					<p style={{color : '#fff', textAlign : 'justify', fontSize : 24, fontWeight : 350, letterSpacing: '0.03rem'}}>
+						{ /* eslint-disable-next-line react/no-unescaped-entities */ }
+						The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
+					</p>
+				</div>
+			</SubheaderShape>
+			<Header height={500} imageClass={styles.headerOne} masked={true}>
+				<div style={{color : '#fff', maxWidth : 800, textAlign: 'center', marginBottom : 60}}>
+					<p style={{fontWeight : 500, fontSize : 24, letterSpacing: '0.03rem'}}>
+						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
+					</p>
+				</div>
+			</Header>
+			<Header height={500} imageClass={styles.headerOne} masked={true} divider={true}>
+				<div style={{color : '#fff', maxWidth : 800, textAlign: 'center', marginBottom : 60}}>
+					<p style={{fontWeight : 500, fontSize : 24, letterSpacing: '0.03rem'}}>
+						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
+					</p>
+				</div>
+			</Header>
+		</div>
+	)
 }

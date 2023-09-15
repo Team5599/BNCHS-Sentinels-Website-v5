@@ -1,0 +1,50 @@
+.header {
+    width : 100vw;
+    height : 200px;
+    max-width: 100%;
+    position: relative;
+}
+
+.headerBackgroundImage {
+    position: relative;
+    width : 100vw;
+    height: 100%;
+    max-width: 100%;
+}
+
+.headerContentsOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gradient*/
+
+.headerBackgroundImage.gradient:after {
+    content : " ";
+    display: block;
+    position: absolute;
+    top : 0;
+    left : 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background : linear-gradient(0deg, #00000000, #000000ff);
+    pointer-events: none;
+}
+
+
+/* Masking */
+
+.headerBackgroundImage.masked {
+    mask-image: url('/images/masks/rectangle.svg'), url('/images/masks/triangleAsymmetrical.svg');
+    mask-position: 0 0, bottom;
+    mask-size: 100% calc(100% - 120px), 100% 120px;
+    mask-clip: content-box, content-box;
+    mask-repeat: no-repeat;
+}
