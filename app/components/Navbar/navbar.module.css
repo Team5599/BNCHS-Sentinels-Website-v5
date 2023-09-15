@@ -42,31 +42,39 @@
     align-items: center;
     gap: 4px;
     margin : 0;
-    height : 36px
+    height : 42px
 }
 
 .navbarButtonsWrapper > li {
     display: flex;
-    height : 100%
+    height : 100%;
 }
 
 .navbarButtonsWrapper > li.navbarButton {
     display: flex;
     justify-content: center;
     align-items: center;
-    color : #fff;
+    position: relative;
+}
+
+.navbarButtonsWrapper > li.navbarButton > .navbarButtonInternal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-left: 10px;
     padding-right: 10px;
-    position: relative;
+    color : #fff;
     font-size: 16px;
     text-transform: uppercase;
     font-weight: 400;
-    cursor: pointer;
+    position: relative;
     gap: 2px;
+    cursor: pointer;
     transition: background-color 0.2s;
+    height: 100%;
 }
 
-.navbarButtonsWrapper > li.navbarButton:hover {
+.navbarButtonsWrapper > li.navbarButton > .navbarButtonInternal:hover {
     background-color: #222;
 }
 
@@ -118,6 +126,14 @@
     text-transform: uppercase;
 }
 
+.navbarToggle {
+    color : #fff;
+    display: none;
+    visibility: hidden;
+}
+
+
+
 
 /* */
 
@@ -133,7 +149,7 @@
     inherits: false;
   }
 
-.navbarButtonsWrapper > li.navbarButton.navbarButtonTeam {
+.navbarButtonsWrapper > li.navbarButton.navbarButtonTeam > .navbarButtonInternal {
     background: linear-gradient(-25deg, var(--teamButtonColorA2), var(--teamButtonColorA1));
     padding-left : 16px;
     padding-right : 16px;
@@ -185,4 +201,80 @@
     background-color: #0075ef;
 }
 
+/* Mobile */
 
+
+.mobile {
+    position: fixed;
+    z-index: 10;
+}
+
+@media (max-width: 992px) {
+
+    .navbar.mobileOpen {
+        position: fixed;
+        z-index: 10;
+    }
+
+    .navbar:not(.mobileOpen) > .navbarWrapper > .navbarButtonsWrapper {
+        display: none;
+        visibility: hidden;
+    }
+
+    .navbarWrapper {
+        width : 100%;
+    }
+
+    .navbarToggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: visible;
+    }
+
+    .navbarButtonsWrapper {
+        position: absolute;
+        width : 100vw;
+        max-width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        background-color: #111;
+        top : 80px;
+        left : 0;
+        z-index: 4;
+        padding : 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .navbarButtonsWrapper > li.navbarButton {
+        width : 100vw;
+        max-width: 100%;
+        justify-content: flex-start;
+        flex-direction: column;
+        height : auto;
+    }
+
+    .navbarButtonsWrapper > li.navbarButton > .navbarButtonInternal, .navbarButtonsWrapper > li.navbarButton.navButtonTeam > .navbarButtonInternal {
+        width: 100%;
+        justify-content: flex-start;
+        padding-left: 40px !important;
+        height: 40px;
+        flex-wrap: wrap;
+    }
+
+    .navbarButtonsWrapper > li.navbarButton > .navbarDropdown {
+        position: static;
+        width : 100%;
+        overflow-x: auto;
+    }
+
+    .navbarButtonsWrapper > li.navbarButton > .navbarDropdown > .navbarDropdownColumn {
+        width : 100%;
+    }
+
+    .navbarDropdown > .navbarDropdownColumn > .navbarButton > .navbarButtonInternal{
+        padding-left : 20px;
+    }
+
+}
