@@ -3,16 +3,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Toggle from './Toggle';
+
 import styles from './navbar.module.css';
 
 import {useState, useEffect, useRef} from 'react';
+import useWindowDimensions from '@lib/useWindowDimensions';
 
 import ChevronSVG from './chevron-svg';
 
 const NavbarButton = ({label, className = []}) => {
     return (
         <li className={`${styles.navbarButton} ${className}`}>
-            <span>{label}</span>
+            <div className={styles.navbarButtonInternal}>
+                <span>{label}</span>
+            </div>
         </li>
     )
 }
@@ -49,14 +54,17 @@ const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, cl
             ref={navbarButtonRef}
             className={`${styles.navbarButton} ${className}`}
         >
-            <span>{label}</span>
-            {
-                !ignoreChevron && <ChevronSVG
-                    color='#fff'
-                    width={24}
-                    height={24}
-                />
-            }
+            <div className={styles.navbarButtonInternal}>
+                <span>{label}</span>
+                {
+                    !ignoreChevron && <ChevronSVG
+                        color='#fff'
+                        width={24}
+                        height={24}
+                    />
+                }
+            </div>
+            
             
             {
                 isDropdownOpen && <div className={styles.navbarDropdown}>
@@ -68,16 +76,17 @@ const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, cl
     )
 }
 
-
 const Navbar = () => {
 
     /*
         TODO
         Add mouse-enter and mouse-exit support for the navbar dropdowns
     */
+    const { height, width } = useWindowDimensions();
+    const [isMobileNavbarOpen, setMobileNavbarOpen] = useState(false);
 
     return (
-        <div className={styles.navbar}>
+        <div className={`${styles.navbar} ${(width <= 992) && styles.mobile} ${(width <= 1200 && isMobileNavbarOpen) && styles.mobileOpen}`}>
             <div className={`container ${styles.navbarWrapper}`}>
                 <div className={styles.navbarLogoContainer}>
                     <Link
@@ -94,6 +103,7 @@ const Navbar = () => {
                         </span>
                     </Link> 
                 </div>
+                <Toggle isMobileNavbarOpen={isMobileNavbarOpen} setMobileNavbarOpen={setMobileNavbarOpen}/>
                 <ul className={styles.navbarButtonsWrapper}>
                     <NavbarButton label={'Home'}/>
                     <NavbarButtonDropdown
