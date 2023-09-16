@@ -26,6 +26,20 @@ export default function Template() {
 					</p>
 				</div>
 			</SubheaderShape>
+			<Header size='md' imageClass={styles.headerOne} masked={true}>
+				<div className='container restrictHeader' style={{color : '#fff'}}>
+					<h2>
+						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
+					</h2>
+				</div>
+			</Header>
+			<Header size='md' imageClass={styles.headerOne} masked={true} divider={true}>
+				<div className='container restrictHeader' style={{color : '#fff'}}>
+					<h2>
+						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
+					</h2>
+				</div>
+			</Header>
 		</div>
 	)
 }

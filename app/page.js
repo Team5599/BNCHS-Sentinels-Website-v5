@@ -14,9 +14,9 @@ export default function Home() {
 					<h1 style={{fontWeight : 900, marginBottom : 20}}>
 						WE ARE THE SENTINELS
 					</h1>
-					<h2>
+					<h3>
 						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</h2>
+					</h3>
 				</div>
 			</Header>
 			<SubheaderShape>
@@ -27,20 +27,17 @@ export default function Home() {
 					</p>
 				</div>
 			</SubheaderShape>
-			<Header size='md' imageClass={styles.headerOne} masked={true}>
-				<div className='container restrictHeader' style={{color : '#fff'}}>
-					<h2>
-						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</h2>
-				</div>
-			</Header>
-			<Header size='md' imageClass={styles.headerOne} masked={true} divider={true}>
-				<div className='container restrictHeader' style={{color : '#fff'}}>
-					<h2>
-						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</h2>
-				</div>
-			</Header>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 40, textAlign : 'justify'}}>
+				<h2 style={{textAlign : 'center'}}>
+					TITLE
+				</h2>
+				<p>
+					The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
+				</p>
+				<p>
+					The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
+				</p>
+			</div>
 		</div>
 	)
 }

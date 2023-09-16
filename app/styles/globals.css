@@ -17,6 +17,8 @@ a {
 
 p {
 	margin : 0;
+	font-size: 1.5rem;
+	font-weight: 375;
 }
 
 h1 {
@@ -25,6 +27,12 @@ h1 {
 }
 
 h2 {
+	margin: 0;
+	font-size: 3.25rem;
+	font-weight: 900;
+}
+
+h3 {
 	margin : 0;
 	font-size : 1.5rem;
 	font-weight: 500;
@@ -54,7 +62,15 @@ h2 {
     }
 
 	h2 {
+        font-size: 2rem;
+    }
+
+	h3 {
 		font-size: 1.25rem;
+	}
+
+	p {
+		font-size: 1rem;
 	}
 
 	.subheading {
