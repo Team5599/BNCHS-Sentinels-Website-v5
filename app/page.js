@@ -9,36 +9,36 @@ export default function Home() {
 	return (
 		<div>
 			<Navbar/>
-			<Header height={700} imageClass={styles.headerOne} gradient={true}>
-				<div style={{color : '#fff', maxWidth : 800, textAlign: 'center', marginBottom : 60}}>
-					<p style={{fontWeight : 900, fontSize: 64}}>
+			<Header size='lg' imageClass={styles.headerOne} gradient={true}>
+				<div className='container' style={{color : '#fff', maxWidth : 800, textAlign: 'center'}}>
+					<h1 style={{fontWeight : 900, marginBottom : 20}}>
 						WE ARE THE SENTINELS
-					</p>
-					<p style={{fontWeight : 500, fontSize : 24, letterSpacing: '0.03rem'}}>
+					</h1>
+					<h2 style={{fontWeight : 500, letterSpacing: '0.03rem'}}>
 						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</p>
+					</h2>
 				</div>
 			</Header>
 			<SubheaderShape>
 				<div className='container'>
-					<p style={{color : '#fff', textAlign : 'justify', fontSize : 24, fontWeight : 350, letterSpacing: '0.03rem'}}>
+					<p className='subheading' style={{color : '#fff', fontWeight : 350, letterSpacing: '0.03rem'}}>
 						{ /* eslint-disable-next-line react/no-unescaped-entities */ }
 						The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
 					</p>
 				</div>
 			</SubheaderShape>
-			<Header height={500} imageClass={styles.headerOne} masked={true}>
-				<div style={{color : '#fff', maxWidth : 800, textAlign: 'center', marginBottom : 60}}>
-					<p style={{fontWeight : 500, fontSize : 24, letterSpacing: '0.03rem'}}>
+			<Header size='md' imageClass={styles.headerOne} masked={true}>
+				<div className='container' style={{color : '#fff', maxWidth : 800, textAlign: 'center'}}>
+					<h2 style={{fontWeight : 500, letterSpacing: '0.03rem'}}>
 						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</p>
+					</h2>
 				</div>
 			</Header>
-			<Header height={500} imageClass={styles.headerOne} masked={true} divider={true}>
-				<div style={{color : '#fff', maxWidth : 800, textAlign: 'center', marginBottom : 60}}>
-					<p style={{fontWeight : 500, fontSize : 24, letterSpacing: '0.03rem'}}>
+			<Header size='md' imageClass={styles.headerOne} masked={true} divider={true}>
+				<div className='container' style={{color : '#fff', maxWidth : 800, textAlign: 'center'}}>
+					<h2 style={{fontWeight : 500, letterSpacing: '0.03rem'}}>
 						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</p>
+					</h2>
 				</div>
 			</Header>
 		</div>
