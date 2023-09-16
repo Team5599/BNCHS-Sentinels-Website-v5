@@ -12,12 +12,12 @@ import useWindowDimensions from '@lib/useWindowDimensions';
 
 import ChevronSVG from './chevron-svg';
 
-const NavbarButton = ({label, className = []}) => {
+const NavbarButton = ({label, href = '/404', className = []}) => {
     return (
-        <li className={`${styles.navbarButton} ${className}`}>
-            <div className={styles.navbarButtonInternal}>
+        <li className={`${styles.navbarButton} ${className}`}>     
+            <Link className={styles.navbarButtonInternal} href={href}>
                 <span>{label}</span>
-            </div>
+            </Link>
         </li>
     )
 }
@@ -31,7 +31,7 @@ const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, cl
     useEffect(() => {
         function handleClickOutside(event) {
             if (navbarButtonRef.current && !navbarButtonRef.current.contains(event.target)) {
-                setDropdownOpen(false);
+                // setDropdownOpen(false);
             }
         }
         document.addEventListener("mousedown", handleClickOutside);
@@ -42,7 +42,7 @@ const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, cl
 
     return (
         <li
-            onMouseUp={(e) => {
+            onClick={(e) => {
                 setDropdownOpen(!isDropdownOpen);
             }}
             // onMouseEnter={(e) => {
@@ -105,17 +105,17 @@ const Navbar = () => {
                 </div>
                 <Toggle isMobileNavbarOpen={isMobileNavbarOpen} setMobileNavbarOpen={setMobileNavbarOpen}/>
                 <ul className={styles.navbarButtonsWrapper}>
-                    <NavbarButton label={'Home'}/>
+                    <NavbarButton label={'Home'} href='/'/>
                     <NavbarButtonDropdown
                         label={'About'}
                         dropdownButtons={
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
-                                    <NavbarButton label={'About Us'}/>
-                                    <NavbarButton label={'Meet the Members'}/>
-                                    <NavbarButton label={'Meet the Robots'}/>
-                                    <NavbarButton label={'Events & Competitions'}/>
-                                    <NavbarButton label={'Our History'}/>
+                                    <NavbarButton label={'About Us'} href='/AboutUs'/>
+                                    <NavbarButton label={'Meet the Members'} href='/Team'/>
+                                    <NavbarButton label={'Meet the Robots'} href='/Robots'/>
+                                    <NavbarButton label={'Events & Competitions'} href='/Events'/>
+                                    <NavbarButton label={'Our History'} href='/History'/>
                                 </ul>
                             </>
                         }
@@ -125,23 +125,23 @@ const Navbar = () => {
                         dropdownButtons={
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
-                                    <NavbarButton label={'Calendar'}/>
-                                    <NavbarButton label={'Photos & Videos'}/>
-                                    <NavbarButton label={'Team Documents'}/>
-                                    <NavbarButton label={'Resource Engine'}/>
+                                    <NavbarButton label={'Calendar'} href='Calendar'/>
+                                    <NavbarButton label={'Photos & Videos'} href='https://www.flickr.team5599.com'/>
+                                    <NavbarButton label={'Team Documents'} href='/Documents'/>
+                                    <NavbarButton label={'Resource Engine'} href='/Resources'/>
                                 </ul>
                                 <ul className={styles.navbarDropdownColumn}>
-                                    <NavbarButton label={'Branding'}/>
-                                    <NavbarButton label={'Project Showcases'}/>
-                                    <NavbarButton label={'Alumni Outreach'}/>
-                                    <NavbarButton label={'Code Repositories'}/>
-                                    <NavbarButton label={'The Blue Alliance'}/>
+                                    <NavbarButton label={'Branding'} href='https://www.dropbox.com/'/>
+                                    <NavbarButton label={'Project Showcases'} href='/Showcases'/>
+                                    <NavbarButton label={'Alumni Outreach'} href='/Alumni'/>
+                                    <NavbarButton label={'Code Repositories'} href='https://www.github.com/'/>
+                                    <NavbarButton label={'The Blue Alliance'} href='https://www.thebluealliance.com/'/>
                                 </ul>
                                 <ul className={styles.navbarDropdownColumn}>
-                                    <NavbarButton label={'FIRST (C)'}/>
-                                    <NavbarButton label={'Scholarships'}/>
-                                    <NavbarButton label={'Internships'}/>
-                                    <NavbarButton label={'Donations'}/>
+                                    <NavbarButton label={'FIRST (C)'} href='https://www.firstinspires.org/'/>
+                                    <NavbarButton label={'Scholarships'} href='/Opportunities'/>
+                                    <NavbarButton label={'Internships'} href='/Opportunities'/>
+                                    <NavbarButton label={'Donations'} href='/Gratitude'/>
                                 </ul>
                             </>
                         }
@@ -159,7 +159,7 @@ const Navbar = () => {
                             </>
                         }
                     />
-                    <NavbarButton label={'Blog'}/>
+                    <NavbarButton label={'Blog'} href='https://blog.team5599.com/'/>
                     <NavbarButtonDropdown
                         label={'Members'}
                         ignoreChevron={true}
@@ -174,7 +174,7 @@ const Navbar = () => {
                             </>
                         }
                     />
-                    <NavbarButton label={'Contact Us'}/>
+                    <NavbarButton label={'Contact Us'} href='/ContactUs'/>
                 </ul>
             </div>
             
