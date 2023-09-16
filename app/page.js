@@ -22,7 +22,6 @@ export default function Home() {
 			<SubheaderShape>
 				<div className='container'>
 					<p className='subheading' style={{color : '#fff'}}>
-						{ /* eslint-disable-next-line react/no-unescaped-entities */ }
 						The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
 					</p>
 				</div>
