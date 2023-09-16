@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 import styles from './header.module.css'
 
-const Header = ({children, size = 'md', imageClass = {}, masked = false, divider = false, dividerHeight = 80, gradient = false}) => {
+const Header = ({children, size = 'md', imageClass = {}, masked = false, divider = false, gradient = false}) => {
     return (
-        <div className={`${styles.header} ${size == 'lg' && styles.lg} ${size == 'md' && styles.md} ${size =='sm' && styles.sm}`} style={{...(divider && {marginBottom: dividerHeight}) }}>
+        <div className={`${styles.header} ${size == 'lg' && styles.lg} ${size == 'md' && styles.md} ${size =='sm' && styles.sm} ${divider && styles.hasDivider}`}>
             {/* Background Image */}
             <div className={`${styles.headerBackgroundImage} ${imageClass} ${gradient && styles.gradient} ${masked && styles.masked}`}/>
             {/* Header Contents */}
