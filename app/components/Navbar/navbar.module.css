@@ -59,6 +59,7 @@
 
 .navbarButtonsWrapper > li.navbarButton > .navbarButtonInternal {
     display: flex;
+    flex : 1;
     justify-content: center;
     align-items: center;
     padding-left: 10px;
@@ -69,8 +70,9 @@
     font-weight: 400;
     position: relative;
     gap: 2px;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: background-color 0.2s;
+    width: 100%;
     height: 100%;
 }
 
@@ -106,20 +108,24 @@
     text-align: left;
     align-items: center;
     color : #fff;
+    font-size: 14px;
+    font-weight: 350;
+    white-space: nowrap;
+    /* cursor: pointer; */
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.navbarDropdownColumn > li.navbarButton > .navbarButtonInternal {
+    flex : 1;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 8px;
     padding-bottom: 8px;
-    height : 22px !important;
-    font-size: 14px;
-    font-weight: 350;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: color 0.2s, background-color 0.2s;
+    width: 100%;
 }
 
 .navbarDropdown > .navbarDropdownColumn > li.navbarButton:hover {
-    background-color: #111;
+    background-color: #222;
 }
 
 .navbarDropdown > .navbarDropdownColumn > li.navbarButton > span {
@@ -170,8 +176,8 @@
 }
 
 .navbarButtonsWrapper > li.navbarButton.navbarButtonTeam > .navbarDropdown > .navbarDropdownColumn > li.navbarButton {
-    padding-left: 16px;
-    width: 140px;
+    /* padding-left: 16px; */
+    width: 160px;
 }
 
 
@@ -207,6 +213,7 @@
 .mobile {
     position: fixed;
     z-index: 10;
+    top : 0;
 }
 
 @media (max-width: 992px) {
@@ -256,10 +263,12 @@
     }
 
     .navbarButtonsWrapper > li.navbarButton > .navbarButtonInternal, .navbarButtonsWrapper > li.navbarButton.navButtonTeam > .navbarButtonInternal {
+        display: flex;
         width: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
         justify-content: flex-start;
         padding-left: 40px !important;
-        height: 40px;
         flex-wrap: wrap;
     }
 
@@ -267,13 +276,14 @@
         position: static;
         width : 100%;
         overflow-x: auto;
+        padding-right: 0px;
     }
 
     .navbarButtonsWrapper > li.navbarButton > .navbarDropdown > .navbarDropdownColumn {
         width : 100%;
     }
 
-    .navbarDropdown > .navbarDropdownColumn > .navbarButton > .navbarButtonInternal{
+    .navbarDropdown > .navbarDropdownColumn > .navbarButton > .navbarButtonInternal {
         padding-left : 20px;
     }
 

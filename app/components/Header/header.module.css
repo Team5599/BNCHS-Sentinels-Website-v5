@@ -5,6 +5,42 @@
     position: relative;
 }
 
+
+.header.lg {
+    height : 700px;
+}
+
+.header.md {
+    height : 500px;
+}
+
+.header.sm {
+    height : 200px;
+}
+
+.header.hasDivider {
+    margin-bottom : 80px;
+}
+
+@media (max-width: 992px) {
+    .header.lg {
+        height: 500px;
+    }
+    
+    .header.md {
+        height: 300px;
+    }
+
+    .header > .headerContentsOverlay > .container {
+        margin-bottom : 0px;
+    }
+}
+
+
+.header > .headerContentsOverlay > .container {
+    margin-bottom : 60px;
+}
+
 .headerBackgroundImage {
     position: relative;
     width : 100vw;
@@ -23,6 +59,42 @@
     align-items: center;
 }
 
+
+/* Divider */
+
+.headerDivider {
+    position: absolute;
+    width : 100%;
+    bottom : -40px;
+    z-index: -1;
+}
+
+.headerDivider > div {
+    height : 40px;
+    width : 100%;
+}
+
+.triangleSVG {
+    height: 120px;
+}
+
+
+@media (max-width: 992px) {
+
+    .headerDivider {
+        bottom: -40px;
+    }
+
+    .headerDivider > div {
+        height: 40px;
+    }
+
+    .triangleSVG {
+        height: 40px;
+    }
+
+}
+
 /* Gradient*/
 
 .headerBackgroundImage.gradient:after {
@@ -33,7 +105,7 @@
     left : 0;
     width: 100%;
     height: 100%;
-    opacity: 0.2;
+    opacity: 0.4;
     background : linear-gradient(0deg, #00000000, #000000ff);
     pointer-events: none;
 }
@@ -48,3 +120,10 @@
     mask-clip: content-box, content-box;
     mask-repeat: no-repeat;
 }
+
+@media (max-width: 992px) {
+    .headerBackgroundImage.masked {
+        mask-size: 100% calc(100% - 40px), 100% 41px;
+    }
+}
+

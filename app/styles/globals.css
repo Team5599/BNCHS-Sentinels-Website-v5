@@ -17,4 +17,64 @@ a {
 
 p {
 	margin : 0;
+	font-size: 1.5rem;
+	font-weight: 375;
+}
+
+h1 {
+	margin : 0;
+	font-size: 4rem;
+}
+
+h2 {
+	margin: 0;
+	font-size: 3.25rem;
+	font-weight: 900;
+}
+
+h3 {
+	margin : 0;
+	font-size : 1.5rem;
+	font-weight: 500;
+	letter-spacing: 0.03rem;
+}
+
+.subheading {
+	font-size: 1.25rem;
+	text-align: justify;
+	font-weight: 350;
+	letter-spacing: 0.03rem;
+}
+
+.container.restrictHeader {
+	max-width: 800px;
+	text-align: center;
+}
+
+@media (max-width: 992px) {
+
+	body {
+		margin-top : 60px;
+	}
+
+    h1 {
+        font-size: 3rem;
+    }
+
+	h2 {
+        font-size: 2rem;
+    }
+
+	h3 {
+		font-size: 1.25rem;
+	}
+
+	p {
+		font-size: 1rem;
+	}
+
+	.subheading {
+		font-size: 1rem;
+		text-align: center;
+	}
 }

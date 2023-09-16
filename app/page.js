@@ -9,38 +9,34 @@ export default function Home() {
 	return (
 		<div>
 			<Navbar/>
-			<Header height={700} imageClass={styles.headerOne} gradient={true}>
-				<div style={{color : '#fff', maxWidth : 800, textAlign: 'center', marginBottom : 60}}>
-					<p style={{fontWeight : 900, fontSize: 64}}>
+			<Header size='lg' imageClass={styles.headerOne} gradient={true}>
+				<div className='container restrictHeader' style={{color : '#fff'}}>
+					<h1 style={{fontWeight : 900, marginBottom : 20}}>
 						WE ARE THE SENTINELS
-					</p>
-					<p style={{fontWeight : 500, fontSize : 24, letterSpacing: '0.03rem'}}>
+					</h1>
+					<h3>
 						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</p>
+					</h3>
 				</div>
 			</Header>
 			<SubheaderShape>
 				<div className='container'>
-					<p style={{color : '#fff', textAlign : 'justify', fontSize : 24, fontWeight : 350, letterSpacing: '0.03rem'}}>
-						{ /* eslint-disable-next-line react/no-unescaped-entities */ }
+					<p className='subheading' style={{color : '#fff'}}>
 						The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
 					</p>
 				</div>
 			</SubheaderShape>
-			<Header height={500} imageClass={styles.headerOne} masked={true}>
-				<div style={{color : '#fff', maxWidth : 800, textAlign: 'center', marginBottom : 60}}>
-					<p style={{fontWeight : 500, fontSize : 24, letterSpacing: '0.03rem'}}>
-						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</p>
-				</div>
-			</Header>
-			<Header height={500} imageClass={styles.headerOne} masked={true} divider={true}>
-				<div style={{color : '#fff', maxWidth : 800, textAlign: 'center', marginBottom : 60}}>
-					<p style={{fontWeight : 500, fontSize : 24, letterSpacing: '0.03rem'}}>
-						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</p>
-				</div>
-			</Header>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 40, textAlign : 'justify'}}>
+				<h2 style={{textAlign : 'center'}}>
+					TITLE
+				</h2>
+				<p>
+					The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
+				</p>
+				<p>
+					The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
+				</p>
+			</div>
 		</div>
 	)
 }
