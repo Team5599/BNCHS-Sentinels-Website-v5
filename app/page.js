@@ -5,6 +5,7 @@ import Navbar from '@components/Navbar/Navbar'
 import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import HomeTiles from './components/HomeTiles/HomeTiles'
+import FIRSTSection from './components/FIRSTSection/FIRSTSection'
 
 export default function Home() {
 	return (
@@ -44,6 +45,7 @@ export default function Home() {
 					src="https://www.youtube.com/embed/q976KWsvT7I?autoplay=0&mute=1&loop=1">
 				</iframe>
 			</Header>
+			<FIRSTSection/>
 		</div>
 	)
 }
