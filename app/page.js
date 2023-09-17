@@ -6,6 +6,7 @@ import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import HomeTiles from './components/HomeTiles/HomeTiles'
 import FIRSTSection from './components/FIRSTSection/FIRSTSection'
+import NewsletterSubscriptionInput from './components/NewsletterSubscriptionInput/NewsletterSubscriptionInput'
 
 export default function Home() {
 	return (
@@ -46,6 +47,9 @@ export default function Home() {
 				</iframe>
 			</Header>
 			<FIRSTSection/>
+			<Header size='lg' imageClass={styles.headerOne} masked={true}>
+				<NewsletterSubscriptionInput/>
+			</Header>
 		</div>
 	)
 }
