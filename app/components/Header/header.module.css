@@ -48,6 +48,12 @@
     max-width: 100%;
 }
 
+/*
+    TODO 
+    Set the .masked class on the main .header parent rather than the .headerBackgroundImage element
+    Set the height of .headerContentsOverlay to calc(100% - 120px) when masked, so content centers better vertically
+
+*/
 .headerContentsOverlay {
     position: absolute;
     width: 100%;

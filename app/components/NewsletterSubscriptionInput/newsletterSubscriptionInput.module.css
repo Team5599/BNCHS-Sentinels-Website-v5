@@ -1,0 +1,95 @@
+.newsletterBox {
+    background-color: #00000099;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletterBoxInternal {
+    display: flex;
+    flex-direction : column;
+    color : #fff;
+    gap: 10px;
+    max-width: 700px;
+    text-align: center;
+}
+
+.newsletterSubtitle {
+    font-size: 1.5rem;
+    font-weight: 550;
+    color : #a7a7a7;
+}
+
+.newsletterInputContainer {
+    display: flex;
+    gap: 20px;
+    height : 60px;
+    margin-top: 10px;
+}
+
+.newsletterInput {
+    flex : 2.5;
+    padding : 0;
+    margin : 0;
+    border: none;
+    border-radius: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 4px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.newsletterInput::placeholder {
+    color : #a7a7a7cc;
+    font-size: 1.4rem;
+}
+
+.newsletterSubmit {
+    flex : 1;
+    padding : 0;
+    margin : 0;
+    background-color: #027bff;
+    text-transform: uppercase;
+    border: none;
+    color : #fff;
+    padding-top: 4px;
+    vertical-align: middle;
+    font-size: 1.2rem;
+    font-weight: 450;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.newsletterSubmit:hover {
+    background-color: #015bdf;
+}
+
+@media (max-width: 768px) {
+
+    .newsletterSubtitle {
+        font-size: 1.2rem;
+    }
+
+    .newsletterInputContainer {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .newsletterInput, .newsletterSubmit {
+        flex: 1;
+        height: 40px;
+        font-size: 1rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .newsletterSubmit {
+        font-weight: 500;
+    }
+
+    .newsletterInput::placeholder {
+        font-size: 1rem;
+    }
+    
+}

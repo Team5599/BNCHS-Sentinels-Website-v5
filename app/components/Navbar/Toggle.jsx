@@ -2,21 +2,43 @@ import styles from './navbar.module.css';
 
 const MenuSVG = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <line x1="4" y1="6" x2="20" y2="6" />
-            <line x1="4" y1="12" x2="20" y2="12" />
-            <line x1="4" y1="18" x2="20" y2="18" />
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            className="icon icon-tabler icon-tabler-menu-2"
+            viewBox="0 0 24 24"
+            >
+            <path stroke="none" d="M0 0h24v24H0z"></path>
+            <path d="M4 6L20 6"></path>
+            <path d="M4 12L20 12"></path>
+            <path d="M4 18L20 18"></path>
         </svg>
     )
 }
 
 const CloseSVG = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            className="icon icon-tabler icon-tabler-x"
+            viewBox="0 0 24 24"
+            >
+            <path stroke="none" d="M0 0h24v24H0z"></path>
+            <path d="M18 6L6 18"></path>
+            <path d="M6 6L18 18"></path>
         </svg>
     )
 }

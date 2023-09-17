@@ -1,0 +1,109 @@
+.homeTiles {
+    display: flex;
+    justify-content: space-between;
+    gap : 40px;
+}
+
+.homeTileItem {
+    display: flex;
+    flex : 1;
+    aspect-ratio: 1/2.1;
+    background-color: red;
+    justify-content: center;
+    align-items: flex-end;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 2px solid #eee
+}
+
+.homeTileItem > .markerSmudge {
+    background-color: #00000077;
+    display: flex;
+    width : 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color : #fff;
+    margin-bottom: 20px;
+    margin-left : 20px;
+    margin-right: 20px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+@media (max-width: 992px) and (min-width : 769px){
+
+    .homeTiles {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap : 10px
+    }
+
+    .homeTileItem {
+        flex-basis: 45%;
+        flex-grow: 1;
+        width : 45%;
+        aspect-ratio: 4/1;
+    }
+
+    .homeTileItem > .markerSmudge {
+        max-width: 180px;
+        font-size: 1.4rem;
+    }
+
+    .homeTileItem:nth-child(5) {
+        aspect-ratio: 8/1;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+
+    .homeTiles {
+        flex-direction: column;
+        gap : 10px
+    }
+
+    .homeTileItem {
+        flex : 1;
+        aspect-ratio: 4/1;
+    }
+
+    .homeTileItem > .markerSmudge {
+        max-width: 180px;
+        font-size: 1.2rem;
+    }
+    
+}
+
+.backgroundAbout {
+    background-image : url('/images/tiles/about.jpg');
+    background-position: 47.5% 50%;
+    filter: brightness(75%) contrast(125%);
+}
+
+.backgroundTeam {
+    background-image : url('/images/tiles/team.jpg');
+    background-position: 50% 50%;
+    filter: brightness(75%) contrast(125%);
+}
+
+.backgroundRobots {
+    background-image : url('/images/tiles/robots.jpg');
+    background-position: 50% 70%;
+    filter: brightness(75%) contrast(125%);
+}
+
+.backgroundEvents {
+    background-image : url('/images/tiles/events.jpg');
+    background-position: 60% 65%;
+    filter: brightness(75%) contrast(125%);
+}
+
+.backgroundHistory {
+    background-image : url('/images/tiles/history.jpg');
+    background-position: 50% 50%;
+    filter: brightness(75%) contrast(125%);
+}
