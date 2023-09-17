@@ -7,6 +7,7 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import HomeTiles from './components/HomeTiles/HomeTiles'
 import FIRSTSection from './components/FIRSTSection/FIRSTSection'
 import NewsletterSubscriptionInput from './components/NewsletterSubscriptionInput/NewsletterSubscriptionInput'
+import Blog from './components/Blog/Blog';
 
 export default function Home() {
 	return (
@@ -50,6 +51,7 @@ export default function Home() {
 			<Header size='lg' imageClass={styles.headerOne} masked={true}>
 				<NewsletterSubscriptionInput/>
 			</Header>
+			<Blog/>
 		</div>
 	)
 }
