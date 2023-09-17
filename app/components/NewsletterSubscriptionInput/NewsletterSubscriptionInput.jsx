@@ -16,8 +16,8 @@ const NewsletterSubscriptionInput = () => {
                         SUBSCRIBE
                     </button>
                 </div>
-                <div>
-
+                <div style={{marginTop: 20}}>
+                    SOCIAL MEDIA ICONS
                 </div>
             </div>
             
