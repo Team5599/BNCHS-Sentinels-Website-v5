@@ -16,7 +16,7 @@ const HomeTileItem = ({label, href = '/', backgroundImgClass = {}}) => {
 
 const HomeTiles = () => {
     return (
-        <div className={`container ${styles.homeTiles}`} style={{paddingTop : 40, paddingBottom : 40}}>
+        <div className={`container ${styles.homeTiles}`} style={{paddingTop : 40, paddingBottom : 160}}>
             <HomeTileItem label='About' href='/AboutUs' backgroundImgClass={styles.backgroundAbout}/>
             <HomeTileItem label='Members' href='/Team' backgroundImgClass={styles.backgroundTeam}/>
             <HomeTileItem label='Robots' href='/Robots' backgroundImgClass={styles.backgroundRobots}/>

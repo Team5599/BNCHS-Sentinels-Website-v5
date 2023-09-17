@@ -39,6 +39,11 @@ export default function Home() {
 				</p>
 			</div>
 			<HomeTiles/>
+			<Header size='md'>
+				<iframe width="100%" height="100%" style={{maxWidth: '100%', overflowX : 'hidden', border : 'none'}}
+					src="https://www.youtube.com/embed/q976KWsvT7I?autoplay=0&mute=1&loop=1">
+				</iframe>
+			</Header>
 		</div>
 	)
 }
