@@ -76,6 +76,11 @@
         gap: 20px;
     }
 
+    .contentContainer {
+        line-height: 1.25rem;
+        font-size: 1rem;
+    }
+
     .firstSectionButton {
         font-size: 1.2rem;
         height : 80px;
