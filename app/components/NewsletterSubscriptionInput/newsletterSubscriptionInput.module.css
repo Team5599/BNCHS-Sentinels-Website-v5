@@ -58,6 +58,7 @@
     font-size: 1.2rem;
     font-weight: 450;
     transition: background-color 0.2s;
+    cursor: pointer;
 }
 
 .newsletterSubmit:hover {
