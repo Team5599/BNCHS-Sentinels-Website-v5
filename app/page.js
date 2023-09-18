@@ -8,6 +8,7 @@ import HomeTiles from './components/HomeTiles/HomeTiles'
 import FIRSTSection from './components/FIRSTSection/FIRSTSection'
 import NewsletterSubscriptionInput from './components/NewsletterSubscriptionInput/NewsletterSubscriptionInput'
 import Blog from './components/Blog/Blog';
+import Polaroids from './components/Polaroids/Polaroids';
 
 export default function Home() {
 	return (
@@ -52,6 +53,14 @@ export default function Home() {
 				<NewsletterSubscriptionInput/>
 			</Header>
 			<Blog/>
+			<Polaroids/>
+			<Header size='sm' imageClass={styles.headerOne} masked={true}>
+				<div className='container' style={{color : '#fff', textAlign: 'center', backgroundColor: '#00000099', paddingTop : 40, paddingBottom : 40, paddingLeft : 40, paddingRight : 40}}>
+					<h2 style={{textAlign : 'center', fontSize : '2.25rem', fontWeight : 750}}>
+						OUR SPONSORS
+					</h2>
+				</div>
+			</Header>
 		</div>
 	)
 }

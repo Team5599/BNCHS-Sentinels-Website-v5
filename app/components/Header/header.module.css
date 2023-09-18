@@ -15,7 +15,7 @@
 }
 
 .header.sm {
-    height : 200px;
+    height : 340px;
 }
 
 .header.hasDivider {
@@ -119,7 +119,7 @@
 
 /* Masking */
 
-.headerBackgroundImage.masked {
+.header.masked > .headerBackgroundImage {
     mask-image: url('/images/masks/rectangle.svg'), url('/images/masks/triangleAsymmetrical.svg');
     mask-position: 0 0, bottom;
     mask-size: 100% calc(100% - 120px), 100% 120px;
@@ -127,9 +127,19 @@
     mask-repeat: no-repeat;
 }
 
+.header.masked > .headerContentsOverlay {
+    height: calc(100% - 120px);
+}
+
 @media (max-width: 992px) {
-    .headerBackgroundImage.masked {
+
+    .header.masked > .headerBackgroundImage {
         mask-size: 100% calc(100% - 40px), 100% 41px;
     }
+
+    .header.masked > .headerContentsOverlay {
+        height: calc(100% - 40px);
+    }
+
 }
 
