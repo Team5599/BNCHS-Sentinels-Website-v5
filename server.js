@@ -4,7 +4,7 @@ const next = require('next')
  
 const DEV = process.env.NODE_ENV !== 'production'
 const HOSTNAME = 'localhost'
-const PORT = process.env.WORKER == 'true' ? (process.env.PORT || 3000) + 100 : 3000;
+const PORT = process.env.NEXTJSWORKER == 'true' ? (process.env.PORT || 3000) + 100 : 3000;
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev : DEV, hostname : HOSTNAME, port : PORT })
 const handle = app.getRequestHandler()
