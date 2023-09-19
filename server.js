@@ -6,7 +6,21 @@ const DEV = process.env.NODE_ENV !== 'production'
 const HOSTNAME = 'localhost'
 const PORT = process.env.NEXTJSWORKER == 'true' ? (process.env.PORT || 3000) + 100 : 3000;
 // when using middleware `hostname` and `port` must be provided below
-const app = next({ dev : DEV, hostname : HOSTNAME, port : PORT })
+const app = next({
+    conf : {
+        experimental: {
+            // This is experimental but can
+            // be enabled to allow parallel threads
+            // with nextjs automatic static generation
+            workerThreads: false,
+            cpus: 4
+        }
+    },
+    dev : DEV,
+    hostname : HOSTNAME,
+    port : PORT
+})
+
 const handle = app.getRequestHandler()
  
 app.prepare().then(() => {
