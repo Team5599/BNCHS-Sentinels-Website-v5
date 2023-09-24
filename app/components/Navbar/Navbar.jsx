@@ -151,7 +151,7 @@ const Navbar = () => {
     
 
     const handleNavbarItemMouseEnter = (e) => {
-        const navbarButtonEl = e.target.closest('[navbar-button]');
+        const navbarButtonEl = e.target.closest('.navbar-wrapper > [navbar-button]');
         if (navbarButtonEl == null) return;
         setNavbarButtonHighlight(navbarButtonEl);
     }
