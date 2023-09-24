@@ -68,12 +68,10 @@ const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, cl
                 }
             </div>
             
-            
-            {
-                isDropdownOpen && <div className={styles.navbarDropdown}>
-                    {dropdownButtons}
-                </div>
-            }
+
+            <div className={`${styles.navbarDropdown} ${isDropdownOpen && styles.active}`}>
+                {dropdownButtons}
+            </div>
             
         </li>
     )
@@ -118,13 +116,19 @@ const useNavbarAnimationHandler = () => {
 
     useEffect(() => {
 
+        console.log("PATHNAME:", pathname);
+
         // Is there a navbar link that directs to this page?
         const navbarLink = document.querySelector(`.navbar .navbar-wrapper [href="${pathname}"]`);
+
+        console.log("link", navbarLink);
 
         if (navbarLink == null) return;
 
         // Find the main navbar component
-        const navbarButton = navbarLink.closest('[navbar-button]');
+        const navbarButton = navbarLink.closest('.navbar-wrapper > [navbar-button]');
+
+        console.log("button", navbarButton);
 
         setActiveNavbarButton(navbarButton);
         setNavbarButtonHighlight(navbarButton);
@@ -166,7 +170,7 @@ const Navbar = () => {
                             alt="The Sentinels Logo"
                         />
                         <span>
-                            LOGO
+                            {/* LOGO */}
                         </span>
                     </Link> 
                 </div>
