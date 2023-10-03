@@ -2,6 +2,8 @@ import styles from './blog.module.css';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
+import Polaroids from '../Polaroids/Polaroids';
+
 import { parse } from 'node-html-parser';
 
 const BlogItem = ({title, author, date, body, href = '/', skeleton = false}) => {
@@ -62,7 +64,7 @@ function parseBlogContent(htmlContent) {
 const getBlogData = async () => {
     try {
         const res = await fetch(
-            `https://www.team5599.com/api/blog?limit=3`,
+            `https://beta.team5599.com/api/v1/blog?limit=3`,
             {
                 method: 'GET'
             }
@@ -95,9 +97,10 @@ const Blog = async () => {
 
     return (
         <div className={`container ${styles.blogContainer}`} style={{marginTop : 80, marginBottom: 80}}>
-            <h2 style={{textAlign : 'center', textTransform: 'uppercase', marginBottom: 40}}>
+            <h2 style={{textAlign : 'center', textTransform: 'uppercase', marginBottom: 20}}>
                 Recent News
             </h2>
+            <Polaroids/>
             <Suspense fallback={
                 <>
                     <BlogItem skeleton={true}/>

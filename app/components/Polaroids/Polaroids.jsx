@@ -39,49 +39,26 @@ const Polaroid = ({imageSrc, description, postUrl = "/", alt, offset = 0, rotati
 }
 
 const getPolaroidData = async () => {
-    return [
-        {
-            imageSrc: '/images/tiles/team.jpg',
-            description : 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-            postUrl : '',
-            alt : '',
-            offset : 0,
-            rotation : 2
-        },
-        {
-            imageSrc: '/images/tiles/team.jpg',
-            description : 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-            postUrl : '',
-            alt : '',
-            offset : 0,
-            rotation : 1
-        },
-        {
-            imageSrc: '/images/tiles/team.jpg',
-            description : 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-            postUrl : '',
-            alt : '',
-            offset : 0,
-            rotation : 0
-        },
-        {
-            imageSrc: '/images/tiles/team.jpg',
-            description : 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-            postUrl : '',
-            alt : '',
-            offset : 0,
-            rotation : 1
-        },
-        {
-            imageSrc: '/images/tiles/team.jpg',
-            description : 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-            postUrl : '',
-            alt : '',
-            offset : 0,
-            rotation : -2
-        }
-    ]
+    try {
+        const res = await fetch(
+            `http://beta.team5599.com/api/v2/Instagram/getPosts`,
+            {
+                method: 'GET'
+            }
+        );
+
+        const instagramData = await res.json();
+
+        console.log(instagramData);
+
+        return instagramData;
+
+    } catch (err) {
+        console.log(err);
+        return [];
+    }
 }
+
 
 const NavigationButtonPrevious = (clickHandler, hasPrevious) => {
     return (
@@ -139,25 +116,25 @@ const Polaroids = () => {
                             {
                                 polaroidData.map((_polaroid, index) => {
                                     return <Polaroid
-                                        key={index}
-                                        imageSrc={_polaroid.imageSrc}
-                                        description={_polaroid.description}
-                                        postUrl={_polaroid.postUrl}
-                                        alt={_polaroid.alt}
-                                        offset={_polaroid.offset}
-                                        rotation={_polaroid.rotation}
+                                        key={_polaroid.id}
+                                        imageSrc={_polaroid.media_url}
+                                        description={_polaroid.caption}
+                                        postUrl={_polaroid.permalink}
+                                        alt={_polaroid.caption}
+                                        offset={0}
+                                        rotation={2 - index}
                                     />
                                 })
                             }
                         </Carousel> : polaroidData.map((_polaroid, index) => {
                             return <Polaroid
-                                key={index}
-                                imageSrc={_polaroid.imageSrc}
-                                description={_polaroid.description}
-                                postUrl={_polaroid.postUrl}
-                                alt={_polaroid.alt}
-                                offset={_polaroid.offset}
-                                rotation={_polaroid.rotation}
+                                key={_polaroid.id}
+                                imageSrc={_polaroid.media_url}
+                                description={_polaroid.caption}
+                                postUrl={_polaroid.permalink}
+                                alt={_polaroid.caption}
+                                offset={0}
+                                rotation={2 - index}
                             />
                         })
                     }
