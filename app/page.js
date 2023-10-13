@@ -8,7 +8,7 @@ import HomeTiles from './components/HomeTiles/HomeTiles'
 import FIRSTSection from './components/FIRSTSection/FIRSTSection'
 import NewsletterSubscriptionInput from './components/NewsletterSubscriptionInput/NewsletterSubscriptionInput'
 import Blog from './components/Blog/Blog';
-import Polaroids from './components/Polaroids/Polaroids';
+import CountdownTimer from './components/CountdownTimer/CountdownTimer';
 
 export default function Home() {
 	return (
@@ -60,6 +60,7 @@ export default function Home() {
 					</h2>
 				</div>
 			</Header>
+			<CountdownTimer/>
 		</div>
 	)
 }
