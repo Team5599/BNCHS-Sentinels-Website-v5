@@ -4,12 +4,13 @@ import styles from './homeTiles.module.css'
 
 const HomeTileItem = ({label, href = '/', backgroundImgClass = {}}) => {
     return (
-        <Link href={href} className={`${styles.homeTileItem} ${backgroundImgClass}`}>
+        <Link href={href} className={styles.homeTileItem}>
             <div className={styles.markerSmudge}>
                 <span>
                     {label}
                 </span>
             </div>
+            <div className={`${styles.homeTileItemImageBox} ${backgroundImgClass}`}/>
         </Link>
     )
 }
