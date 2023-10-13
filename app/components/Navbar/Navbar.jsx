@@ -7,14 +7,15 @@ import Toggle from './Toggle';
 
 import styles from './navbar.module.css';
 
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect, useRef, useMemo} from 'react';
+import { usePathname } from 'next/navigation'
 import useWindowDimensions from '@lib/useWindowDimensions';
 
 import ChevronSVG from './chevron-svg';
 
-const NavbarButton = ({label, href = '/404', target='', className = []}) => {
+const NavbarButton = ({label, href = '/404', target='', className = [], handleHover}) => {
     return (
-        <li className={`${styles.navbarButton} ${className}`}>     
+        <li className={`${styles.navbarButton} ${className}`} navbar-button={label} onMouseEnter={handleHover}>     
             <Link className={styles.navbarButtonInternal} href={href} target={target}>
                 <span>{label}</span>
             </Link>
@@ -22,7 +23,7 @@ const NavbarButton = ({label, href = '/404', target='', className = []}) => {
     )
 }
 
-const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, className = []}) => {
+const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, className = [], handleHover}) => {
 
     const navbarButtonRef = useRef(null);
 
@@ -45,6 +46,7 @@ const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, cl
             onClick={(e) => {
                 setDropdownOpen(!isDropdownOpen);
             }}
+            onMouseEnter={handleHover}
             // onMouseEnter={(e) => {
             //     setDropdownOpen(true);
             // }}
@@ -53,6 +55,7 @@ const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, cl
             // }}
             ref={navbarButtonRef}
             className={`${styles.navbarButton} ${className}`}
+            navbar-button={label}
         >
             <div className={styles.navbarButtonInternal}>
                 <span>{label}</span>
@@ -65,15 +68,74 @@ const NavbarButtonDropdown = ({label, dropdownButtons, ignoreChevron = false, cl
                 }
             </div>
             
-            
-            {
-                isDropdownOpen && <div className={styles.navbarDropdown}>
-                    {dropdownButtons}
-                </div>
-            }
+
+            <div className={`${styles.navbarDropdown} ${isDropdownOpen && styles.active}`}>
+                {dropdownButtons}
+            </div>
             
         </li>
     )
+}
+
+const NavbarActiveSlider = ({width, left}) => {
+
+    return (
+        <div className={styles.navbarSlider} style={{width : width, left : left}}/>
+    )
+}
+
+const useNavbarAnimationHandler = () => {
+
+    const [ navbarSliderData, setNavbarSliderData] = useState({width : 0, left : 0, label : 'Home'})
+
+    const pathname = usePathname();
+
+    const [activeNavbarButton, setActiveNavbarButton] = useState(null);
+
+    const setNavbarButtonHighlight = (navbarButtonEl) => {
+        
+        if (navbarButtonEl == null) return;
+
+        const boundingBox = navbarButtonEl.getBoundingClientRect();
+        setNavbarSliderData({
+            width : boundingBox.width,
+            left : navbarButtonEl.offsetLeft,
+            label : navbarButtonEl.getAttribute('label')
+        })
+
+    }
+
+    const resetNavbar = () => {
+
+        /*
+            ALTERNATIVELY
+            instead of returning the highlight to the main button, send it offscreen to the left and watch it fade out really cool
+        */
+        setNavbarButtonHighlight(activeNavbarButton);
+    }
+
+    useEffect(() => {
+
+        console.log("PATHNAME:", pathname);
+
+        // Is there a navbar link that directs to this page?
+        const navbarLink = document.querySelector(`.navbar .navbar-wrapper [href="${pathname}"]`);
+
+        console.log("link", navbarLink);
+
+        if (navbarLink == null) return;
+
+        // Find the main navbar component
+        const navbarButton = navbarLink.closest('.navbar-wrapper > [navbar-button]');
+
+        console.log("button", navbarButton);
+
+        setActiveNavbarButton(navbarButton);
+        setNavbarButtonHighlight(navbarButton);
+
+    }, [pathname])
+
+    return { navbarSliderData, setNavbarButtonHighlight, resetNavbar }
 }
 
 const Navbar = () => {
@@ -85,8 +147,17 @@ const Navbar = () => {
     const { height, width } = useWindowDimensions();
     const [isMobileNavbarOpen, setMobileNavbarOpen] = useState(false);
 
+    const {navbarSliderData, setNavbarButtonHighlight, resetNavbar} = useNavbarAnimationHandler();
+    
+
+    const handleNavbarItemMouseEnter = (e) => {
+        const navbarButtonEl = e.target.closest('.navbar-wrapper > [navbar-button]');
+        if (navbarButtonEl == null) return;
+        setNavbarButtonHighlight(navbarButtonEl);
+    }
+
     return (
-        <div className={`${styles.navbar} ${(width <= 992) && styles.mobile} ${(width <= 1200 && isMobileNavbarOpen) && styles.mobileOpen}`}>
+        <div className={`navbar ${styles.navbar} ${(width <= 992) && styles.mobile} ${(width <= 1200 && isMobileNavbarOpen) && styles.mobileOpen}`}>
             <div className={`container ${styles.navbarWrapper}`}>
                 <div className={styles.navbarLogoContainer}>
                     <Link
@@ -99,15 +170,20 @@ const Navbar = () => {
                             alt="The Sentinels Logo"
                         />
                         <span>
-                            LOGO
+                            {/* LOGO */}
                         </span>
                     </Link> 
                 </div>
                 <Toggle isMobileNavbarOpen={isMobileNavbarOpen} setMobileNavbarOpen={setMobileNavbarOpen}/>
-                <ul className={styles.navbarButtonsWrapper}>
-                    <NavbarButton label={'Home'} href='/'/>
+                <ul className={`navbar-wrapper ${styles.navbarButtonsWrapper}`}
+                    onMouseLeave={resetNavbar}
+                >
+                    <NavbarActiveSlider width={navbarSliderData.width} left={navbarSliderData.left}/>
+
+                    <NavbarButton label={'Home'} href='/' handleHover={handleNavbarItemMouseEnter}/>
                     <NavbarButtonDropdown
                         label={'About'}
+                        handleHover={handleNavbarItemMouseEnter}
                         dropdownButtons={
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
@@ -122,6 +198,7 @@ const Navbar = () => {
                     />
                     <NavbarButtonDropdown
                         label={'Resources'}
+                        handleHover={handleNavbarItemMouseEnter}
                         dropdownButtons={
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
@@ -148,6 +225,7 @@ const Navbar = () => {
                     />
                     <NavbarButtonDropdown
                         label={'Sponsors'}
+                        handleHover={handleNavbarItemMouseEnter}
                         dropdownButtons={
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
@@ -159,11 +237,12 @@ const Navbar = () => {
                             </>
                         }
                     />
-                    <NavbarButton label={'Blog'} href='https://blog.team5599.com/' target='_blank'/>
+                    <NavbarButton label={'Blog'} href='https://blog.team5599.com/' target='_blank' handleHover={handleNavbarItemMouseEnter}/>
                     <NavbarButtonDropdown
                         label={'Members'}
                         ignoreChevron={true}
                         className={styles.navbarButtonTeam}
+                        handleHover={handleNavbarItemMouseEnter}
                         dropdownButtons={
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
@@ -174,7 +253,7 @@ const Navbar = () => {
                             </>
                         }
                     />
-                    <NavbarButton label={'Contact Us'} href='/ContactUs'/>
+                    <NavbarButton label={'Contact Us'} href='/ContactUs' handleHover={handleNavbarItemMouseEnter}/>
                 </ul>
             </div>
             
