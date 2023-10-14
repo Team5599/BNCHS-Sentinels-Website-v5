@@ -3,19 +3,22 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
+		"dev": "node server.js",
+		"build": "next build --debug",
+		"start": "NODE_ENV=production node server.js",
 		"lint": "next lint",
 		"prettier": "npx prettier . --check"
 	},
 	"dependencies": {
 		"eslint": "8.49.0",
 		"eslint-config-next": "13.4.19",
-		"next": "13.4.19",
+		"next": "^13.5.2",
+		"node-html-parser": "^6.1.10",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"sass": "^1.67.0"
+		"react-responsive-carousel": "^3.2.23",
+		"sass": "^1.67.0",
+		"sharp": "^0.32.6"
 	},
 	"devDependencies": {
 		"prettier": "^3.0.3"

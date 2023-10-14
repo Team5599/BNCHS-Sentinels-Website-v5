@@ -1,0 +1,22 @@
+@keyframes animateDash {
+
+    /* IT WORKS BUT WE HAVE NO IDEA WHY ITS THIS SPECIFIC NUMBER (19.3) */
+
+    from {
+        stroke-dasharray: 30 8.6;
+        stroke-dashoffset: 28.95;
+    }
+  
+    to {
+        stroke-dasharray: 30 8.6;
+        stroke-dashoffset: -9.65;
+    }
+}
+
+.animateTest {
+    animation-duration: 1s;
+    animation-name: animateDash;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: cubic-bezier(0.1, 0.4, 5, 0.1);
+}

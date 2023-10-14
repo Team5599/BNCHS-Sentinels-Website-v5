@@ -4,9 +4,9 @@ import styles from './header.module.css'
 
 const Header = ({children, size = 'md', imageClass = {}, masked = false, divider = false, gradient = false}) => {
     return (
-        <div className={`${styles.header} ${size == 'lg' && styles.lg} ${size == 'md' && styles.md} ${size =='sm' && styles.sm} ${divider && styles.hasDivider}`}>
+        <div className={`${styles.header} ${size == 'lg' && styles.lg} ${size == 'md' && styles.md} ${size =='sm' && styles.sm} ${divider && styles.hasDivider} ${masked && styles.masked}`}>
             {/* Background Image */}
-            <div className={`${styles.headerBackgroundImage} ${imageClass} ${gradient && styles.gradient} ${masked && styles.masked}`}/>
+            <div className={`${styles.headerBackgroundImage} ${imageClass} ${gradient && styles.gradient}`}/>
             {/* Header Contents */}
             <div className={styles.headerContentsOverlay}>
                 {children}

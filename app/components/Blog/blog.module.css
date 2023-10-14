@@ -1,0 +1,79 @@
+.blogContainer {
+    display: flex;
+    flex-direction: column;
+    gap : 20px;
+}
+
+.blogItem {
+    display: flex;
+    flex-direction: column;
+    gap : 10px;
+    border-bottom: 1px solid #a7a7a760;
+    padding-bottom: 20px;
+}
+
+.blogTitle {
+    color: #027bff;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.blogSubtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.blogBody {
+    color: #6C757D;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-overflow: nowrap;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+.blogReadMore {
+    margin-top: 20px;
+    background-color: #000;
+    padding-top : 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #fff;
+    align-self: flex-end;
+    text-align: right;
+    font-size: 1rem;
+}
+
+
+/* Skeleton */
+
+.blogItem.skeleton > .skeletonTitle {
+    background-color: #a7a7a7;
+    width : 40%;
+    height : 40px;
+}
+
+.blogItem.skeleton > .skeletonSubtitle {
+    background-color: #a7a7a7;
+    width : 30%;
+    height : 20px;
+}
+
+.blogItem.skeleton > .skeletonBody {
+    background-color: #a7a7a7;
+    width : 100%;
+    height : 140px;
+}
+
+.blogItem.skeleton > .skeletonReadMore {
+    background-color: #a7a7a7;
+    align-self: flex-end;
+    width : 120px;
+    height : 20px;
+}
+
