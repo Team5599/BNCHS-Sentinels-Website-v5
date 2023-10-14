@@ -8,6 +8,7 @@ import HomeTiles from './components/HomeTiles/HomeTiles'
 import FIRSTSection from './components/FIRSTSection/FIRSTSection'
 import NewsletterSubscriptionInput from './components/NewsletterSubscriptionInput/NewsletterSubscriptionInput'
 import Blog from './components/Blog/Blog';
+import Sponsors from '@components/Sponsors/Sponsors';
 import CountdownTimer from './components/CountdownTimer/CountdownTimer';
 
 export default function Home() {
@@ -60,6 +61,9 @@ export default function Home() {
 					</h2>
 				</div>
 			</Header>
+			<div className='container' style={{display: 'flex', paddingTop : 40, paddingBottom : 40}}>
+				<Sponsors/>
+			</div>
 			<CountdownTimer/>
 		</div>
 	)
