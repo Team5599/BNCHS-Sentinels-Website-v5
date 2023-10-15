@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import styles from './sponsors.module.css';
 
 import useWindowDimensions from '@lib/useWindowDimensions';
@@ -81,31 +81,48 @@ const Sponsors = () => {
             console.log("Getting sponsors data");
 
             // Get SponsorsData
-            const sponsorsData = await getSponsorsData();
+            let sponsorsData = await getSponsorsData();
+
+			console.log("1", sponsorsData);
 
 
             console.log("Preloading image metadata");
             // Preload images and get their dimensions
             const sponsorImageMetadata = await Promise.allSettled( 
-                sponsorsData.map((sponsorData) => {
-                    return getImageDimensionsFromURL(sponsorData.id, sponsorData.imageUrl)
-                })
+                sponsorsData.map((sponsorData) => getImageDimensionsFromURL(sponsorData.id, sponsorData.srcURL))
             )
 
+			console.log("2", sponsorImageMetadata);
+
             console.log("Getting column weights")
+			
             // Get their 'column weight' to determine their weight (1, 2, 3)
-            sponsorImageMetadata.forEach((imageMetadata) => {
+            sponsorImageMetadata.forEach((imageMetadataPromise) => {
+
+				if (imageMetadataPromise.status == 'rejected') return;
+
+				const imageMetadata = imageMetadataPromise.value;
 
                 let sponsorData = sponsorsData.find((_sponsorData) => {
                     return _sponsorData.id == imageMetadata.id
                 })
+
+				if (sponsorData == undefined){
+					console.log("Failed to find sponsor data with id", imageMetadata.id);
+					return;
+				}
 
                 let weight = Math.round(imageMetadata.width / imageMetadata.height);
                 sponsorData.metadata = {width : imageMetadata.width, height : imageMetadata.height, columnWeight : weight}
 
             })
 
-            console.log(sponsorsData);
+			// Remove any sponsor items where the image metadata failed to be grabbed 
+			sponsorsData = sponsorsData.filter((sponsorData) => {
+				return (sponsorData.hasOwnProperty('metadata'));
+			})
+
+            console.log("3", sponsorsData);
             setSponsorsData(sponsorsData);
 
         })();
@@ -125,7 +142,7 @@ const Sponsors = () => {
 
     const packSponsorItems = (numGridColumns, sponsorsData) => {
 
-        if (sponsorsData.length == 0) return;
+        if (sponsorsData.length == 0) return [];
 
         const maxWeight = numGridColumns;
 
@@ -165,17 +182,59 @@ const Sponsors = () => {
             result.push(currentBin);
         }
 
+		console.log("PACKED", numGridColumns, sponsorsData.length, result);
         return result;
 
     }
 
-    const packedSponsorItems = useMemo(() => {
-        packSponsorItems(numGridColumns, sponsorsData)
-    }, [numGridColumns, sponsorsData])
+    const packedSponsorItems = useMemo(() => packSponsorItems(numGridColumns, sponsorsData), [numGridColumns, sponsorsData])
 
     return (
-        <div>
-
+        <div
+			style={{
+				display : 'flex',
+				justifyContent : 'center',
+				flexDirection : 'column',
+				gap : 20
+			}}
+		>
+			{
+				packedSponsorItems.map((row, index) => {
+					return <div
+						key={index}
+						style={{
+							display : 'flex',
+							flexDirection : 'row',
+						}}
+					>
+						{
+							row.map((sponsorItem) => {
+								return <div
+									key={sponsorItem.id}
+									style={{
+										display : 'flex',
+										width : sponsorItem.metadata.columnWeight * 120,
+										aspectRatio : sponsorItem.metadata.columnWeight/1,
+										backgroundColor : '#eee',
+										position : 'relative',
+									}}
+								>
+									<NextImage
+										unoptimized
+										src={sponsorItem.srcURL}
+										fill={true}
+										alt={sponsorItem.name}
+										style={{
+											aspectRatio : sponsorItem.metadata.columnWeight/1,
+											objectFit : 'contain',
+										}}
+									/>
+								</div>
+							})
+						}
+					</div>
+				})
+			}
         </div>
     )
 }
