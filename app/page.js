@@ -10,6 +10,7 @@ import NewsletterSubscriptionInput from './components/NewsletterSubscriptionInpu
 import Blog from './components/Blog/Blog';
 import Sponsors from '@components/Sponsors/Sponsors';
 import CountdownTimer from './components/CountdownTimer/CountdownTimer';
+import Footer from '@components/Footer/Footer';
 
 export default function Home() {
 	return (
@@ -65,6 +66,7 @@ export default function Home() {
 				<Sponsors/>
 			</div>
 			<CountdownTimer/>
+			<Footer/>
 		</div>
 	)
 }
