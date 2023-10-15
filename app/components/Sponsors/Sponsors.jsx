@@ -190,52 +190,59 @@ const Sponsors = () => {
     const packedSponsorItems = useMemo(() => packSponsorItems(numGridColumns, sponsorsData), [numGridColumns, sponsorsData])
 
     return (
-        <div
-			style={{
-				display : 'flex',
-				justifyContent : 'center',
-				flexDirection : 'column',
-				gap : 20
-			}}
-		>
-			{
-				packedSponsorItems.map((row, index) => {
-					return <div
-						key={index}
-						style={{
-							display : 'flex',
-							flexDirection : 'row',
-						}}
-					>
-						{
-							row.map((sponsorItem) => {
-								return <div
-									key={sponsorItem.id}
-									style={{
-										display : 'flex',
-										width : sponsorItem.metadata.columnWeight * 120,
-										aspectRatio : sponsorItem.metadata.columnWeight/1,
-										backgroundColor : '#eee',
-										position : 'relative',
-									}}
-								>
-									<NextImage
-										unoptimized
-										src={sponsorItem.srcURL}
-										fill={true}
-										alt={sponsorItem.name}
+		<>
+			<div
+				style={{
+					display : 'flex',
+					justifyContent : 'center',
+					flexDirection : 'column',
+					gap : 20
+				}}
+			>
+				{
+					packedSponsorItems.map((row, index) => {
+						return <div
+							key={index}
+							style={{
+								display : 'flex',
+								flexDirection : 'row',
+							}}
+						>
+							{
+								row.map((sponsorItem) => {
+									return <div
+										key={sponsorItem.id}
 										style={{
+											display : 'flex',
+											width : sponsorItem.metadata.columnWeight * 120,
 											aspectRatio : sponsorItem.metadata.columnWeight/1,
-											objectFit : 'contain',
+											backgroundColor : '#eee',
+											position : 'relative',
 										}}
-									/>
-								</div>
-							})
-						}
-					</div>
-				})
-			}
-        </div>
+									>
+										<NextImage
+											unoptimized
+											src={sponsorItem.srcURL}
+											fill={true}
+											alt={sponsorItem.name}
+											style={{
+												aspectRatio : sponsorItem.metadata.columnWeight/1,
+												objectFit : 'contain',
+											}}
+										/>
+									</div>
+								})
+							}
+						</div>
+					})
+				}
+			</div>
+			<Link className={styles.sponsorsMoreButton} href={''} target={''}>
+				<span>
+					Learn more about Sponsorship Incentives and how you can help here
+				</span>
+			</Link>
+		</>
     )
 }
 
