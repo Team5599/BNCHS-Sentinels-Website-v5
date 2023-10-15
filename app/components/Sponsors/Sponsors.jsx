@@ -29,7 +29,7 @@ const getSponsorsData = async () => {
             }
         });
 
-        console.logS("sdata", sponsorsData);
+        console.log("sdata", sponsorsData);
 
         return sponsorsData;
     } catch (err) {
