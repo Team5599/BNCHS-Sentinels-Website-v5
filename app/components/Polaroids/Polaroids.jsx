@@ -41,7 +41,7 @@ const Polaroid = ({imageSrc, description, postUrl = "/", alt, offset = 0, rotati
 const getPolaroidData = async () => {
     try {
         const res = await fetch(
-            `http://beta.team5599.com/api/v2/Instagram/getPosts`,
+            `https://beta.team5599.com/api/v2/Instagram/getPosts`,
             {
                 method: 'GET'
             }

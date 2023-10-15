@@ -64,7 +64,7 @@ function parseBlogContent(htmlContent) {
 const getBlogData = async () => {
     try {
         const res = await fetch(
-            `https://www.team5599.com/api/v1/blog?limit=3`,
+            `https://beta.team5599.com/api/v1/blog?limit=3`,
             {
                 method: 'GET'
             }
@@ -72,7 +72,7 @@ const getBlogData = async () => {
 
         const data = await res.json();
     
-        const blogData = data.payload.map((postData) => {
+        const blogData = data.payload.map((postData) => { 
             return {
                 id : postData.id,
                 title : postData.title,
