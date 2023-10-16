@@ -22,6 +22,17 @@
     flex : 1;
 }
 
+.footerLink {
+    font-size: 0.8rem;
+    color : #ccc;
+    font-weight: 400;
+    transition: color 0.4s;
+}
+
+.footerLink:hover {
+    color : #fff
+}
+
 .footerAboutColumn {
     flex : 2;
     display:  flex;
@@ -71,6 +82,25 @@
     font-size: 0.8rem;
     color : gray;
     flex : 2;
+}
+
+.footerLogoContainer {
+    display: flex;
+    flex-direction: row;
+    gap : 5px;
+    align-items: flex-start;
+}
+
+.footerInputContainer {
+    display: flex;
+    gap : 5px;
+}
+
+.footerInputContainer > button {
+    border-radius: 0;
+    border : 0;
+    color : #000;
+    background-color: #fff;
 }
 
 

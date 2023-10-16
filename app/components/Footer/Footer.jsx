@@ -1,6 +1,17 @@
 import styles from './footer.module.css';
 
 import Link from 'next/link';
+import Image from 'next/image';
+
+
+const FooterLink = ({label, href = '/404', target=''}) => {
+    return ( 
+        <Link className={styles.footerLink} href={href} target={target}>
+            <span>{label}</span>
+        </Link>
+    )
+}
+
 
 const FooterColumn = ({title, links}) => {
     return (
@@ -9,11 +20,11 @@ const FooterColumn = ({title, links}) => {
                 {title}
             </h4>
             <div className={styles.footerColumnList}>
-                <span>URL URL URL</span>
-                <span>URL URL URL</span>
-                <span>URL URL URL</span>
-                <span>URL URL URL</span>
-                <span>URL URL URL</span>
+                {
+                    links.map((linkItem) => {
+                        return <FooterLink key={linkItem.label} label={linkItem.label} href={linkItem.href}/>
+                    })
+                }
             </div>
         </div>
     )
@@ -24,11 +35,20 @@ const FooterAboutColumn = () => {
     return (
         <div className={styles.footerAboutColumn} title={'About'}>
             <div segment={'biography'}>
-                <h3>
-                    LOGO
-                </h3>
+                <div className={styles.footerLogoContainer}>
+                    <h3>
+                        The Sentinels
+                    </h3>
+                    <Image
+                        src="/images/logo.png"
+                        width={32}
+                        height={32}
+                        alt="The Sentinels Logo"
+                        stlye={{width : 32, height : 32}}
+                    />
+                </div>
                 <h4>
-                    Tagline
+                    Now with 33% more robot per robot!
                 </h4>
                 <span>
                     Biography
@@ -39,9 +59,9 @@ const FooterAboutColumn = () => {
                     Newsletter
                 </h4>
                 <span>
-                    Subscribe to our newsleter to get updates on our team, competitions, and other events
+                    Subscribe to our newsleter to get updates on our team, competitions, and other events!
                 </span>
-                <div>
+                <div className={styles.footerInputContainer}>
                     <input/>
                     <button>
                         Subscribe
@@ -73,16 +93,84 @@ const Footer = () => {
                 <div
                     className={styles.footerColumnContainer}
                 >
-                    <FooterColumn title={'Index'}/>
-                    <FooterColumn title={'Resources'}/>
-                    <FooterColumn title={'Members'}/>
+                    <FooterColumn
+                        title={'Index'}
+                        links={[
+                            {
+                                label : "Home",
+                                href : "/"
+                            },
+                            {
+                                label : "About Us",
+                                href : "/"
+                            },
+                            {
+                                label : "Team",
+                                href : "/"
+                            },
+                            {
+                                label : "Robots",
+                                href : "/"
+                            },
+                            {
+                                label : "Events & Competitions",
+                                href : "/"
+                            },
+                            {
+                                label : "Contact Us",
+                                href : "/"
+                            }
+                        ]}
+                    />
+                    <FooterColumn
+                        title={'Sponsors'}
+                        links={[
+                            {
+                                label : "Our Sponsors",
+                                href : "/"
+                            },
+                            {
+                                label : "Sponsorship Incentives",
+                                href : "/"
+                            },
+                            {
+                                label : "Become a Sponsor",
+                                href : "/"
+                            },
+                            {
+                                label : "Make a Donation",
+                                href : "/"
+                            }
+                        ]}
+                    />
+                    <FooterColumn
+                        title={'Resources'}
+                        links={[
+                            {
+                                label : "Calendar",
+                                href : "/"
+                            },
+                            {
+                                label : "Resource Engine",
+                                href : "/"
+                            },
+                            {
+                                label : "Become a Sponsor",
+                                href : "/"
+                            },
+                            {
+                                label : "Make a Donation",
+                                href : "/"
+                            }
+                        ]}
+                    />
                     <FooterAboutColumn/>
                 </div>
                 <div className={styles.footerColumnContainer}>
                     <div className={styles.footerBottomLinks}>
-                        <span>
-                            Site Map
-                        </span>
+                        <Link href={'Contact Us'} target={'/404'}>
+                            <span>Site Map</span>
+                        </Link>
                     </div>
                     <span className={styles.footerBottomCopyright}>
                         C 2023 Michael Rooplall C FRC Team 5599 The Sentinels
