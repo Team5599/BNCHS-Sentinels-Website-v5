@@ -122,7 +122,7 @@
 
 .footerButton {
     position: absolute;
-    right : 0;
+    right : 60px;
     top : 16px;
     background-color: transparent;
     border : none;
