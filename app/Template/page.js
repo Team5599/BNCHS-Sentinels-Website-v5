@@ -1,6 +1,7 @@
 import styles from './page.module.css'
 
 import Navbar from '@components/Navbar/Navbar'
+import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 
@@ -40,6 +41,7 @@ export default function Template() {
 					</h2>
 				</div>
 			</Header>
+			<Footer/>
 		</div>
 	)
 }
