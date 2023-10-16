@@ -3,6 +3,8 @@ import styles from './footer.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import FooterTriangleTop from './FooterTriangleTop';
+
 
 const FooterLink = ({label, href = '/404', target=''}) => {
     return ( 
@@ -51,7 +53,7 @@ const FooterAboutColumn = () => {
                     Now with 33% more robot per robot!
                 </h4>
                 <span>
-                    Biography
+                    The Benjamin N. Cardozo High School Robotics Team - FRC Team 5599 - The Sentinels!
                 </span>
             </div>
             <div segment={'newsletter'}>
@@ -80,14 +82,8 @@ const FooterAboutColumn = () => {
 
 
 const Footer = () => {
-    return <div>
-        {/* Flipped Triangle SVG */}
-        <div>
-            {/* Back To Top Button*/}
-            <div>
-
-            </div>
-        </div>
+    return <div style={{display : 'flex', flexDirection : 'column', justifyContent : 'center'}}>
+        <FooterTriangleTop/>
         <div className={styles.footer}>
             <div className={`container ${styles.footerInner}`}>
                 <div
@@ -123,27 +119,6 @@ const Footer = () => {
                         ]}
                     />
                     <FooterColumn
-                        title={'Sponsors'}
-                        links={[
-                            {
-                                label : "Our Sponsors",
-                                href : "/"
-                            },
-                            {
-                                label : "Sponsorship Incentives",
-                                href : "/"
-                            },
-                            {
-                                label : "Become a Sponsor",
-                                href : "/"
-                            },
-                            {
-                                label : "Make a Donation",
-                                href : "/"
-                            }
-                        ]}
-                    />
-                    <FooterColumn
                         title={'Resources'}
                         links={[
                             {
@@ -152,6 +127,31 @@ const Footer = () => {
                             },
                             {
                                 label : "Resource Engine",
+                                href : "/"
+                            },
+                            {
+                                label : "Scholarships",
+                                href : "/"
+                            },
+                            {
+                                label : "Internships",
+                                href : "/"
+                            },
+                            {
+                                label : "Members Sign In",
+                                href : "/"
+                            }
+                        ]}
+                    />
+                    <FooterColumn
+                        title={'Sponsors'}
+                        links={[
+                            {
+                                label : "Our Sponsors",
+                                href : "/"
+                            },
+                            {
+                                label : "Sponsorship Incentives",
                                 href : "/"
                             },
                             {
@@ -173,7 +173,7 @@ const Footer = () => {
                         </Link>
                     </div>
                     <span className={styles.footerBottomCopyright}>
-                        C 2023 Michael Rooplall C FRC Team 5599 The Sentinels
+                        © 2023 Michael Rooplall © FRC Team 5599 The Sentinels
                     </span>
                 </div>
             </div>
