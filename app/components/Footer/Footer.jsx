@@ -166,7 +166,7 @@ const Footer = () => {
                     />
                     <FooterAboutColumn/>
                 </div>
-                <div className={styles.footerColumnContainer}>
+                <div className={`${styles.footerColumnContainer} ${styles.footerColumnContainerBottom}`}>
                     <div className={styles.footerBottomLinks}>
                         <Link href={'Contact Us'} target={'/404'}>
                             <span>Site Map</span>
