@@ -55,7 +55,7 @@ export default function Home() {
 				<NewsletterSubscriptionInput/>
 			</Header>
 			<Blog/>
-			<Header size='sm' imageClass={styles.headerOne} masked={true}>
+			<Header size='md' imageClass={styles.headerOne} masked={true}>
 				<div className='container' style={{color : '#fff', textAlign: 'center', backgroundColor: '#00000099', paddingTop : 40, paddingBottom : 40, paddingLeft : 40, paddingRight : 40}}>
 					<h2 style={{textAlign : 'center', fontSize : '2.25rem', fontWeight : 750}}>
 						OUR SPONSORS
