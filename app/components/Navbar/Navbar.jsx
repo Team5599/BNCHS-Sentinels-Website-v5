@@ -253,7 +253,7 @@ const Navbar = () => {
                             </>
                         }
                     />
-                    <NavbarButton label={'Contact Us'} href='/ContactUs' handleHover={handleNavbarItemMouseEnter}/>
+                    <NavbarButton label={'Contact Us'} href='/Contact' handleHover={handleNavbarItemMouseEnter}/>
                 </ul>
             </div>
             
