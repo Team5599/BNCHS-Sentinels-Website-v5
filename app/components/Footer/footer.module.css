@@ -155,7 +155,12 @@
     .footerColumnContainerBottom {
         gap : 20px;
     }
+
     .footerButtonContainer {
+        right : 10px;
+    }
+
+    .footerButton {
         right : 10px;
     }
 }
