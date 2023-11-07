@@ -425,7 +425,7 @@ const Sponsors = () => {
 					})
 				}
 			</div>
-			<Link className={styles.sponsorsMoreButton} href={''} target={''}>
+			<Link className={styles.sponsorsMoreButton} style={{marginTop : 80}} href={''} target={''}>
 				<span>
 					Learn more about Sponsorship Incentives and how you can help here
 				</span>
