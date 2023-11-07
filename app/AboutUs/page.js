@@ -37,7 +37,7 @@ export default function AboutUs() {
 					</p>
 				</div>
 			</SubheaderShape>
-			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 80, paddingBottom : 80, textAlign : 'justify'}}>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 80, paddingBottom : 120, textAlign : 'justify'}}>
 				<h2 style={{textAlign : 'center'}}>
 					TITLE
 				</h2>
