@@ -65,7 +65,6 @@ export default function Home() {
 			<div className='container' style={{display: 'flex', paddingTop : 120, paddingBottom : 40, justifyContent : 'center', flexDirection : 'column', gap : 40}}>
 				<Sponsors/>
 			</div>
-			<CountdownTimer/>
 			<Footer/>
 		</div>
 	)

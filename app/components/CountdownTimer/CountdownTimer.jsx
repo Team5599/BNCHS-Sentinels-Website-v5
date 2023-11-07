@@ -51,9 +51,8 @@ const CountdownTimer = () => {
                 display : 'flex',
                 justifyContent : 'center',
                 alignItems : 'center',
-                marginTop : 120,
-                marginBottom : 120,
-                position: 'relative'
+                position: 'relative',
+                marginBottom : 40
             }}
             className={abel.className}
         >
