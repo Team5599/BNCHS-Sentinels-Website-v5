@@ -124,8 +124,9 @@ const Sponsors = () => {
     function calculateNumGridColumns(screenWidth) {
         if (screenWidth < 768) return 2;
         if (screenWidth < 992) return 4;
-        if (screenWidth < 1222) return 5;
-        return 6;
+        if (screenWidth < 1200) return 5;
+        if (screenWidth < 1400) return 6;
+        return 7;
     }
 
     const { _, width } = useWindowDimensions();
@@ -137,7 +138,7 @@ const Sponsors = () => {
     function getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
 
@@ -383,8 +384,8 @@ const Sponsors = () => {
                                     if (sponsorItem.id == "filler") {
                                         const randomBackgroundColor = (() => {
                                             const num = getRandomInt(0, 1);
-                                            if (num == 0) return '#027bffa0';
-                                            if (num == 1) return '#f68313a0';
+                                            if (num == 0) return '#027bff30';
+                                            if (num == 1) return '#f6831330';
                                         })();
                                         return <div
                                             key={`filler-${row_index}-${column_index}`}
@@ -393,6 +394,7 @@ const Sponsors = () => {
                                                 gridColumn : `span 1`,
                                                 height : itemHeight,
                                                 gridRow : `${row_index} / span 1`,
+                                                transition: 'background-color 0.4s'
                                             }}
                                         />
                                     }
