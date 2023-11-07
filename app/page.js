@@ -62,7 +62,7 @@ export default function Home() {
 					</h2>
 				</div>
 			</Header>
-			<div className='container' style={{display: 'flex', paddingTop : 120, paddingBottom : 40, justifyContent : 'center', flexDirection : 'column', gap : 40}}>
+			<div className='container' style={{display: 'flex', paddingTop : 120, paddingBottom : 120, justifyContent : 'center', flexDirection : 'column', gap : 40}}>
 				<Sponsors/>
 			</div>
 			<Footer/>
