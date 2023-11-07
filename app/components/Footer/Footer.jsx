@@ -38,9 +38,9 @@ const FooterAboutColumn = () => {
         <div className={styles.footerAboutColumn} title={'About'}>
             <div segment={'biography'}>
                 <div className={styles.footerLogoContainer}>
-                    <h3>
+                    <h5>
                         The Sentinels
-                    </h3>
+                    </h5>
                     <Image
                         src="/images/logo.png"
                         width={32}

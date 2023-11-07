@@ -7,9 +7,9 @@ const NewsletterSubscriptionInput = () => {
                 <h2 style={{textAlign : 'center', fontSize : '2.5rem'}}>
                     WE HAVE A NEWSLETTER
                 </h2>
-                <h3 className={styles.newsletterSubtitle}>
+                <h5 className={styles.newsletterSubtitle}>
                 You can subscribe to our newsletter to get team updates, event insights, notifications on blog posts, and more!
-                </h3>
+                </h5>
                 <div className={styles.newsletterInputContainer}>
                     <input className={styles.newsletterInput} placeholder='Your Email'/>
                     <button className={styles.newsletterSubmit}>

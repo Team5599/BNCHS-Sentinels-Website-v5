@@ -21,9 +21,9 @@ export default function Home() {
 					<h1 style={{fontWeight : 900, marginBottom : 20}}>
 						WE ARE THE SENTINELS
 					</h1>
-					<h3>
+					<h5>
 						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</h3>
+					</h5>
 				</div>
 			</Header>
 			<SubheaderShape>
