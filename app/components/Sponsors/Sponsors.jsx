@@ -390,13 +390,23 @@ const Sponsors = () => {
                                         return <div
                                             key={`filler-${row_index}-${column_index}`}
                                             style={{
-                                                backgroundColor: randomBackgroundColor,
+                                                display: 'flex',
+                                                justifyContent : 'center',
+                                                alignItems : 'center',
                                                 gridColumn : `span 1`,
                                                 height : itemHeight,
                                                 gridRow : `${row_index} / span 1`,
                                                 transition: 'background-color 0.4s'
                                             }}
-                                        />
+                                        >
+                                            <div
+                                                style={{
+                                                    backgroundColor: randomBackgroundColor,
+                                                    width : '100%',
+                                                    height : '100%'
+                                                }}
+                                            />
+                                        </div>
                                     }
 									return <div
 										key={sponsorItem.id}
