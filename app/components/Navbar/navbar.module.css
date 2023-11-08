@@ -132,6 +132,10 @@
     width: 100%;
 }
 
+.navbarButtonInternal > svg {
+    margin-right : -5px;
+}
+
 .navbarDropdown > .navbarDropdownColumn > li.navbarButton:hover {
     background-color: #222;
 }
