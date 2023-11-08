@@ -60,6 +60,51 @@ const getImageDimensionsFromURL = (id, imageUrl) => {
 
 }
 
+const FILLERBLOCK_BACKGROUND_COLORS = [
+    '#eeeeee',
+    '#027bff40',
+    '#f6831330'
+]
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const FillerBlock = ({itemHeight, row_index, column_index}) => {
+
+
+    const [backgroundColorIndex, setBackgroundColorIndex] = useState(getRandomInt(0, FILLERBLOCK_BACKGROUND_COLORS.length - 1));
+
+    const iterateBackgroundColor = () => {
+        setBackgroundColorIndex((current) => {
+            console.log("curr", current);
+            if (current + 1 >= FILLERBLOCK_BACKGROUND_COLORS.length) {
+                return 0;
+            }
+            return current + 1;
+        })
+    }
+
+    return <div
+        key={`filler-${row_index}-${column_index}`}
+        onPointerEnter={iterateBackgroundColor}
+        onPointerDown={iterateBackgroundColor}
+        style={{
+            display: 'flex',
+            justifyContent : 'center',
+            alignItems : 'center',
+            gridColumn : `span 1`,
+            height : itemHeight,
+            gridRow : `${row_index} / span 1`,
+            transition: 'background-color 0.2s',
+            backgroundColor: FILLERBLOCK_BACKGROUND_COLORS[backgroundColorIndex],
+        }}
+    />
+
+}
+
 const Sponsors = () => {
 
     /*
@@ -134,12 +179,6 @@ const Sponsors = () => {
     const numGridColumns = useMemo(() => {
         return calculateNumGridColumns(width)
     },  [width])
-
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
 
 
     const packSponsorItems = useCallback((numGridColumns, sponsorsData, disableBacktracking, shuffleInFillers) => {
@@ -382,31 +421,7 @@ const Sponsors = () => {
 							{
 								row.map((sponsorItem, column_index) => {
                                     if (sponsorItem.id == "filler") {
-                                        const randomBackgroundColor = (() => {
-                                            const num = getRandomInt(0, 1);
-                                            if (num == 0) return '#027bff30';
-                                            if (num == 1) return '#f6831330';
-                                        })();
-                                        return <div
-                                            key={`filler-${row_index}-${column_index}`}
-                                            style={{
-                                                display: 'flex',
-                                                justifyContent : 'center',
-                                                alignItems : 'center',
-                                                gridColumn : `span 1`,
-                                                height : itemHeight,
-                                                gridRow : `${row_index} / span 1`,
-                                                transition: 'background-color 0.4s'
-                                            }}
-                                        >
-                                            <div
-                                                style={{
-                                                    backgroundColor: randomBackgroundColor,
-                                                    width : '100%',
-                                                    height : '100%'
-                                                }}
-                                            />
-                                        </div>
+                                        return <FillerBlock key={`filler-${row_index}-${column_index}`} row_index={row_index} column_index={column_index} itemHeight={itemHeight}/>
                                     }
 									return <div
 										key={sponsorItem.id}

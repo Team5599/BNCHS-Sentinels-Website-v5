@@ -15,32 +15,3 @@
     color : #fff;
     background-color: black;
 }
-
-/* */
-.animatedFiller {
-    background-color:  #eeeeeea0;
-    transition: background-color 0.2s;
-    animation: animatedFillerKeyframes 30s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes animatedFillerKeyframes {
-    0% {
-        background-color:  #eeeeeea0;
-    }
-    20% {
-        background-color:  #eeeeeea0;
-    }
-    30% {
-        background-color:  #f68313a0;
-    }
-    50% {
-        background-color:  #f68313a0;
-    }
-    60% {
-        background-color: #027bffa0;
-    }
-    80% {
-        background-color: #027bffa0;
-    }
-}
