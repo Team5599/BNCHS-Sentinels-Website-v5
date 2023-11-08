@@ -3,3 +3,31 @@
     background-position: 50% 80%;
     filter: brightness(75%) contrast(115%);
 }
+
+.buttonContainer {
+    flex : 1;
+    display: flex;
+    flex-direction: row;
+    gap : 20px;
+}
+
+
+.firstSectionButton {
+    background-color: black;
+    flex : 1;
+    color : #fff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height : 80px;
+    padding-left : 40px;
+    padding-right: 40px;
+    font-size: 1.2rem;
+    font-weight: 200;
+    transition: background-color 0.2s;
+}
+
+.firstSectionButton:hover {
+    background-color: #222;
+}
