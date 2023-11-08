@@ -96,24 +96,26 @@ const Blog = async () => {
     const blogData = await getBlogData();
 
     return (
-        <div className={`container ${styles.blogContainer}`} style={{marginTop : 80, marginBottom: 80}}>
+        <div style={{marginTop : 80, marginBottom : 80}} >
             <h2 style={{textAlign : 'center', textTransform: 'uppercase', marginBottom: 20}}>
                 Recent News
             </h2>
             <Polaroids/>
-            <Suspense fallback={
-                <>
-                    <BlogItem skeleton={true}/>
-                    <BlogItem skeleton={true}/>
-                    <BlogItem skeleton={true}/>
-                </>
-            }>
-                {
-                    blogData.map((_blogData, index) => {
-                        return <BlogItem key={_blogData.id} title={_blogData.title} author={_blogData.author} date={_blogData.date} body={_blogData.body} href={_blogData.url}/>
-                    })
-                }      
-            </Suspense>
+            <div className={`container ${styles.blogContainer}`}>
+                <Suspense fallback={
+                    <>
+                        <BlogItem skeleton={true}/>
+                        <BlogItem skeleton={true}/>
+                        <BlogItem skeleton={true}/>
+                    </>
+                }>
+                    {
+                        blogData.map((_blogData, index) => {
+                            return <BlogItem key={_blogData.id} title={_blogData.title} author={_blogData.author} date={_blogData.date} body={_blogData.body} href={_blogData.url}/>
+                        })
+                    }      
+                </Suspense>
+            </div>
         </div>
     )
 }

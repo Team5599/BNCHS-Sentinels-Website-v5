@@ -3,3 +3,11 @@
     background-position: 50% 80%;
     filter: brightness(75%) contrast(115%);
 }
+
+.gradientBackground {
+    background-image : radial-gradient(
+        farthest-corner at 0px 0px,
+        #0F1725 0%,
+        #000000 100%
+    )
+}

@@ -3,3 +3,38 @@
     background-position: 50% 80%;
     filter: brightness(75%) contrast(115%);
 }
+
+.leadershipSection {
+    display: flex;
+    flex-direction: column;
+    width : 100%;
+}
+
+.triangleSVG {
+    height: 80px;
+}
+
+.leadershipBlock {
+    background-color: #F68313;
+    width: 100%;
+    min-height: 300px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.personBody {
+    padding-top : 40px;
+    padding-bottom: 40px;
+}
+
+.personBody > h3 {
+    font-weight: 700;
+}
+
+.personBodyContents {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap : 10px;
+}

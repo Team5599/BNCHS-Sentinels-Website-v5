@@ -4,7 +4,7 @@ import Navbar from '@components/Navbar/Navbar'
 import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 
-export default function ContactUs() {
+export default function Contact() {
 	return (
 		<div>
 			<Navbar/>

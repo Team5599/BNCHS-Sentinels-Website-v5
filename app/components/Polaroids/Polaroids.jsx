@@ -24,6 +24,7 @@ const Polaroid = ({imageSrc, description, postUrl = "/", alt, offset = 0, rotati
                         className={styles.polaroidPicture}
                         src={imageSrc}
                         layout='fill'
+                        sizes="(max-width : 768px) 100vw, 260px"
                         alt={alt}
                     />
                     <div className={styles.polaroidOverlay}>
