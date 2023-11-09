@@ -3,12 +3,3 @@
     background-position: 50% 80%;
     filter: brightness(75%) contrast(115%);
 }
-
-.vignette {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
-}
