@@ -1,13 +1,16 @@
+name: Update Request
+
 on:
   pull_request:
-    branches: [heroku]
-  push:
+    types: [closed]
     branches: [heroku]
   workflow_dispatch:
+    branches: [heroku]
 
 
 jobs:
   update:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Send HTTP request
@@ -27,5 +30,3 @@ jobs:
         run: |
           echo "Status: ${{ steps.request.outputs.status }}"
           echo "Success: ${{ steps.request.outputs.success }}"
-          echo "Headers: ${{ steps.request.outputs.headers }}"
-          echo "Body: ${{ steps.request.outputs.body }}"
