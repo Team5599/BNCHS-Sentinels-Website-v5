@@ -4,8 +4,6 @@
 }
 
 .subheaderShapeBody {
-    padding-top : 80px;
-    padding-bottom : 80px;
     width: 100%;
     background-color: #f68313;
     display: flex;
@@ -13,9 +11,6 @@
     align-items: center;
 }
 
-.triangleSVG {
-    height: 120px;
-}
 
 @media (max-width: 992px) {
 

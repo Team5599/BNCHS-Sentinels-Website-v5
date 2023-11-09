@@ -30,7 +30,7 @@
 
 .navbarLogoContainer > a > span {
     color : #fff;
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: 350;
 }
 
@@ -67,7 +67,7 @@
     padding-left: 10px;
     padding-right: 10px;
     color : #fff;
-    font-size: 16px;
+    font-size: 0.9rem;
     text-transform: uppercase;
     font-weight: 400;
     position: relative;
@@ -116,7 +116,7 @@
     text-align: left;
     align-items: center;
     color : #fff;
-    font-size: 14px;
+    font-size: 0.9rem;
     font-weight: 350;
     white-space: nowrap;
     /* cursor: pointer; */
@@ -130,6 +130,10 @@
     padding-top: 8px;
     padding-bottom: 8px;
     width: 100%;
+}
+
+.navbarButtonInternal > svg {
+    margin-right : -5px;
 }
 
 .navbarDropdown > .navbarDropdownColumn > li.navbarButton:hover {

@@ -1,31 +1,159 @@
 import styles from './page.module.css'
 
+import Image from 'next/image'
 import Navbar from '@components/Navbar/Navbar'
 import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
+import Footer from '@components/Footer/Footer'
+import Link from 'next/link'
 
-export default function Robots() {
+export async function generateStaticParams() {
+
+	const robotData = await getRobotData();
+
+	// console.log("Robot Data", robotData);
+
+	console.log(robotData.map((robotItem) => robotItem.name))
+   
+    return robotData.map((robotItem) => {
+        robotItem
+    })
+}
+
+const getRobotData = async () => {
+    try {
+        const res = await fetch(
+            `https://beta.team5599.com/api/v1/robots`,
+            {
+                method: 'GET'
+            }
+        );
+
+        const data = await res.json();
+        const robotData = data.payload;
+
+        return robotData;
+    } catch (err) {
+        console.log(err);
+        return [];
+    }
+}
+
+export {getRobotData};
+
+const RobotItem = ({robotItem}) => {
+	return (
+		<Link
+			href={`/Robots/${robotItem.name.replace(/ /g, "")}`}
+			style={{
+				display: 'flex',			
+				backgroundColor : 'red',
+				aspectRatio : '1 / 1',
+				position : 'relative',
+			}}
+		>
+			<div
+				style={{
+					position: 'absolute',
+					top : 8,
+					bottom : 8,
+					left : -8,
+					right : 8,
+					backgroundColor : '#f68313',
+					filter : 'blur(0px)'
+				}}
+			>
+				<Image
+					src="https://i.ytimg.com/vi/oVSD8OBbLaM/maxresdefault.jpg"
+					fill={true}
+					unoptimized
+					alt={`${robotItem.name} | ${robotItem.type} ${robotItem.season}`}	
+					style={{
+						objectFit : 'cover'
+					}}
+				/>
+			</div>
+			<div>
+				<Image
+					src="https://i.ytimg.com/vi/oVSD8OBbLaM/maxresdefault.jpg"
+					fill={true}
+					unoptimized
+					alt={`${robotItem.name} | ${robotItem.type} ${robotItem.season}`}	
+					style={{
+						objectFit : 'cover'
+					}}
+				/>
+			</div>
+			<div
+				style={{
+					display : 'flex',
+					flexDirection : 'column',
+					padding : 20,
+					position : 'absolute',
+					left : 0, right : 0,
+					bottom : 0,
+					background : 'linear-gradient(transparent, #000000ee)',
+					color : '#fff'
+					// boxShadow: 'inset 0 0 20px #000000a0',
+				}}
+			>
+				<span
+					style={{
+						fontSize : 22,
+						fontWeight : 600
+					}}
+				>
+					{robotItem.name}
+				</span>
+				<span>
+					{robotItem.type} {robotItem.season}
+				</span>
+			</div>
+		</Link>
+	)
+}
+
+
+export default async function Robots() {
+
+	const robotData = await getRobotData();
+
 	return (
 		<div>
 			<Navbar/>
-			<Header size='lg' imageClass={styles.headerOne} gradient={true}>
+			<Header size='md' imageClass={styles.headerOne} gradient={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
 					<h1 style={{fontWeight : 900, marginBottom : 20}}>
-						WE ARE THE SENTINELS
+						Meet the Robots
 					</h1>
-					<h2>
-						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
-					</h2>
 				</div>
 			</Header>
-			<SubheaderShape>
+			<SubheaderShape size='sm'>
 				<div className='container'>
 					<p className='subheading' style={{color : '#fff'}}>
-						{ /* eslint-disable-next-line react/no-unescaped-entities */ }
-						The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
+						AAAAAAAAAA
 					</p>
 				</div>
 			</SubheaderShape>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 120, paddingBottom : 120, textAlign : 'justify', backgroundColor : '#fdfdfd'}}>
+				<div
+					style={{
+						display: 'grid',
+						gridTemplateColumns : 'repeat(3, 1fr)',
+						gap : 40,
+					}}
+				>
+					{
+						robotData.sort((robotItemA, robotItemB) => {
+							return parseInt(robotItemB.season, 10) - parseInt(robotItemA.season, 10)
+						}).map((robotItem, index) => {
+							return <RobotItem key={robotItem._id} robotItem={robotItem}/>
+						})
+					}
+				</div>
+			</div>
+			
+			<Footer/>
 		</div>
 	)
 }

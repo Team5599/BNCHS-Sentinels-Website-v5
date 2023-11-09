@@ -208,11 +208,11 @@ const Navbar = () => {
                                     <NavbarButton label={'Resource Engine'} href='/Resources'/>
                                 </ul>
                                 <ul className={styles.navbarDropdownColumn}>
-                                    <NavbarButton label={'Branding'} href='https://www.dropbox.com/' target='_blank'/>
+                                    <NavbarButton label={'Branding'} href='https://www.dropbox.com/sh/haj08owh473lcwr/AACT7a2KEGJLxAf-2OGS5d7Ia?dl=0' target='_blank'/>
                                     <NavbarButton label={'Project Showcases'} href='/Showcases'/>
                                     <NavbarButton label={'Alumni Outreach'} href='/Alumni'/>
-                                    <NavbarButton label={'Code Repositories'} href='https://www.github.com/' target='_blank'/>
-                                    <NavbarButton label={'The Blue Alliance'} href='https://www.thebluealliance.com/' target='_blank'/>
+                                    <NavbarButton label={'Code Repositories'} href='https://github.com/Team5599' target='_blank'/>
+                                    <NavbarButton label={'The Blue Alliance'} href='https://www.thebluealliance.com/team/5599' target='_blank'/>
                                 </ul>
                                 <ul className={styles.navbarDropdownColumn}>
                                     <NavbarButton label={'FIRST (C)'} href='https://www.firstinspires.org/' target='_blank'/>

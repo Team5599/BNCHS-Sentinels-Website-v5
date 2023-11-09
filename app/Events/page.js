@@ -7,6 +7,7 @@ import Navbar from '@components/Navbar/Navbar'
 import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
+import PlaylistPlayer from '@components/PlaylistPlayer/PlaylistPlayer'
 
 const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     return (
@@ -25,12 +26,12 @@ export default function Events() {
 			<Navbar/>
 			<Header size='md' imageClass={styles.headerOne} gradient={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
-					<h1 style={{fontWeight : 900, marginBottom : 20, whiteSpace: 'pre'}}>
-						EVENTS{"\n"}&{"\n"}COMPETITIONS
+					<h1 style={{fontWeight : 900, marginBottom : 20}}>
+						FIRST ROBOTICS COMPETITION
 					</h1>
 				</div>
 			</Header>
-			<SubheaderShape>
+			<SubheaderShape size='sm'>
 				<div className='container'>
 					<p className='subheading' style={{color : '#fff'}}>
 						{ /* eslint-disable-next-line react/no-unescaped-entities */ }
@@ -73,7 +74,7 @@ export default function Events() {
 				<div
 					style={{
 						display: 'flex',
-						gap : 10,
+						gap : 20,
 						flexDirection : 'column'
 					}}
 				>
@@ -103,50 +104,17 @@ export default function Events() {
 						<FIRSTSectionButton label='Internships' href='./Events'/>
 						<FIRSTSectionButton label='FIRST Website' href='./Events'/>
 					</div>
-				</div>
-				
-				<div
-					style={{
-						display: 'flex',
-						flexDirection : 'column',
-						marginTop : 40,
-						gap : 40
-					}}
-				>
-					<div>
-						<h3>
-							NEW YORK CITY REGIONAL
-						</h3>
-						<p>
-							The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
-						</p>
-					</div>
-					<div>
-						<h3>
-							SBPLI LONG ISLAND REGIONAL
-						</h3>
-						<p>
-							The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
-						</p>
-					</div>
-					<div>
-						<h3>
-							HUDSON VALLEY RALLY
-						</h3>
-						<p>
-							The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
-						</p>
-					</div>
+					<PlaylistPlayer/>
 				</div>
 			</div>
-			<Header size='md' imageClass={styles.headerOne} gradient={true} masked={true}>
+			<Header size='md' imageClass={styles.headerOne} gradient={true} masked={true} divider={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
 					<h2 style={{fontWeight : 900, marginBottom : 20, whiteSpace: 'pre'}}>
 						PREVIOUS{"\n"}COMPETITIONS
 					</h2>
 				</div>
 			</Header>
-			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 120, textAlign : 'justify'}}>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 0, paddingBottom : 120, textAlign : 'justify'}}>
 				<h2 style={{textAlign : 'left'}}>
 					SEAPERCH
 				</h2>
@@ -160,25 +128,6 @@ export default function Events() {
 				<p>
 					FIRST is More Than Robots. FIRST participation is proven to encourage students to pursue education and careers in STEM-related fields, inspire them to become leaders and innovators, and enhance their 21 st century work-life skills.
 				</p>
-				<div>
-
-				</div>
-				<div
-					style={{
-						display: 'flex',
-						flexDirection : 'column',
-						gap : 40
-					}}
-				>
-					<div>
-						<h2>
-							NEW YORK CITY REGIONAL
-						</h2>
-						<p>
-							The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
-						</p>
-					</div>
-				</div>
 			</div>
 			<Footer/>
 		</div>
