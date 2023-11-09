@@ -8,6 +8,7 @@ import Header from '@components/Header/Header'
 import Footer from '@components/Footer/Footer'
 
 import PersonCard from '@components/PersonCard/PersonCard'
+import {PersonCardTwo} from '@components/PersonCard/PersonCard'
 
 import FilterHeader from '@components/FilterHeader/FilterHeader'
 
@@ -22,7 +23,7 @@ const PersonCardContainer = ({title, size, members, contrast}) => {
 			<div className={styles.personBodyContents}>
 				{
 					members.map((personItem) => {
-						return <PersonCard key={personItem._id} personData={personItem}/>
+						return <PersonCardTwo key={personItem._id} personData={personItem} contrast={contrast}/>
 					})
 				}
 			</div>
