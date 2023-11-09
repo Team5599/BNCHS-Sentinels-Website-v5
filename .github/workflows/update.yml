@@ -1,13 +1,14 @@
 on:
   pull_request:
-    branches: [heroku]
-  push:
+    types: [closed]
     branches: [heroku]
   workflow_dispatch:
+    branches: [heroku]
 
 
 jobs:
   update:
+     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Send HTTP request
