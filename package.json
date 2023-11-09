@@ -10,6 +10,8 @@
 		"prettier": "npx prettier . --check"
 	},
 	"dependencies": {
+		"@emotion/react": "^11.11.1",
+		"@ericz1803/react-google-calendar": "^4.3.1",
 		"eslint": "8.49.0",
 		"eslint-config-next": "13.4.19",
 		"next": "^13.5.2",
