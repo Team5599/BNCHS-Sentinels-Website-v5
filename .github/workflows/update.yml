@@ -1,3 +1,5 @@
+name: Update Request
+
 on:
   pull_request:
     types: [closed]
@@ -8,7 +10,7 @@ on:
 
 jobs:
   update:
-     if: github.event.pull_request.merged == true
+      if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Send HTTP request
