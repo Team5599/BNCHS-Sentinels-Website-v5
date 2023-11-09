@@ -164,7 +164,7 @@ export default function Contact() {
 					</h1>
 				</div>
 			</Header>
-			<SubheaderShape/>
+			<SubheaderShape size='sm'/>
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 40, textAlign : 'justify', backgroundColor : '#fdfdfd'}}>
 				<div
 					style={{

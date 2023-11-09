@@ -128,7 +128,7 @@ export default async function Robots() {
 					</h1>
 				</div>
 			</Header>
-			<SubheaderShape>
+			<SubheaderShape size='sm'>
 				<div className='container'>
 					<p className='subheading' style={{color : '#fff'}}>
 						AAAAAAAAAA

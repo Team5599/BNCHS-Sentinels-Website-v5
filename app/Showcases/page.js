@@ -19,7 +19,7 @@ export default function Showcases() {
 					</h3>
 				</div>
 			</Header>
-			<SubheaderShape>
+			<SubheaderShape size='sm'>
 				<div className='container'>
 					<p className='subheading' style={{color : '#fff', textAlign : 'center'}}>
 						{ /* eslint-disable-next-line react/no-unescaped-entities */ }

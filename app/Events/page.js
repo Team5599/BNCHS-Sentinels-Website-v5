@@ -31,7 +31,7 @@ export default function Events() {
 					</h1>
 				</div>
 			</Header>
-			<SubheaderShape>
+			<SubheaderShape size='sm'>
 				<div className='container'>
 					<p className='subheading' style={{color : '#fff'}}>
 						{ /* eslint-disable-next-line react/no-unescaped-entities */ }
