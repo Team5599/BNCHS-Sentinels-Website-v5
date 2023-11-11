@@ -154,7 +154,7 @@ const Navbar = () => {
 
     console.log("scroll", windowScroll);
 
-    const SCROLL_RESIZE_TRIGGER = 120;
+    const SCROLL_RESIZE_TRIGGER = 80;
     
 
     const handleNavbarItemMouseEnter = (e) => {
