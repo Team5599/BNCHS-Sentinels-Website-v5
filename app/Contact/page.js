@@ -77,14 +77,54 @@ const ContactInput = ({inputRef, onChange, value, label}) => {
 				}}
 				value={value}
 				style={{
-					border : 0,
+					borderWidth : '0px 0px 2px 0px',
 					borderStyle : null,
-					borderBottomWidth : 2,
-					borderBottomColor : '#ddd',
-					height : 32,
+					borderColor : '#ddd',
+					height : 28,
 					padding : 0,
 					margin : 0,
-					fontSize : 22
+					fontSize : 18
+				}}
+			/>
+		</div>
+	)
+}
+
+
+const ContactInputTextArea = ({inputRef, onChange, value, label}) => {
+	return (
+		<div
+			style={{
+				display: 'flex',
+				flexDirection : 'column',
+				flex : 1
+			}}
+		>
+			<span
+				style={{
+					fontSize: '0.8rem',
+					fontWeight : 600
+				}}
+			>
+				{label}
+			</span>
+			<textarea
+				ref={inputRef}
+				onChange={(e, value) => {
+					onChange(value);
+				}}
+				value={value}
+				style={{
+					borderWidth : '1px 1px 2px 1px',
+					borderStyle : null,
+					borderColor : '#ddd',
+					height : 120,
+					padding : 0,
+					margin : 0,
+					fontSize : 16,
+					resize: 'vertical',
+					minHeight: 120,
+					maxHeight : 240
 				}}
 			/>
 		</div>
@@ -176,12 +216,14 @@ export default function Contact() {
 	const inputLastNameRef = useRef(null);
 	const inputEmailRef = useRef(null);
 	const inputPhoneRef = useRef(null);
+	const inputBodyRef = useRef(null);
 
 
 	const [inputFirstName, setInputFirstName] = useState("");
 	const [inputLastName, setInputLastName] = useState("");
 	const [inputEmail, setInputEmail] = useState("");
 	const [inputPhone, setInputPhone] = useState("");
+	const [inputBody, setInputBody] = useState("");
 
 	return (
 		<div>
@@ -287,6 +329,7 @@ export default function Contact() {
 							<ContactInput inputRef={inputPhoneRef} onChange={setInputPhone} value={inputPhone} label={"Phone Number (Optional)"}/>
 						</div>
 						<ContactSubjectContainer/>
+						<ContactInputTextArea inputRef={inputBodyRef} onChange={setInputBody} value={inputBody} label={"Contents"}/>
 					</div>
 				</div>
 			</div>
