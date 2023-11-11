@@ -14,10 +14,12 @@ const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     )
 }
 
+const targetDate = new Date(new Date().getTime()+(5*24*60*60*1000));
+
 const FIRSTSection = () => {
     return (
         <div className='container' style={{display: 'flex', flexDirection : 'column', paddingTop : 120, paddingBottom : 120, gap : 10}}>
-            <CountdownTimer/>
+            <CountdownTimer date={targetDate}/>
             <div className={styles.titleContainer}>
                 <Image
                     src='/images/first/FIRST-icon.png'

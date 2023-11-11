@@ -13,10 +13,32 @@
     }
 }
 
+@keyframes animateDashTwo {
+
+    /* IT WORKS BUT WE HAVE NO IDEA WHY ITS THIS SPECIFIC NUMBER (19.3) */
+
+    0% {
+        stroke-dasharray: 30 6.6;
+        stroke-dashoffset: 26.95;
+    }
+  
+    85% {
+        stroke-dasharray: 30 6.6;
+        stroke-dashoffset: -11.65;
+    }
+
+    100% {
+        stroke-dasharray: 30 6.6;
+        stroke-dashoffset: -11.65;
+    }
+}
+
 .animateTest {
     animation-duration: 1s;
-    animation-name: animateDash;
+    animation-name: animateDashTwo;
     animation-iteration-count: infinite;
+    /* stroke-dasharray: 30 6.6;
+    stroke-dashoffset: -11.65; */
     animation-direction: normal;
     animation-timing-function: cubic-bezier(0.1, 0.4, 5, 0.1);
 }
