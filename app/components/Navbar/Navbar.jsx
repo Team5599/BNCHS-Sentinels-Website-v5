@@ -12,6 +12,7 @@ import { usePathname } from 'next/navigation'
 import useWindowDimensions from '@lib/useWindowDimensions';
 
 import ChevronSVG from './chevron-svg';
+import useScrollPosition from '@/lib/useScrollPosition';
 
 const NavbarButton = ({label, href = '/404', target='', className = [], handleHover}) => {
     return (
@@ -149,6 +150,10 @@ const Navbar = () => {
 
     const {navbarSliderData, setNavbarButtonHighlight, resetNavbar} = useNavbarAnimationHandler();
     
+    const windowScroll = useScrollPosition();
+
+    console.log("scroll", windowScroll);
+    
 
     const handleNavbarItemMouseEnter = (e) => {
         const navbarButtonEl = e.target.closest('.navbar-wrapper > [navbar-button]');
@@ -157,7 +162,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className={`navbar ${styles.navbar} ${(width <= 992) && styles.mobile} ${(width <= 1200 && isMobileNavbarOpen) && styles.mobileOpen}`}>
+        <div className={`navbar ${styles.navbar} ${(width <= 992) && styles.mobile} ${(width <= 1200 && isMobileNavbarOpen) && styles.mobileOpen} ${windowScroll > 120 && styles.navbarCompressed}`}>
             <div className={`container ${styles.navbarWrapper}`}>
                 <div className={styles.navbarLogoContainer}>
                     <Link

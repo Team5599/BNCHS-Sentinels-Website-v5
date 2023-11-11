@@ -1,10 +1,18 @@
 .navbar {
-    width : 100%;
+    width : 100vw;
     height : 80px;
     background-color: #000;
     display : flex;
     align-items: center;
     flex-direction: row;
+    position: fixed;
+    z-index: 9;
+    top : 0;
+    transition: height 0.2s;
+}
+
+.navbarCompressed {
+    height : 60px;
 }
 
 .navbarWrapper {
