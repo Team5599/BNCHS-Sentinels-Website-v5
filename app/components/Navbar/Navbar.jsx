@@ -14,11 +14,19 @@ import useWindowDimensions from '@lib/useWindowDimensions';
 import ChevronSVG from './chevron-svg';
 import useScrollPosition from '@/lib/useScrollPosition';
 
-const NavbarButton = ({label, href = '/404', target='', className = [], handleHover}) => {
+const NavbarButton = ({label, href = '/404', target='', className = [], handleHover, hideExternalIcon = false}) => {
     return (
         <li className={`${styles.navbarButton} ${className}`} navbar-button={label} onMouseEnter={handleHover}>     
             <Link className={styles.navbarButtonInternal} href={href} target={target}>
                 <span>{label}</span>
+                {
+                    (href.startsWith('http') && hideExternalIcon == false) && <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
+                        <path d="M11 13l9 -9"></path>
+                        <path d="M15 4h5v5"></path>
+                    </svg>
+                }
             </Link>
         </li>
     )
@@ -244,7 +252,7 @@ const Navbar = () => {
                             </>
                         }
                     />
-                    <NavbarButton label={'Blog'} href='https://blog.team5599.com/' target='_blank' handleHover={handleNavbarItemMouseEnter}/>
+                    <NavbarButton label={'Blog'} href='https://blog.team5599.com/' target='_blank' handleHover={handleNavbarItemMouseEnter} hideExternalIcon={true} />
                     <NavbarButtonDropdown
                         label={'Members'}
                         ignoreChevron={true}
