@@ -250,7 +250,8 @@ const CountdownTimer = ({date, onComplete}) => {
                 paddingTop : 80,
                 paddingBottom : 60,
                 minHeight : 260,
-                marginBottom : 20
+                marginBottom : 20,
+                overflow : 'hidden' /* Prevents exploding during mobile */
             }}
         >
             {
