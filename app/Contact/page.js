@@ -8,6 +8,7 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import Footer from '@components/Footer/Footer'
 
 import {useRef, useState} from 'react';
+import Link from 'next/link'
 
 const PhoneIconSVG = () => {
 	return (
@@ -129,6 +130,16 @@ const ContactInputTextArea = ({inputRef, onChange, value, label}) => {
 			/>
 		</div>
 	)
+}
+
+const SubmitButton = ({label, href = '/', target = ''}) => {
+    return (
+        <Link className={styles.submitButton} href={href} target={target}>
+            <span>
+                {label}
+            </span>
+        </Link>
+    )
 }
 
 const ContactSubjectContainer = () => {
@@ -330,6 +341,14 @@ export default function Contact() {
 						</div>
 						<ContactSubjectContainer/>
 						<ContactInputTextArea inputRef={inputBodyRef} onChange={setInputBody} value={inputBody} label={"Contents"}/>
+						<div
+							style={{
+								display : 'flex',
+								justifyContent : 'flex-end'
+							}}
+						>
+							<SubmitButton label={'Submit'}/>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -3,3 +3,23 @@
     background-position: 50% 80%;
     filter: brightness(75%) contrast(115%);
 }
+
+.submitButton {
+    background-color: black;
+    color : #fff;
+    text-transform: uppercase;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height : 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding-left: 40px;
+    padding-right: 40px;
+    transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+    background-color: #222;
+}
