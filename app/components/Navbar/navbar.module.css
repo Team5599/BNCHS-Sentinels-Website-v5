@@ -277,6 +277,11 @@
         padding : 0;
         overflow-y: auto;
         overflow-x: hidden;
+        transition: top 0.2s;
+    }
+
+    .navbarButtonsWrapperCompressed {
+        top : 60px;
     }
 
     .navbarButtonsWrapper > li.navbarButton {

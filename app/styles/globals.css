@@ -8,7 +8,7 @@
 
 body {
 	margin : 0px;
-	padding-top: 60px; /* For the sticky scrollbar */
+	margin-top: 60px; /* For the sticky scrollbar */
 }
 
 a {

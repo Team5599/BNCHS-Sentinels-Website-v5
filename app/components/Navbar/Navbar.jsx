@@ -153,6 +153,8 @@ const Navbar = () => {
     const windowScroll = useScrollPosition();
 
     console.log("scroll", windowScroll);
+
+    const SCROLL_RESIZE_TRIGGER = 120;
     
 
     const handleNavbarItemMouseEnter = (e) => {
@@ -162,7 +164,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className={`navbar ${styles.navbar} ${(width <= 992) && styles.mobile} ${(width <= 1200 && isMobileNavbarOpen) && styles.mobileOpen} ${windowScroll > 120 && styles.navbarCompressed}`}>
+        <div className={`navbar ${styles.navbar} ${(width <= 992) && styles.mobile} ${(width <= 1200 && isMobileNavbarOpen) && styles.mobileOpen} ${windowScroll > SCROLL_RESIZE_TRIGGER && styles.navbarCompressed}`}>
             <div className={`container ${styles.navbarWrapper}`}>
                 <div className={styles.navbarLogoContainer}>
                     <Link
@@ -180,7 +182,7 @@ const Navbar = () => {
                     </Link> 
                 </div>
                 <Toggle isMobileNavbarOpen={isMobileNavbarOpen} setMobileNavbarOpen={setMobileNavbarOpen}/>
-                <ul className={`navbar-wrapper ${styles.navbarButtonsWrapper}`}
+                <ul className={`navbar-wrapper ${styles.navbarButtonsWrapper} ${windowScroll > SCROLL_RESIZE_TRIGGER && styles.navbarButtonsWrapperCompressed}`}
                     onMouseLeave={resetNavbar}
                 >
                     <NavbarActiveSlider width={navbarSliderData.width} left={navbarSliderData.left}/>
