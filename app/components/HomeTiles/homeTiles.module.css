@@ -24,7 +24,8 @@
     flex : 1;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #0052afa0;
+    background-color: #000000a0;
+    /* background-color: #0052afa0; */
     background-blend-mode: multiply;
     transition: background-color 0.4s, filter 0.4s;
 }

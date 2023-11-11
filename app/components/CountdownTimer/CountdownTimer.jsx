@@ -121,8 +121,6 @@ const TimerSection = ({digits, label}) => {
 
     const paddedDigit = zeroPad(digits);
 
-    console.log("padded", paddedDigit);
-
     return (
         <div
             style={{
