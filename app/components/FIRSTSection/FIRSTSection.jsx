@@ -3,14 +3,15 @@ import Image from 'next/image';
 import styles from './firstSection.module.css';
 
 import CountdownTimer from '../CountdownTimer/CountdownTimer';
+import { ButtonLink } from '@components/Button/Button';
 
 const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     return (
-        <Link className={styles.firstSectionButton} href={href} target={target}>
-            <span>
-                {label}
-            </span>
-        </Link>
+        <ButtonLink
+            label={label}
+            href={href}
+            className={styles.firstSectionButton}
+        />
     )
 }
 
@@ -37,7 +38,7 @@ const FIRSTSection = () => {
                     
                 </div>
                 <div className={styles.buttonContainer}>
-                    <FIRSTSectionButton label='More On First' href='./Events'/>
+                    <FIRSTSectionButton label='More On FIRST' href='./Events'/>
                     <FIRSTSectionButton label='Our Competitions' href='./Events'/>
                 </div>
             </div>

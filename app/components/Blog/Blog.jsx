@@ -2,6 +2,8 @@ import styles from './blog.module.css';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
+import { ButtonLink } from '@components/Button/Button';
+
 import Polaroids from '../Polaroids/Polaroids';
 
 import { parse } from 'node-html-parser';
@@ -30,13 +32,15 @@ const BlogItem = ({title, author, date, body, href = '/', skeleton = false}) => 
                 <span className={styles.blogBody}>
                     {body}
                 </span>
-                <Link
+                <ButtonLink
                     href={href}
                     target={'_blank'}
                     className={styles.blogReadMore}
                 >
-                    Read More »
-                </Link>
+                    <span>
+                        Read More »
+                    </span>
+                </ButtonLink>
             </>
         }
         

@@ -1,5 +1,7 @@
 import styles from './newsletterSubscriptionInput.module.css';
 
+import { Button } from '@components/Button/Button';
+
 const NewsletterSubscriptionInput = () => {
     return (
         <div className={`container ${styles.newsletterBox}`} style={{ paddingTop : 40, paddingBottom : 40}}>
@@ -12,9 +14,14 @@ const NewsletterSubscriptionInput = () => {
                 </h5>
                 <div className={styles.newsletterInputContainer}>
                     <input className={styles.newsletterInput} placeholder='Your Email'/>
-                    <button className={styles.newsletterSubmit}>
-                        SUBSCRIBE
-                    </button>
+                    <Button
+                        label={'Submit'}
+                        style={{
+                            backgroundColor : '#027bff',
+                            '--hoverBackgroundColor' : '#015bdf'
+                        }}
+                        className={styles.newsletterSubmit}
+                    />
                 </div>
                 <div style={{marginTop: 20}}>
                     SOCIAL MEDIA ICONS

@@ -1,0 +1,84 @@
+.button {
+    position: relative;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.button[type='button'] {
+    border : none;
+    background-color: initial;
+    margin : 0px;
+    padding : 0px;
+    border-radius: 0px;
+}
+
+.button:focus-visible {
+    outline: 4px solid var(--color-orange)
+}
+
+/*
+    Links should expand and hold the animation
+    Buttons should pulse the internal container
+*/
+
+.buttonOutline {
+    position: absolute;
+    border-width: 2px;
+    border-style: solid;
+    top : 0;
+    bottom : 0;
+    left : 0;
+    right : 0;
+    transition: border-color 0.2s;
+}
+
+.button:hover > .buttonOutline {
+    border-color: var(--hover-border-color) !important;
+}
+
+.buttonLinkActive:not([variant="inverted"]) {
+    transform : scale(1.1);
+}
+
+
+.buttonInnerBlock {
+    position: absolute;
+    width : 100%;
+    height : 100%;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.button:hover > .buttonInnerBlock {
+    --blockShrinkWidth : 4px;
+    width : calc(100% - (var(--blockShrinkWidth) * 2));
+    height : calc(100% - (var(--blockShrinkWidth) * 2));
+    background-color: var(--hover-background-color) !important;
+}
+
+.buttonContentContainer {
+    width : 100%;
+    height : 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.button:not([variant="inverted"]):hover > .buttonInnerBlock > .buttonContentContainer {
+    transform: scale(1.1);
+}
+
+.button[type="button"]:not([variant="inverted"]):active > .buttonInnerBlock > .buttonContentContainer {
+    transform: scale(1.2);
+}
+
+.button:focus > .buttonInnerBlock {
+    background-color: var(--active-background-color) !important;
+}
+
+.buttonLinkActive:not([variant="inverted"]) > .buttonInnerBlock > .buttonContentContainer {
+    transform: scale(0.4) !important;
+}
