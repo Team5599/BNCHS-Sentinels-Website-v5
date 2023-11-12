@@ -218,17 +218,12 @@ const Divider = () => {
 
 const CountdownTimer = ({date, onComplete}) => {
 
-    console.log("TargetDate", date);
-
     const [remainingTime, setRemainingTime] = useState(getDifferenceBetween(date, new Date()));
-
-    console.log(remainingTime);
 
     useEffect(() => {
 
         const interval = setInterval(() => {
             const remainingTime = getDifferenceBetween(date, new Date());
-            console.log("Remaining", remainingTime);
             setRemainingTime(remainingTime);
         }, 1000)
 
