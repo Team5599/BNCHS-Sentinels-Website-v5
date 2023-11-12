@@ -3,3 +3,12 @@
     background-position: 50% 80%;
     filter: brightness(75%) contrast(115%);
 }
+
+.eventButton {
+    background-color: #000;
+    transition: background-color 0.2s;
+}
+
+.eventButton:hover {
+    background-color: #222;
+}

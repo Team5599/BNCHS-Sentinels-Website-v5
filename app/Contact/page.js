@@ -10,6 +10,8 @@ import Footer from '@components/Footer/Footer'
 import {useRef, useState} from 'react';
 import Link from 'next/link'
 
+import { Button } from '@components/Button/Button'
+
 const PhoneIconSVG = () => {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -134,11 +136,18 @@ const ContactInputTextArea = ({inputRef, onChange, value, label}) => {
 
 const SubmitButton = ({label, href = '/', target = ''}) => {
     return (
-        <Link className={styles.submitButton} href={href} target={target}>
-            <span>
+        <Button className={styles.submitButton} onPress={() => {
+			console.log("SUBMIT")
+		}}>
+            <span
+				style={{
+					paddingLeft : 50,
+					paddingRight : 50
+				}}
+			>
                 {label}
             </span>
-        </Link>
+        </Button>
     )
 }
 

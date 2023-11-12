@@ -9,15 +9,30 @@ import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import PlaylistPlayer from '@components/PlaylistPlayer/PlaylistPlayer'
 
+import {ButtonLink} from '@components/Button/Button'
+
 import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 
 const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     return (
-        <Link className={styles.firstSectionButton} href={href} target={target}>
-            <span>
-                {label}
-            </span>
-        </Link>
+		<ButtonLink
+			className={styles.firstSectionButton}
+			href={href}
+			target={target}
+			style={{
+				backgroundColor : '#000'
+			}}
+		>
+			<span
+				style={{
+					paddingLeft : 60,
+					paddingRight : 60,
+					whiteSpace: 'nowrap'
+				}}
+			>
+				{label}
+			</span>
+		</ButtonLink>
     )
 }
 

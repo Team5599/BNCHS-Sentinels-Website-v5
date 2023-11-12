@@ -21,8 +21,8 @@ const EventItem = ({eventData}) => {
 	return (
 		<Link
 			href={eventData.url}
+			className={styles.eventButton}
 			style={{
-				backgroundColor : '#000',
 				color : '#fff',
 				padding : 10
 			}}
