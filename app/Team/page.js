@@ -10,6 +10,8 @@ import Footer from '@components/Footer/Footer'
 import PersonCard from '@components/PersonCard/PersonCard'
 import {PersonCardTwo} from '@components/PersonCard/PersonCard'
 
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+
 import FilterHeader from '@components/FilterHeader/FilterHeader'
 
 const PersonCardContainer = ({title, size, members, contrast}) => {
@@ -102,7 +104,8 @@ export default function Team() {
 			</div>
 			<LeadershipContainer members={teamData.leadership}/>
 			<PersonCardContainer title={'MEMBERS'} size='md' members={teamData.roster}/>	
-			<PersonCardContainer title={'MENTORS'} size='md' members={teamData.mentors}/>	
+			<PersonCardContainer title={'MENTORS'} size='md' members={teamData.mentors}/>
+			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

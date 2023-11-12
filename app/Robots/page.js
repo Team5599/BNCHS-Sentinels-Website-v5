@@ -7,6 +7,8 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import Footer from '@components/Footer/Footer'
 import Link from 'next/link'
 
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+
 export async function generateStaticParams() {
 
 	const robotData = await getRobotData();
@@ -152,7 +154,7 @@ export default async function Robots() {
 					}
 				</div>
 			</div>
-			
+			<SponsorBlock style={{marginBottom : 80}}/>
 			<Footer/>
 		</div>
 	)

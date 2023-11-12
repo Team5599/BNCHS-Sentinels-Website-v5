@@ -9,6 +9,8 @@ import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import PlaylistPlayer from '@components/PlaylistPlayer/PlaylistPlayer'
 
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+
 const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     return (
         <Link className={styles.firstSectionButton} href={href} target={target}>
@@ -105,8 +107,12 @@ export default function Events() {
 						<FIRSTSectionButton label='Internships' href='./Events'/>
 						<FIRSTSectionButton label='FIRST Website' href='./Events'/>
 					</div>
-					<PlaylistPlayer/>
+					
 				</div>
+			</div>
+			<SponsorBlock/>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 120, paddingBottom : 120, textAlign : 'justify'}}>
+				<PlaylistPlayer/>
 			</div>
 			<Header size='md' imageClass={styles.headerOne} gradient={true} masked={true} divider={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
