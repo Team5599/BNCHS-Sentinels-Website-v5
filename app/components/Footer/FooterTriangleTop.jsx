@@ -22,7 +22,7 @@ const FooterTriangleTop = () => {
                             left : 'calc(50% - 14px)',
                             top : 'calc(50% - 14px)',
                         }}
-                        xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-up" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="#none" stroke-linecap="round" stroke-linejoin="round">
+                        xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevrons-up" width="28" height="28" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="#none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M7 11l5 -5l5 5"></path>
                         <path d="M7 17l5 -5l5 5"></path>

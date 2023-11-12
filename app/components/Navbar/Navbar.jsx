@@ -20,7 +20,7 @@ const NavbarButton = ({label, href = '/404', target='', className = [], handleHo
             <Link className={styles.navbarButtonInternal} href={href} target={target}>
                 <span>{label}</span>
                 {
-                    (href.startsWith('http') && hideExternalIcon == false) && <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    (href.startsWith('http') && hideExternalIcon == false) && <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-external-link" width="14" height="14" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
                         <path d="M11 13l9 -9"></path>
