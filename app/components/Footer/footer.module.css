@@ -126,6 +126,12 @@
     top : 16px;
     background-color: transparent;
     border : none;
+    color: #ffffffd0;
+    transition: color 0.2s;
+}
+
+.footerButton:hover {
+    color: #fff;
 }
 
 @media (max-width: 992px) {
