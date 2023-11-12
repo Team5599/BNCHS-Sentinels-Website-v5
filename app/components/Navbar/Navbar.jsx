@@ -125,19 +125,14 @@ const useNavbarAnimationHandler = () => {
 
     useEffect(() => {
 
-        console.log("PATHNAME:", pathname);
-
         // Is there a navbar link that directs to this page?
         const navbarLink = document.querySelector(`.navbar .navbar-wrapper [href="${pathname}"]`);
-
-        console.log("link", navbarLink);
 
         if (navbarLink == null) return;
 
         // Find the main navbar component
         const navbarButton = navbarLink.closest('.navbar-wrapper > [navbar-button]');
 
-        console.log("button", navbarButton);
 
         setActiveNavbarButton(navbarButton);
         setNavbarButtonHighlight(navbarButton);
@@ -159,8 +154,6 @@ const Navbar = () => {
     const {navbarSliderData, setNavbarButtonHighlight, resetNavbar} = useNavbarAnimationHandler();
     
     const windowScroll = useScrollPosition();
-
-    console.log("scroll", windowScroll);
 
     const SCROLL_RESIZE_TRIGGER = 80;
     
