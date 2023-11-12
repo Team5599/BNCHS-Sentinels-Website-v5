@@ -1,17 +1,29 @@
 import Link from 'next/link'
 import styles from './homeTiles.module.css'
 
+import { ButtonBase } from '@components/Button/Button'
 
 const HomeTileItem = ({label, href = '/', backgroundImgClass = {}}) => {
     return (
-        <Link href={href} className={styles.homeTileItem}>
+        <ButtonBase
+            href={href}
+            className={styles.homeTileItem}
+            contentContainerClass={styles.homeTileItem}
+            style={{
+                backgroundColor : 'transparent',
+                outlineColor : '#000',
+                '--hoverOutlineColor' : '#000'
+            }}
+            type='link'
+            variant='inverted'
+        >
             <div className={styles.markerSmudge}>
                 <span>
                     {label}
                 </span>
             </div>
             <div className={`${styles.homeTileItemImageBox} ${backgroundImgClass}`}/>
-        </Link>
+        </ButtonBase>
     )
 }
 

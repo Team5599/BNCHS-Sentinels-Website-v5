@@ -1,7 +1,16 @@
 .homeTiles {
     display: flex;
     justify-content: space-between;
-    gap : 20px;
+    gap : 40px;
+}
+
+.homeTileItemButton {
+    display: flex;
+    position: relative;
+    flex : 1;
+    aspect-ratio: 1/2.1;
+    justify-content: center;
+    
 }
 
 .homeTileItem {
@@ -9,10 +18,8 @@
     position: relative;
     flex : 1;
     aspect-ratio: 1/2.1;
-    background-color: fff;
     justify-content: center;
-    align-items: flex-end;
-    border: 2px solid #eee;
+    align-items: center;
 }
 
 .homeTileItemImageBox {
@@ -24,8 +31,7 @@
     flex : 1;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #000000a0;
-    /* background-color: #0052afa0; */
+    background-color: #0052afa0;
     background-blend-mode: multiply;
     transition: background-color 0.4s, filter 0.4s;
 }
@@ -40,6 +46,7 @@
     width : 100%;
     text-align: center;
     justify-content: center;
+    align-self: flex-end;
     align-items: center;
     color : #fff;
     margin-bottom: 20px;

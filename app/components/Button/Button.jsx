@@ -4,7 +4,7 @@ import styles from './button.module.css'
 import {useState} from 'react';
 import Link from 'next/link';
 
-const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverColor, activeColor, children}) => {
+const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverColor, activeColor, contentContainerClass, children}) => {
     return (
         <>
             {/* Border */}
@@ -25,7 +25,7 @@ const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverCo
                 }}
             >
                 <div
-                    className={styles.buttonContentContainer}
+                    className={[`${styles.buttonContentContainer} ${contentContainerClass}`]}
                 >
                     {
                         children
@@ -37,7 +37,7 @@ const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverCo
     )
 }
 
-const ButtonBase = ({style = {}, children, type, variant, className, props, href, target}) => {
+const ButtonBase = ({style = {}, children, type, variant, className, contentContainerClass = {}, props, href, target}) => {
     
     const baseColor = style['backgroundColor'] || '#000';
     const outlineColor = style['outlineColor'] || baseColor;
@@ -49,6 +49,11 @@ const ButtonBase = ({style = {}, children, type, variant, className, props, href
 
     delete style['backgroundColor'];
     delete style['--hoverBackgroundColor']
+
+    delete style['outlineColor'];
+    delete style['--hoverOutlineColor']
+
+    delete style['--activeBackgroundColor']
 
     const [activeLink, setActiveLink] = useState(false);
 
@@ -78,7 +83,7 @@ const ButtonBase = ({style = {}, children, type, variant, className, props, href
             {...asLinkProps}
             {...props}
         >
-            <ButtonBaseInternal baseColor={baseColor} hoverColor={hoverColor} outlineColor={outlineColor} outlineHoverColor={outlineHoverColor} activeColor={activeColor}>
+            <ButtonBaseInternal baseColor={baseColor} hoverColor={hoverColor} outlineColor={outlineColor} outlineHoverColor={outlineHoverColor} activeColor={activeColor} contentContainerClass={contentContainerClass}>
                 {children}
             </ButtonBaseInternal>
         </Link> :
@@ -93,7 +98,7 @@ const ButtonBase = ({style = {}, children, type, variant, className, props, href
             type={type}
             {...props}
         >
-            <ButtonBaseInternal baseColor={baseColor} hoverColor={hoverColor} outlineColor={outlineColor} outlineHoverColor={outlineHoverColor} activeColor={activeColor}>
+            <ButtonBaseInternal baseColor={baseColor} hoverColor={hoverColor} outlineColor={outlineColor} outlineHoverColor={outlineHoverColor} activeColor={activeColor} contentContainerClass={contentContainerClass}>
                 {children}
             </ButtonBaseInternal>
         </button>
