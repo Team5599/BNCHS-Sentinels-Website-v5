@@ -72,11 +72,11 @@
     flex : 1;
     justify-content: center;
     align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
     color : #fff;
     font-size: 0.9rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-weight: 400;
     position: relative;
     gap: 2px;
