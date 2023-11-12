@@ -37,7 +37,15 @@ const BlogItem = ({title, author, date, body, href = '/', skeleton = false}) => 
                     target={'_blank'}
                     className={styles.blogReadMore}
                 >
-                    <span>
+                    <span
+                        style={{
+                            paddingLeft : 20,
+                            paddingRight : 20,
+                            paddingTop : 12,
+                            paddingBottom : 12,
+                            whiteSpace: 'nowrap'
+                        }}
+                    >
                         Read More »
                     </span>
                 </ButtonLink>

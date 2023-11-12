@@ -5,6 +5,7 @@ import {useState} from 'react';
 import Link from 'next/link';
 
 const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverColor, activeColor, contentContainerClass, children}) => {
+
     return (
         <>
             {/* Border */}
@@ -71,8 +72,8 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
         <Link
             className={[`${styles.button} ${activeLink && styles.buttonLinkActive} ${className}`]}
             style={{
-                minHeight : 32,
-                minWidth : 32,
+                minHeight : 16,
+                minWidth : 16,
                 position: 'relative',
                 ...style
             }}

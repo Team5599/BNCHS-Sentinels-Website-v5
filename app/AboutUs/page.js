@@ -9,13 +9,28 @@ import Image from 'next/image'
 
 import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 
+import { ButtonLink } from '@components/Button/Button'
+
 const SectionButton = ({label, href = '/', target = ''}) => {
     return (
-        <Link className={styles.button} href={href} target={target}>
-            <span>
+        <ButtonLink
+			className={styles.button}
+			href={href}
+			target={target}
+			style={{
+				backgroundColor : '#000'
+			}}
+		>
+            <span
+				style={{
+					paddingLeft : 60,
+					paddingRight : 60,
+					whiteSpace: 'nowrap'
+				}}
+			>
                 {label}
             </span>
-        </Link>
+        </ButtonLink>
     )
 }
 
