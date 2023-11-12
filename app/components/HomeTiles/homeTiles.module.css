@@ -4,15 +4,6 @@
     gap : 40px;
 }
 
-.homeTileItemButton {
-    display: flex;
-    position: relative;
-    flex : 1;
-    aspect-ratio: 1/2.1;
-    justify-content: center;
-    
-}
-
 .homeTileItem {
     display: flex;
     position: relative;
