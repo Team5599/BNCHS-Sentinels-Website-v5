@@ -20,7 +20,7 @@ const PersonCardContainer = ({title, size, members, contrast}) => {
 			<h2 style={{
 				textAlign: 'center',
 				color : contrast ? '#fff' : '#000',
-				marginBottom : 40
+				marginBottom : 20
 			}}>
 				{title}
 			</h2>
@@ -38,7 +38,7 @@ const PersonCardContainer = ({title, size, members, contrast}) => {
 const LeadershipContainer = ({members}) => {
 	return (
 		<div className={styles.leadershipSection}>
-			<svg className={styles.triangleSVG} width="100%" height="120px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" ><path  d="M1200 120L0 120 307.75 0 1200 120z" className="shape-fill" fill="#F68313" fillOpacity="1"></path></svg>
+			<svg className={styles.triangleSVG} width="100%" height="40px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" ><path  d="M1200 120L0 120 307.75 0 1200 120z" className="shape-fill" fill="#F68313" fillOpacity="1"></path></svg>
 			<div className={styles.leadershipBlock}>
 				<PersonCardContainer title={'LEADERSHIP'} size='lg' members={members} contrast={true}/>				
 			</div>
@@ -96,14 +96,14 @@ export default function Team() {
 			<Navbar/>
 			<Header size='md' imageClass={styles.headerOne} gradient={true} masked={true} divider={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
-					<h2 style={{fontWeight : 900, marginBottom : 20}}>
+					<h1 style={{fontWeight : 900, marginBottom : 20}}>
 						MEET THE TEAM
-					</h2>
+					</h1>
 				</div>
 			</Header>
-			<div className='container'>
+			{/* <div className='container'>
 				<FilterHeader/>
-			</div>
+			</div> */}
 			<LeadershipContainer members={teamData.leadership}/>
 			<PersonCardContainer title={'MEMBERS'} size='md' members={teamData.roster}/>	
 			<PersonCardContainer title={'MENTORS'} size='md' members={teamData.mentors}/>
