@@ -9,10 +9,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top : 80px;
+    padding-bottom : 80px;
 }
 
 
+.triangleSVG {
+    max-width: 100%;
+    height : 120px;
+}
+
+.small > .subheaderShapeBody {
+    padding-top : 40px;
+    padding-bottom : 40px;
+}
+
+.small > .triangleSVG {
+    height : 60px;
+}
+
 @media (max-width: 992px) {
+
+    .subheaderShapeBody {
+        padding-top : 40px;
+        padding-bottom : 40px;
+    }
+
+    .triangleSVG {
+        height: 80px;
+    }
+}
+
+
+@media (max-width: 768px) {
 
     .subheaderShapeBody {
         padding-top : 40px;

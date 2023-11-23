@@ -66,8 +66,8 @@
     transition: transform 0.2s;
 }
 
-.button:not([variant="inverted"]):hover > .buttonInnerBlock > .buttonContentContainer {
-    transform: scale(1.05);
+.button:hover > .buttonInnerBlock > .buttonContentContainer {
+    transform: scale(0.9);
 }
 
 .button[type="button"]:not([variant="inverted"]):active > .buttonInnerBlock > .buttonContentContainer {
