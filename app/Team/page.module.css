@@ -25,6 +25,8 @@
 .personBody {
     padding-top : 40px;
     padding-bottom: 40px;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 .personBody > h3 {
@@ -32,9 +34,15 @@
 }
 
 .personBodyContents {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 1fr;
     gap : 10px;
+}
+
+@media (max-width: 992px) {
+    .personBodyContents {
+        grid-template-columns: repeat(auto-fill, 1fr);
+    }
 }

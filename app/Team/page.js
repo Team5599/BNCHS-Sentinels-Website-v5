@@ -17,11 +17,13 @@ import FilterHeader from '@components/FilterHeader/FilterHeader'
 const PersonCardContainer = ({title, size, members, contrast}) => {
 	return (
 		<div className={`container ${styles.personBody}`}>
-			<h5 style={{
-				color : contrast ? '#fff' : '#000'
+			<h2 style={{
+				textAlign: 'center',
+				color : contrast ? '#fff' : '#000',
+				marginBottom : 40
 			}}>
 				{title}
-			</h5>
+			</h2>
 			<div className={styles.personBodyContents}>
 				{
 					members.map((personItem) => {
