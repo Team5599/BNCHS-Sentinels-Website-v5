@@ -226,7 +226,7 @@ const Navbar = () => {
                                     <NavbarButton label={'FIRST (C)'} href='https://www.firstinspires.org/' target='_blank'/>
                                     <NavbarButton label={'Scholarships'} href='/Opportunities'/>
                                     <NavbarButton label={'Internships'} href='/Opportunities'/>
-                                    <NavbarButton label={'Donations'} href='/Gratitude'/>
+                                    <NavbarButton label={'Donations'} href='/Donate'/>
                                 </ul>
                             </>
                         }
@@ -237,9 +237,9 @@ const Navbar = () => {
                         dropdownButtons={
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
-                                    <NavbarButton label={'Our Sponsors'}/>
-                                    <NavbarButton label={'Sponsorship Incentives'}/>
-                                    <NavbarButton label={'Make A Donation'} className={styles.donateSecondaryButton}/>
+                                    <NavbarButton label={'Our Sponsors'} href='/Sponsors'/>
+                                    <NavbarButton label={'Sponsorship Incentives'} href='/Sponsors/Incentives'/>
+                                    <NavbarButton label={'Make A Donation'} href='/Donate' className={styles.donateSecondaryButton}/>
                                     <NavbarButton label={'Become a Sponsor'} className={styles.sponsorSecondaryButton}/>
                                 </ul>
                             </>

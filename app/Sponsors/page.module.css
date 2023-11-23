@@ -1,0 +1,17 @@
+.headerOne {
+    background-image : url('/images/headers/header.jpg');
+    background-position: 50% 80%;
+    filter: brightness(75%) contrast(115%);
+}
+
+.dropdown {
+    color : #fff;
+    text-transform: uppercase;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height : 60px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
