@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Navbar from '@components/Navbar/Navbar'
 import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
+import Divider from '@components/Divider/Divider'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import PlaylistPlayer from '@components/PlaylistPlayer/PlaylistPlayer'
 
@@ -56,7 +57,7 @@ export default function Events() {
 					</p>
 				</div>
 			</SubheaderShape>
-			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 0, paddingBottom : 120, textAlign : 'justify'}}>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 0, paddingBottom : 40, textAlign : 'justify'}}>
 				<Image
                     src='/images/first/FIRST-icon.png'
                     width={150}
@@ -125,10 +126,31 @@ export default function Events() {
 					
 				</div>
 			</div>
-			<SponsorBlock/>
-			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 120, paddingBottom : 120, textAlign : 'justify'}}>
+			<div className='container'>
+				<Divider
+					color={'#000'}
+					style={{
+						marginTop : 20,
+						marginBottom : 20
+					}}
+				/>
+				<Divider
+					color={'#000'}
+					style={{
+						marginTop : 20,
+						marginBottom : 20
+					}}
+				/>
+			</div>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 120, textAlign : 'justify'}}>
 				<PlaylistPlayer/>
 			</div>
+			<SponsorBlock
+				style={{
+					marginBottom : 80
+				}}
+			/>
+			
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 0, paddingBottom : 120, textAlign : 'justify'}}>
 				<Image
                     src='/images/xrp/XRP-Logo-light.png'
@@ -188,6 +210,14 @@ export default function Events() {
 				</div>
 			</Header>
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 0, paddingBottom : 120, textAlign : 'justify'}}>
+				
+				<Image
+                    src='/images/seaperch/seaperch-logo.png'
+                    width={200}
+                    height={55}
+                    alt='FIRST Trademark Logo'
+                />
+
 				<h2 style={{textAlign : 'left'}}>
 					SEAPERCH
 				</h2>
