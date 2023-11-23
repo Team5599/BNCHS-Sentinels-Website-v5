@@ -46,8 +46,8 @@
 
 .buttonInnerBlock {
     position: relative;
-    width : 100%;
-    height : 100%;
+    width : calc(100% - 4px);
+    height : calc(100% - 4px);
     transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 

@@ -54,3 +54,20 @@
         grid-template-columns: repeat(auto-fill, 1fr);
     }
 }
+
+/* */
+
+.dropdown {
+    color : #fff;
+    text-transform: uppercase;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    white-space: nowrap;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+

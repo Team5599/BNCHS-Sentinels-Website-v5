@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react'
 import Navbar from '@components/Navbar/Navbar'
 import Header from '@components/Header/Header'
 import Footer from '@components/Footer/Footer'
+import Divider from '@components/Divider/Divider'
 
 import PersonCard from '@components/PersonCard/PersonCard'
 import {PersonCardTwo} from '@components/PersonCard/PersonCard'
@@ -13,6 +14,7 @@ import {PersonCardTwo} from '@components/PersonCard/PersonCard'
 import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 
 import FilterHeader from '@components/FilterHeader/FilterHeader'
+import { Button } from '@components/Button/Button'
 
 const PersonCardContainer = ({title, size, members, contrast}) => {
 	return (
@@ -68,6 +70,48 @@ const getTeamData = async (season) => {
     }
 }
 
+const FilterDivider = () => {
+	return (
+		<div
+			style={{
+				display : 'flex',
+				flexDirection : 'row',
+				gap : 4,
+				marginBottom : 40,
+			}}
+		>
+			<Divider
+				color={'#f68313a0'}
+				style={{
+					flexGrow : 1,
+					flex : 3
+				}}
+			/>
+			<Button
+				variant={'inverted'}
+				style={{
+					height : 40,
+					backgroundColor : '#f68313a0',
+					'--hoverBackgroundColor' : '#f68313a0'
+				}}
+			>
+				<span
+					className={styles.dropdown}
+				>
+					2023 Season
+				</span>
+			</Button>
+			<Divider
+				color={'#f68313a0'}
+				style={{
+					flexGrow : 1,
+					flex : 1
+				}}
+			/>
+		</div>
+	)
+}
+
 export default function Team() {
 
 	const [teamData, setTeamData] = useState(
@@ -101,6 +145,9 @@ export default function Team() {
 					</h1>
 				</div>
 			</Header>
+			<div className={`container`}>
+				<FilterDivider/>
+			</div>
 			{/* <div className='container'>
 				<FilterHeader/>
 			</div> */}
