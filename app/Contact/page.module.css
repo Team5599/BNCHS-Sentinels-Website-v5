@@ -4,6 +4,39 @@
     filter: brightness(75%) contrast(115%);
 }
 
+.contactBlock {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputRow {
+    flex-direction: row;
+}
+
+.subjectRow {
+    flex-direction: row;
+}
+
+@media (max-width: 992px) {
+
+    .contactBlock {
+        flex-direction: column-reverse;
+    }
+
+    .inputRow {
+        flex-direction: column;
+    }
+
+    .subjectRow {
+        flex-direction: column;
+    }
+
+    .subjectRow > div {
+        flex-direction: unset;
+    }
+
+}
+
 .submitButton {
     color : #fff;
     text-transform: uppercase;

@@ -173,12 +173,12 @@ const ContactSubjectContainer = () => {
 					display: 'flex',
 					justifyContent : 'space-between',
 				}}
+				className={styles.subjectRow}
 			>
 				<div
 					style={{
 						display: 'flex',
 						gap : 5,
-						justifyContent : 'center'
 					}}
 				>
 					<input type="radio" name="choice" value="general" style={{transform: 'scale(1)'}}/>
@@ -195,7 +195,6 @@ const ContactSubjectContainer = () => {
 					style={{
 						display: 'flex',
 						gap : 5,
-						justifyContent : 'center'
 					}}
 				>
 					<input type="radio" name="choice" value="sponsorship" style={{transform: 'scale(1)'}}/>
@@ -212,7 +211,6 @@ const ContactSubjectContainer = () => {
 					style={{
 						display: 'flex',
 						gap : 5,
-						justifyContent : 'center'
 					}}
 				>
 					<input type="radio" name="choice" value="technical" style={{transform: 'scale(1)'}}/>
@@ -258,8 +256,8 @@ export default function Contact() {
 			<SubheaderShape size='sm'/>
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 40, textAlign : 'justify', backgroundColor : '#fdfdfd'}}>
 				<div
+					className={styles.contactBlock}
 					style={{
-						display: 'flex',
 						minHeight : 500,
 						outline : '1px solid #000',
 						marginTop : 80,
@@ -278,9 +276,9 @@ export default function Contact() {
 						}}
 					>
 						<div>
-							<h5>
+							<h3>
 								Contact Information
-							</h5>
+							</h3>
 						</div>
 						<div
 							style={{
@@ -335,6 +333,7 @@ export default function Contact() {
 								display: 'flex',
 								gap : 40
 							}}
+							className={styles.inputRow}
 						>
 							<ContactInput inputRef={inputFirstNameRef} onChange={setInputFirstName} value={inputFirstName} label={"First Name"}/>
 							<ContactInput inputRef={inputLastNameRef} onChange={setInputLastName} value={inputLastName} label={"Last Name"}/>
@@ -344,6 +343,7 @@ export default function Contact() {
 								display: 'flex',
 								gap : 40
 							}}
+							className={styles.inputRow}
 						>
 							<ContactInput inputRef={inputEmailRef} onChange={setInputEmail} value={inputEmail} label={"Email Address"}/>
 							<ContactInput inputRef={inputPhoneRef} onChange={setInputPhone} value={inputPhone} label={"Phone Number (Optional)"}/>
