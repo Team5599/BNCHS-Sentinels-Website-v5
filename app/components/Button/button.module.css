@@ -67,7 +67,7 @@
 }
 
 .button:hover > .buttonInnerBlock > .buttonContentContainer {
-    transform: scale(0.9);
+    /* transform: scale(0.9); */
 }
 
 .button[type="button"]:not([variant="inverted"]):active > .buttonInnerBlock > .buttonContentContainer {
