@@ -17,6 +17,10 @@
     flex-direction: row;
 }
 
+.subjectRow > div {
+    flex-direction: center;
+}
+
 @media (max-width: 992px) {
 
     .contactBlock {
