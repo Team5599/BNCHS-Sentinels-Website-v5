@@ -3,21 +3,24 @@ import Image from 'next/image';
 import styles from './firstSection.module.css';
 
 import CountdownTimer from '../CountdownTimer/CountdownTimer';
+import { ButtonLink } from '@components/Button/Button';
 
 const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     return (
-        <Link className={styles.firstSectionButton} href={href} target={target}>
-            <span>
-                {label}
-            </span>
-        </Link>
+        <ButtonLink
+            label={label}
+            href={href}
+            className={styles.firstSectionButton}
+        />
     )
 }
+
+const targetDate = new Date(new Date().getTime()+(5*24*60*60*1000));
 
 const FIRSTSection = () => {
     return (
         <div className='container' style={{display: 'flex', flexDirection : 'column', paddingTop : 120, paddingBottom : 120, gap : 10}}>
-            <CountdownTimer/>
+            <CountdownTimer date={targetDate}/>
             <div className={styles.titleContainer}>
                 <Image
                     src='/images/first/FIRST-icon.png'
@@ -35,7 +38,7 @@ const FIRSTSection = () => {
                     
                 </div>
                 <div className={styles.buttonContainer}>
-                    <FIRSTSectionButton label='More On First' href='./Events'/>
+                    <FIRSTSectionButton label='More On FIRST' href='./Events'/>
                     <FIRSTSectionButton label='Our Competitions' href='./Events'/>
                 </div>
             </div>

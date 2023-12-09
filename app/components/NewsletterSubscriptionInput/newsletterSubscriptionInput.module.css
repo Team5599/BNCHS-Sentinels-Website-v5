@@ -47,23 +47,12 @@
 
 .newsletterSubmit {
     flex : 1;
-    padding : 0;
-    margin : 0;
-    background-color: #027bff;
     text-transform: uppercase;
-    border: none;
     color : #fff;
-    padding-top: 4px;
-    vertical-align: middle;
-    font-size: 1.2rem;
-    font-weight: 450;
-    transition: background-color 0.2s;
-    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
-.newsletterSubmit:hover {
-    background-color: #015bdf;
-}
 
 @media (max-width: 768px) {
 

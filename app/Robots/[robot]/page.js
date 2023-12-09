@@ -7,6 +7,8 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import { getRobotData } from '../page'
 import Link from 'next/link'
 
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+
 export async function generateStaticParams() {
 	const robotData = await getRobotData();
    
@@ -19,8 +21,8 @@ const EventItem = ({eventData}) => {
 	return (
 		<Link
 			href={eventData.url}
+			className={styles.eventButton}
 			style={{
-				backgroundColor : '#000',
 				color : '#fff',
 				padding : 10
 			}}
@@ -159,6 +161,7 @@ export default async function Robot({params}) {
 					</div>
 				</div>
 			</div>
+			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

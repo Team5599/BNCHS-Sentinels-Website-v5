@@ -12,12 +12,21 @@ import { usePathname } from 'next/navigation'
 import useWindowDimensions from '@lib/useWindowDimensions';
 
 import ChevronSVG from './chevron-svg';
+import useScrollPosition from '@/lib/useScrollPosition';
 
-const NavbarButton = ({label, href = '/404', target='', className = [], handleHover}) => {
+const NavbarButton = ({label, href = '/404', target='', className = [], handleHover, hideExternalIcon = false}) => {
     return (
         <li className={`${styles.navbarButton} ${className}`} navbar-button={label} onMouseEnter={handleHover}>     
             <Link className={styles.navbarButtonInternal} href={href} target={target}>
                 <span>{label}</span>
+                {
+                    (href.startsWith('http') && hideExternalIcon == false) && <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-external-link" width="14" height="14" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
+                        <path d="M11 13l9 -9"></path>
+                        <path d="M15 4h5v5"></path>
+                    </svg>
+                }
             </Link>
         </li>
     )
@@ -116,19 +125,14 @@ const useNavbarAnimationHandler = () => {
 
     useEffect(() => {
 
-        console.log("PATHNAME:", pathname);
-
         // Is there a navbar link that directs to this page?
         const navbarLink = document.querySelector(`.navbar .navbar-wrapper [href="${pathname}"]`);
-
-        console.log("link", navbarLink);
 
         if (navbarLink == null) return;
 
         // Find the main navbar component
         const navbarButton = navbarLink.closest('.navbar-wrapper > [navbar-button]');
 
-        console.log("button", navbarButton);
 
         setActiveNavbarButton(navbarButton);
         setNavbarButtonHighlight(navbarButton);
@@ -149,6 +153,10 @@ const Navbar = () => {
 
     const {navbarSliderData, setNavbarButtonHighlight, resetNavbar} = useNavbarAnimationHandler();
     
+    const windowScroll = useScrollPosition();
+
+    const SCROLL_RESIZE_TRIGGER = 80;
+    
 
     const handleNavbarItemMouseEnter = (e) => {
         const navbarButtonEl = e.target.closest('.navbar-wrapper > [navbar-button]');
@@ -157,7 +165,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className={`navbar ${styles.navbar} ${(width <= 992) && styles.mobile} ${(width <= 1200 && isMobileNavbarOpen) && styles.mobileOpen}`}>
+        <div className={`navbar ${styles.navbar} ${(width <= 992) && styles.mobile} ${(width <= 1200 && isMobileNavbarOpen) && styles.mobileOpen} ${windowScroll > SCROLL_RESIZE_TRIGGER && styles.navbarCompressed}`}>
             <div className={`container ${styles.navbarWrapper}`}>
                 <div className={styles.navbarLogoContainer}>
                     <Link
@@ -175,7 +183,7 @@ const Navbar = () => {
                     </Link> 
                 </div>
                 <Toggle isMobileNavbarOpen={isMobileNavbarOpen} setMobileNavbarOpen={setMobileNavbarOpen}/>
-                <ul className={`navbar-wrapper ${styles.navbarButtonsWrapper}`}
+                <ul className={`navbar-wrapper ${styles.navbarButtonsWrapper} ${windowScroll > SCROLL_RESIZE_TRIGGER && styles.navbarButtonsWrapperCompressed}`}
                     onMouseLeave={resetNavbar}
                 >
                     <NavbarActiveSlider width={navbarSliderData.width} left={navbarSliderData.left}/>
@@ -218,7 +226,7 @@ const Navbar = () => {
                                     <NavbarButton label={'FIRST (C)'} href='https://www.firstinspires.org/' target='_blank'/>
                                     <NavbarButton label={'Scholarships'} href='/Opportunities'/>
                                     <NavbarButton label={'Internships'} href='/Opportunities'/>
-                                    <NavbarButton label={'Donations'} href='/Gratitude'/>
+                                    <NavbarButton label={'Donations'} href='/Donate'/>
                                 </ul>
                             </>
                         }
@@ -229,15 +237,15 @@ const Navbar = () => {
                         dropdownButtons={
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
-                                    <NavbarButton label={'Our Sponsors'}/>
-                                    <NavbarButton label={'Sponsorship Incentives'}/>
-                                    <NavbarButton label={'Make A Donation'} className={styles.donateSecondaryButton}/>
+                                    <NavbarButton label={'Our Sponsors'} href='/Sponsors'/>
+                                    <NavbarButton label={'Sponsorship Incentives'} href='/Sponsors/Incentives'/>
+                                    <NavbarButton label={'Make A Donation'} href='/Donate' className={styles.donateSecondaryButton}/>
                                     <NavbarButton label={'Become a Sponsor'} className={styles.sponsorSecondaryButton}/>
                                 </ul>
                             </>
                         }
                     />
-                    <NavbarButton label={'Blog'} href='https://blog.team5599.com/' target='_blank' handleHover={handleNavbarItemMouseEnter}/>
+                    <NavbarButton label={'Blog'} href='https://blog.team5599.com/' target='_blank' handleHover={handleNavbarItemMouseEnter} hideExternalIcon={true} />
                     <NavbarButtonDropdown
                         label={'Members'}
                         ignoreChevron={true}

@@ -7,6 +7,8 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import Footer from '@components/Footer/Footer'
 import Link from 'next/link'
 
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+
 export async function generateStaticParams() {
 
 	const robotData = await getRobotData();
@@ -45,6 +47,7 @@ const RobotItem = ({robotItem}) => {
 	return (
 		<Link
 			href={`/Robots/${robotItem.name.replace(/ /g, "")}`}
+			className={styles.robotItem}
 			style={{
 				display: 'flex',			
 				backgroundColor : 'red',
@@ -67,7 +70,8 @@ const RobotItem = ({robotItem}) => {
 					src="https://i.ytimg.com/vi/oVSD8OBbLaM/maxresdefault.jpg"
 					fill={true}
 					unoptimized
-					alt={`${robotItem.name} | ${robotItem.type} ${robotItem.season}`}	
+					alt={`${robotItem.name} | ${robotItem.type} ${robotItem.season}`}
+					className={styles.robotItemImageBox}	
 					style={{
 						objectFit : 'cover'
 					}}
@@ -152,7 +156,7 @@ export default async function Robots() {
 					}
 				</div>
 			</div>
-			
+			<SponsorBlock style={{marginBottom : 80}}/>
 			<Footer/>
 		</div>
 	)

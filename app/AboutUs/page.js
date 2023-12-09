@@ -7,13 +7,30 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import Link from 'next/link'
 import Image from 'next/image'
 
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+
+import { ButtonLink } from '@components/Button/Button'
+
 const SectionButton = ({label, href = '/', target = ''}) => {
     return (
-        <Link className={styles.button} href={href} target={target}>
-            <span>
+        <ButtonLink
+			className={styles.button}
+			href={href}
+			target={target}
+			style={{
+				backgroundColor : '#000'
+			}}
+		>
+            <span
+				style={{
+					paddingLeft : 60,
+					paddingRight : 60,
+					whiteSpace: 'nowrap'
+				}}
+			>
                 {label}
             </span>
-        </Link>
+        </ButtonLink>
     )
 }
 
@@ -64,9 +81,9 @@ export default function AboutUs() {
 				>
 					<SectionButton label={'Our Members'} href={'/'}/>
 					<SectionButton label={'Our History'} href={'/'}/>
-					<SectionButton label={'Become A Sponsor'} href={'/'}/>
 				</div>
 			</div>
+			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

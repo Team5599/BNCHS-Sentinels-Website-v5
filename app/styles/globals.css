@@ -8,6 +8,7 @@
 
 body {
 	margin : 0px;
+	margin-top: 60px; /* For the sticky scrollbar */
 }
 
 a {

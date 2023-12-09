@@ -22,14 +22,8 @@ const FilterTagDropdown = () => {
 
 const FILTERBUTTONS = [
     'Leadership',
-    'Mentors',
-    'Mechanics',
-    'Electronics',
-    'Programming',
-    'Marketing',
-    'CAD',
-    'Media',
-    'Drive Team'
+    'Members',
+    'Mentors'
 ]
 
 const FilterHeader = () => {

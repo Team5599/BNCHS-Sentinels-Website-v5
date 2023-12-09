@@ -9,6 +9,8 @@ import styles from './sponsors.module.css';
 import useWindowDimensions from '@lib/useWindowDimensions';
 import { useContainerDimensions } from '@/lib/useContainerDimensions';
 
+import { ButtonLink } from '@components/Button/Button';
+
 const getSponsorsData = async () => {
 
     try {
@@ -450,11 +452,23 @@ const Sponsors = () => {
 					})
 				}
 			</div>
-			<Link className={styles.sponsorsMoreButton} style={{marginTop : 80}} href={''} target={''}>
+			<ButtonLink
+                className={styles.sponsorsMoreButton}
+                style={{
+                    marginTop : 80,
+                    backgroundColor: 'transparent',
+                    '--hoverBackgroundColor' : '#000',
+                    outlineColor : '#000',
+                    '--activeBackgroundColor' : '#444'
+                }}
+                variant={'inverted'}
+                href={''}
+                target={''}
+            >
 				<span>
 					Learn more about Sponsorship Incentives and how you can help here
 				</span>
-			</Link>
+			</ButtonLink>
 		</>
     )
 }

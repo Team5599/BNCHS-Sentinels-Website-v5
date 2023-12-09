@@ -6,16 +6,34 @@ import Link from 'next/link'
 import Navbar from '@components/Navbar/Navbar'
 import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
+import Divider from '@components/Divider/Divider'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import PlaylistPlayer from '@components/PlaylistPlayer/PlaylistPlayer'
 
+import {ButtonLink} from '@components/Button/Button'
+
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+
 const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     return (
-        <Link className={styles.firstSectionButton} href={href} target={target}>
-            <span>
-                {label}
-            </span>
-        </Link>
+		<ButtonLink
+			className={styles.firstSectionButton}
+			href={href}
+			target={target}
+			style={{
+				backgroundColor : '#000'
+			}}
+		>
+			<span
+				style={{
+					paddingLeft : 60,
+					paddingRight : 60,
+					whiteSpace: 'nowrap'
+				}}
+			>
+				{label}
+			</span>
+		</ButtonLink>
     )
 }
 
@@ -27,7 +45,7 @@ export default function Events() {
 			<Header size='md' imageClass={styles.headerOne} gradient={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
 					<h1 style={{fontWeight : 900, marginBottom : 20}}>
-						FIRST ROBOTICS COMPETITION
+						COMPETITIONS
 					</h1>
 				</div>
 			</Header>
@@ -39,7 +57,7 @@ export default function Events() {
 					</p>
 				</div>
 			</SubheaderShape>
-			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 0, paddingBottom : 120, textAlign : 'justify'}}>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 0, paddingBottom : 40, textAlign : 'justify'}}>
 				<Image
                     src='/images/first/FIRST-icon.png'
                     width={150}
@@ -105,7 +123,83 @@ export default function Events() {
 						<FIRSTSectionButton label='Internships' href='./Events'/>
 						<FIRSTSectionButton label='FIRST Website' href='./Events'/>
 					</div>
-					<PlaylistPlayer/>
+					
+				</div>
+			</div>
+			<div className='container'>
+				<Divider
+					color={'#000'}
+					style={{
+						marginTop : 20,
+						marginBottom : 20
+					}}
+				/>
+				<Divider
+					color={'#000'}
+					style={{
+						marginTop : 20,
+						marginBottom : 20
+					}}
+				/>
+			</div>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 120, textAlign : 'justify'}}>
+				<PlaylistPlayer/>
+			</div>
+			<SponsorBlock
+				style={{
+					marginBottom : 80
+				}}
+			/>
+			
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 0, paddingBottom : 120, textAlign : 'justify'}}>
+				<Image
+                    src='/images/xrp/XRP-Logo-light.png'
+                    width={280}
+                    height={95}
+                    alt='XRP Trademark Logo'
+                />
+				<h2 style={{textAlign : 'left'}}>
+					Experiential Robotics
+				</h2>
+				
+				<h3 style={{textAlign : 'left'}}>
+					MISSION
+				</h3>
+				<p>
+					The XRP is an open-robotics platform designed to help students take their first steps into engineering, robotics, and software development.
+				</p>
+				<div style={{
+					height : 500
+				}}>
+					<iframe width="100%" height="100%" style={{maxWidth: '100%', overflowX : 'hidden', border : 'none'}}
+						src="https://www.youtube.com/embed/cmcX1ohnr7E?si=PPmPRnuAo2C_yHyx">
+					</iframe>
+				</div>
+				<h3 style={{textAlign : 'left'}}>
+					About XRP
+				</h3>
+				<p>
+					The XRP (Experiential Robotics Platform) [beta], started by WPI and DEKA Research & Development Corp., aims to level the STEM playing field globally and create a future generation of STEM innovators and technology leaders.
+				</p>
+				<p>
+					The robot kits you received are designed to operate autonomously and perform basic tasks. Its simple, tool-free assembly means robots can be built quickly, and replacement parts can be easily 3-D printed. As part of this platform, WPI will provide virtual support through online courses and will guide students and teachers through the new system, including the ability to scale up using the same hardware with free software updates.
+				</p>
+				<p>
+					The XRP platform is part of WPI’s global STEM education initiative, which will bring inspiration and possibility to STEM education in ways that make it available to all.
+				</p>
+				<div
+					style={{
+						display: 'flex',
+						gap : 20,
+						flexDirection : 'column'
+					}}
+				>
+					<div className={styles.buttonContainer}>
+						<FIRSTSectionButton label='XRP Website' href='https://experientialrobotics.org/' target='_blank'/>
+						<FIRSTSectionButton label='Educators' href='https://experientialrobotics.org/educators/' target='_blank'/>
+						<FIRSTSectionButton label='Community Discourse' href='https://xrp.discourse.group/' target='_blank'/>
+					</div>
+					
 				</div>
 			</div>
 			<Header size='md' imageClass={styles.headerOne} gradient={true} masked={true} divider={true}>
@@ -116,6 +210,14 @@ export default function Events() {
 				</div>
 			</Header>
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 0, paddingBottom : 120, textAlign : 'justify'}}>
+				
+				<Image
+                    src='/images/seaperch/seaperch-logo.png'
+                    width={200}
+                    height={55}
+                    alt='FIRST Trademark Logo'
+                />
+
 				<h2 style={{textAlign : 'left'}}>
 					SEAPERCH
 				</h2>

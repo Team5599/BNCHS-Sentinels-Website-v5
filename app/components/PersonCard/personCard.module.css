@@ -1,17 +1,37 @@
+.personCardWrapper {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
 .personCard {
     display: flex;
     flex-direction: column;
-    flex-basis: 22%;
-    max-width: 300px;
-    aspect-ratio: 1/1.4;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     position: relative;
-    margin-bottom: 20px;
+}
+
+
+@media (max-width: 992px) {
+    .personCard {
+        aspect-ratio: unset;
+    }
 }
 
 .personCardImageContainer {
     position: relative;
-    width: 100%;
-    aspect-ratio: 1/1;
+    width: 120px;
+    border-radius: 50%;
+    outline: 4px solid #fff;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+@media (min-width: 1400px) {
+    .personCardImageContainer {
+        width: 140px;
+    }
 }
 
 .personCardImage {
