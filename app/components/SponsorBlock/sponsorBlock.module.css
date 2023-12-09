@@ -7,3 +7,19 @@
     font-size: 1rem;
     font-weight: 500;
 }
+
+.sponsorsMoreButton {
+    color : black;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height : 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.4s;
+}
+
+.sponsorsMoreButton:hover {
+    color : #fff;
+}

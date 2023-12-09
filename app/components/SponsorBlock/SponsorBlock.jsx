@@ -1,8 +1,10 @@
 import styles from './sponsorBlock.module.css';
 import { ButtonLink } from '@components/Button/Button';
+import Image from 'next/image';
 import Link from 'next/link';
+import SponsorMarquee from './SponsorMarquee';
 
-const SponsorBlock = ({style = {}}) => {
+const SponsorBlock = ({style = {}, containerStyle = {}}) => {
     return (
         <div
             style={{
@@ -12,7 +14,7 @@ const SponsorBlock = ({style = {}}) => {
                 ...style
             }}
         >
-            <div className='container' style={{display: 'flex', gap : 20}}>
+            <div className='container' style={{display: 'flex', gap : 20, ...containerStyle}}>
                 <div
                     style={{
                         flex : 4,
@@ -21,11 +23,14 @@ const SponsorBlock = ({style = {}}) => {
                         gap : 20
                     }}
                 >
-                    <h1>
+                    <h1 style={{
+                        lineHeight : 1
+                    }}>
                         Invest in the Future of Robotics
                     </h1>
                     <div
                         style={{
+                            marginTop : 40,
                             display : 'flex',
                             flexDirection : 'column',
                             gap : 5
@@ -76,13 +81,18 @@ const SponsorBlock = ({style = {}}) => {
                 </div>
                 <div
                     style={{
-                        flex : 3
+                        flex : 3,
+                        textAlign : 'right'
                     }}
                 >
-
+                    <Image
+                        src={'/images/pusheen-pin.jpg'}
+                        alt={'Pusheen plushy with a Team 5599 Pin!'}
+                        width={384}
+                        height={384}
+                    />
                 </div>
             </div>
-            
         </div>
     )
 }

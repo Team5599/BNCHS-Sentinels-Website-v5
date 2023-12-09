@@ -57,6 +57,13 @@
 
 /* */
 
+.selectOption {
+    background-color: #fff;
+    color : #000;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
 .dropdown {
     color : #fff;
     text-transform: uppercase;

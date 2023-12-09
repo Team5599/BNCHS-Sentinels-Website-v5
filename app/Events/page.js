@@ -126,7 +126,7 @@ export default function Events() {
 					
 				</div>
 			</div>
-			<div className='container'>
+			{/* <div className='container'>
 				<Divider
 					color={'#000'}
 					style={{
@@ -141,7 +141,7 @@ export default function Events() {
 						marginBottom : 20
 					}}
 				/>
-			</div>
+			</div> */}
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 120, textAlign : 'justify'}}>
 				<PlaylistPlayer/>
 			</div>

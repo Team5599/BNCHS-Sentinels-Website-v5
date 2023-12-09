@@ -3,6 +3,8 @@ import styles from './page.module.css'
 
 import {useState, useEffect} from 'react'
 
+import Select from 'react-select'
+
 import Navbar from '@components/Navbar/Navbar'
 import Header from '@components/Header/Header'
 import Footer from '@components/Footer/Footer'
@@ -70,44 +72,27 @@ const getTeamData = async (season) => {
     }
 }
 
+
 const FilterDivider = () => {
+
+	const options = [
+		{ value: '2023', label: '2023-2024 Season' },
+		{ value: '2022', label: '2022-2023 Season' },
+		{ value: '2021', label: '2021-2022 Season' }
+	]
+
 	return (
 		<div
 			style={{
 				display : 'flex',
-				flexDirection : 'row',
+				flexDirection : 'column',
 				gap : 4,
 				marginBottom : 40,
 			}}
 		>
-			<Divider
-				color={'#f68313a0'}
-				style={{
-					flexGrow : 1,
-					flex : 3
-				}}
-			/>
-			<Button
-				variant={'inverted'}
-				style={{
-					height : 40,
-					backgroundColor : '#f68313a0',
-					'--hoverBackgroundColor' : '#f68313a0'
-				}}
-			>
-				<span
-					className={styles.dropdown}
-				>
-					2023 Season
-				</span>
-			</Button>
-			<Divider
-				color={'#f68313a0'}
-				style={{
-					flexGrow : 1,
-					flex : 1
-				}}
-			/>
+			<Select defaultValue={options[0]} options={options} style={{
+				height : 64
+			}} />
 		</div>
 	)
 }
