@@ -1,4 +1,6 @@
 import styles from './sponsorBlock.module.css';
+import { ButtonLink } from '@components/Button/Button';
+import Link from 'next/link';
 
 const SponsorBlock = ({style = {}}) => {
     return (
@@ -35,21 +37,41 @@ const SponsorBlock = ({style = {}}) => {
                                 gap : 10
                             }}
                         >
-                            <button>
-                                Donate
-                            </button>
-                            <button>
-                                Become a Sponsor
-                            </button>
+                            <ButtonLink
+                                label={'Donate'}
+                                href={'/Sponsors'}
+                                className={styles.sponsorBlockButton}
+                                style={{
+                                    color: '#000',
+                                    backgroundColor : '#fff',
+                                    '--hoverBackgroundColor' : '#ddd',
+                                    whiteSpace : 'nowrap',
+                                    width : 120
+                                }}
+                            />
+                            <ButtonLink
+                                label={'Become a Sponsor'}
+                                href={'/Sponsors'}
+                                className={styles.sponsorBlockButton}
+                                style={{
+                                    color: '#000',
+                                    backgroundColor : '#fff',
+                                    '--hoverBackgroundColor' : '#ddd',
+                                    whiteSpace : 'nowrap',
+                                    width : 200
+                                }}
+                            />
                         </div>
-                        <a
+                        <Link
+                            href={'/Sponsors'}
                             style={{
-                                fontSize : 14
+                                fontSize : 14,
+                                textDecoration: 'underline',
+                                marginTop : 4
                             }}
-                            href="/"
                         >
                             Sponsorship Incentives
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div
