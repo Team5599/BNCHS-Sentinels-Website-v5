@@ -156,7 +156,7 @@ export default async function Robots() {
 					}
 				</div>
 			</div>
-			<SponsorBlock style={{marginBottom : 80}}/>
+			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)
