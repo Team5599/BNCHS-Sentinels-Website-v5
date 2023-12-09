@@ -11,6 +11,10 @@ import Blog from './components/Blog/Blog';
 import Sponsors from '@components/Sponsors/Sponsors';
 import CountdownTimer from './components/CountdownTimer/CountdownTimer';
 import Footer from '@components/Footer/Footer';
+import HomeTypingHeader from '@components/HomeTypingHeader/HomeTypingHeader'
+
+
+
 
 export default function Home() {
 	return (
@@ -18,9 +22,7 @@ export default function Home() {
 			<Navbar/>
 			<Header size='lg' imageClass={styles.headerOne} gradient={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
-					<h1 style={{fontWeight : 900, marginBottom : 20}}>
-						WE ARE THE SENTINELS
-					</h1>
+					<HomeTypingHeader/>
 					<h5>
 						FIRST (C) Robotics Competition Team 5599, from Benjamin N. Cardozo High School in Bayside, New York
 					</h5>
