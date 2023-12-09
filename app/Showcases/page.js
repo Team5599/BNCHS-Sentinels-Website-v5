@@ -4,6 +4,7 @@ import Navbar from '@components/Navbar/Navbar'
 import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 
 export default function Showcases() {
 	return (
@@ -71,6 +72,7 @@ export default function Showcases() {
 					</p>
 				</div>
 			</div>
+			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)
