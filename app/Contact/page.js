@@ -7,6 +7,8 @@ import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import Footer from '@components/Footer/Footer'
 
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+
 import {useRef, useState} from 'react';
 import Link from 'next/link'
 
@@ -361,6 +363,7 @@ export default function Contact() {
 					</div>
 				</div>
 			</div>
+			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)
