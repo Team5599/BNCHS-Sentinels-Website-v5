@@ -1,3 +1,27 @@
+.blockContainer {
+    display: flex;
+    flex-direction: row;
+    gap : 20
+}
+
+.blockContainerLeft {
+    text-align: unset;
+    align-items: unset;
+    justify-content: unset;
+}
+
+.blockContainerRight {
+    flex : 3;
+    text-align : right;
+}
+
+
+.blockContainerRight > div {
+    display: inline-block;
+    width: 384px;
+    height : 384px;
+}
+
 .sponsorBlockButton {
     display: flex;
     text-align: center;
@@ -22,4 +46,39 @@
 
 .sponsorsMoreButton:hover {
     color : #fff;
+}
+
+@media (max-width: 992px) {
+
+    .blockContainer {
+        flex-direction: column-reverse;
+        gap : 60px;
+    }
+
+    .blockContainerLeft {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .blockContainerLeft > h1 {
+        white-space: pre-wrap;
+    }
+    
+    .blockContainerRight {
+        flex : 3;
+        text-align : right;
+    }
+
+    .blockContainerRight {
+        flex : 3;
+        text-align : center;
+        display: none;
+    }
+
+    .blockContainerRight > div {
+        width: 256px;
+        height : 256px;
+    }
+
 }

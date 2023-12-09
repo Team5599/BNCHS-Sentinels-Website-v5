@@ -14,8 +14,9 @@ const SponsorBlock = ({style = {}, containerStyle = {}}) => {
                 ...style
             }}
         >
-            <div className='container' style={{display: 'flex', gap : 20, ...containerStyle}}>
+            <div className={`container ${styles.blockContainer}`} style={{...containerStyle}}>
                 <div
+                    className={styles.blockContainerLeft}
                     style={{
                         flex : 4,
                         display : 'flex',
@@ -24,9 +25,9 @@ const SponsorBlock = ({style = {}, containerStyle = {}}) => {
                     }}
                 >
                     <h1 style={{
-                        lineHeight : 1
+                        lineHeight : 1,
                     }}>
-                        Invest in the Future of Robotics
+                        Invest in the Future{"\n"}of Robotics
                     </h1>
                     <div
                         style={{
@@ -80,17 +81,17 @@ const SponsorBlock = ({style = {}, containerStyle = {}}) => {
                     </div>
                 </div>
                 <div
-                    style={{
-                        flex : 3,
-                        textAlign : 'right'
-                    }}
+                    className={styles.blockContainerRight} 
                 >
-                    <Image
-                        src={'/images/pusheen-pin.jpg'}
-                        alt={'Pusheen plushy with a Team 5599 Pin!'}
-                        width={384}
-                        height={384}
-                    />
+                    <div style={{position : 'relative'}}>
+                        <Image
+                            src={'/images/pusheen-pin.jpg'}
+                            alt={'Pusheen plushy with a Team 5599 Pin!'}
+                            fill
+                            sizes="(max-width: 992px) 256px, 384px"
+                        />
+                    </div>
+                    
                 </div>
             </div>
         </div>
