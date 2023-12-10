@@ -13,7 +13,7 @@ export default function Showcases() {
 			<Header size='sm' imageClass={styles.headerOne} gradient={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
 					<h1>
-						Showcases
+						SHOWCASES
 					</h1>
 					<h3>
 						Projects and Portfolios
