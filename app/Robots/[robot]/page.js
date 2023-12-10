@@ -9,6 +9,7 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import MediaContainer from './MediaContainer'
 import { getRobotData } from '../page'
 import Link from 'next/link'
+import { ButtonLink } from '@components/Button/Button'
 
 import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 
@@ -19,6 +20,12 @@ import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 // 	  	id: robotItem.name.replace(/ /g, ""),
 // 	}))
 // }
+
+// TODO
+// Add {<- previous robot} {next robot ->} buttons to bottom right of page
+
+// TODO
+// Squeeze BACK button in at top of page to return to grid view
 
 const EventItem = ({eventData}) => {
 	return (
@@ -74,7 +81,31 @@ export default function Robot({params}) {
 	return (
 		<div>
 			<Navbar/>
-			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 120, textAlign : 'justify'}}>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 40, textAlign : 'justify'}}>
+				<div
+					style={{
+						display : 'flex'
+					}}
+				>
+					<ButtonLink
+						className={styles.button}
+						href={'/robots/x'}
+						style={{
+							backgroundColor : '#000'
+						}}
+					>
+						<span
+							style={{
+								paddingLeft : 20,
+								paddingRight : 20,
+								whiteSpace: 'nowrap'
+							}}
+						>
+							Back to Robots
+						</span>
+					</ButtonLink>
+				</div>
+				
 				<h3>{robotItem.name}</h3>
 				<h5>{robotItem.type} {robotItem.season}</h5>
 				<MediaContainer robotItem={robotItem}/>
@@ -153,6 +184,50 @@ export default function Robot({params}) {
 							</div>
 						</div>
 					</div>
+				</div>
+				<div
+					style={{
+						display : 'flex',
+						marginTop : 80,
+						flexDirection : 'row',
+						justifyContent: 'flex-end',
+						gap : 20
+					}}
+				>
+					<ButtonLink
+						className={styles.button}
+						href={'/robots/x'}
+						style={{
+							backgroundColor : '#000'
+						}}
+					>
+						<span
+							style={{
+								paddingLeft : 20,
+								paddingRight : 20,
+								whiteSpace: 'nowrap'
+							}}
+						>
+							{'<--'} Previous Robot Name
+						</span>
+					</ButtonLink>
+					<ButtonLink
+						className={styles.button}
+						href={'/robots/x'}
+						style={{
+							backgroundColor : '#000'
+						}}
+					>
+						<span
+							style={{
+								paddingLeft : 20,
+								paddingRight : 20,
+								whiteSpace: 'nowrap'
+							}}
+						>
+							Next Robot Name {'-->'}
+						</span>
+					</ButtonLink>
 				</div>
 			</div>
 			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
