@@ -1,8 +1,10 @@
 import styles from './sponsorBlock.module.css';
 import { ButtonLink } from '@components/Button/Button';
+import Image from 'next/image';
 import Link from 'next/link';
+import SponsorMarquee from './SponsorMarquee';
 
-const SponsorBlock = ({style = {}}) => {
+const SponsorBlock = ({style = {}, containerStyle = {}}) => {
     return (
         <div
             style={{
@@ -12,8 +14,9 @@ const SponsorBlock = ({style = {}}) => {
                 ...style
             }}
         >
-            <div className='container' style={{display: 'flex', gap : 20}}>
+            <div className={`container ${styles.blockContainer}`} style={{...containerStyle}}>
                 <div
+                    className={styles.blockContainerLeft}
                     style={{
                         flex : 4,
                         display : 'flex',
@@ -21,11 +24,14 @@ const SponsorBlock = ({style = {}}) => {
                         gap : 20
                     }}
                 >
-                    <h1>
-                        Invest in the Future of Robotics
+                    <h1 style={{
+                        lineHeight : 1,
+                    }}>
+                        Invest in the Future{"\n"}of Robotics
                     </h1>
                     <div
                         style={{
+                            marginTop : 40,
                             display : 'flex',
                             flexDirection : 'column',
                             gap : 5
@@ -75,14 +81,19 @@ const SponsorBlock = ({style = {}}) => {
                     </div>
                 </div>
                 <div
-                    style={{
-                        flex : 3
-                    }}
+                    className={styles.blockContainerRight} 
                 >
-
+                    <div style={{position : 'relative'}}>
+                        <Image
+                            src={'/images/pusheen-pin.jpg'}
+                            alt={'Pusheen plushy with a Team 5599 Pin!'}
+                            fill
+                            sizes="(max-width: 992px) 256px, 384px"
+                        />
+                    </div>
+                    
                 </div>
             </div>
-            
         </div>
     )
 }

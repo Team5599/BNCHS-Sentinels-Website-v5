@@ -1,0 +1,11 @@
+.robotItem {
+    transition : transform 0.4s;
+}
+
+.robotItemImageBox {
+    transition: background-color 0.4s, filter 0.4s
+}
+
+.robotItemImageBackdrop {
+    transition : left 0.4s, bottom 0.4s;
+}

@@ -93,11 +93,18 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;  
     overflow: hidden;
-    text-align: justify;
+    text-align: left;
     text-overflow: ellipsis;
     text-wrap: wrap;
     width: 100%;
 }
+
+.firstLetter::first-letter {
+    initial-letter: 2;
+    font-size: 24;
+    color : red;
+    font-weight: 600;
+  }
 
 
 .polaroidShader {

@@ -17,7 +17,7 @@ const PersonCardTwo = ({personData, contrast}) => {
                     style={{
                         backgroundColor : '#000',
                         position : 'relative',
-                        height : 120
+                        height : 160
                     }}
                 >
                     <Image
@@ -40,7 +40,7 @@ const PersonCardTwo = ({personData, contrast}) => {
                         flex : 1,
                         gap : 20,
                         padding : 20,
-                        marginTop : -100
+                        marginTop : -120
                     }}
                 >
                     <div

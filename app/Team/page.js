@@ -3,6 +3,8 @@ import styles from './page.module.css'
 
 import {useState, useEffect} from 'react'
 
+import Select from 'react-select'
+
 import Navbar from '@components/Navbar/Navbar'
 import Header from '@components/Header/Header'
 import Footer from '@components/Footer/Footer'
@@ -52,7 +54,7 @@ const LeadershipContainer = ({members}) => {
 const getTeamData = async (season) => {
     try {
         const res = await fetch(
-            `https://beta.team5599.com/api/v1/Team/${season || 'current'}`,
+            `https://beta.team5599.com/api/v1/team/${season || 'current'}`,
             {
                 method: 'GET'
             }
@@ -70,42 +72,24 @@ const getTeamData = async (season) => {
     }
 }
 
-const FilterDivider = () => {
+
+const FilterDivider = ({options, displaySeasonValue, setDisplaySeasonValue}) => {
+
 	return (
 		<div
 			style={{
 				display : 'flex',
-				flexDirection : 'row',
+				flexDirection : 'column',
 				gap : 4,
 				marginBottom : 40,
 			}}
 		>
-			<Divider
-				color={'#f68313a0'}
+			<Select
+				value={displaySeasonValue}
+				onChange={setDisplaySeasonValue}
+				options={options}
 				style={{
-					flexGrow : 1,
-					flex : 3
-				}}
-			/>
-			<Button
-				variant={'inverted'}
-				style={{
-					height : 40,
-					backgroundColor : '#f68313a0',
-					'--hoverBackgroundColor' : '#f68313a0'
-				}}
-			>
-				<span
-					className={styles.dropdown}
-				>
-					2023 Season
-				</span>
-			</Button>
-			<Divider
-				color={'#f68313a0'}
-				style={{
-					flexGrow : 1,
-					flex : 1
+					height : 64
 				}}
 			/>
 		</div>
@@ -113,6 +97,10 @@ const FilterDivider = () => {
 }
 
 export default function Team() {
+
+	const dateNow = new Date();
+	const currentSeason = (dateNow.getMonth() < 8 ?  dateNow.getFullYear() : dateNow.getFullYear() + 1);
+	const earliestSeason = 2015;
 
 	const [teamData, setTeamData] = useState(
 		{
@@ -123,17 +111,35 @@ export default function Team() {
 		}
 	);
 
+	const formatSeason = (season) => {
+		return `${season - 1} — ${season} Season`
+	}
+
+	const [displaySeasonValue, setDisplaySeasonValue] = useState({value : currentSeason, label : formatSeason(currentSeason)});
+
     useEffect(() => {
 
         if (typeof window === 'undefined') return;
 
         const fetchData = async () => {
-            setTeamData(await getTeamData(2020));
+
+			console.log("FETCHING", displaySeasonValue);
+
+            setTeamData(await getTeamData(displaySeasonValue.value));
         }
 
         fetchData();
 
-    }, [])
+    }, [displaySeasonValue])
+
+	let options = [];
+	for (let season = earliestSeason; season < currentSeason; season++) {
+		options.push({
+			value : season,
+			label : formatSeason(season)
+		})
+	}
+	options = options.reverse();
 
 	return (
 		<div>
@@ -146,7 +152,7 @@ export default function Team() {
 				</div>
 			</Header>
 			<div className={`container`}>
-				<FilterDivider/>
+				<FilterDivider options={options} displaySeasonValue={displaySeasonValue} setDisplaySeasonValue={setDisplaySeasonValue}/>
 			</div>
 			{/* <div className='container'>
 				<FilterHeader/>

@@ -42,7 +42,7 @@ export default function AboutUs() {
 			<Header size='sm' imageClass={styles.headerOne} gradient={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
 					<h1 style={{fontWeight : 900, marginBottom : 20}}>
-						About Us
+						ABOUT US
 					</h1>
 				</div>
 			</Header>

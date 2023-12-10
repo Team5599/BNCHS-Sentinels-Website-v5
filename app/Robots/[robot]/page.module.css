@@ -12,3 +12,17 @@
 .eventButton:hover {
     background-color: #222;
 }
+
+
+.button {
+    color : #fff;
+    text-transform: uppercase;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height : 50px;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: background-color 0.2s;
+}

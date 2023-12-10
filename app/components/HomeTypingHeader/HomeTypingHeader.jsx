@@ -24,7 +24,8 @@ const HomeTypingHeader = () => {
                 <div
                     style={{
                         display : 'flex',
-                        justifyContent : 'center'
+                        justifyContent : 'center',
+                        textTransform : 'uppercase'
                     }}
                 >
                     <h1 style={{ fontWeight : 900, marginBottom : 20}}>

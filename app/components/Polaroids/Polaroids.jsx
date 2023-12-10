@@ -28,7 +28,7 @@ const Polaroid = ({imageSrc, description, postUrl = "/", alt, offset = 0, rotati
                         alt={alt}
                     />
                     <div className={styles.polaroidOverlay}>
-                        <span>
+                        <span className={styles.firstLetter}>
                             {description}
                         </span>
                     </div>

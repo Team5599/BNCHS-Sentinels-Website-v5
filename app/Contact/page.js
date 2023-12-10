@@ -7,6 +7,8 @@ import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import Footer from '@components/Footer/Footer'
 
+import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+
 import {useRef, useState} from 'react';
 import Link from 'next/link'
 
@@ -246,21 +248,20 @@ export default function Contact() {
 	return (
 		<div>
 			<Navbar/>
-			<Header size='sm' imageClass={styles.headerOne} gradient={true}>
+			<Header size='md' imageClass={styles.headerOne} gradient={true} masked={true} divider={true}>
 				<div className='container restrictHeader' style={{color : '#fff'}}>
 					<h1 style={{fontWeight : 900, marginBottom : 20}}>
-						Contact Us
+						CONTACT US
 					</h1>
 				</div>
 			</Header>
-			<SubheaderShape size='sm'/>
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 40, textAlign : 'justify', backgroundColor : '#fdfdfd'}}>
 				<div
 					className={styles.contactBlock}
 					style={{
 						minHeight : 500,
 						outline : '1px solid #000',
-						marginTop : 80,
+						marginTop : 0,
 						marginBottom : 80
 					}}
 				>
@@ -361,6 +362,7 @@ export default function Contact() {
 					</div>
 				</div>
 			</div>
+			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

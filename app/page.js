@@ -12,6 +12,7 @@ import Sponsors from '@components/Sponsors/Sponsors';
 import CountdownTimer from './components/CountdownTimer/CountdownTimer';
 import Footer from '@components/Footer/Footer';
 import HomeTypingHeader from '@components/HomeTypingHeader/HomeTypingHeader'
+import SponsorMarquee from './components/SponsorBlock/SponsorMarquee'
 
 
 
@@ -53,20 +54,27 @@ export default function Home() {
 				</iframe>
 			</Header>
 			<FIRSTSection/>
-			<Header size='lg' imageClass={styles.headerOne} masked={true}>
+			
+			<Header size='md' imageClass={styles.headerOne} masked={false}>
 				<NewsletterSubscriptionInput/>
 			</Header>
 			<Blog/>
-			<Header size='md' imageClass={styles.headerOne} masked={true}>
+			{/* <Header size='sm' imageClass={styles.headerOne} masked={false}>
 				<div className='container' style={{color : '#fff', textAlign: 'center', backgroundColor: '#00000099', paddingTop : 40, paddingBottom : 40, paddingLeft : 40, paddingRight : 40}}>
 					<h2 style={{textAlign : 'center', fontSize : '2.25rem', fontWeight : 750}}>
 						OUR SPONSORS
 					</h2>
 				</div>
-			</Header>
-			<div className='container' style={{display: 'flex', paddingTop : 120, paddingBottom : 120, justifyContent : 'center', flexDirection : 'column', gap : 40}}>
+			</Header> */}
+			{/* <div className='container' style={{display: 'flex', paddingTop : 120, paddingBottom : 120, justifyContent : 'center', flexDirection : 'column', gap : 40}}>
 				<Sponsors/>
-			</div>
+			</div> */}
+			<Header size='md'>
+				<iframe width="100%" height="100%" style={{maxWidth: '100%', overflowX : 'hidden', border : 'none'}}
+					src="https://www.youtube.com/embed/q976KWsvT7I?autoplay=0&mute=1&loop=1">
+				</iframe>
+			</Header>
+			<SponsorMarquee sponsorSize={128}/>
 			<Footer/>
 		</div>
 	)

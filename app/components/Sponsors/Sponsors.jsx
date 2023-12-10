@@ -8,6 +8,7 @@ import styles from './sponsors.module.css';
 
 import useWindowDimensions from '@lib/useWindowDimensions';
 import { useContainerDimensions } from '@/lib/useContainerDimensions';
+import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
 
 import { ButtonLink } from '@components/Button/Button';
 
@@ -42,25 +43,6 @@ const getSponsorsData = async () => {
 
 }
 
-const getImageDimensionsFromURL = (id, imageUrl) => {
-
-    return new Promise((resolve, reject) => {
-
-        const img = new Image();
-        img.src = imageUrl;
-
-        img.onload = () => {
-            resolve({id, width : img.width, height : img.height});
-        };
-
-        img.onerror = (err) => {
-            console.log("Failed to calculate diimensions from image url", imageUrl);
-            console.error(err);
-            reject();
-        };
-    })
-
-}
 
 const FILLERBLOCK_BACKGROUND_COLORS = [
     '#eeeeee',
