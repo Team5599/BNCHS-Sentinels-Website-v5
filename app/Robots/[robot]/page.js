@@ -1,21 +1,24 @@
+"use client"
 import styles from './page.module.css'
+import { useState, useEffect } from 'react'
 
 import Navbar from '@components/Navbar/Navbar'
 import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
+import MediaContainer from './MediaContainer'
 import { getRobotData } from '../page'
 import Link from 'next/link'
 
 import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 
-export async function generateStaticParams() {
-	const robotData = await getRobotData();
+// export async function generateStaticParams() {
+// 	const robotData = await getRobotData();
    
-	return robotData.map((robotItem) => ({
-	  	id: robotItem.name.replace(/ /g, ""),
-	}))
-}
+// 	return robotData.map((robotItem) => ({
+// 	  	id: robotItem.name.replace(/ /g, ""),
+// 	}))
+// }
 
 const EventItem = ({eventData}) => {
 	return (
@@ -34,7 +37,8 @@ const EventItem = ({eventData}) => {
 	)
 }
 
-export default async function Robot({params}) {
+
+export default function Robot({params}) {
 
 	/* 
 		At the moment, there is no way to pass the robots data fetched from the /Robots route down to this dynamic child prop- just the ID for the slug.
@@ -42,12 +46,30 @@ export default async function Robot({params}) {
 		I am under the impression that NextJS and react de-dupe and cache this duplicated requests, so hopefully we're only really only sending out one request
 	*/
 
-	const robotData = await getRobotData();
+	const [robotData, setRobotData] = useState(null);
+
+	useEffect(() => {
+		
+		async function getRobotDataWrapper() {
+			const robotData = await getRobotData();
+			setRobotData(robotData)
+		}
+
+		getRobotDataWrapper();
+
+	}, [])
+
+	if (robotData == null){
+		return <span>
+			Loading
+		</span>
+	}
 
 	const robotItem = robotData.find((robotItem) => {
 		return robotItem.name.replace(/ /g, "") == params.robot
 	})
 
+	console.log("robot", robotItem, robotItem.media)
 
 	return (
 		<div>
@@ -55,35 +77,7 @@ export default async function Robot({params}) {
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 120, textAlign : 'justify'}}>
 				<h3>{robotItem.name}</h3>
 				<h5>{robotItem.type} {robotItem.season}</h5>
-				<div
-					style={{
-						width : '100%',
-						height : 500,
-						display : 'flex',
-						flexDirection : 'column',
-						gap : 10
-					}}
-				>
-					<div
-						style={{
-							backgroundColor : '#ddd',
-							width : '100%',
-							flex : 1,
-							flexGrow : 1
-						}}
-					>
-
-					</div>
-					<div
-						style={{
-							backgroundColor : '#ddd',
-							width : '100%',
-							height : 160
-						}}
-					>
-
-					</div>
-				</div>
+				<MediaContainer robotItem={robotItem}/>
 				<div
 					style={{
 						display: 'flex',

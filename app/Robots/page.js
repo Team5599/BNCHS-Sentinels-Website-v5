@@ -47,6 +47,7 @@ export default async function Robots() {
 
 	const robotData = await getRobotData();
 
+
 	return (
 		<div>
 			<Navbar/>
