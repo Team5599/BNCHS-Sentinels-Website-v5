@@ -54,7 +54,7 @@ const LeadershipContainer = ({members}) => {
 const getTeamData = async (season) => {
     try {
         const res = await fetch(
-            `https://beta.team5599.com/api/v1/Team/${season || 'current'}`,
+            `https://beta.team5599.com/api/v1/team/${season || 'current'}`,
             {
                 method: 'GET'
             }
@@ -73,13 +73,7 @@ const getTeamData = async (season) => {
 }
 
 
-const FilterDivider = () => {
-
-	const options = [
-		{ value: '2023', label: '2023-2024 Season' },
-		{ value: '2022', label: '2022-2023 Season' },
-		{ value: '2021', label: '2021-2022 Season' }
-	]
+const FilterDivider = ({options, displaySeasonValue, setDisplaySeasonValue}) => {
 
 	return (
 		<div
@@ -90,14 +84,23 @@ const FilterDivider = () => {
 				marginBottom : 40,
 			}}
 		>
-			<Select defaultValue={options[0]} options={options} style={{
-				height : 64
-			}} />
+			<Select
+				value={displaySeasonValue}
+				onChange={setDisplaySeasonValue}
+				options={options}
+				style={{
+					height : 64
+				}}
+			/>
 		</div>
 	)
 }
 
 export default function Team() {
+
+	const dateNow = new Date();
+	const currentSeason = (dateNow.getMonth() < 8 ?  dateNow.getFullYear() : dateNow.getFullYear() + 1);
+	const earliestSeason = 2015;
 
 	const [teamData, setTeamData] = useState(
 		{
@@ -108,17 +111,35 @@ export default function Team() {
 		}
 	);
 
+	const formatSeason = (season) => {
+		return `${season - 1} — ${season} Season`
+	}
+
+	const [displaySeasonValue, setDisplaySeasonValue] = useState({value : currentSeason, label : formatSeason(currentSeason)});
+
     useEffect(() => {
 
         if (typeof window === 'undefined') return;
 
         const fetchData = async () => {
-            setTeamData(await getTeamData(2020));
+
+			console.log("FETCHING", displaySeasonValue);
+
+            setTeamData(await getTeamData(displaySeasonValue.value));
         }
 
         fetchData();
 
-    }, [])
+    }, [displaySeasonValue])
+
+	let options = [];
+	for (let season = earliestSeason; season < currentSeason; season++) {
+		options.push({
+			value : season,
+			label : formatSeason(season)
+		})
+	}
+	options = options.reverse();
 
 	return (
 		<div>
@@ -131,7 +152,7 @@ export default function Team() {
 				</div>
 			</Header>
 			<div className={`container`}>
-				<FilterDivider/>
+				<FilterDivider options={options} displaySeasonValue={displaySeasonValue} setDisplaySeasonValue={setDisplaySeasonValue}/>
 			</div>
 			{/* <div className='container'>
 				<FilterHeader/>
