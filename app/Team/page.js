@@ -18,7 +18,7 @@ import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 import FilterHeader from '@components/FilterHeader/FilterHeader'
 import { Button } from '@components/Button/Button'
 
-const PersonCardContainer = ({title, size, members, contrast}) => {
+const PersonCardContainer = ({title, size, members, contrast, displaySeasonValue}) => {
 	return (
 		<div className={`container ${styles.personBody}`}>
 			<h2 style={{
@@ -31,7 +31,7 @@ const PersonCardContainer = ({title, size, members, contrast}) => {
 			<div className={styles.personBodyContents}>
 				{
 					members.map((personItem) => {
-						return <PersonCardTwo key={personItem._id} personData={personItem} contrast={contrast}/>
+						return <PersonCardTwo key={personItem._id} personData={personItem} contrast={contrast} displaySeasonValue={displaySeasonValue}/>
 					})
 				}
 			</div>
@@ -39,12 +39,12 @@ const PersonCardContainer = ({title, size, members, contrast}) => {
 	)
 }
 
-const LeadershipContainer = ({members}) => {
+const LeadershipContainer = ({members, displaySeasonValue}) => {
 	return (
 		<div className={styles.leadershipSection}>
 			<svg className={styles.triangleSVG} width="100%" height="40px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" ><path  d="M1200 120L0 120 307.75 0 1200 120z" className="shape-fill" fill="#F68313" fillOpacity="1"></path></svg>
 			<div className={styles.leadershipBlock}>
-				<PersonCardContainer title={'LEADERSHIP'} size='lg' members={members} contrast={true}/>				
+				<PersonCardContainer title={'LEADERSHIP'} size='lg' members={members} contrast={true} displaySeasonValue={displaySeasonValue}/>				
 			</div>
 			<svg className={styles.triangleSVG} width="100%" height="120px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" ><path  d="M1200 0L0 0 892.25 120 1200 0z" className="shape-fill" fill="#F68313" fillOpacity="1"></path></svg>
 		</div>
@@ -157,9 +157,9 @@ export default function Team() {
 			{/* <div className='container'>
 				<FilterHeader/>
 			</div> */}
-			<LeadershipContainer members={teamData.leadership}/>
-			<PersonCardContainer title={'MEMBERS'} size='md' members={teamData.roster}/>	
-			<PersonCardContainer title={'MENTORS'} size='md' members={teamData.mentors}/>
+			<LeadershipContainer members={teamData.leadership} displaySeasonValue={displaySeasonValue}/>
+			<PersonCardContainer title={'MEMBERS'} size='md' members={teamData.roster} displaySeasonValue={displaySeasonValue}/>	
+			<PersonCardContainer title={'MENTORS'} size='md' members={teamData.mentors} displaySeasonValue={displaySeasonValue}/>
 			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>

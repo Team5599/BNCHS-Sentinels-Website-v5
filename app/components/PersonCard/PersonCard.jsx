@@ -2,7 +2,11 @@ import styles from './personCard.module.css'
 
 import Image from 'next/image';
 
-const PersonCardTwo = ({personData, contrast}) => {
+const PersonCardTwo = ({personData, contrast, displaySeasonValue}) => {
+
+    console.log("pdata", displaySeasonValue, personData)
+
+    const season = displaySeasonValue.value;
 
     return (
         <div className={styles.personCardWrapper}>
@@ -77,10 +81,29 @@ const PersonCardTwo = ({personData, contrast}) => {
                         <span
                             style={{
                                 fontWeight : 500,
-                                fontSize : 14
+                                fontSize : 14,
+                                whiteSpace: 'pre-wrap'
                             }}
                         >
-                            DIRECTOR OF TITLING
+                            {
+                                (
+                                    Object.entries(personData.roles).filter(([roleID, roleData]) => {
+                                        // Check to see if role is within range of search year
+                                        const startYear = parseInt(roleData.season_first, 10);
+                                        const endYear =  parseInt(roleData.season_last, 10);
+
+                                        console.log(startYear, season, endYear);
+                                        
+                                        return (startYear <= season && season <= endYear);
+                                    }).map(([roleID, roleData]) => {
+                                        return (
+                                            <span key={roleID}>
+                                                {roleData.title}{"\n"}
+                                            </span>
+                                        )
+                                    })
+                                )
+                            }
                         </span>
                     </div>
                     <div
