@@ -13,14 +13,3 @@
     box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
 }
 
-.robotItemImageBox {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: #0052afa0;
-    background-blend-mode: multiply;
-    transition: background-color 0.4s, filter 0.4s;
-}
-
-.robotItem:hover > div > .robotItemImageBox {
-    background-color: #f68313a0;
-}
