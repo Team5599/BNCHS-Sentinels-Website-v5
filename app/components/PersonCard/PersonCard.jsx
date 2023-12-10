@@ -88,6 +88,9 @@ const PersonCardTwo = ({personData, contrast, displaySeasonValue}) => {
                             {
                                 (
                                     Object.entries(personData.roles).filter(([roleID, roleData]) => {
+
+                                        if (roleData.ignore == 'true') return false;
+
                                         // Check to see if role is within range of search year
                                         const startYear = parseInt(roleData.season_first, 10);
                                         const endYear =  parseInt(roleData.season_last, 10);
