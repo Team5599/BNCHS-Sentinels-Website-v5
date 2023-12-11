@@ -38,7 +38,7 @@ const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverCo
     )
 }
 
-const ButtonBase = ({style = {}, children, type, variant, className, contentContainerClass = {}, props, href, target}) => {
+const ButtonBase = ({style = {}, children, type, variant, className, contentContainerClass = {}, href, target, ...props}) => {
     
     const baseColor = style['backgroundColor'] || '#000';
     const outlineColor = style['outlineColor'] || baseColor;
