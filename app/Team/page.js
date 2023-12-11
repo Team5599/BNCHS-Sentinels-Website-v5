@@ -54,7 +54,7 @@ const LeadershipContainer = ({members, displaySeasonValue}) => {
 const getTeamData = async (season) => {
     try {
         const res = await fetch(
-            `https://beta.team5599.com/api/v1/team/${season || 'current'}`,
+            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/team/${season || 'current'}`,
             {
                 method: 'GET'
             }

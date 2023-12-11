@@ -19,7 +19,7 @@ const getSponsorsData = async () => {
 
     try {
         const res = await fetch(
-            `https://beta.team5599.com/api/v1/sponsors`,
+            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/sponsors`,
             {
                 method: 'GET'
             }
