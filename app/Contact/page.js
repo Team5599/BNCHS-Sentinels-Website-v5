@@ -251,7 +251,7 @@ const ContactInputTextArea = ({label, inputKey, register, required = false, erro
 
 const SubmitButton = ({label, onClick, disabled}) => {
     return (
-        <Button className={styles.submitButton} onClick={onClick} disabled={true}>
+        <Button className={styles.submitButton} onClick={onClick} disabled={disabled}>
             <span
 				style={{
 					paddingLeft : 50,
