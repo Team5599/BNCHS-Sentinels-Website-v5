@@ -6,6 +6,7 @@ import Marquee from "react-fast-marquee";
 import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
 import { ButtonLink } from '@components/Button/Button';
 import styles from './sponsorBlock.module.css';
+import { Tooltip } from 'react-tooltip'
 
 const getSponsorsData = async () => {
 
@@ -108,6 +109,7 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                 {
                     sponsorsData.map((sponsorData) => {
                         return <Image
+                            data-tooltip-id="tooltip" data-tooltip-content={sponsorData.name}
                             key={sponsorData.name}
                             src={sponsorData.srcURL}
                             alt={sponsorData.name}
@@ -122,6 +124,7 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                     })
                 }
             </Marquee>
+            <Tooltip id="tooltip"/>
             <div className={`container`}>
                 <ButtonLink
                     className={styles.sponsorsMoreButton}
