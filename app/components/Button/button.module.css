@@ -35,7 +35,7 @@
     transition: border-color 0.2s;
 }
 
-.button:hover > .buttonOutline {
+.button:not([disabled]):hover > .buttonOutline {
     border-color: var(--hover-border-color) !important;
 }
 
@@ -51,7 +51,7 @@
     transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
-.button:hover > .buttonInnerBlock {
+.button:not([disabled]):hover > .buttonInnerBlock {
     --blockShrinkWidth : 4px;
     width : calc(100% - (var(--blockShrinkWidth) * 2));
     height : calc(100% - (var(--blockShrinkWidth) * 2));
@@ -66,11 +66,25 @@
     transition: transform 0.2s;
 }
 
-.button:hover > .buttonInnerBlock > .buttonContentContainer {
+.button:not([disabled]):hover > .buttonInnerBlock > .buttonContentContainer {
     /* transform: scale(0.9); */
 }
 
-.button[type="button"]:not([variant="inverted"]):active > .buttonInnerBlock > .buttonContentContainer {
+.button[disabled] {
+    cursor: default;
+}
+
+.button[disabled] > .buttonOutline {
+    border-color: var(--disabled-border-color) !important;
+}
+
+
+.button[disabled] > .buttonInnerBlock {
+    background-color: var(--disabled-background-color) !important;
+}
+
+
+.button[type="button"]:not([variant="inverted"]):not([disabled]):active > .buttonInnerBlock > .buttonContentContainer {
     transform: scale(1.2);
 }
 

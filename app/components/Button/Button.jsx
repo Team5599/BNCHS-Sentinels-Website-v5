@@ -4,7 +4,7 @@ import styles from './button.module.css'
 import {useState} from 'react';
 import Link from 'next/link';
 
-const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverColor, activeColor, contentContainerClass, children}) => {
+const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverColor, activeColor, disabledColor, contentContainerClass, children}) => {
 
     return (
         <>
@@ -13,7 +13,8 @@ const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverCo
                 className={styles.buttonOutline}
                 style={{
                     borderColor : outlineColor,
-                    '--hover-border-color' : outlineHoverColor
+                    '--hover-border-color' : outlineHoverColor,
+                    '--disabled-border-color' : disabledColor
                 }}
             />
             {/* Inner Block */}
@@ -23,6 +24,7 @@ const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverCo
                     backgroundColor: baseColor,
                     '--hover-background-color' : hoverColor,
                     '--active-background-color' : activeColor,
+                    '--disabled-background-color' : disabledColor
                 }}
             >
                 <div
@@ -42,11 +44,12 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
     
     const baseColor = style['backgroundColor'] || '#000';
     const outlineColor = style['outlineColor'] || baseColor;
-
+    
     const hoverColor = style['--hoverBackgroundColor'] || '#222';
     const outlineHoverColor = style['--hoverOutlineColor'] || hoverColor;
-
+    
     const activeColor = style['--activeBackgroundColor'] || hoverColor;
+    const disabledColor = style['--disabledBackgroundColor'] || '#777';
 
     delete style['backgroundColor'];
     delete style['--hoverBackgroundColor']
@@ -55,6 +58,7 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
     delete style['--hoverOutlineColor']
 
     delete style['--activeBackgroundColor']
+    delete style['--disabledBackgroundColor']
 
     const [activeLink, setActiveLink] = useState(false);
 
@@ -84,7 +88,7 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
             {...asLinkProps}
             {...props}
         >
-            <ButtonBaseInternal baseColor={baseColor} hoverColor={hoverColor} outlineColor={outlineColor} outlineHoverColor={outlineHoverColor} activeColor={activeColor} contentContainerClass={contentContainerClass}>
+            <ButtonBaseInternal baseColor={baseColor} hoverColor={hoverColor} outlineColor={outlineColor} outlineHoverColor={outlineHoverColor} activeColor={activeColor} disabledColor={disabledColor} contentContainerClass={contentContainerClass}>
                 {children}
             </ButtonBaseInternal>
         </Link> :
@@ -99,7 +103,7 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
             type={type}
             {...props}
         >
-            <ButtonBaseInternal baseColor={baseColor} hoverColor={hoverColor} outlineColor={outlineColor} outlineHoverColor={outlineHoverColor} activeColor={activeColor} contentContainerClass={contentContainerClass}>
+            <ButtonBaseInternal baseColor={baseColor} hoverColor={hoverColor} outlineColor={outlineColor} outlineHoverColor={outlineHoverColor} activeColor={activeColor} disabledColor={disabledColor} contentContainerClass={contentContainerClass}>
                 {children}
             </ButtonBaseInternal>
         </button>
