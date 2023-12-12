@@ -11,7 +11,7 @@ const getSponsorsData = async () => {
 
     try {
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/sponsors`,
+            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/sponsors/current`,
             {
                 method: 'GET'
             }
