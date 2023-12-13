@@ -11,8 +11,8 @@ const HomeTileItem = ({label, href = '/', backgroundImgClass = {}}) => {
             contentContainerClass={styles.homeTileItem}
             style={{
                 backgroundColor : 'transparent',
-                outlineColor : '#000',
-                '--hoverOutlineColor' : '#000'
+                outlineColor : '#bbb',
+                '--hoverOutlineColor' : '#263d59'
             }}
             type='link'
             variant='inverted'
