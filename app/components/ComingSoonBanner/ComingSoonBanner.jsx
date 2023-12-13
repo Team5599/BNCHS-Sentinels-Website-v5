@@ -11,15 +11,15 @@ const ComingSoonBanner = () => {
                 justifyContent : 'center',
                 alignItems : 'center',
                 textAlign : 'center',
-                marginTop : 40,
-                marginBottom : 80
+                marginTop : 120,
+                marginBottom : 120,
+                paddingBottom : 20
             }}
         >
             <div
                 style={{
                     display : 'flex',
-                    flexDirection : 'column',
-                    gap : 0
+                    flexDirection : 'column'
                 }}
             >
                 <span
@@ -39,10 +39,9 @@ const ComingSoonBanner = () => {
                         fontWeight : 200
                     }}
                 >
-                    No content here - coming soon!
+                    This page has no content right now — check back later!
                 </span>
             </div>
-            
         </div>
     )
 }
