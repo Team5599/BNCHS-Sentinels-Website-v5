@@ -20,6 +20,8 @@ p {
 	margin : 0;
 	font-size: 1.25rem;
 	font-weight: 375;
+	text-indent: 40px;
+	line-height: 1.8rem;
 }
 
 h1 {

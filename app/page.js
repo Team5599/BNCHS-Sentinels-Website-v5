@@ -46,6 +46,9 @@ export default function Home() {
 				<p>
 					FRC Team 5599, participates in the annual FIRST® Robotics Competition (FRC). In a six week time span, we raise funds, design, and construct a fully-functional robot.
 				</p>
+				<p>
+					In 2014, the team was awarded the Future Glory Award at the Brunswick Eruption 2014 off-season competition. In 2015, the team took home the Rookie Inspiration Award from the New York City 2015 Regional Competition. In 2017, the team was the leading alliance in finals at the Hudson Valley Rally off-season competition in Yonkers, New York. In 2018, the team played in the quarter-finals in the New York City 2018 Regional Competition on an alliance with specialized school Brooklyn Technical High School and Long Island City High School. At the time Vice-Captain and Director of Marketing, Danielle Louie, was a Dean's Lists Award semi-finalist. At the 2019 SBPLI Long Island Regional Competition (#2), Nazifa Prapti was a Dean's List Award semi-finalist, and was also awarded the MVP Achievement in recognition of their "Individual excellence, contribution, and achievement" during the competition season. At the New York City 2019 Regional, Nazifa was a Dean's List Award finalist, one of the highest acclaimed awards in the entire FIRST Robotics program. The team placed in the semi-finals during the 2019 Half Hallow Hills Robotics Invitational off-season event.
+				</p>
 			</div>
 			<HomeTiles/>
 			<Header size='md'>
