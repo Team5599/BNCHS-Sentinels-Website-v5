@@ -346,7 +346,7 @@ const ContactSubjectContainer = ({inputKey, control}) => {
 						</>
 					)}
 				/>
-				<Tooltip id="tooltip" />
+				<Tooltip id="tooltip" noArrow={true} />
 			</div>
 		</div>
 	)
