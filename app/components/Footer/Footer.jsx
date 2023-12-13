@@ -97,23 +97,23 @@ const Footer = () => {
                             },
                             {
                                 label : "About Us",
-                                href : "/"
+                                href : "/AboutUs"
                             },
                             {
                                 label : "Team",
-                                href : "/"
+                                href : "/Team"
                             },
                             {
                                 label : "Robots",
-                                href : "/"
+                                href : "/Robots"
                             },
                             {
                                 label : "Events & Competitions",
-                                href : "/"
+                                href : "/Events"
                             },
                             {
                                 label : "Contact Us",
-                                href : "/"
+                                href : "/Contact"
                             }
                         ]}
                     />
@@ -122,11 +122,11 @@ const Footer = () => {
                         links={[
                             {
                                 label : "Calendar",
-                                href : "/"
+                                href : "/Calendar"
                             },
                             {
                                 label : "Resource Engine",
-                                href : "/"
+                                href : "https://legacy.team5599.com/Resources.html"
                             },
                             {
                                 label : "Scholarships",
@@ -147,19 +147,19 @@ const Footer = () => {
                         links={[
                             {
                                 label : "Our Sponsors",
-                                href : "/"
+                                href : "/Sponsors"
                             },
                             {
                                 label : "Sponsorship Incentives",
-                                href : "/"
+                                href : "/Sponsors"
                             },
                             {
                                 label : "Become a Sponsor",
-                                href : "/"
+                                href : "/Contact"
                             },
                             {
                                 label : "Make a Donation",
-                                href : "/"
+                                href : "/Contact"
                             }
                         ]}
                     />
@@ -167,7 +167,7 @@ const Footer = () => {
                 </div>
                 <div className={`${styles.footerColumnContainer} ${styles.footerColumnContainerBottom}`}>
                     <div className={styles.footerBottomLinks}>
-                        <Link href={'Contact Us'} target={'/404'}>
+                        <Link href={'/404'}>
                             <span>Site Map</span>
                         </Link>
                     </div>

@@ -213,7 +213,7 @@ const Navbar = () => {
                                     <NavbarButton label={'Calendar'} href='Calendar'/>
                                     <NavbarButton label={'Photos & Videos'} href='https://www.flickr.team5599.com' target='_blank'/>
                                     <NavbarButton label={'Team Documents'} href='/Documents'/>
-                                    <NavbarButton label={'Resource Engine'} href='/Resources'/>
+                                    <NavbarButton label={'Resource Engine'} href='https://legacy.team5599.com/Resources.html' target='_blank'/>
                                 </ul>
                                 <ul className={styles.navbarDropdownColumn}>
                                     <NavbarButton label={'Branding'} href='https://www.dropbox.com/sh/haj08owh473lcwr/AACT7a2KEGJLxAf-2OGS5d7Ia?dl=0' target='_blank'/>
@@ -238,9 +238,9 @@ const Navbar = () => {
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
                                     <NavbarButton label={'Our Sponsors'} href='/Sponsors'/>
-                                    <NavbarButton label={'Sponsorship Incentives'} href='/Sponsors/Incentives'/>
-                                    <NavbarButton label={'Make A Donation'} href='/Donate' className={styles.donateSecondaryButton}/>
-                                    <NavbarButton label={'Become a Sponsor'} className={styles.sponsorSecondaryButton}/>
+                                    <NavbarButton label={'Sponsorship Incentives'} href='/Sponsors'/>
+                                    <NavbarButton label={'Make A Donation'} href='/Contact' className={styles.donateSecondaryButton}/>
+                                    <NavbarButton label={'Become a Sponsor'} href='/Contact' className={styles.sponsorSecondaryButton}/>
                                 </ul>
                             </>
                         }
