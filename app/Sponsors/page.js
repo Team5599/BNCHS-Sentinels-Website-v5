@@ -50,13 +50,13 @@ const getSponsorsData = async () => {
 export default function SponsorsPage() {
 
 	const dateNow = new Date();
-	const currentSeason = (dateNow.getMonth() < 8 ?  dateNow.getFullYear() : dateNow.getFullYear() + 1);
+	const currentSeason = (dateNow.getMonth() < 8 ?  dateNow.getFullYear() - 1 : dateNow.getFullYear());
 	const earliestSeason = 2015;
 
 	const [sponsorsData, setSponsorsData] = useState([]);
 
 	const formatSeason = (season) => {
-		return `${season - 1} — ${season} Season`
+		return `${season} — ${season + 1} Season`
 	}
 
 	const [displaySeasonValue, setDisplaySeasonValue] = useState({value : currentSeason, label : formatSeason(currentSeason)});
@@ -93,6 +93,9 @@ export default function SponsorsPage() {
 				}
 
                 let weight = Math.round(imageMetadata.width / imageMetadata.height);
+
+				if (weight > 4) weight = 4;
+
                 sponsorData.metadata = {width : imageMetadata.width, height : imageMetadata.height, columnWeight : weight}
 
             })
