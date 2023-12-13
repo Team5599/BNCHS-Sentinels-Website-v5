@@ -12,11 +12,13 @@
 	"dependencies": {
 		"@emotion/react": "^11.11.1",
 		"@ericz1803/react-google-calendar": "^4.3.1",
+		"animate.css": "^4.1.1",
 		"eslint": "8.49.0",
 		"eslint-config-next": "13.4.19",
 		"next": "^13.5.2",
 		"node-html-parser": "^6.1.10",
 		"react": "18.2.0",
+		"react-animation-on-scroll": "^5.1.0",
 		"react-dom": "18.2.0",
 		"react-fast-marquee": "^1.6.2",
 		"react-hook-form": "^7.49.0",
