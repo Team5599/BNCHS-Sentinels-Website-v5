@@ -9,6 +9,32 @@
     flex-direction: row;
 }
 
+.contactBlockSocials {
+    background-color : #000;
+    flex : 2;
+    color : #fff;
+    padding : 40px;
+    display: flex;
+    flex-direction : column;
+    justify-content : space-between;
+    gap : 40px
+}
+
+.contactSocialContainer {
+    display: flex;
+    flex-direction: column;
+    gap : 40px;
+}
+
+.contactItem {
+    display: flex;
+    gap : 20px;
+}
+
+.socialIconsContainer {
+    display: flex;
+}
+
 .inputRow {
     flex-direction: row;
 }
@@ -25,6 +51,25 @@
 
     .contactBlock {
         flex-direction: column-reverse;
+    }
+
+    .contactBlockSocials {
+        text-align: center;
+        gap : 40px;
+    }
+
+    .contactSocialContainer {
+        align-items: center;
+    }
+
+    .contactItem {
+        gap : 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .socialIconsContainer {
+        justify-content: center;
     }
 
     .inputRow {

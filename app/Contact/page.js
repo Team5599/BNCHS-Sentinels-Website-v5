@@ -13,6 +13,8 @@ import { useForm, Controller } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import SocialMediaIcons from '@components/SocialMediaIcons/SocialMediaIcons'
+
 import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 
 import {useRef, useState} from 'react';
@@ -445,15 +447,7 @@ export default function Contact() {
 					}}
 				>
 					<div
-						style={{
-							backgroundColor : '#000',
-							flex : 2,
-							color : '#fff',
-							padding : 40,
-							display: 'flex',
-							flexDirection : 'column',
-							justifyContent : 'space-between'
-						}}
+						className={styles.contactBlockSocials}
 					>
 						<div>
 							<h3>
@@ -461,21 +455,13 @@ export default function Contact() {
 							</h3>
 						</div>
 						<div
-							style={{
-								display: 'flex',
-								flexDirection: 'column',
-								gap : 40
-							}}
+							className={styles.contactSocialContainer}
 						>
 							{
 								contactInformation.map((contactItem, index) => {
 									return <div
 										key={index}
-										style={{
-											display: 'flex',
-											gap : 20,
-											alignItems : 'center'
-										}}
+										className={styles.contactItem}
 									>
 										{
 											contactItem.icon
@@ -491,10 +477,8 @@ export default function Contact() {
 								})
 							}
 						</div>
-						<div>
-							<span>
-								Social Media Icons
-							</span>
+						<div className={styles.socialIconsContainer}>
+							<SocialMediaIcons/>
 						</div>
 						
 					</div>

@@ -3,6 +3,7 @@ import styles from './footer.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import SocialMediaIcons from '@components/SocialMediaIcons/SocialMediaIcons';
 import FooterTriangleTop from './FooterTriangleTop';
 
 
@@ -71,9 +72,7 @@ const FooterAboutColumn = () => {
                 </div>
             </div>
             <div segment={'social-media'}>
-                <span>
-                    Social Media Icons
-                </span>
+                <SocialMediaIcons/>
             </div>
         </div>
     )

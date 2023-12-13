@@ -1,5 +1,7 @@
 import styles from './newsletterSubscriptionInput.module.css';
 
+import SocialMediaIcons from '@components/SocialMediaIcons/SocialMediaIcons';
+
 import { Button } from '@components/Button/Button';
 
 const NewsletterSubscriptionInput = () => {
@@ -23,8 +25,8 @@ const NewsletterSubscriptionInput = () => {
                         className={styles.newsletterSubmit}
                     />
                 </div>
-                <div style={{marginTop: 20}}>
-                    SOCIAL MEDIA ICONS
+                <div style={{display : 'flex', justifyContent : 'center', marginTop: 20}}>
+                    <SocialMediaIcons/>
                 </div>
             </div>
             
