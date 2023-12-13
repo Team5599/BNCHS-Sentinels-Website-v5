@@ -19,12 +19,12 @@ export default function History() {
 					marginBottom : -60
 				}}
 			>
-				<ComingSoonBanner/>
 				<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, textAlign : 'justify', color : '#fff'}}>
 					<h2>
 						OUR HISTORY
 					</h2>
 				</div>
+				<ComingSoonBanner/>
 			</div>
 			<Footer/>
 		</div>
