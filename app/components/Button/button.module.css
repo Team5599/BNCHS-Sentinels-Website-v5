@@ -40,21 +40,26 @@
 }
 
 .buttonLinkActive:not([variant="inverted"]) {
-    transform : scale(1.1);
+    /* transform : scale(1.1); */
 }
-
 
 .buttonInnerBlock {
     position: relative;
-    width : calc(100% - 4px);
-    height : calc(100% - 4px);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    transition: width 0.1s, height 0.1s, background-color 0.2s;
 }
 
 .button:not([disabled]):hover > .buttonInnerBlock {
     --blockShrinkWidth : 4px;
     width : calc(100% - (var(--blockShrinkWidth) * 2));
     height : calc(100% - (var(--blockShrinkWidth) * 2));
+}
+
+.button > .buttonInnerBlock {
+    width : calc(100% - 4px);
+    height : calc(100% - 4px);
+}
+
+.button:not([disabled]):hover > .buttonInnerBlock {
     background-color: var(--hover-background-color) !important;
 }
 
@@ -85,7 +90,7 @@
 
 
 .button[type="button"]:not([variant="inverted"]):not([disabled]):active > .buttonInnerBlock > .buttonContentContainer {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .button:focus > .buttonInnerBlock {
@@ -93,5 +98,5 @@
 }
 
 .buttonLinkActive:not([variant="inverted"]) > .buttonInnerBlock > .buttonContentContainer {
-    transform: scale(0.4) !important;
+    transform: scale(0.8) !important;
 }

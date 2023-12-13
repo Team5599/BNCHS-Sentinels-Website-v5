@@ -70,7 +70,7 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
             setActiveLink(false);
         }
     }
-
+    
     return (
         (type == 'link') ? 
         <Link
@@ -112,7 +112,7 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
 }
 
 
-const Button = ({style = {}, label, className, children, variant, ...props}) => {
+const Button = ({style = {}, label, className, children, variant, props}) => {
     return (
         <ButtonBase
             style={style}
