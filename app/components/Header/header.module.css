@@ -3,6 +3,7 @@
     height : 200px;
     max-width: 100%;
     position: relative;
+    z-index: 1;
 }
 
 
