@@ -4,6 +4,7 @@ import Navbar from '@components/Navbar/Navbar'
 import Header from '@components/Header/Header'
 import Footer from '@components/Footer/Footer'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
+import ComingSoonBanner from '../components/ComingSoonBanner/ComingSoonBanner'
 
 export default function History() {
 	return (
@@ -18,13 +19,11 @@ export default function History() {
 					marginBottom : -60
 				}}
 			>
+				<ComingSoonBanner/>
 				<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, textAlign : 'justify', color : '#fff'}}>
 					<h2>
 						OUR HISTORY
 					</h2>
-					<p>
-						Lorem ipsum blah blah blah
-					</p>
 				</div>
 			</div>
 			<Footer/>
