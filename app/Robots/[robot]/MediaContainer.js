@@ -33,7 +33,9 @@ const MediaContainer = ({robotItem}) => {
             >
                 {
                     (robotItem.media) && <Carousel
-                    dynamicHeight={false}
+                        dynamicHeight={false}
+                        preventMovementUntilSwipeScrollTolerance={true}
+                        swipeScrollTolerance={50}
                         style={{
                             position: 'relative',
                             display: 'flex',

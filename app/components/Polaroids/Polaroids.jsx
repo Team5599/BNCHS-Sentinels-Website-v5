@@ -113,6 +113,8 @@ const Polaroids = () => {
                             showStatus={false}
                             renderArrowNext={NavigationButtonNext}
                             renderArrowPrev={NavigationButtonPrevious}
+                            preventMovementUntilSwipeScrollTolerance={true}
+                            swipeScrollTolerance={50}
                         >
                             {
                                 polaroidData.map((_polaroid, index) => {
