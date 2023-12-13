@@ -124,7 +124,7 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                     })
                 }
             </Marquee>
-            <Tooltip id="tooltip"/>
+            <Tooltip id="tooltip" noArrow={true} float={true} style={{zIndex : 100}}/>
             <div className={`container`}>
                 <ButtonLink
                     className={styles.sponsorsMoreButton}
