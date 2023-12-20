@@ -111,6 +111,7 @@ const Polaroids = () => {
                     {
                         (width < 768) ? <Carousel
                             showStatus={false}
+                            showThumbs={false}
                             renderArrowNext={NavigationButtonNext}
                             renderArrowPrev={NavigationButtonPrevious}
                             preventMovementUntilSwipeScrollTolerance={true}

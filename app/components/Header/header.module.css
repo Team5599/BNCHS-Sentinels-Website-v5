@@ -28,9 +28,9 @@
         height: 500px;
     }
     
-    .header.md {
+    /* .header.md {
         height: 300px;
-    }
+    } */
 
     .header > .headerContentsOverlay > .container {
         margin-bottom : 0px;

@@ -1,0 +1,20 @@
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.typingHeader {
+    display: inline-block;
+}
+
+@media (max-width: 992px) {
+
+    .headerContainer {
+        flex-direction: column;
+    }
+
+    .typingHeader {
+        justify-content: center;
+    }
+}

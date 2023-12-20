@@ -138,7 +138,10 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                     href={'/Sponsors/Incentives'}
                     target={''}
                 >
-                    <span>
+                    <span style={{
+                        paddingTop : 8,
+                        paddingBottom : 8
+                    }}>
                         Learn more about Sponsorship Incentives and how you can help here
                     </span>
                 </ButtonLink>

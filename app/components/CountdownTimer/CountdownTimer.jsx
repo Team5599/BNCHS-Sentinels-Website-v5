@@ -305,13 +305,7 @@ const CountdownTimer = ({style = {}, date, renderHeader = <></>, onComplete, ren
         >
             {renderHeader}
             <div
-                style={{
-                    display : 'flex',
-                    flexDirection : 'row',
-                    gap : 40,
-                    justifyContent : 'center',
-                    alignItems : 'center'
-                }}
+                className={styles.digitsContainer}
             >
                 {
                     (remainingTime.days !== "00") && <TimerSection animationProps={animationProps} digits={remainingTime.days} label={'Days'}/>

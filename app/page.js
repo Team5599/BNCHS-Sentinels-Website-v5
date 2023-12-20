@@ -55,7 +55,7 @@ export default function Home() {
 			</Header>
 			<FIRSTSection/>
 			
-			<Header size='md' imageClass={styles.headerOne} masked={false}>
+			<Header size='md' imageClass={styles.headerOne} masked={false} headerStyle={{height : 500}}>
 				<NewsletterSubscriptionInput/>
 			</Header>
 			<Blog/>
