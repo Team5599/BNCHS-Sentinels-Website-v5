@@ -162,7 +162,7 @@ export default function Events() {
                     alt='XRP Trademark Logo'
                 />
 				<h2 style={{textAlign : 'left'}}>
-					Experiential Robotics
+					EXPERIENTIAL ROBOTICS
 				</h2>
 				
 				<h3 style={{textAlign : 'left'}}>
