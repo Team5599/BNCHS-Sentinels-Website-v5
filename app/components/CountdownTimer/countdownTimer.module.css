@@ -34,11 +34,11 @@
 }
 
 .animateTest {
-    animation-duration: 1s;
+    /* animation-duration: 1s;
     animation-name: animateDashTwo;
-    animation-iteration-count: infinite;
-    /* stroke-dasharray: 30 6.6;
-    stroke-dashoffset: -11.65; */
-    animation-direction: normal;
-    animation-timing-function: cubic-bezier(0.1, 0.4, 5, 0.1);
+    animation-iteration-count: infinite; */
+    stroke-dasharray: 30 6.6;
+    /* stroke-dashoffset: -11.65; */
+    /* animation-direction: normal;
+    animation-timing-function: cubic-bezier(0.1, 0.4, 5, 0.1); */
 }

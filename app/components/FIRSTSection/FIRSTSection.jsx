@@ -15,12 +15,12 @@ const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     )
 }
 
-const targetDate = new Date(new Date().getTime()+(5*24*60*60*1000));
+const targetDate = new Date(new Date().getTime()+(10000));
 
 const FIRSTSection = () => {
     return (
         <div className='container' style={{display: 'flex', flexDirection : 'column', paddingTop : 120, paddingBottom : 120, gap : 10}}>
-            <CountdownTimer date={targetDate}/>
+
             <div className={styles.titleContainer}>
                 <Image
                     src='/images/first/FIRST-icon.png'
@@ -58,6 +58,69 @@ const FIRSTSection = () => {
                     <FIRSTSectionButton label='Our Competitions' href='./Events'/>
                 </div>
             </div>
+
+            <CountdownTimer
+                date={targetDate}
+                style={{
+                    marginTop : 80
+                }}
+                renderHeader={
+                    (
+                        <div
+                            style={{
+                                textAlign : 'center',
+                                maxWidth : 600
+                            }}
+                        >
+                            <h2 style={{
+                                fontSize: '3rem',
+                                fontWeight : 700
+                            }}>
+                                KICKOFF 2024
+                            </h2>
+                            <span>
+                                Tune in Saturday, January 6th at 12:00PM Noon EST for the 2024 FIRST Robotics Competition Kickoff Event!
+                            </span>
+                        </div>
+                    )
+                }
+                renderComplete={
+                    (
+                        <div
+                            style={{
+                                display : 'flex',
+                                gap : 80,
+                                marginTop : 80,
+                                marginBottom : 0
+                            }}
+                        >
+                            <div
+                                style={{
+                                    flex : 3
+                                }}
+                            >
+                                <h2 style={{
+                                    fontWeight : 900
+                                }}>
+                                    KICKOFF 2024
+                                </h2>
+                                <span>
+                                    Tune in Saturday, January 6th at 12:00PM Noon EST for the 2024 FIRST Robotics Competition Kickoff Event!
+                                </span>
+                            </div>
+                            <div
+                                style={{flex : 1}}
+                            >
+                                <ButtonLink
+                                    label={'Watch on Twitch.tv/FirstInspires'}
+                                    href={'https://www.twitch.tv/firstinspires'}
+                                    className={styles.firstSectionButton}
+                                />
+                            </div>     
+                        </div>
+                    )
+                }
+            />
         </div>
     )
 }
