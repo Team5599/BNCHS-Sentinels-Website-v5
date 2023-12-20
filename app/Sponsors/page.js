@@ -46,6 +46,57 @@ const getSponsorsData = async () => {
 
 }
 
+const LoadingBlock = () => {
+	return (
+		<span
+			style={{
+				backgroundColor : '#000',
+				display : 'block',
+				color : '#fff',
+				padding : 40,
+				textAlign : 'center',
+				fontSize : '1.4rem',
+				marginTop : 80,
+				marginBottom : 80,
+				fontWeight : 600
+			}}
+		>
+			LOADING SPONSORS
+		</span>
+	)
+}
+
+const NoDataBlock = () => {
+	return (
+		<div
+			style={{
+				display : 'flex',
+				flexDirection : 'column',
+				gap : 0,
+				backgroundColor : '#000',
+				color : '#fff',
+				padding : 40,
+				textAlign : 'center',
+				marginTop : 80,
+				marginBottom : 80,
+				whiteSpace: 'pre-wrap'
+			}}
+		>
+			<span
+				style={{
+					fontSize : '1.4rem',
+					fontWeight : 600
+				}}
+			>
+				NO DATA
+			</span>
+			<span>
+				{'\n'}Sorry, we don't have any data for this season!
+			</span>
+		</div>
+	)
+}
+
 
 export default function SponsorsPage() {
 
@@ -54,6 +105,7 @@ export default function SponsorsPage() {
 	const earliestSeason = 2015;
 
 	const [sponsorsData, setSponsorsData] = useState([]);
+	const [isLoading, setLoading] = useState(true);
 
 	const formatSeason = (season) => {
 		return `${season} — ${season + 1} Season`
@@ -108,6 +160,7 @@ export default function SponsorsPage() {
 			console.log("setting state", sponsorsData);
 
             setSponsorsData(sponsorsData);
+			setLoading(false);
 
         })();
 
@@ -152,7 +205,11 @@ export default function SponsorsPage() {
 						}}
 					/>
 				</div>
-				<Sponsors sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
+				{
+					(isLoading) ? <LoadingBlock/> : (
+						(sponsorsData.length == 0) ? <NoDataBlock/> : <Sponsors sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
+					)
+				}
 				<ButtonLink
                     className={styles.sponsorsMoreButton}
                     style={{
