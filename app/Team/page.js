@@ -88,8 +88,10 @@ const FilterDivider = ({options, displaySeasonValue, setDisplaySeasonValue}) => 
 				value={displaySeasonValue}
 				onChange={setDisplaySeasonValue}
 				options={options}
-				style={{
-					height : 64
+				styles={{
+					control : (styles) => {
+						return ({...styles, height : '48px'})
+					}
 				}}
 			/>
 		</div>
@@ -133,7 +135,7 @@ export default function Team() {
     }, [displaySeasonValue])
 
 	let options = [];
-	for (let season = earliestSeason; season < currentSeason; season++) {
+	for (let season = earliestSeason; season <= currentSeason; season++) {
 		options.push({
 			value : season,
 			label : formatSeason(season)
