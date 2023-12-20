@@ -72,12 +72,11 @@ const FIRSTSection = () => {
                                 maxWidth : 600
                             }}
                         >
-                            <h2 style={{
-                                fontSize: '3rem',
+                            <h1 style={{
                                 fontWeight : 700
                             }}>
                                 KICKOFF 2024
-                            </h2>
+                            </h1>
                             <span>
                                 Tune in Saturday, January 6th at 12:00PM Noon EST for the 2024 FIRST Robotics Competition Kickoff Event!
                             </span>
