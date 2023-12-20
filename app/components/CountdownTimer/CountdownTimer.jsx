@@ -193,7 +193,7 @@ function getDifferenceBetween(d1, d2){
     // what's left is seconds
     const seconds = Math.floor(delta % 60);  // in theory the modulus is not required
 
-    return {days, hours, minutes, seconds, total : Math.floor(delta)};
+    return {days, hours, minutes, seconds, total : Math.floor(Math.abs(d2 - d1) / 1000)};
 }
 
 const Divider = () => {
