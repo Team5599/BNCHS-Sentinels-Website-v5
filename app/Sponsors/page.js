@@ -163,7 +163,7 @@ export default function SponsorsPage() {
                         '--activeBackgroundColor' : '#444'
                     }}
                     variant={'inverted'}
-                    href={''}
+                    href={'/Sponsors/Incentives'}
                     target={''}
                 >
                     <span>

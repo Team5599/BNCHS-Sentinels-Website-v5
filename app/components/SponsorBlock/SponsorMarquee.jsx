@@ -135,7 +135,7 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                         '--activeBackgroundColor' : '#444'
                     }}
                     variant={'inverted'}
-                    href={''}
+                    href={'/Sponsors/Incentives'}
                     target={''}
                 >
                     <span>

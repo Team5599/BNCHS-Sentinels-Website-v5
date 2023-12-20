@@ -238,7 +238,7 @@ const Navbar = () => {
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
                                     <NavbarButton label={'Our Sponsors'} href='/Sponsors'/>
-                                    <NavbarButton label={'Sponsorship Incentives'} href='/Sponsors'/>
+                                    <NavbarButton label={'Sponsorship Incentives'} href='/Sponsors/Incentives'/>
                                     <NavbarButton label={'Make A Donation'} href='/Contact' className={styles.donateSecondaryButton}/>
                                     <NavbarButton label={'Become a Sponsor'} href='/Contact' className={styles.sponsorSecondaryButton}/>
                                 </ul>

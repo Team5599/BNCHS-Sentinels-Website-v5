@@ -151,7 +151,7 @@ const Footer = () => {
                             },
                             {
                                 label : "Sponsorship Incentives",
-                                href : "/Sponsors"
+                                href : "/Sponsors/Incentives"
                             },
                             {
                                 label : "Become a Sponsor",
