@@ -127,11 +127,7 @@ export default function Robot({params}) {
 				<h5>{robotItem.type} {robotItem.season}</h5>
 				<MediaContainer robotItem={robotItem}/>
 				<div
-					style={{
-						display: 'flex',
-						gap : 20,
-						minHeight : 200
-					}}
+					className={styles.bodyColumns}
 				>
 					<div
 						style={{
@@ -153,12 +149,7 @@ export default function Robot({params}) {
 						</span>
 					</div>
 					<div
-						style={{
-							width : 280,
-							display : 'flex',
-							flexDirection : 'column',
-							gap : 20
-						}}
+						className={styles.sideDataContainer}
 					>
 						<div
 							style={{
@@ -180,7 +171,7 @@ export default function Robot({params}) {
 							style={{
 								display: 'flex',
 								flexDirection : 'column',
-								gap : 10
+								gap : 10,
 							}}
 						>
 							<h5>Events</h5>
@@ -203,13 +194,7 @@ export default function Robot({params}) {
 					</div>
 				</div>
 				<div
-					style={{
-						display : 'flex',
-						marginTop : 80,
-						flexDirection : 'row',
-						justifyContent: 'flex-end',
-						gap : 20
-					}}
+					className={styles.navigationButtons}
 				>
 					<ButtonLink
 						className={styles.button}

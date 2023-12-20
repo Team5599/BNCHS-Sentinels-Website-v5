@@ -11,68 +11,34 @@ function getYoutubeVideoIDFromURL(url){
 
 const MediaContainer = ({robotItem}) => {
     return (
-        <div
+        (robotItem.media) ? <Carousel
+            dynamicHeight={false}
+            preventMovementUntilSwipeScrollTolerance={true}
+            swipeScrollTolerance={50}
+            showThumbs={true}
             style={{
+                position: 'relative',
+                display: 'flex',
+                flex : 1,
                 width : '100%',
-                height : 600,
-                display : 'flex',
-                flexDirection : 'column',
-                gap : 10
+                height : '100%'
             }}
         >
-            <div
-                style={{
-                    position: 'relative',
-                    backgroundColor : '#ddd',
-                    height : '100%',
-                    width : '100%',
-                    display : 'flex',
-                    flex : 1,
-                    flexGrow : 1
-                }}
-            >
-                {
-                    (robotItem.media) && <Carousel
-                        dynamicHeight={false}
-                        preventMovementUntilSwipeScrollTolerance={true}
-                        swipeScrollTolerance={50}
-                        style={{
-                            position: 'relative',
-                            display: 'flex',
-                            flex : 1,
-                            width : '100%',
-                            height : '100%'
-                        }}
-                    >
-                        {
-                            Object.entries(robotItem.media).map(([mediaID, mediaURL]) => {
+            {
+                Object.entries(robotItem.media).map(([mediaID, mediaURL]) => {
 
-                                // TODO
-                                // Currently we handle Youtube Videos
-                                // In the future, the carousel needs to handle images and 3D Models
+                    // TODO
+                    // Currently we handle Youtube Videos
+                    // In the future, the carousel needs to handle images and 3D Models
 
-                                const embedVideoID = getYoutubeVideoIDFromURL(mediaURL)
+                    const embedVideoID = getYoutubeVideoIDFromURL(mediaURL)
 
-                                return <iframe key={mediaID} width="100%" height="100%" style={{maxWidth: '100%', overflowX : 'hidden', border : 'none'}}
-                                    src={`https://www.youtube.com/embed/${embedVideoID}?autoplay=0&mute=1&loop=0`}
-                                />
-                            })
-                        }
-                    </Carousel>
-                }
-                
-                
-            </div>
-            <div
-                style={{
-                    backgroundColor : '#ddd',
-                    width : '100%',
-                    height : 140
-                }}
-            >
-
-            </div>
-        </div>
+                    return <iframe key={mediaID} width="100%" height="100%" style={{maxWidth: '100%', overflowX : 'hidden', border : 'none', aspectRatio : '16/9'}}
+                        src={`https://www.youtube.com/embed/${embedVideoID}?autoplay=0&mute=1&loop=0`}
+                    />
+                })
+            }
+        </Carousel> : <></>
     )
 }
 
