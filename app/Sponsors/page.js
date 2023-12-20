@@ -9,7 +9,7 @@ import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 
-import { Button } from '@components/Button/Button'
+import { Button, ButtonLink } from '@components/Button/Button'
 import Sponsors from '@components/Sponsors/Sponsors'
 import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 import Select from 'react-select'
@@ -114,7 +114,7 @@ export default function SponsorsPage() {
     }, [])
 
 	let options = [];
-	for (let season = earliestSeason; season < currentSeason; season++) {
+	for (let season = earliestSeason; season <= currentSeason; season++) {
 		options.push({
 			value : season,
 			label : formatSeason(season)
@@ -132,7 +132,7 @@ export default function SponsorsPage() {
 					</h1>
 				</div>
 			</Header>
-			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 40, textAlign : 'justify'}}>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 120, textAlign : 'justify'}}>
 				<div
 					style={{
 						display : 'flex',
@@ -145,21 +145,31 @@ export default function SponsorsPage() {
 						value={displaySeasonValue}
 						onChange={setDisplaySeasonValue}
 						options={options}
-						style={{
-							height : 64
+						styles={{
+							control : (styles) => {
+								return ({...styles, height : '48px'})
+							}
 						}}
 					/>
 				</div>
 				<Sponsors sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
-				
-			</div>
-			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 80, paddingBottom : 120, textAlign : 'justify'}}>
-				<h2 style={{textAlign : 'center'}}>
-					SPONSORSHIP INCENTIVES
-				</h2>
-				<p>
-					The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
-				</p>
+				<ButtonLink
+                    className={styles.sponsorsMoreButton}
+                    style={{
+						marginTop : 80,
+                        backgroundColor: 'transparent',
+                        '--hoverBackgroundColor' : '#000',
+                        outlineColor : '#000',
+                        '--activeBackgroundColor' : '#444'
+                    }}
+                    variant={'inverted'}
+                    href={''}
+                    target={''}
+                >
+                    <span>
+                        Learn more about Sponsorship Incentives and how you can help here
+                    </span>
+                </ButtonLink>
 			</div>
 			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>

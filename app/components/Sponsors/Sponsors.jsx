@@ -9,6 +9,7 @@ import styles from './sponsors.module.css';
 import useWindowDimensions from '@lib/useWindowDimensions';
 import { useContainerDimensions } from '@/lib/useContainerDimensions';
 
+import "animate.css/animate.min.css";
 
 import { ButtonLink } from '@components/Button/Button';
 
@@ -232,7 +233,7 @@ const Sponsors = ({sponsorsData, displaySeasonValue}) => {
 
                 // If the item doesn't fit, and backtracking is disabled (or we're in a loop and can't fit an item), fill the current row with fillers, send it off, and create a new row with the item that didn't fit.
 
-                if (disableBacktracking || (lastFitAttemptTracker[sponsorItem.id] && lastFitAttemptTracker[sponsorItem.id] > 1)) {
+                if (disableBacktracking || (lastFitAttemptTracker[sponsorItem.id] && lastFitAttemptTracker[sponsorItem.id] > 50)) {
 
                     // Fill the current row with fillers and send it off
                     let remainingWeight = numGridColumns - currentRowWeight;
@@ -255,7 +256,7 @@ const Sponsors = ({sponsorsData, displaySeasonValue}) => {
 
 
                 } else {
-                    console.log("Skipping fit for item", sponsorItem);
+                    console.log("Skipping fit for item", sponsorItem, lastFitAttemptTracker[sponsorItem.id]);
 
                     if (iteration > 100){
                         console.log("Fit Overflow");
@@ -265,7 +266,7 @@ const Sponsors = ({sponsorsData, displaySeasonValue}) => {
                     if (lastFitAttemptTracker[sponsorItem.id]) {
                         lastFitAttemptTracker[sponsorItem.id]++
                     } else {
-                        lastFitAttemptTracker[sponsorItem] = 1;
+                        lastFitAttemptTracker[sponsorItem.id] = 1;
                     }
                 }
 
@@ -334,10 +335,11 @@ const Sponsors = ({sponsorsData, displaySeasonValue}) => {
 							{
 								row.map((sponsorItem, column_index) => {
                                     if (sponsorItem.id == "filler") {
-                                        return <FillerBlock key={`filler-${row_index}-${column_index}`} row_index={row_index} column_index={column_index} itemHeight={itemHeight}/>
+                                        return <FillerBlock className={'animate__animated  animate_fadeIn'} key={`filler-${row_index}-${column_index}`} row_index={row_index} column_index={column_index} itemHeight={itemHeight}/>
                                     }
 									return <div
 										key={sponsorItem.id}
+                                        className={'animate__animated  animate_fadeIn'}
 										style={{
 											display : 'flex',
                                             gridColumn : `span ${sponsorItem.metadata.columnWeight > numGridColumns ? numGridColumns : sponsorItem.metadata.columnWeight}`,
