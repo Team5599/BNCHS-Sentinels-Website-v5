@@ -17,7 +17,7 @@ const NewsletterSubscriptionInput = () => {
                 <div className={styles.newsletterInputContainer}>
                     <input className={styles.newsletterInput} placeholder='Your Email'/>
                     <Button
-                        label={'Submit'}
+                        label={'Subscribe'}
                         style={{
                             backgroundColor : '#027bff',
                             '--hoverBackgroundColor' : '#015bdf'
