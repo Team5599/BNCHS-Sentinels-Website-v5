@@ -70,14 +70,14 @@ export default function AboutUs() {
 				<div className={styles.teamPhotoContainer}>
 
 				</div>
-				<h2 style={{textAlign : 'center'}}>
+				<h2 style={{textAlign : 'center', marginTop : 80}}>
 					OUR MISSION
 				</h2>
 				<p>
-					The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
+					Our mission is to inspire leadership through hands-on projects and activities while fostering a passion for fields in STEM and providing invaluable skills in networking, communication, problem-solving, and teamwork in a fun and engaging environment.
 				</p>
 				<p>
-					FRC Team 5599, participates in the annual FIRST® Robotics Competition (FRC). In a six week time span, we raise funds, design, and construct a fully-functional robot.
+					We envision a world where everyone is provided with the opportunities to learn and develop a passion in STEM in a uplifting environment through hands-on projects and collaboration.
 				</p>
 				<div
 					className={styles.buttonSection}
