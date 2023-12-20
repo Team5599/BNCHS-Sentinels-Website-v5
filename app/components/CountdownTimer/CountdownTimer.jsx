@@ -230,7 +230,7 @@ const CountdownTimer = ({date, renderHeader = <></>, onComplete, renderComplete 
             setRemainingTime(remainingTime);
 
             if (remainingTime < 0 && onComplete) {
-                onComplete();
+                setComplete(true);
             }
 
         }, 1000)
@@ -240,6 +240,12 @@ const CountdownTimer = ({date, renderHeader = <></>, onComplete, renderComplete 
         })
 
     }, [date, isComplete, onComplete])
+
+    useEffect(() => {
+        if (isComplete) {
+            onComplete();
+        }
+    }, [isComplete, onComplete])
 
     if (isComplete && renderComplete) {
         return renderComplete
