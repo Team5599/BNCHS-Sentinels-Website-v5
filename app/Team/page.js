@@ -33,7 +33,7 @@ const LoadingBlock = () => {
 				fontWeight : 600
 			}}
 		>
-			LOADING DATA
+			LOADING MEMBERS
 		</span>
 	)
 }
