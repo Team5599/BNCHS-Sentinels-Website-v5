@@ -68,7 +68,7 @@ const PinIconSVG = () => {
 const contactInformation = [
 	{
 		icon : <PhoneIconSVG/>,
-		text : "(347) 858-5959"
+		text : "(718) 279-6500 ext. 1291\n10AM - 4PM"
 	},
 	{
 		icon : <InstagramIconSVG/>,
@@ -80,7 +80,7 @@ const contactInformation = [
 	},
 	{
 		icon : <PinIconSVG/>,
-		text : "123 ADDRESS LANE\nBAYSIDE, NEW YORK 11365"
+		text : "Benjamin N. Cardozo High School\n57-00 223rd St\nQueens, NY 11364"
 	}
 ]
 
