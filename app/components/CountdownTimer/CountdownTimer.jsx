@@ -258,8 +258,6 @@ const CountdownTimer = ({style = {}, date, renderHeader = <></>, onComplete, ren
         const interval = setInterval(() => {
             const remainingTime = getDifferenceBetween(date, new Date());
 
-            console.log(remainingTime);
-
             if (remainingTime.total <= 0) {
                 setComplete(true);
                 console.log("Complete!");

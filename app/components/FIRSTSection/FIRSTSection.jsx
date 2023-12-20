@@ -15,7 +15,7 @@ const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     )
 }
 
-const targetDate = new Date(new Date().getTime()+(10000));
+const targetDate = new Date('January 6, 2024 12:00:00');
 
 const FIRSTSection = () => {
     return (
