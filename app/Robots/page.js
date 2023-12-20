@@ -60,11 +60,7 @@ export default async function Robots() {
 			</Header>
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 80, paddingBottom : 120, textAlign : 'justify', backgroundColor : '#fdfdfd'}}>
 				<div
-					style={{
-						display: 'grid',
-						gridTemplateColumns : 'repeat(3, 1fr)',
-						gap : 40,
-					}}
+					className={styles.robotsGrid}
 				>
 					{
 						robotData.sort((robotItemA, robotItemB) => {

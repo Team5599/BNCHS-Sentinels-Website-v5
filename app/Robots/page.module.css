@@ -13,3 +13,22 @@
     box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
 }
 
+.robotsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap : 40px;
+}
+
+@media (max-width: 992px) {
+	.robotsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 768px) {
+	.robotsGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
