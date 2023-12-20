@@ -216,28 +216,40 @@ const Divider = () => {
     )
 }
 
-const CountdownTimer = ({date, onComplete}) => {
+const CountdownTimer = ({date, renderHeader = <></>, onComplete, renderComplete = <></>}) => {
 
     const [remainingTime, setRemainingTime] = useState(getDifferenceBetween(date, new Date()));
+    const [isComplete, setComplete] = useState(false);
 
     useEffect(() => {
+
+        if (isComplete) return;
 
         const interval = setInterval(() => {
             const remainingTime = getDifferenceBetween(date, new Date());
             setRemainingTime(remainingTime);
+
+            if (remainingTime < 0 && onComplete) {
+                onComplete();
+            }
+
         }, 1000)
 
         return (() => {
             clearInterval(interval);
         })
 
-    }, [date])
+    }, [date, isComplete, onComplete])
+
+    if (isComplete && renderComplete) {
+        return renderComplete
+    }
 
     return (
         <div
             style={{
                 display : 'flex',
-                flexDirection : 'row',
+                flexDirection : 'column',
                 gap : 40,
                 backgroundColor : '#eaeaea',
                 justifyContent : 'center',
@@ -249,14 +261,26 @@ const CountdownTimer = ({date, onComplete}) => {
                 overflow : 'hidden' /* Prevents exploding during mobile */
             }}
         >
-            {
-                (remainingTime.days !== "00") && <TimerSection digits={remainingTime.days} label={'Days'}/>
-            }
-            <TimerSection digits={remainingTime.hours} label={'Hours'}/>
-            <Divider/>
-            <TimerSection digits={remainingTime.minutes} label={'Minutes'}/>
-            <Divider/>
-            <TimerSection digits={remainingTime.seconds} label={'Seconds'}/>
+            {renderHeader}
+            <div
+                style={{
+                    display : 'flex',
+                    flexDirection : 'row',
+                    gap : 40,
+                    justifyContent : 'center',
+                    alignItems : 'center'
+                }}
+            >
+                {
+                    (remainingTime.days !== "00") && <TimerSection digits={remainingTime.days} label={'Days'}/>
+                }
+                <TimerSection digits={remainingTime.hours} label={'Hours'}/>
+                <Divider/>
+                <TimerSection digits={remainingTime.minutes} label={'Minutes'}/>
+                <Divider/>
+                <TimerSection digits={remainingTime.seconds} label={'Seconds'}/>
+            </div>
+            
         </div>
     )
 }
