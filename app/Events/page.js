@@ -74,7 +74,9 @@ export default function Events() {
 					The mission of FIRST® is to inspire young people to be science and technology leaders and innovators, by engaging them in exciting mentor-based programs that build science, engineering, and technology skills, that inspire innovation, and that foster well-rounded life capabilities including self-confidence, communication, and leadership.
 				</p>
 				<div style={{
-					height : 500
+					height : 500,
+					marginTop : 20,
+					marginBottom : 80
 				}}>
 					<iframe width="100%" height="100%" style={{maxWidth: '100%', overflowX : 'hidden', border : 'none'}}
 						src="https://www.youtube.com/embed/SJf6iG_SDE8">
@@ -87,7 +89,7 @@ export default function Events() {
 					FIRST (For Inspiration and Recognition of Science and Technology) was founded in 1989 to inspire young people's interest and participation in science and technology. Based in Manchester, NH, the 501(c)(3) not-for-profit public charity designs accessible, innovative programs that motivate young people to pursue education and career opportunities in science, technology, engineering, and math, while building self-confidence, knowledge, and life skills.
 				</p>
 				<p>
-					FIRST is More Than Robots. FIRST participation is proven to encourage students to pursue education and careers in STEM-related fields, inspire them to become leaders and innovators, and enhance their 21 st century work-life skills.
+					FIRST is More Than Robots. FIRST participation is proven to encourage students to pursue education and careers in STEM-related fields, inspire them to become leaders and innovators, and enhance their 21st century work-life skills.
 				</p>
 				<div
 					style={{
@@ -100,6 +102,7 @@ export default function Events() {
 						style={{
 							width : '100%',
 							position : 'relative',
+							marginTop : 20
 						}}
 					>
 						<Image
@@ -169,7 +172,9 @@ export default function Events() {
 					The XRP is an open-robotics platform designed to help students take their first steps into engineering, robotics, and software development.
 				</p>
 				<div style={{
-					height : 500
+					height : 500,
+					marginTop : 20,
+					marginBottom : 80
 				}}>
 					<iframe width="100%" height="100%" style={{maxWidth: '100%', overflowX : 'hidden', border : 'none'}}
 						src="https://www.youtube.com/embed/cmcX1ohnr7E?si=PPmPRnuAo2C_yHyx">
@@ -191,7 +196,8 @@ export default function Events() {
 					style={{
 						display: 'flex',
 						gap : 20,
-						flexDirection : 'column'
+						flexDirection : 'column',
+						marginTop : 40
 					}}
 				>
 					<div className={styles.buttonContainer}>
@@ -226,10 +232,13 @@ export default function Events() {
 					ABOUT SEAPERCH
 				</h3>
 				<p>
-					FIRST (For Inspiration and Recognition of Science and Technology) was founded in 1989 to inspire young people's interest and participation in science and technology. Based in Manchester, NH, the 501(c)(3) not-for-profit public charity designs accessible, innovative programs that motivate young people to pursue education and career opportunities in science, technology, engineering, and math, while building self-confidence, knowledge, and life skills.
+					SeaPerch in an innovative underwater robotics program that equips students, educators, and parents with the resources they need to build an underwater remotely operated vehicle (ROV) in an in- or out-of-school setting.
 				</p>
 				<p>
-					FIRST is More Than Robots. FIRST participation is proven to encourage students to pursue education and careers in STEM-related fields, inspire them to become leaders and innovators, and enhance their 21 st century work-life skills.
+					As an integrated STEM education program, SeaPerch is a great place to start on your journey to build a bot and learn how to use that bot for good.
+				</p>
+				<p>
+					The school's robotics team once included an underwater robotics division that participated in the United States Navy's SeaPerch program, a program created by the Massachusetts Institute of Technology and sponsored by Office of Naval Research. The SeaPerch team placed third in the 2017 season, their first time competing in the program. The SeaPerch program was disbanded in 2018.
 				</p>
 			</div>
 			<Footer/>
