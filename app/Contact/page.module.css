@@ -20,6 +20,15 @@
     gap : 40px
 }
 
+.contactForm {
+    flex : 2;
+    background-color: #fff;
+    padding : 40px;
+    display: flex;
+    flex-direction: column;
+    gap : 40px;
+}
+
 .contactSocialContainer {
     display: flex;
     flex-direction: column;

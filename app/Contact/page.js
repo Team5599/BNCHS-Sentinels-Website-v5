@@ -483,14 +483,7 @@ export default function Contact() {
 						
 					</div>
 					<form
-						style={{
-							backgroundColor: '#fff',
-							flex : 3,
-							padding : 40,
-							display: 'flex',
-							flexDirection : 'column',
-							gap : 40
-						}}
+						className={styles.contactForm}
 					>
 						<div
 							style={{
