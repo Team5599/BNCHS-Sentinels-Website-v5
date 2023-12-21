@@ -13,6 +13,20 @@
     }
 }
 
+.digitsContainer {
+    display: flex;
+    flex-direction: row;
+    gap : 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+	.digitsContainer {
+        transform : scale(0.6)
+    }
+}
+
 @keyframes animateDashTwo {
 
     /* IT WORKS BUT WE HAVE NO IDEA WHY ITS THIS SPECIFIC NUMBER (19.3) */
@@ -34,11 +48,11 @@
 }
 
 .animateTest {
-    animation-duration: 1s;
+    /* animation-duration: 1s;
     animation-name: animateDashTwo;
-    animation-iteration-count: infinite;
-    /* stroke-dasharray: 30 6.6;
-    stroke-dashoffset: -11.65; */
-    animation-direction: normal;
-    animation-timing-function: cubic-bezier(0.1, 0.4, 5, 0.1);
+    animation-iteration-count: infinite; */
+    stroke-dasharray: 30 6.6;
+    /* stroke-dashoffset: -11.65; */
+    /* animation-direction: normal;
+    animation-timing-function: cubic-bezier(0.1, 0.4, 5, 0.1); */
 }

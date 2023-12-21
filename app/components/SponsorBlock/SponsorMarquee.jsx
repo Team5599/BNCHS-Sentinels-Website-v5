@@ -6,12 +6,13 @@ import Marquee from "react-fast-marquee";
 import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
 import { ButtonLink } from '@components/Button/Button';
 import styles from './sponsorBlock.module.css';
+import { Tooltip } from 'react-tooltip'
 
 const getSponsorsData = async () => {
 
     try {
         const res = await fetch(
-            `https://beta.team5599.com/api/v1/sponsors`,
+            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/sponsors/current`,
             {
                 method: 'GET'
             }
@@ -108,6 +109,7 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                 {
                     sponsorsData.map((sponsorData) => {
                         return <Image
+                            data-tooltip-id="tooltip" data-tooltip-content={sponsorData.name}
                             key={sponsorData.name}
                             src={sponsorData.srcURL}
                             alt={sponsorData.name}
@@ -122,6 +124,7 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                     })
                 }
             </Marquee>
+            <Tooltip id="tooltip" noArrow={true} float={true} style={{zIndex : 100}}/>
             <div className={`container`}>
                 <ButtonLink
                     className={styles.sponsorsMoreButton}
@@ -132,10 +135,13 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                         '--activeBackgroundColor' : '#444'
                     }}
                     variant={'inverted'}
-                    href={''}
+                    href={'/Sponsors/Incentives'}
                     target={''}
                 >
-                    <span>
+                    <span style={{
+                        paddingTop : 8,
+                        paddingBottom : 8
+                    }}>
                         Learn more about Sponsorship Incentives and how you can help here
                     </span>
                 </ButtonLink>

@@ -45,7 +45,7 @@ const SponsorBlock = ({style = {}, containerStyle = {}}) => {
                         >
                             <ButtonLink
                                 label={'Donate'}
-                                href={'/Sponsors'}
+                                href={'/Contact'}
                                 className={styles.sponsorBlockButton}
                                 style={{
                                     color: '#000',
@@ -57,7 +57,7 @@ const SponsorBlock = ({style = {}, containerStyle = {}}) => {
                             />
                             <ButtonLink
                                 label={'Become a Sponsor'}
-                                href={'/Sponsors'}
+                                href={'/Contact'}
                                 className={styles.sponsorBlockButton}
                                 style={{
                                     color: '#000',
@@ -69,7 +69,7 @@ const SponsorBlock = ({style = {}, containerStyle = {}}) => {
                             />
                         </div>
                         <Link
-                            href={'/Sponsors'}
+                            href={'/Sponsors/Incentives'}
                             style={{
                                 fontSize : 14,
                                 textDecoration: 'underline',

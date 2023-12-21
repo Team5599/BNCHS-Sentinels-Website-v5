@@ -42,7 +42,7 @@ const Polaroid = ({imageSrc, description, postUrl = "/", alt, offset = 0, rotati
 const getPolaroidData = async () => {
     try {
         const res = await fetch(
-            `https://beta.team5599.com/api/v2/Instagram/getPosts`,
+            `${process.env.NEXT_PUBLIC_API_BASE}/api/v2/Instagram/getPosts`,
             {
                 method: 'GET'
             }
@@ -111,8 +111,11 @@ const Polaroids = () => {
                     {
                         (width < 768) ? <Carousel
                             showStatus={false}
+                            showThumbs={false}
                             renderArrowNext={NavigationButtonNext}
                             renderArrowPrev={NavigationButtonPrevious}
+                            preventMovementUntilSwipeScrollTolerance={true}
+                            swipeScrollTolerance={50}
                         >
                             {
                                 polaroidData.map((_polaroid, index) => {

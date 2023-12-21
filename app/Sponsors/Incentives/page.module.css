@@ -1,0 +1,11 @@
+.headerOne {
+    background-image : url('/images/headers/header.jpg');
+    background-position: 50% 80%;
+    filter: brightness(75%) contrast(115%);
+}
+
+.incentivesContainer {
+    display : grid;
+    gap : 40px;
+    grid-template-columns: 1fr 1fr;
+}

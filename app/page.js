@@ -32,19 +32,19 @@ export default function Home() {
 			<SubheaderShape>
 				<div className='container'>
 					<p className='subheading' style={{color : '#fff'}}>
-						The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
+						<strong>The Sentinels</strong> are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
 					</p>
 				</div>
 			</SubheaderShape>
-			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 40, textAlign : 'justify'}}>
+			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 0, textAlign : 'justify'}}>
 				<h2 style={{textAlign : 'center'}}>
-					TITLE
+					TEAM 5599 — THE SENTINELS
 				</h2>
 				<p>
-					The Sentinels are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
+					<strong>The Sentinels</strong> are Benjamin N. Cardozo High School's Robotics Team. We compete in various annual robotics competitions against high schools across the globe, raising awareness for Science, Technology, Engineering, and Mathematics (STEM), along with teaching students aspects behind business and marketing, logistics, and media. We also participate in various community and school events.
 				</p>
 				<p>
-					FRC Team 5599, participates in the annual FIRST® Robotics Competition (FRC). In a six week time span, we raise funds, design, and construct a fully-functional robot.
+					FRC <strong>Team 5599</strong>, participates in the annual <em>FIRST®</em> Robotics Competition (FRC). In a six week time span, we raise funds, design, and construct a fully-functional robot.
 				</p>
 			</div>
 			<HomeTiles/>
@@ -55,7 +55,7 @@ export default function Home() {
 			</Header>
 			<FIRSTSection/>
 			
-			<Header size='md' imageClass={styles.headerOne} masked={false}>
+			<Header size='md' imageClass={styles.headerOne} masked={false} headerStyle={{height : 500}}>
 				<NewsletterSubscriptionInput/>
 			</Header>
 			<Blog/>

@@ -3,6 +3,7 @@
     height : 200px;
     max-width: 100%;
     position: relative;
+    z-index: 1;
 }
 
 
@@ -27,9 +28,9 @@
         height: 500px;
     }
     
-    .header.md {
+    /* .header.md {
         height: 300px;
-    }
+    } */
 
     .header > .headerContentsOverlay > .container {
         margin-bottom : 0px;

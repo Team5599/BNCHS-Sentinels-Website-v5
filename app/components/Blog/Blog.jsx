@@ -76,7 +76,7 @@ function parseBlogContent(htmlContent) {
 const getBlogData = async () => {
     try {
         const res = await fetch(
-            `https://beta.team5599.com/api/v1/blog?limit=3`,
+            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/blog?limit=3`,
             {
                 method: 'GET'
             }

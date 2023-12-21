@@ -18,7 +18,58 @@ import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 import FilterHeader from '@components/FilterHeader/FilterHeader'
 import { Button } from '@components/Button/Button'
 
-const PersonCardContainer = ({title, size, members, contrast}) => {
+const LoadingBlock = () => {
+	return (
+		<span
+			style={{
+				backgroundColor : '#000',
+				display : 'block',
+				color : '#fff',
+				padding : 40,
+				textAlign : 'center',
+				fontSize : '1.4rem',
+				marginTop : 80,
+				marginBottom : 80,
+				fontWeight : 600
+			}}
+		>
+			LOADING MEMBERS
+		</span>
+	)
+}
+
+const NoDataBlock = () => {
+	return (
+		<div
+			style={{
+				display : 'flex',
+				flexDirection : 'column',
+				gap : 0,
+				backgroundColor : '#000',
+				color : '#fff',
+				padding : 40,
+				textAlign : 'center',
+				marginTop : 80,
+				marginBottom : 80,
+				whiteSpace: 'pre-wrap'
+			}}
+		>
+			<span
+				style={{
+					fontSize : '1.4rem',
+					fontWeight : 600
+				}}
+			>
+				NO DATA
+			</span>
+			<span>
+				{'\n'}Sorry, we don't have any data on this section for this season!
+			</span>
+		</div>
+	)
+}
+
+const PersonCardContainer = ({title, size, isLoading, members, contrast, displaySeasonValue}) => {
 	return (
 		<div className={`container ${styles.personBody}`}>
 			<h2 style={{
@@ -28,23 +79,29 @@ const PersonCardContainer = ({title, size, members, contrast}) => {
 			}}>
 				{title}
 			</h2>
-			<div className={styles.personBodyContents}>
-				{
-					members.map((personItem) => {
-						return <PersonCardTwo key={personItem._id} personData={personItem} contrast={contrast}/>
-					})
-				}
-			</div>
+			{
+				(isLoading) ? <LoadingBlock/> : (
+					(members.length == 0) ? <NoDataBlock/> : <div className={styles.personBodyContents}>
+						{
+							members.map((personItem) => {
+								return <PersonCardTwo key={personItem._id} personData={personItem} contrast={contrast} displaySeasonValue={displaySeasonValue}/>
+							})
+						}
+					</div>
+				)
+				
+			}
+			
 		</div>
 	)
 }
 
-const LeadershipContainer = ({members}) => {
+const LeadershipContainer = ({members, displaySeasonValue, isLoading}) => {
 	return (
 		<div className={styles.leadershipSection}>
 			<svg className={styles.triangleSVG} width="100%" height="40px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" ><path  d="M1200 120L0 120 307.75 0 1200 120z" className="shape-fill" fill="#F68313" fillOpacity="1"></path></svg>
 			<div className={styles.leadershipBlock}>
-				<PersonCardContainer title={'LEADERSHIP'} size='lg' members={members} contrast={true}/>				
+				<PersonCardContainer title={'LEADERSHIP'} size='lg' isLoading={isLoading} members={members} contrast={true} displaySeasonValue={displaySeasonValue}/>				
 			</div>
 			<svg className={styles.triangleSVG} width="100%" height="120px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" ><path  d="M1200 0L0 0 892.25 120 1200 0z" className="shape-fill" fill="#F68313" fillOpacity="1"></path></svg>
 		</div>
@@ -54,7 +111,7 @@ const LeadershipContainer = ({members}) => {
 const getTeamData = async (season) => {
     try {
         const res = await fetch(
-            `https://beta.team5599.com/api/v1/team/${season || 'current'}`,
+            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/team/${season || 'current'}`,
             {
                 method: 'GET'
             }
@@ -88,8 +145,10 @@ const FilterDivider = ({options, displaySeasonValue, setDisplaySeasonValue}) => 
 				value={displaySeasonValue}
 				onChange={setDisplaySeasonValue}
 				options={options}
-				style={{
-					height : 64
+				styles={{
+					control : (styles) => {
+						return ({...styles, height : '48px'})
+					}
 				}}
 			/>
 		</div>
@@ -101,6 +160,8 @@ export default function Team() {
 	const dateNow = new Date();
 	const currentSeason = (dateNow.getMonth() < 8 ?  dateNow.getFullYear() : dateNow.getFullYear() + 1);
 	const earliestSeason = 2015;
+
+	const [isLoading, setLoading] = useState(true);
 
 	const [teamData, setTeamData] = useState(
 		{
@@ -126,6 +187,7 @@ export default function Team() {
 			console.log("FETCHING", displaySeasonValue);
 
             setTeamData(await getTeamData(displaySeasonValue.value));
+			setLoading(false);
         }
 
         fetchData();
@@ -133,7 +195,7 @@ export default function Team() {
     }, [displaySeasonValue])
 
 	let options = [];
-	for (let season = earliestSeason; season < currentSeason; season++) {
+	for (let season = earliestSeason; season <= currentSeason; season++) {
 		options.push({
 			value : season,
 			label : formatSeason(season)
@@ -157,9 +219,9 @@ export default function Team() {
 			{/* <div className='container'>
 				<FilterHeader/>
 			</div> */}
-			<LeadershipContainer members={teamData.leadership}/>
-			<PersonCardContainer title={'MEMBERS'} size='md' members={teamData.roster}/>	
-			<PersonCardContainer title={'MENTORS'} size='md' members={teamData.mentors}/>
+			<LeadershipContainer isLoading={isLoading} members={teamData.leadership} displaySeasonValue={displaySeasonValue}/>
+			<PersonCardContainer title={'MEMBERS'} size='md' isLoading={isLoading} members={teamData.roster} displaySeasonValue={displaySeasonValue}/>	
+			<PersonCardContainer title={'MENTORS'} size='md' isLoading={isLoading} members={teamData.mentors} displaySeasonValue={displaySeasonValue}/>
 			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>

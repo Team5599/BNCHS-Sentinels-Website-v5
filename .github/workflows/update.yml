@@ -17,7 +17,7 @@ jobs:
         id: request
         uses: tyrrrz/action-http-request@master
         with:
-          url: https://beta.team5599.com/api/v2/Update
+          url: ${{vars.FRONTEND_UPDATE_ENDPOINT}}
           method: POST
           headers: |
             Content-Type: application/json

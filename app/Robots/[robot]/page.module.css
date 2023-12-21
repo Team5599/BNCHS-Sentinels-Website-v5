@@ -4,6 +4,29 @@
     filter: brightness(75%) contrast(115%);
 }
 
+
+.bodyColumns {
+    display: flex;
+    gap : 20px;
+    min-height: 200px;
+    flex-direction: row;
+}
+
+.navigationButtons {
+    display: flex;
+    margin-top: 80px;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap : 20px;
+}
+
+.sideDataContainer {
+    width : 320px;
+    display: flex;
+    flex-direction: column;
+    gap : 20px;
+}
+
 .eventButton {
     background-color: #000;
     transition: background-color 0.2s;
@@ -12,7 +35,6 @@
 .eventButton:hover {
     background-color: #222;
 }
-
 
 .button {
     color : #fff;
@@ -25,4 +47,20 @@
     font-size: 1rem;
     font-weight: 400;
     transition: background-color 0.2s;
+}
+
+@media (max-width: 992px) {
+    
+    .bodyColumns {
+        flex-direction: column;
+    }
+
+    .sideDataContainer {
+        width : 100%;
+    }
+
+    .navigationButtons {
+        flex-direction: column;
+    }
+    
 }

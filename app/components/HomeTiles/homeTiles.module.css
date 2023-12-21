@@ -24,13 +24,13 @@
     flex : 1;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #0052afa0;
+    /* background-color: #ffffffa0; */
     background-blend-mode: multiply;
-    transition: background-color 0.4s, filter 0.4s;
+    transition: background-color 0.2s, filter 0.4s;
 }
 
 .homeTileItem:hover > .homeTileItemImageBox {
-    background-color: #f68313a0;
+    background-color: #0052afd0;
 }
 
 .homeTileItem > .markerSmudge {
@@ -49,6 +49,13 @@
     font-weight: 700;
     text-transform: uppercase;
     z-index: 2;
+}
+
+
+@media (max-width: 1400px) and (min-width : 991px){
+    .homeTiles {
+        gap : 20px;
+    }
 }
 
 @media (max-width: 992px) and (min-width : 769px){

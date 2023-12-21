@@ -7,25 +7,47 @@ import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import Footer from '@components/Footer/Footer'
 
+import { Tooltip } from 'react-tooltip'
+import { useForm, Controller } from 'react-hook-form'
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import SocialMediaIcons from '@components/SocialMediaIcons/SocialMediaIcons'
+
 import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
 
 import {useRef, useState} from 'react';
 import Link from 'next/link'
 
+import 'react-phone-number-input/style.css'
+import PhoneInput, {isValidPhoneNumber} from 'react-phone-number-input/input'
+
 import { Button } from '@components/Button/Button'
 
 const PhoneIconSVG = () => {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+		<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-phone" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
 			<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 			<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
 		</svg>
 	)
 }
 
+const InstagramIconSVG = () => {
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+			<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+			<rect x="4" y="4" width="16" height="16" rx="4" />
+			<circle cx="12" cy="12" r="3" />
+			<line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+		</svg>
+	)
+}
+
 const EmailIconSVG = () => {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+		<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
 			<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 			<path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
 			<path d="M3 7l9 6l9 -6"></path>
@@ -35,7 +57,7 @@ const EmailIconSVG = () => {
 
 const PinIconSVG = () => {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+		<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-map-pin" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
 			<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 			<path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
 			<path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
@@ -46,7 +68,11 @@ const PinIconSVG = () => {
 const contactInformation = [
 	{
 		icon : <PhoneIconSVG/>,
-		text : "(347) 858 5959"
+		text : "(718) 279-6500 ext. 1291\n10AM - 4PM"
+	},
+	{
+		icon : <InstagramIconSVG/>,
+		text : "@sentinels_5599"
 	},
 	{
 		icon : <EmailIconSVG/>,
@@ -54,14 +80,15 @@ const contactInformation = [
 	},
 	{
 		icon : <PinIconSVG/>,
-		text : "123 ADDRESS LANE\nBAYSIDE, NEW YORK 11365"
+		text : "Benjamin N. Cardozo High School\n57-00 223rd St\nQueens, NY 11364"
 	}
 ]
 
-const ContactInput = ({inputRef, onChange, value, label}) => {
+const ContactInput = ({label, inputType = "text", inputKey, register, required = false, pattern, error}) => {
 	return (
 		<div
 			style={{
+				position: 'relative',
 				display: 'flex',
 				flexDirection : 'column',
 				flex : 1
@@ -75,12 +102,23 @@ const ContactInput = ({inputRef, onChange, value, label}) => {
 			>
 				{label}
 			</span>
+			{
+				error && <span
+					style={{
+						fontSize : 12,
+						color : 'red',
+						position : 'absolute',
+						right : 0, top : 0
+					}}
+				>
+					{
+						(error.type == 'required') ? '*Required' : '*Invalid'
+					}
+				</span>
+			}
 			<input
-				ref={inputRef}
-				onChange={(e, value) => {
-					onChange(value);
-				}}
-				value={value}
+				label={inputKey}
+				type={inputType}
 				style={{
 					borderWidth : '0px 0px 2px 0px',
 					borderStyle : null,
@@ -90,16 +128,18 @@ const ContactInput = ({inputRef, onChange, value, label}) => {
 					margin : 0,
 					fontSize : 18
 				}}
+				
+				{...register(inputKey, {required : required, pattern : pattern})}
 			/>
 		</div>
 	)
 }
 
-
-const ContactInputTextArea = ({inputRef, onChange, value, label}) => {
+const ContactPhoneNumberInput = ({label, inputKey, control, error}) => {
 	return (
 		<div
 			style={{
+				position : 'relative',
 				display: 'flex',
 				flexDirection : 'column',
 				flex : 1
@@ -113,12 +153,85 @@ const ContactInputTextArea = ({inputRef, onChange, value, label}) => {
 			>
 				{label}
 			</span>
-			<textarea
-				ref={inputRef}
-				onChange={(e, value) => {
-					onChange(value);
+			{
+				error && <span
+					style={{
+						fontSize : 12,
+						color : 'red',
+						position : 'absolute',
+						right : 0, top : 0
+					}}
+				>
+					{
+						(error.type == 'required') ? '*Required' : '*Invalid'
+					}
+				</span>
+			}
+			<Controller
+				name={inputKey}
+				control={control}
+				rules={{
+					validate: (value) => {
+						if (value == undefined) return true;
+						return isValidPhoneNumber(value)
+					}
 				}}
-				value={value}
+				render={({ field: { onChange, value } }) => (
+					<PhoneInput
+						value={value}
+						onChange={onChange}
+						id={inputKey}
+						style={{
+							borderWidth : '0px 0px 2px 0px',
+							borderStyle : null,
+							borderColor : '#ddd',
+							height : 28,
+							padding : 0,
+							margin : 0,
+							fontSize : 18,
+						}}
+					/>
+				)}
+			/>
+		</div>
+	)
+}
+
+
+const ContactInputTextArea = ({label, inputKey, register, required = false, error}) => {
+	return (
+		<div
+			style={{
+				position : 'relative',
+				display: 'flex',
+				flexDirection : 'column',
+				flex : 1
+			}}
+		>
+			<span
+				style={{
+					fontSize: '0.8rem',
+					fontWeight : 600
+				}}
+			>
+				{label}
+			</span>
+			{
+				error && <span
+					style={{
+						fontSize : 12,
+						color : 'red',
+						position : 'absolute',
+						right : 0, top : 0
+					}}
+				>
+					{
+						(error.type == 'required') ? '*Required' : '*Invalid'
+					}
+				</span>
+			}
+			<textarea
+				label={inputKey}
 				style={{
 					borderWidth : '1px 1px 2px 1px',
 					borderStyle : null,
@@ -131,16 +244,16 @@ const ContactInputTextArea = ({inputRef, onChange, value, label}) => {
 					minHeight: 120,
 					maxHeight : 240
 				}}
+				{...register(inputKey, {required : required})}
 			/>
 		</div>
 	)
 }
 
-const SubmitButton = ({label, href = '/', target = ''}) => {
+
+const SubmitButton = ({label, onClick, disabled}) => {
     return (
-        <Button className={styles.submitButton} onPress={() => {
-			console.log("SUBMIT")
-		}}>
+        <Button className={styles.submitButton} onClick={onClick} disabled={disabled}>
             <span
 				style={{
 					paddingLeft : 50,
@@ -153,7 +266,40 @@ const SubmitButton = ({label, href = '/', target = ''}) => {
     )
 }
 
-const ContactSubjectContainer = () => {
+const ContactSubjectContainerRadio = ({radioKey, onChange, value, label}) => {
+
+	const onRadioPressed = () => {
+		onChange(radioKey);
+	}
+
+	return (
+		<div
+			style={{
+				display: 'flex',
+				gap : 5,
+			}}
+			onClick={() => {
+				onRadioPressed();
+			}}
+		>
+			<input type="radio" name={radioKey} value={radioKey} checked={radioKey == value} onChange={onRadioPressed} style={{transform: 'scale(1)'}} />
+			<span
+				style={{
+					fontSize : 14,
+					marginTop : 2,
+					display : 'flex',
+					justifyContent : 'center',
+					alignItems : 'center',
+					gap : 5
+				}}
+			>
+				{label}
+			</span>
+		</div>
+	)
+}
+
+const ContactSubjectContainer = ({inputKey, control}) => {
 	return (
 		<div
 			style={{
@@ -177,54 +323,32 @@ const ContactSubjectContainer = () => {
 				}}
 				className={styles.subjectRow}
 			>
-				<div
-					style={{
-						display: 'flex',
-						gap : 5,
+				<Controller
+					name={inputKey}
+					control={control}
+					defaultValue={'general'}
+					rules={{
+						validate: (value) => (value == 'general' || value == 'sponsorship' || value == 'technical' )
 					}}
-				>
-					<input type="radio" name="choice" value="general" style={{transform: 'scale(1)'}}/>
-					<span
-						style={{
-							fontSize : 14,
-							marginTop : 2
-						}}
-					>
-						General Inquiry
-					</span>
-				</div>
-				<div
-					style={{
-						display: 'flex',
-						gap : 5,
-					}}
-				>
-					<input type="radio" name="choice" value="sponsorship" style={{transform: 'scale(1)'}}/>
-					<span
-						style={{
-							fontSize : 14,
-							marginTop : 2
-						}}
-					>
-						Sponsorship
-					</span>
-				</div>
-				<div
-					style={{
-						display: 'flex',
-						gap : 5,
-					}}
-				>
-					<input type="radio" name="choice" value="technical" style={{transform: 'scale(1)'}}/>
-					<span
-						style={{
-							fontSize : 14,
-							marginTop : 2
-						}}
-					>
-						Technical Inquiry (?)
-					</span>
-				</div>
+					render={({ field: { onChange, value } }) => (
+						<>
+							<ContactSubjectContainerRadio radioKey={"general"} onChange={onChange} value={value} label={"General Inquiry"}/>
+							<ContactSubjectContainerRadio radioKey={"sponsorship"} onChange={onChange} value={value} label={"Sponsorship"}/>
+							<ContactSubjectContainerRadio radioKey={"technical"} onChange={onChange} value={value} label={
+								<>
+									Technical Inquiry
+									<svg data-tooltip-id="tooltip" data-tooltip-content="Technical inquiries are sent directly to our programming team" style={{width : 18, height : 18, marginTop : 4, color : '#000000aa'}} xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-info-circle" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+										<circle cx="12" cy="12" r="9" />
+										<line x1="12" y1="8" x2="12.01" y2="8" />
+										<polyline points="11 12 12 12 12 16 13 16" />
+									</svg>
+								</>
+							}/>
+						</>
+					)}
+				/>
+				<Tooltip id="tooltip" noArrow={true} />
 			</div>
 		</div>
 	)
@@ -232,19 +356,76 @@ const ContactSubjectContainer = () => {
 
 export default function Contact() {
 
-	const inputFirstNameRef = useRef(null);
-	const inputLastNameRef = useRef(null);
-	const inputEmailRef = useRef(null);
-	const inputPhoneRef = useRef(null);
-	const inputBodyRef = useRef(null);
+	const [submitEnabled, setSubmitEnabled] = useState(true);
 
+	const {
+		register,
+		handleSubmit,
+		control,
+		formState : {errors}
+	} = useForm({
+		firstName : "",
+		lastName : "",
+		email : "",
+		phoneNumber : "",
+		subject : "technical",
+		messageBody : ""
+	});
 
-	const [inputFirstName, setInputFirstName] = useState("");
-	const [inputLastName, setInputLastName] = useState("");
-	const [inputEmail, setInputEmail] = useState("");
-	const [inputPhone, setInputPhone] = useState("");
-	const [inputBody, setInputBody] = useState("");
+	const toastID = useRef(null);
 
+	const handleRegistration = async (data) => {
+
+		setSubmitEnabled(false);
+
+		toastID.current = toast.info("Sending Inquiry . . .", {autoClose : false});;
+
+		try {
+			const _response = await fetch(
+				`${process.env.NEXT_PUBLIC_API_BASE}/api/v2/Contact`,
+				{
+					method: 'POST',
+					body : JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+
+			if (_response.status == 200) {
+				toast.update(toastID.current, {
+					render : "Inquiry Sent!",
+					type : toast.TYPE.SUCCESS,
+					autoClose : 5000
+				});
+				setSubmitEnabled(true);
+				return;
+			}
+	
+			const response = await _response.json();
+
+			toast.update(toastID.current, {
+				render : `There was an issue with your request. ${response.message}`,
+				type : toast.TYPE.ERROR,
+				autoClose : 5000
+			});
+
+			setSubmitEnabled(true);
+
+	
+		} catch (err) {
+			console.log(err);
+			toast.update(toastID.current, {
+				render : "We're sorry, an unexpected error has occurred. Please try again later",
+				type : toast.TYPE.ERROR,
+				autoClose : 5000
+			});
+			setSubmitEnabled(true);
+
+		}
+
+	}
+	
 	return (
 		<div>
 			<Navbar/>
@@ -266,15 +447,7 @@ export default function Contact() {
 					}}
 				>
 					<div
-						style={{
-							backgroundColor : '#000',
-							flex : 2,
-							color : '#fff',
-							padding : 40,
-							display: 'flex',
-							flexDirection : 'column',
-							justifyContent : 'space-between'
-						}}
+						className={styles.contactBlockSocials}
 					>
 						<div>
 							<h3>
@@ -282,21 +455,13 @@ export default function Contact() {
 							</h3>
 						</div>
 						<div
-							style={{
-								display: 'flex',
-								flexDirection: 'column',
-								gap : 40
-							}}
+							className={styles.contactSocialContainer}
 						>
 							{
 								contactInformation.map((contactItem, index) => {
 									return <div
 										key={index}
-										style={{
-											display: 'flex',
-											gap : 20,
-											alignItems : 'center'
-										}}
+										className={styles.contactItem}
 									>
 										{
 											contactItem.icon
@@ -312,22 +477,13 @@ export default function Contact() {
 								})
 							}
 						</div>
-						<div>
-							<span>
-								Social Media Icons
-							</span>
+						<div className={styles.socialIconsContainer}>
+							<SocialMediaIcons/>
 						</div>
 						
 					</div>
-					<div
-						style={{
-							backgroundColor: '#fff',
-							flex : 3,
-							padding : 40,
-							display: 'flex',
-							flexDirection : 'column',
-							gap : 40
-						}}
+					<form
+						className={styles.contactForm}
 					>
 						<div
 							style={{
@@ -336,8 +492,8 @@ export default function Contact() {
 							}}
 							className={styles.inputRow}
 						>
-							<ContactInput inputRef={inputFirstNameRef} onChange={setInputFirstName} value={inputFirstName} label={"First Name"}/>
-							<ContactInput inputRef={inputLastNameRef} onChange={setInputLastName} value={inputLastName} label={"Last Name"}/>
+							<ContactInput label={"First Name"} inputKey={'firstName'} register={register}/>
+							<ContactInput label={"Last Name"} inputKey={'lastName'} register={register}/>
 						</div>
 						<div
 							style={{
@@ -346,24 +502,44 @@ export default function Contact() {
 							}}
 							className={styles.inputRow}
 						>
-							<ContactInput inputRef={inputEmailRef} onChange={setInputEmail} value={inputEmail} label={"Email Address"}/>
-							<ContactInput inputRef={inputPhoneRef} onChange={setInputPhone} value={inputPhone} label={"Phone Number (Optional)"}/>
+							<ContactInput
+								label={"Email Address"}
+								type={'email'}
+								inputKey={'email'}
+								register={register}
+								required={true}
+								error={errors['email']}
+								pattern={
+									{
+										value :  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+										message : "Invalid Email Address"
+									}
+								}
+							/>
+							<ContactPhoneNumberInput label={"Phone Number (Optional)"} inputKey={'phoneNumber'} control={control} error={errors['phoneNumber']}/>
 						</div>
-						<ContactSubjectContainer/>
-						<ContactInputTextArea inputRef={inputBodyRef} onChange={setInputBody} value={inputBody} label={"Contents"}/>
+						<ContactSubjectContainer inputKey={'subject'} control={control} />
+						<ContactInputTextArea label={"Contents"} inputKey={'messageBody'} register={register} required={true} error={errors['messageBody']}/>
 						<div
 							style={{
 								display : 'flex',
 								justifyContent : 'flex-end'
 							}}
 						>
-							<SubmitButton label={'Submit'}/>
+							<SubmitButton
+								label={'Submit'}
+								disabled={!submitEnabled}
+								onClick={() => {
+									handleSubmit(handleRegistration)()
+								}}
+							/>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
+			<ToastContainer/>
 		</div>
 	)
 }

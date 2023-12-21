@@ -4,6 +4,8 @@ import {useEffect, useState} from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import TextTransition, { presets } from 'react-text-transition';
 
+import styles from './homeTypingHeader.module.css';
+
 const TEXTS = ["Team 5599", "The Sentinels"]
 
 const HomeTypingHeader = () => {
@@ -22,20 +24,14 @@ const HomeTypingHeader = () => {
         <>
             <>
                 <div
-                    style={{
-                        display : 'flex',
-                        justifyContent : 'center',
-                        textTransform : 'uppercase'
-                    }}
+                    className={styles.headerContainer}
                 >
                     <h1 style={{ fontWeight : 900, marginBottom : 20}}>
                         We are{'\u00A0'}
                     </h1>
                     <TextTransition
+                        className={styles.typingHeader}
                         springConfig={presets.wobbly}
-                        style={{
-                            display: 'inline-block'
-                        }}
                     >
                         <h1 style={{ fontWeight : 900, marginBottom : 20 }}>{TEXTS[index % TEXTS.length]}</h1>
                     </TextTransition>

@@ -9,7 +9,7 @@ import Footer from '@components/Footer/Footer'
 
 import GoogleCalendar from "@ericz1803/react-google-calendar";
 
-const API_KEY = ""
+const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API;
 const calendars = [
 	{
 		calendarID : 'uhq028g80bg92lfr1lq4ft27ik@group.calendar.google.com'

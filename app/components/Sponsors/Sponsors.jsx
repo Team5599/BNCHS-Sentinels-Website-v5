@@ -8,41 +8,10 @@ import styles from './sponsors.module.css';
 
 import useWindowDimensions from '@lib/useWindowDimensions';
 import { useContainerDimensions } from '@/lib/useContainerDimensions';
-import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
+
+import "animate.css/animate.min.css";
 
 import { ButtonLink } from '@components/Button/Button';
-
-const getSponsorsData = async () => {
-
-    try {
-        const res = await fetch(
-            `https://beta.team5599.com/api/v1/sponsors`,
-            {
-                method: 'GET'
-            }
-        );
-
-        const data = await res.json();
-    
-        const sponsorsData = data.payload.map((sponsorData) => {
-            return {
-                id : sponsorData._id,
-                srcURL : sponsorData.image,
-                name : sponsorData.name,
-                seasons : sponsorData.seasons // array with years as strings
-            }
-        });
-
-        console.log("sdata", sponsorsData);
-
-        return sponsorsData;
-    } catch (err) {
-        console.log(err);
-        return [];
-    }
-
-}
-
 
 const FILLERBLOCK_BACKGROUND_COLORS = [
     '#eeeeee',
@@ -89,7 +58,13 @@ const FillerBlock = ({itemHeight, row_index, column_index}) => {
 
 }
 
-const Sponsors = () => {
+const Sponsors = ({sponsorsData, displaySeasonValue}) => {
+
+    console.log("SPONSORS", sponsorsData);
+
+    sponsorsData = sponsorsData.filter((sponsorData) => {
+        return (sponsorData.seasons.includes(displaySeasonValue.value.toString()));
+    })
 
     /*
         Sponor Blocks can be 1x1 or 2x1 (wxh)
@@ -101,54 +76,6 @@ const Sponsors = () => {
         Calculate 'best-fit' using image dimensiosn (mark them as 1x1, 2x1, or even 3x1)
         Begin memoized packing algorithm
     */
-
-    const [sponsorsData, setSponsorsData] = useState([]);
-
-    useEffect(() => {
-
-        (async () => {
-
-            console.log("Getting sponsors data");
-
-            // Get SponsorsData
-            let sponsorsData = await getSponsorsData();
-
-            // Preload images and get their dimensions
-            const sponsorImageMetadata = await Promise.allSettled( 
-                sponsorsData.map((sponsorData) => getImageDimensionsFromURL(sponsorData.id, sponsorData.srcURL))
-            )
-			
-            // Get their 'column weight' to determine their weight (1, 2, 3)
-            sponsorImageMetadata.forEach((imageMetadataPromise) => {
-
-				if (imageMetadataPromise.status == 'rejected') return;
-
-				const imageMetadata = imageMetadataPromise.value;
-
-                let sponsorData = sponsorsData.find((_sponsorData) => {
-                    return _sponsorData.id == imageMetadata.id
-                })
-
-				if (sponsorData == undefined){
-					console.log("Failed to find sponsor data with id", imageMetadata.id);
-					return;
-				}
-
-                let weight = Math.round(imageMetadata.width / imageMetadata.height);
-                sponsorData.metadata = {width : imageMetadata.width, height : imageMetadata.height, columnWeight : weight}
-
-            })
-
-			// Remove any sponsor items where the image metadata failed to be grabbed 
-			sponsorsData = sponsorsData.filter((sponsorData) => {
-				return (sponsorData.hasOwnProperty('metadata'));
-			})
-
-            setSponsorsData(sponsorsData);
-
-        })();
-
-    }, [])
 
     function calculateNumGridColumns(screenWidth) {
         if (screenWidth < 768) return 2;
@@ -306,7 +233,7 @@ const Sponsors = () => {
 
                 // If the item doesn't fit, and backtracking is disabled (or we're in a loop and can't fit an item), fill the current row with fillers, send it off, and create a new row with the item that didn't fit.
 
-                if (disableBacktracking || (lastFitAttemptTracker[sponsorItem.id] && lastFitAttemptTracker[sponsorItem.id] > 1)) {
+                if (disableBacktracking || (lastFitAttemptTracker[sponsorItem.id] && lastFitAttemptTracker[sponsorItem.id] > 50)) {
 
                     // Fill the current row with fillers and send it off
                     let remainingWeight = numGridColumns - currentRowWeight;
@@ -329,7 +256,7 @@ const Sponsors = () => {
 
 
                 } else {
-                    console.log("Skipping fit for item", sponsorItem);
+                    console.log("Skipping fit for item", sponsorItem, lastFitAttemptTracker[sponsorItem.id]);
 
                     if (iteration > 100){
                         console.log("Fit Overflow");
@@ -339,7 +266,7 @@ const Sponsors = () => {
                     if (lastFitAttemptTracker[sponsorItem.id]) {
                         lastFitAttemptTracker[sponsorItem.id]++
                     } else {
-                        lastFitAttemptTracker[sponsorItem] = 1;
+                        lastFitAttemptTracker[sponsorItem.id] = 1;
                     }
                 }
 
@@ -389,6 +316,9 @@ const Sponsors = () => {
 
     // item height = [(width of container) - (gap * n - 1)]/(n)
 
+    // TODO
+    // Render a message saying "no sponsors data" if no sponsors are found
+
     return (
 		<>
 			<div
@@ -405,10 +335,11 @@ const Sponsors = () => {
 							{
 								row.map((sponsorItem, column_index) => {
                                     if (sponsorItem.id == "filler") {
-                                        return <FillerBlock key={`filler-${row_index}-${column_index}`} row_index={row_index} column_index={column_index} itemHeight={itemHeight}/>
+                                        return <FillerBlock className={'animate__animated  animate_fadeIn'} key={`filler-${row_index}-${column_index}`} row_index={row_index} column_index={column_index} itemHeight={itemHeight}/>
                                     }
 									return <div
 										key={sponsorItem.id}
+                                        className={'animate__animated  animate_fadeIn'}
 										style={{
 											display : 'flex',
                                             gridColumn : `span ${sponsorItem.metadata.columnWeight > numGridColumns ? numGridColumns : sponsorItem.metadata.columnWeight}`,
@@ -434,23 +365,6 @@ const Sponsors = () => {
 					})
 				}
 			</div>
-			<ButtonLink
-                className={styles.sponsorsMoreButton}
-                style={{
-                    marginTop : 80,
-                    backgroundColor: 'transparent',
-                    '--hoverBackgroundColor' : '#000',
-                    outlineColor : '#000',
-                    '--activeBackgroundColor' : '#444'
-                }}
-                variant={'inverted'}
-                href={''}
-                target={''}
-            >
-				<span>
-					Learn more about Sponsorship Incentives and how you can help here
-				</span>
-			</ButtonLink>
 		</>
     )
 }
