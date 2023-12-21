@@ -34,7 +34,11 @@
 }
 
 .homeTileItem > .markerSmudge {
-    background-color: #00000077;
+    /* background-color: #00000077; */
+    position: relative;
+    background-image: url('/images/tiles/backsplash/brush-stroke-20.png');
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
     width : 100%;
     text-align: center;
