@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 
 import Link from 'next/link';
 import NextImage from 'next/image';
-import styles from './sponsors.module.css';
+import styles from './sponsorPackedGrid.module.css';
 
 import useWindowDimensions from '@lib/useWindowDimensions';
 import { useContainerDimensions } from '@/lib/useContainerDimensions';
@@ -58,7 +58,7 @@ const FillerBlock = ({itemHeight, row_index, column_index}) => {
 
 }
 
-const Sponsors = ({sponsorsData, displaySeasonValue}) => {
+const SponsorPackedGrid = ({sponsorsData, displaySeasonValue}) => {
 
     console.log("SPONSORS", sponsorsData);
 
@@ -369,4 +369,4 @@ const Sponsors = ({sponsorsData, displaySeasonValue}) => {
     )
 }
 
-export default Sponsors;
+export default SponsorPackedGrid;

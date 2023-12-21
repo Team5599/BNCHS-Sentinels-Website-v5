@@ -5,7 +5,7 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
 import { ButtonLink } from '@components/Button/Button';
-import styles from './sponsorBlock.module.css';
+import styles from './sponsorMarquee.module.css';
 import { Tooltip } from 'react-tooltip'
 
 const getSponsorsData = async () => {

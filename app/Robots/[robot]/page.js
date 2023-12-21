@@ -11,7 +11,7 @@ import { getRobotData } from '../page'
 import Link from 'next/link'
 import { ButtonLink } from '@components/Button/Button'
 
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 
 // export async function generateStaticParams() {
 // 	const robotData = await getRobotData();
@@ -248,7 +248,7 @@ export default function Robot({params}) {
 					</ButtonLink>
 				</div>
 			</div>
-			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

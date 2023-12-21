@@ -10,8 +10,8 @@ import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 
 import { Button, ButtonLink } from '@components/Button/Button'
-import Sponsors from '@components/Sponsors/Sponsors'
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorPackedGrid from '@/app/components/Sponsorship/SponsorPackedGrid/SponsorPackedGrid'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 import Select from 'react-select'
 import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
 
@@ -207,7 +207,7 @@ export default function SponsorsPage() {
 				</div>
 				{
 					(isLoading) ? <LoadingBlock/> : (
-						(sponsorsData.length == 0) ? <NoDataBlock/> : <Sponsors sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
+						(sponsorsData.length == 0) ? <NoDataBlock/> : <SponsorPackedGrid sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
 					)
 				}
 				<ButtonLink
@@ -228,7 +228,7 @@ export default function SponsorsPage() {
                     </span>
                 </ButtonLink>
 			</div>
-			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

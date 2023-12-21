@@ -5,7 +5,7 @@ import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
 
 
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 
 
 export default function SponsorIncentivesPage() {
@@ -100,7 +100,7 @@ export default function SponsorIncentivesPage() {
                     </div>
                 </div>
 			</div>
-			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

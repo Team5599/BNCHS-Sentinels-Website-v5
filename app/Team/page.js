@@ -13,7 +13,7 @@ import Divider from '@components/Divider/Divider'
 import PersonCard from '@components/PersonCard/PersonCard'
 import {PersonCardTwo} from '@components/PersonCard/PersonCard'
 
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 
 import FilterHeader from '@components/FilterHeader/FilterHeader'
 import { Button } from '@components/Button/Button'
@@ -222,7 +222,7 @@ export default function Team() {
 			<LeadershipContainer isLoading={isLoading} members={teamData.leadership} displaySeasonValue={displaySeasonValue}/>
 			<PersonCardContainer title={'MEMBERS'} size='md' isLoading={isLoading} members={teamData.roster} displaySeasonValue={displaySeasonValue}/>	
 			<PersonCardContainer title={'MENTORS'} size='md' isLoading={isLoading} members={teamData.mentors} displaySeasonValue={displaySeasonValue}/>
-			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

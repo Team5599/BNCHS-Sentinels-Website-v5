@@ -7,7 +7,7 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 
 import { ButtonLink } from '@components/Button/Button'
 
@@ -86,7 +86,7 @@ export default function AboutUs() {
 					<SectionButton label={'Our History'} href={'/'}/>
 				</div>
 			</div>
-			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

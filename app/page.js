@@ -8,11 +8,9 @@ import HomeTiles from './components/HomeTiles/HomeTiles'
 import FIRSTSection from './components/FIRSTSection/FIRSTSection'
 import NewsletterSubscriptionInput from './components/NewsletterSubscriptionInput/NewsletterSubscriptionInput'
 import Blog from './components/Blog/Blog';
-import Sponsors from '@components/Sponsors/Sponsors';
-import CountdownTimer from './components/CountdownTimer/CountdownTimer';
 import Footer from '@components/Footer/Footer';
 import HomeTypingHeader from '@components/HomeTypingHeader/HomeTypingHeader'
-import SponsorMarquee from './components/SponsorBlock/SponsorMarquee'
+import SponsorMarquee from './components/Sponsorship/SponsorMarquee/SponsorMarquee'
 
 
 

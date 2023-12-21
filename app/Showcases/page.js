@@ -4,7 +4,7 @@ import Navbar from '@components/Navbar/Navbar'
 import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 import ComingSoonBanner from '@components/ComingSoonBanner/ComingSoonBanner'
 
 export default function Showcases() {
@@ -74,7 +74,7 @@ export default function Showcases() {
 					</p>
 				</div>
 			</div>
-			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)
