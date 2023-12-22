@@ -32,7 +32,6 @@ const FillerBlock = ({itemHeight, row_index, column_index}) => {
 
     const iterateBackgroundColor = () => {
         setBackgroundColorIndex((current) => {
-            console.log("curr", current);
             if (current + 1 >= FILLERBLOCK_BACKGROUND_COLORS.length) {
                 return 0;
             }
@@ -256,7 +255,7 @@ const SponsorPackedGrid = ({sponsorsData, displaySeasonValue}) => {
 
 
                 } else {
-                    console.log("Skipping fit for item", sponsorItem, lastFitAttemptTracker[sponsorItem.id]);
+                    // console.log("Skipping fit for item", sponsorItem, lastFitAttemptTracker[sponsorItem.id]);
 
                     if (iteration > 100){
                         console.log("Fit Overflow");
@@ -356,6 +355,10 @@ const SponsorPackedGrid = ({sponsorsData, displaySeasonValue}) => {
 											style={{
 												aspectRatio : sponsorItem.metadata.columnWeight/1,
 												objectFit : 'contain',
+                                                backgroundColor : sponsorItem.hasTransparency ? 'transparent' : (() => {
+                                                    const [r, g, b] = sponsorItem.metadata.palette[0];
+                                                    return `rgb(${r}, ${g}, ${b})`;
+                                                })()
 											}}
 										/>
 									</div>

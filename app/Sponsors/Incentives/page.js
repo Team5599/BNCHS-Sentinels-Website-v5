@@ -30,6 +30,9 @@ export default function SponsorIncentivesPage() {
                 <p>
                     The Sentinels Robotics Team thanks you in advance for your generous support and participation. Without your generosity, we would not be able to provide these opportunities for our members and reach our goals of competing and advancing in the FIRST Regional Competition for this year as well as many years to come. It would be a privilege to work with you and to support the successes and achievements of our team.
 				</p>
+                <div className={styles.teamPhotoContainer}>
+
+				</div>
             </div>
             <div className={`container`} style={{paddingTop : 20, paddingBottom : 120, textAlign : 'justify'}}>
                 <h2 style={{marginBottom : 40, textAlign : 'center'}}>

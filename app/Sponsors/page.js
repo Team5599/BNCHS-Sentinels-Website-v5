@@ -36,8 +36,6 @@ const getSponsorsData = async () => {
             }
         });
 
-        console.log("sdata", sponsorsData);
-
         return sponsorsData;
     } catch (err) {
         console.log(err);
@@ -125,8 +123,9 @@ export default function SponsorsPage() {
 
             // Preload images and get their dimensions
             const sponsorImageMetadata = await Promise.allSettled( 
-                sponsorsData.map((sponsorData) => getImageDimensionsFromURL(sponsorData.id, sponsorData.srcURL))
+                sponsorsData.map((sponsorData) => getImageDimensionsFromURL(sponsorData.id, sponsorData.srcURL, true))
             )
+
 			
             // Get their 'column weight' to determine their weight (1, 2, 3)
             sponsorImageMetadata.forEach((imageMetadataPromise) => {
@@ -148,7 +147,9 @@ export default function SponsorsPage() {
 
 				if (weight > 4) weight = 4;
 
-                sponsorData.metadata = {width : imageMetadata.width, height : imageMetadata.height, columnWeight : weight}
+				const {width, height, palette, hasTransparency} = imageMetadata;
+
+                sponsorData.metadata = {width, height, columnWeight : weight, palette, hasTransparency}
 
             })
 
@@ -156,8 +157,6 @@ export default function SponsorsPage() {
 			sponsorsData = sponsorsData.filter((sponsorData) => {
 				return (sponsorData.hasOwnProperty('metadata'));
 			})
-
-			console.log("setting state", sponsorsData);
 
             setSponsorsData(sponsorsData);
 			setLoading(false);
