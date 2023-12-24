@@ -1,9 +1,15 @@
+"use client"
+
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './firstSection.module.css';
 
 import CountdownTimer from '../CountdownTimer/CountdownTimer';
 import { ButtonLink } from '@components/Button/Button';
+
+import { AnimationOnScroll } from 'react-animation-on-scroll';
+import "animate.css/animate.min.css";
+
 
 const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     return (
@@ -54,8 +60,12 @@ const FIRSTSection = () => {
                     </p>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <FIRSTSectionButton label='More On FIRST' href='./Events'/>
-                    <FIRSTSectionButton label='Our Competitions' href='./Events'/>
+                    <AnimationOnScroll delay={400} duration={1.4} animateIn="animate__fadeInRight" animateOnce={true}>
+                        <FIRSTSectionButton label='More On FIRST' href='./Events'/>
+                    </AnimationOnScroll>
+                    <AnimationOnScroll delay={800} duration={1.4} animateIn="animate__fadeInRight" animateOnce={true}>
+                        <FIRSTSectionButton label='Our Competitions' href='./Events'/>
+                    </AnimationOnScroll>
                 </div>
             </div>
 

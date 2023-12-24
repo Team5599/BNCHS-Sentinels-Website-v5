@@ -8,6 +8,10 @@ import { ButtonLink } from '@components/Button/Button';
 import styles from './sponsorMarquee.module.css';
 import { Tooltip } from 'react-tooltip'
 
+import { AnimationOnScroll } from 'react-animation-on-scroll';
+import "animate.css/animate.min.css";
+
+
 const getSponsorsData = async () => {
 
     try {
@@ -126,25 +130,27 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
             </Marquee>
             <Tooltip id="tooltip" noArrow={true} float={true} style={{zIndex : 100}}/>
             <div className={`container`}>
-                <ButtonLink
-                    className={styles.sponsorsMoreButton}
-                    style={{
-                        backgroundColor: 'transparent',
-                        '--hoverBackgroundColor' : '#000',
-                        outlineColor : '#000',
-                        '--activeBackgroundColor' : '#444'
-                    }}
-                    variant={'inverted'}
-                    href={'/Sponsors/Incentives'}
-                    target={''}
-                >
-                    <span style={{
-                        paddingTop : 8,
-                        paddingBottom : 8
-                    }}>
-                        Learn more about Sponsorship Incentives and how you can help here
-                    </span>
-                </ButtonLink>
+                <AnimationOnScroll delay={400} duration={1.4} animateIn="animate__fadeInUp" animateOnce={true}>
+                    <ButtonLink
+                        className={styles.sponsorsMoreButton}
+                        style={{
+                            backgroundColor: 'transparent',
+                            '--hoverBackgroundColor' : '#000',
+                            outlineColor : '#000',
+                            '--activeBackgroundColor' : '#444'
+                        }}
+                        variant={'inverted'}
+                        href={'/Sponsors/Incentives'}
+                        target={''}
+                    >
+                        <span style={{
+                            paddingTop : 8,
+                            paddingBottom : 8
+                        }}>
+                            Learn more about Sponsorship Incentives and how you can help here
+                        </span>
+                    </ButtonLink>
+                </AnimationOnScroll>
             </div>
         </div>
         

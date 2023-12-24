@@ -14,7 +14,7 @@ import "animate.css/animate.min.css";
 import { ButtonLink } from '@components/Button/Button';
 
 const FILLERBLOCK_BACKGROUND_COLORS = [
-    '#eeeeee',
+    // '#eeeeee',
     '#027bff40',
     '#f6831330'
 ]
@@ -355,10 +355,11 @@ const SponsorPackedGrid = ({sponsorsData, displaySeasonValue}) => {
 											style={{
 												aspectRatio : sponsorItem.metadata.columnWeight/1,
 												objectFit : 'contain',
-                                                backgroundColor : sponsorItem.hasTransparency ? 'transparent' : (() => {
-                                                    const [r, g, b] = sponsorItem.metadata.palette[0];
-                                                    return `rgb(${r}, ${g}, ${b})`;
-                                                })()
+                                                backgroundColor : '#eeeeee'
+                                                // backgroundColor : sponsorItem.hasTransparency ? 'transparent' : (() => {
+                                                //     const [r, g, b] = sponsorItem.metadata.palette[0];
+                                                //     return `rgb(${r}, ${g}, ${b})`;
+                                                // })()
 											}}
 										/>
 									</div>
