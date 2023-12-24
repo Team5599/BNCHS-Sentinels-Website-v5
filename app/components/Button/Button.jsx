@@ -112,7 +112,12 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
 }
 
 
-const Button = ({style = {}, label, className, children, variant, props}) => {
+const Button = ({style = {}, label, className, children, variant, ...props}) => {
+
+    if (label == "Subscribe") {
+        console.log("PROPS", props);
+    }
+
     return (
         <ButtonBase
             style={style}
@@ -131,7 +136,7 @@ const Button = ({style = {}, label, className, children, variant, props}) => {
     )
 }
 
-const ButtonLink = ({style = {}, label, href = '/', target = '', className, children, variant, props}) => {
+const ButtonLink = ({style = {}, label, href = '/', target = '', className, children, variant, ...props}) => {
     return (
         <ButtonBase
             style={style}
