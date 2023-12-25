@@ -10,8 +10,8 @@ import Header from '@components/Header/Header'
 import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 
 import { Button, ButtonLink } from '@components/Button/Button'
-import Sponsors from '@components/Sponsors/Sponsors'
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorPackedGrid from '@/app/components/Sponsorship/SponsorPackedGrid/SponsorPackedGrid'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 import Select from 'react-select'
 import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
 
@@ -35,8 +35,6 @@ const getSponsorsData = async () => {
                 seasons : sponsorData.seasons // array with years as strings
             }
         });
-
-        console.log("sdata", sponsorsData);
 
         return sponsorsData;
     } catch (err) {
@@ -125,8 +123,9 @@ export default function SponsorsPage() {
 
             // Preload images and get their dimensions
             const sponsorImageMetadata = await Promise.allSettled( 
-                sponsorsData.map((sponsorData) => getImageDimensionsFromURL(sponsorData.id, sponsorData.srcURL))
+                sponsorsData.map((sponsorData) => getImageDimensionsFromURL(sponsorData.id, sponsorData.srcURL, true))
             )
+
 			
             // Get their 'column weight' to determine their weight (1, 2, 3)
             sponsorImageMetadata.forEach((imageMetadataPromise) => {
@@ -148,7 +147,9 @@ export default function SponsorsPage() {
 
 				if (weight > 4) weight = 4;
 
-                sponsorData.metadata = {width : imageMetadata.width, height : imageMetadata.height, columnWeight : weight}
+				const {width, height, palette, hasTransparency} = imageMetadata;
+
+                sponsorData.metadata = {width, height, columnWeight : weight, palette, hasTransparency}
 
             })
 
@@ -156,8 +157,6 @@ export default function SponsorsPage() {
 			sponsorsData = sponsorsData.filter((sponsorData) => {
 				return (sponsorData.hasOwnProperty('metadata'));
 			})
-
-			console.log("setting state", sponsorsData);
 
             setSponsorsData(sponsorsData);
 			setLoading(false);
@@ -207,7 +206,7 @@ export default function SponsorsPage() {
 				</div>
 				{
 					(isLoading) ? <LoadingBlock/> : (
-						(sponsorsData.length == 0) ? <NoDataBlock/> : <Sponsors sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
+						(sponsorsData.length == 0) ? <NoDataBlock/> : <SponsorPackedGrid sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
 					)
 				}
 				<ButtonLink
@@ -228,7 +227,7 @@ export default function SponsorsPage() {
                     </span>
                 </ButtonLink>
 			</div>
-			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

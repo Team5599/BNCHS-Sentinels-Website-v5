@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import SocialMediaIcons from '@components/SocialMediaIcons/SocialMediaIcons'
 
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 
 import {useRef, useState} from 'react';
 import Link from 'next/link'
@@ -537,7 +537,7 @@ export default function Contact() {
 					</form>
 				</div>
 			</div>
-			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 			<ToastContainer/>
 		</div>

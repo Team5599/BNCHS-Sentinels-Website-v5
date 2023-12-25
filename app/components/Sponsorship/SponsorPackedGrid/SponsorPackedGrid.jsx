@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 
 import Link from 'next/link';
 import NextImage from 'next/image';
-import styles from './sponsors.module.css';
+import styles from './sponsorPackedGrid.module.css';
 
 import useWindowDimensions from '@lib/useWindowDimensions';
 import { useContainerDimensions } from '@/lib/useContainerDimensions';
@@ -14,7 +14,7 @@ import "animate.css/animate.min.css";
 import { ButtonLink } from '@components/Button/Button';
 
 const FILLERBLOCK_BACKGROUND_COLORS = [
-    '#eeeeee',
+    // '#eeeeee',
     '#027bff40',
     '#f6831330'
 ]
@@ -32,7 +32,6 @@ const FillerBlock = ({itemHeight, row_index, column_index}) => {
 
     const iterateBackgroundColor = () => {
         setBackgroundColorIndex((current) => {
-            console.log("curr", current);
             if (current + 1 >= FILLERBLOCK_BACKGROUND_COLORS.length) {
                 return 0;
             }
@@ -58,7 +57,7 @@ const FillerBlock = ({itemHeight, row_index, column_index}) => {
 
 }
 
-const Sponsors = ({sponsorsData, displaySeasonValue}) => {
+const SponsorPackedGrid = ({sponsorsData, displaySeasonValue}) => {
 
     console.log("SPONSORS", sponsorsData);
 
@@ -256,7 +255,7 @@ const Sponsors = ({sponsorsData, displaySeasonValue}) => {
 
 
                 } else {
-                    console.log("Skipping fit for item", sponsorItem, lastFitAttemptTracker[sponsorItem.id]);
+                    // console.log("Skipping fit for item", sponsorItem, lastFitAttemptTracker[sponsorItem.id]);
 
                     if (iteration > 100){
                         console.log("Fit Overflow");
@@ -356,6 +355,11 @@ const Sponsors = ({sponsorsData, displaySeasonValue}) => {
 											style={{
 												aspectRatio : sponsorItem.metadata.columnWeight/1,
 												objectFit : 'contain',
+                                                backgroundColor : '#eeeeee'
+                                                // backgroundColor : sponsorItem.hasTransparency ? 'transparent' : (() => {
+                                                //     const [r, g, b] = sponsorItem.metadata.palette[0];
+                                                //     return `rgb(${r}, ${g}, ${b})`;
+                                                // })()
 											}}
 										/>
 									</div>
@@ -369,4 +373,4 @@ const Sponsors = ({sponsorsData, displaySeasonValue}) => {
     )
 }
 
-export default Sponsors;
+export default SponsorPackedGrid;

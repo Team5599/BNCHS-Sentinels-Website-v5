@@ -10,6 +10,30 @@ import useWindowDimensions from '@lib/useWindowDimensions';
 
 import { ButtonBase } from '@components/Button/Button'
 
+const getSmudgeBackgroundSize = (label) => {
+    
+    switch (label) {
+        case "About" : {
+            return "100% 400%";
+        }
+        case "Members" : {
+            return "120% 400%";
+        }
+        case "Robots" : {
+            return "105% 400%";
+        }
+        case "Events" : {
+            return "100% 400%";
+        }
+        case "History" : {
+            return "120% 400%";
+        }
+        default : {
+            return "100% 400%"
+        }
+    }
+}
+
 const HomeTileItem = ({label, href = '/', backgroundImgClass = {}}) => {
     return (
         <ButtonBase
@@ -24,7 +48,12 @@ const HomeTileItem = ({label, href = '/', backgroundImgClass = {}}) => {
             type='link'
             variant='inverted'
         >
-            <div className={styles.markerSmudge}>
+            <div
+                className={styles.markerSmudge}
+                style={{
+                    backgroundSize : getSmudgeBackgroundSize(label)
+                }}
+            >
                 <span>
                     {label}
                 </span>

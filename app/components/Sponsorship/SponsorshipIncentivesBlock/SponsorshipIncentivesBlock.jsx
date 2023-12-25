@@ -1,10 +1,9 @@
-import styles from './sponsorBlock.module.css';
+import styles from './sponsorshipIncentivesBlock.module.css';
 import { ButtonLink } from '@components/Button/Button';
 import Image from 'next/image';
 import Link from 'next/link';
-import SponsorMarquee from './SponsorMarquee';
 
-const SponsorBlock = ({style = {}, containerStyle = {}}) => {
+const SponsorshipIncentivesBlock = ({style = {}, containerStyle = {}}) => {
     return (
         <div
             style={{
@@ -98,4 +97,4 @@ const SponsorBlock = ({style = {}, containerStyle = {}}) => {
     )
 }
 
-export default SponsorBlock;
+export default SponsorshipIncentivesBlock;

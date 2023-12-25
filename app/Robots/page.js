@@ -7,7 +7,7 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 import Footer from '@components/Footer/Footer'
 import RobotItem from '@components/RobotItem/RobotItem'
 
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 
 export async function generateStaticParams() {
 
@@ -71,7 +71,7 @@ export default async function Robots() {
 					}
 				</div>
 			</div>
-			<SponsorBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
 		</div>
 	)

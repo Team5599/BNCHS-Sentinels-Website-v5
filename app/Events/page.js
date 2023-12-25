@@ -12,7 +12,7 @@ import PlaylistPlayer from '@components/PlaylistPlayer/PlaylistPlayer'
 
 import {ButtonLink} from '@components/Button/Button'
 
-import SponsorBlock from '@components/SponsorBlock/SponsorBlock'
+import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 
 const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     return (
@@ -148,7 +148,7 @@ export default function Events() {
 			<div className='container' style={{display: 'flex', flexDirection : 'column', gap : 20, paddingTop : 40, paddingBottom : 120, textAlign : 'justify'}}>
 				<PlaylistPlayer/>
 			</div>
-			<SponsorBlock
+			<SponsorshipIncentivesBlock
 				style={{
 					marginBottom : 80
 				}}
