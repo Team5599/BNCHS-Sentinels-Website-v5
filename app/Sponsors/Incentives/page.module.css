@@ -15,3 +15,111 @@
     height : 500px;
     background-color: #eee;
 }
+
+/* */
+
+.card-shine-effect-metal {
+    --shine-deg: 45deg;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px;
+    padding: 1.2rem 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);   
+}
+
+.card-shine-effect-metal[metal='aluminum'] {
+    background: linear-gradient(to bottom, #b1b2b6, #f9f9f9, #b1b2b6);
+    border : 1px solid #dbdbdb;
+}
+
+.card-shine-effect-metal[metal='bronze'] {
+    background: linear-gradient(to bottom, #956e42, #ca8f5b, #956e42);
+    border : 1px solid #956e42;
+}
+
+.card-shine-effect-metal[metal='silver'] {
+    background: linear-gradient(to bottom, #dedede, #ffffff, #dedede);
+    border : 1px solid #dedede;
+}
+
+.card-shine-effect-metal[metal='gold'] {
+    background: linear-gradient(to bottom, #f8d364, #f5f3b6, #f8d364);
+    border : 1px solid #f8d364;
+}
+
+  
+.card-shine-effect-metal:after {
+    content: "";
+    top: 0;
+    transform: translateX(90%) rotate(var(--shine-deg));
+    width: 300%;
+    height: 300%;
+    position: absolute;
+    z-index: 1;
+    transition: transform 4s ease-in;
+    transform: translateX(100%) rotate(var(--shine-deg));
+}
+
+.card-shine-effect-metal[metal='aluminum']:after {
+    background: linear-gradient(
+        30deg,
+        transparent 20%,
+        transparent 40%,
+        rgb(255, 255, 255, 0.4) 50%,
+        rgb(255, 255, 255, 0.4) 55%,
+        transparent 70%,
+        transparent 100%
+    );
+}
+
+.card-shine-effect-metal[metal='bronze']:after {
+    background: linear-gradient(
+        30deg,
+        transparent 20%,
+        transparent 40%,
+        rgb(200, 150, 100, 0.4) 50%,
+        rgb(200, 150, 100, 0.4) 55%,
+        transparent 70%,
+        transparent 100%
+    );
+}
+
+.card-shine-effect-metal[metal='silver']:after {
+    background: linear-gradient(
+        30deg,
+        transparent 20%,
+        transparent 40%,
+        rgb(255, 255, 255, 0.4) 50%,
+        rgb(255, 255, 255, 0.4) 55%,
+        transparent 70%,
+        transparent 100%
+    );
+}
+
+.card-shine-effect-metal[metal='gold']:after {
+    background: linear-gradient(
+        30deg,
+        transparent 20%,
+        transparent 40%,
+        rgb(240, 240, 180, 0.4) 50%,
+        rgb(240, 240, 180, 0.4) 55%,
+        transparent 70%,
+        transparent 100%
+    );
+}
+  
+  
+.card-shine-effect-metal:hover:after {
+    animation: shine 1s infinite ease-in;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(100%) rotate(var(--shine-deg));
+    }
+    100% {
+        transform: translateX(-100%) rotate(var(--shine-deg));
+    }
+  }
+  

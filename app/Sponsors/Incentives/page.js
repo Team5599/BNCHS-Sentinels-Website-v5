@@ -8,6 +8,12 @@ import Header from '@components/Header/Header'
 import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 
 
+const MetallicHeader = () => {
+    return (
+        <></>
+    )
+}
+
 export default function SponsorIncentivesPage() {
 
 	return (
@@ -30,19 +36,22 @@ export default function SponsorIncentivesPage() {
                 <p>
                     The Sentinels Robotics Team thanks you in advance for your generous support and participation. Without your generosity, we would not be able to provide these opportunities for our members and reach our goals of competing and advancing in the FIRST Regional Competition for this year as well as many years to come. It would be a privilege to work with you and to support the successes and achievements of our team.
 				</p>
-                <div className={styles.teamPhotoContainer}>
-
-				</div>
             </div>
             <div className={`container`} style={{paddingTop : 20, paddingBottom : 120, textAlign : 'justify'}}>
-                <h2 style={{marginBottom : 40, textAlign : 'center'}}>
+                <h2 style={{marginBottom : 80, textAlign : 'center'}}>
                     SPONSORSHIP PACKAGES
                 </h2>
                 <div className={styles.incentivesContainer}>
                     <div>
-                        <h3 style={{textAlign : 'center'}}>
-                            Aluminum $500 — $999
-                        </h3>
+                        <div style={{textAlign : 'center', marginBottom : 40}} className={styles['card-shine-effect-metal']} metal={'aluminum'}>
+                            <h3 >
+                                Aluminum 
+                            </h3>
+                            <h5>
+                                $500 — $999
+                            </h5>
+                        </div>
+                        
                         <ul>
                             <li>
                                 Benefactors will receive a letter of appreciation displaying their support for the team.
@@ -53,9 +62,14 @@ export default function SponsorIncentivesPage() {
                         </ul>
                     </div>
                     <div>
-                        <h3 style={{textAlign : 'center'}}>
-                            Bronze $1000 — $4999
-                        </h3>
+                        <div style={{textAlign : 'center', marginBottom : 40}} className={styles['card-shine-effect-metal']} metal={'bronze'}>
+                            <h3 >
+                                Bronze 
+                            </h3>
+                            <h5>
+                                $1000 — $4999
+                            </h5>
+                        </div>
                         <ul>
                             <li>
                                 Benefactors will receive their company's logo/decal on our website's Sponsors page for the year and your company's logo/decal will be placed in our team lab, along with an invitation to visit our robotics lab. 
@@ -64,9 +78,14 @@ export default function SponsorIncentivesPage() {
                         </ul> 
                     </div>
                     <div>
-                        <h3 style={{textAlign : 'center'}}>
-                            Silver $5000 — $9999
-                        </h3>
+                        <div style={{textAlign : 'center', marginBottom : 40}} className={styles['card-shine-effect-metal']} metal={'silver'}>
+                            <h3 >
+                            Silver 
+                            </h3>
+                            <h5>
+                                $5000 — $9999
+                            </h5>
+                        </div>
                         <ul>
                             <li>
                                 Benefactors will receive a letter of appreciation displaying their support for the team.
@@ -80,9 +99,14 @@ export default function SponsorIncentivesPage() {
                         </ul>
                     </div>
                     <div>
-                        <h3 style={{textAlign : 'center'}}>
-                            Gold $5000 — $9999
-                        </h3>
+                        <div style={{textAlign : 'center', marginBottom : 40}} className={styles['card-shine-effect-metal']} metal={'gold'}>
+                            <h3 >
+                                Gold 
+                            </h3>
+                            <h5>
+                                $5000 — $9999
+                            </h5>
+                        </div>
                         <ul>
                             <li>
                                 Benefactors will have their logo posted on the landing page of our website, along with an invitation to visit our robotics lab. 
@@ -102,6 +126,9 @@ export default function SponsorIncentivesPage() {
                         </ul>
                     </div>
                 </div>
+                <div className={styles.teamPhotoContainer} style={{marginTop : 120}}>
+
+				</div>
 			</div>
 			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
 			<Footer/>
