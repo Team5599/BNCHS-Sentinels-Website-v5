@@ -11,9 +11,12 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 
 import { Button, ButtonLink } from '@components/Button/Button'
 import SponsorPackedGrid from '@/app/components/Sponsorship/SponsorPackedGrid/SponsorPackedGrid'
+import SponsorMasonryGrid from '@components/Sponsorship/SponsorMasonryGrid/SponsorMasonryGrid'
 import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 import Select from 'react-select'
 import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
+
+import { Tooltip } from 'react-tooltip'
 
 const getSponsorsData = async () => {
 
@@ -26,12 +29,15 @@ const getSponsorsData = async () => {
         );
 
         const data = await res.json();
+
+		console.log("PAYLOAD", data.payload);
     
         const sponsorsData = data.payload.map((sponsorData) => {
             return {
                 id : sponsorData._id,
                 srcURL : sponsorData.image,
                 name : sponsorData.name,
+				destinationURL : sponsorData.destination,
                 seasons : sponsorData.seasons // array with years as strings
             }
         });
@@ -145,7 +151,7 @@ export default function SponsorsPage() {
 
                 let weight = Math.round(imageMetadata.width / imageMetadata.height);
 
-				if (weight > 4) weight = 4;
+				if (weight > 6) weight = 6;
 
 				const {width, height, palette, hasTransparency} = imageMetadata;
 
@@ -189,7 +195,7 @@ export default function SponsorsPage() {
 					style={{
 						display : 'flex',
 						flexDirection : 'column',
-						gap : 4,
+						gap : 40,
 						marginBottom : 40,
 					}}
 				>
@@ -203,10 +209,25 @@ export default function SponsorsPage() {
 							}
 						}}
 					/>
+					<div
+						style={{
+							textAlign : 'center',
+							display : 'flex',
+							flexDirection : 'column',
+							gap : 20
+						}}
+					>
+						<h3>
+							A Special Thanks to our Sponsors!
+						</h3>
+						<p>
+							Thanks to their generous support, we are able to provide more opportunities for our students.
+						</p>
+					</div>
 				</div>
 				{
 					(isLoading) ? <LoadingBlock/> : (
-						(sponsorsData.length == 0) ? <NoDataBlock/> : <SponsorPackedGrid sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
+						(sponsorsData.length == 0) ? <NoDataBlock/> : <SponsorMasonryGrid sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/> // <SponsorPackedGrid sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
 					)
 				}
 				<ButtonLink
@@ -228,6 +249,7 @@ export default function SponsorsPage() {
                 </ButtonLink>
 			</div>
 			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<Tooltip id="tooltip" noArrow={true} float={true} style={{zIndex : 100}}/>
 			<Footer/>
 		</div>
 	)

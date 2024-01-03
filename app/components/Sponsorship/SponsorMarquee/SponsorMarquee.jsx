@@ -10,6 +10,7 @@ import { Tooltip } from 'react-tooltip'
 
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import "animate.css/animate.min.css";
+import Link from 'next/link';
 
 
 const getSponsorsData = async () => {
@@ -103,31 +104,54 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                 marginBottom : 80
             }}
         >
-            <Marquee
-                style={{
-                    backgroundColor : '#fff',
-                    paddingTop : 40,
-                    paddingBottom : 20,
-                }}
-            >
-                {
-                    sponsorsData.map((sponsorData) => {
-                        return <Image
-                            data-tooltip-id="tooltip" data-tooltip-content={sponsorData.name}
-                            key={sponsorData.name}
-                            src={sponsorData.srcURL}
-                            alt={sponsorData.name}
-                            unoptimized
-                            height={sponsorSize}
-                            width={sponsorData.metadata.columnWeight * sponsorSize}
-                            style={{
-                                marginLeft : 40,
-                                marginRight : 40
-                            }}
-                        />
-                    })
-                }
-            </Marquee>
+            <div>
+                <Marquee
+                    style={{
+                        backgroundColor : '#fff',
+                        minHeight : 120,
+                        paddingTop : 40,
+                        paddingBottom : 20,
+                    }}
+                >
+                    {
+                        sponsorsData.map((sponsorData) => {
+                            if (sponsorData.destinationURL !== undefined && sponsorData.destinationURL.replace(/ /g, "") !== "") {
+                                return <Link
+                                    key={sponsorData.name}
+                                    data-tooltip-id="tooltip" data-tooltip-content={sponsorData.name}
+                                    href={sponsorData.destinationURL}
+                                    target='blank'
+                                    style={{
+                                        marginLeft : 40,
+                                        marginRight : 40
+                                    }}
+                                >
+                                    <Image
+                                        src={sponsorData.srcURL}
+                                        alt={sponsorData.name}
+                                        unoptimized
+                                        height={sponsorSize}
+                                        width={sponsorData.metadata.columnWeight * sponsorSize}
+                                    />
+                                </Link>
+                            }
+                            return <Image
+                                data-tooltip-id="tooltip" data-tooltip-content={sponsorData.name}
+                                key={sponsorData.name}
+                                src={sponsorData.srcURL}
+                                alt={sponsorData.name}
+                                unoptimized
+                                height={sponsorSize}
+                                width={sponsorData.metadata.columnWeight * sponsorSize}
+                                style={{
+                                    marginLeft : 40,
+                                    marginRight : 40
+                                }}
+                            />
+                        })
+                    }
+                </Marquee>
+            </div>
             <Tooltip id="tooltip" noArrow={true} float={true} style={{zIndex : 100}}/>
             <div className={`container`}>
                 <AnimationOnScroll delay={400} duration={1.4} animateIn="animate__fadeInUp" animateOnce={true}>

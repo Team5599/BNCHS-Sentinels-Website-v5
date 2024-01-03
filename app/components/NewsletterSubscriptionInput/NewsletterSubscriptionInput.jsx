@@ -84,10 +84,9 @@ const NewsletterSubscriptionInput = () => {
                 <h5 className={styles.newsletterSubtitle}>
                     You can subscribe to our newsletter to get team updates, event insights, notifications on blog posts, and more!
                 </h5>
-                <div className={styles.newsletterInputContainer}>
-                    <input className={styles.newsletterInput} placeholder='Your Email' {...register('email', {required : true, pattern : emailValidationPattern})}/>
+                <div className={styles.newsletterInputContainer} data-tooltip-id="tooltip" data-tooltip-content={"Subscriptions & Newsletter Coming Soon!"}>
+                    <input disabled={isDisabled} className={styles.newsletterInput} placeholder='Your Email' {...register('email', {required : true, pattern : emailValidationPattern})}/>
                     <Button
-                        data-tooltip-id="tooltip" data-tooltip-content={"Subscriptions & Newsletter Coming Soon!"}
                         onClick={
                             (e) => {
                                 handleSubmit(handleSubscription)()

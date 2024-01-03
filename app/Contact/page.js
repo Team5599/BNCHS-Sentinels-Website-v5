@@ -68,7 +68,7 @@ const PinIconSVG = () => {
 const contactInformation = [
 	{
 		icon : <PhoneIconSVG/>,
-		text : "(718) 279-6500 ext. 1291\n10AM - 4PM"
+		text : "(718) 279-6500\n10AM - 4PM"
 	},
 	{
 		icon : <InstagramIconSVG/>,
