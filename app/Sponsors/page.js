@@ -11,6 +11,7 @@ import SubheaderShape from '@components/SubheaderShape/SubheaderShape'
 
 import { Button, ButtonLink } from '@components/Button/Button'
 import SponsorPackedGrid from '@/app/components/Sponsorship/SponsorPackedGrid/SponsorPackedGrid'
+import SponsorMasonryGrid from '@components/Sponsorship/SponsorMasonryGrid/SponsorMasonryGrid'
 import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 import Select from 'react-select'
 import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
@@ -145,7 +146,7 @@ export default function SponsorsPage() {
 
                 let weight = Math.round(imageMetadata.width / imageMetadata.height);
 
-				if (weight > 4) weight = 4;
+				if (weight > 6) weight = 6;
 
 				const {width, height, palette, hasTransparency} = imageMetadata;
 
@@ -189,7 +190,7 @@ export default function SponsorsPage() {
 					style={{
 						display : 'flex',
 						flexDirection : 'column',
-						gap : 4,
+						gap : 40,
 						marginBottom : 40,
 					}}
 				>
@@ -203,10 +204,25 @@ export default function SponsorsPage() {
 							}
 						}}
 					/>
+					<div
+						style={{
+							textAlign : 'center',
+							display : 'flex',
+							flexDirection : 'column',
+							gap : 20
+						}}
+					>
+						<h3>
+							A Special Thanks to our Sponsors!
+						</h3>
+						<p>
+							Thanks to their generous support, we are able to provide more opportunities for our students.
+						</p>
+					</div>
 				</div>
 				{
 					(isLoading) ? <LoadingBlock/> : (
-						(sponsorsData.length == 0) ? <NoDataBlock/> : <SponsorPackedGrid sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
+						(sponsorsData.length == 0) ? <NoDataBlock/> : <SponsorMasonryGrid sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/> // <SponsorPackedGrid sponsorsData={sponsorsData} displaySeasonValue={displaySeasonValue}/>
 					)
 				}
 				<ButtonLink
