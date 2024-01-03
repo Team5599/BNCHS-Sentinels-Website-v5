@@ -18,6 +18,19 @@
 
 /* */
 
+.sponsorsMoreButton {
+    color : #fff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.4s;
+}
+
+/* */
+
 .card-shine-effect-metal {
     --shine-deg: 45deg;
     position: relative;

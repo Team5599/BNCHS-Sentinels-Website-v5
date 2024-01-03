@@ -1,9 +1,14 @@
+'use client'
+
 import styles from './page.module.css'
 
 import Navbar from '@components/Navbar/Navbar'
 import Footer from '@components/Footer/Footer'
 import Header from '@components/Header/Header'
 
+
+import { AnimationOnScroll } from 'react-animation-on-scroll'
+import { ButtonLink } from '@/app/components/Button/Button'
 
 import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/SponsorshipIncentivesBlock/SponsorshipIncentivesBlock'
 
@@ -126,7 +131,28 @@ export default function SponsorIncentivesPage() {
                         </ul>
                     </div>
                 </div>
-                <div className={styles.teamPhotoContainer} style={{marginTop : 120}}>
+                <AnimationOnScroll delay={400} duration={1.4} animateIn="animate__fadeInUp" animateOnce={true} style={{marginTop : 60}}>
+                    <ButtonLink
+                        className={styles.sponsorsMoreButton}
+                        style={{
+                            backgroundColor: '#0285ff',
+                            '--hoverBackgroundColor' : '#0275ef',
+                            outlineColor : '#000',
+                            '--activeBackgroundColor' : '#444'
+                        }}
+                        variant={'inverted'}
+                        href={'/Contact'}
+                        target={''}
+                    >
+                        <span style={{
+                            paddingTop : 8,
+                            paddingBottom : 8
+                        }}>
+                            Contact us to Donate or Sponsor now
+                        </span>
+                    </ButtonLink>
+                </AnimationOnScroll>
+                <div className={styles.teamPhotoContainer} style={{marginTop : 60}}>
 
 				</div>
 			</div>
