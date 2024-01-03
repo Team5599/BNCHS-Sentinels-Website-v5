@@ -16,6 +16,8 @@ import SponsorshipIncentivesBlock from '@/app/components/Sponsorship/Sponsorship
 import Select from 'react-select'
 import getImageDimensionsFromURL from '@/lib/getImageDimensionsFromURL';
 
+import { Tooltip } from 'react-tooltip'
+
 const getSponsorsData = async () => {
 
     try {
@@ -27,12 +29,15 @@ const getSponsorsData = async () => {
         );
 
         const data = await res.json();
+
+		console.log("PAYLOAD", data.payload);
     
         const sponsorsData = data.payload.map((sponsorData) => {
             return {
                 id : sponsorData._id,
                 srcURL : sponsorData.image,
                 name : sponsorData.name,
+				destinationURL : sponsorData.destination,
                 seasons : sponsorData.seasons // array with years as strings
             }
         });
@@ -244,6 +249,7 @@ export default function SponsorsPage() {
                 </ButtonLink>
 			</div>
 			<SponsorshipIncentivesBlock style={{marginBottom : -80, paddingBottom : 180, backgroundColor : '#000'}}/>
+			<Tooltip id="tooltip" noArrow={true} float={true} style={{zIndex : 100}}/>
 			<Footer/>
 		</div>
 	)

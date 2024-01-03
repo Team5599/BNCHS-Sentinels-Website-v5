@@ -1,5 +1,6 @@
 import {useRef, useMemo, useState} from 'react';
 import NextImage from 'next/image';
+import Link from 'next/link';
 
 import { useContainerDimensions } from '@lib/useContainerDimensions';
 import shuffleArray from '@lib/shuffleArray';
@@ -146,6 +147,7 @@ const SponsorMasonryGrid = ({sponsorsData, displaySeasonValue}) => {
                     return (
                         <div
                             key={sponsorItem.id}
+                            data-tooltip-id="tooltip" data-tooltip-content={sponsorItem.name}
                             style={{
                                 display : 'flex',
                                 position : 'relative',
@@ -176,6 +178,13 @@ const SponsorMasonryGrid = ({sponsorsData, displaySeasonValue}) => {
                                     
                                 />
                             </AnimationOnScroll>
+                            {
+                                (sponsorItem.destinationURL !== undefined && sponsorItem.destinationURL.replace(/ /g, "") !== "") && <Link
+                                    href={sponsorItem.destinationURL} target='blank'
+                                    style={{position: 'absolute', top : 0, left : 0, right : 0, bottom : 0}}
+                                />
+                            }
+                            
                         </div>
                     )
                 })
