@@ -8,7 +8,7 @@ import { useState, useEffect, useRef} from 'react';
 import styles from './countdownTimer.module.css'
 import Countdown from 'react-countdown'
 
-import { useMotionValue, useTransform, motion, cubicBezier } from 'framer-motion';
+import { useMotionValue, useTransform, motion, cubicBezier, animate } from 'framer-motion';
 
 const AnimatedDigit = ({path, color, label, offset, strokeDashoffset}) => {
 
@@ -212,8 +212,8 @@ const CountdownTimer = ({style = {}, date,  renderHeader = <></>, onComplete, re
 
     const [isComplete, setComplete] = useState(false);
 
-    const motionAnimation = useMotionValue(0);
-    const strokeDashoffset = useTransform(motionAnimation, [0, 1], [25.95, -11.65], {ease : cubicBezier(0.1, 0.4, 5, 0.1)})
+    const strokeDashoffset = useMotionValue(0);
+    // const strokeDashoffset = useTransform(motionAnimation, [0, -1], [25.95, -11.65], {ease : cubicBezier(0.1, 0.4, 5, 0.1)})
 
 
     if (isComplete && renderComplete) {
@@ -223,9 +223,14 @@ const CountdownTimer = ({style = {}, date,  renderHeader = <></>, onComplete, re
     return (
         <Countdown
             date={date}
-            intervalDelay={0}
+            intervalDelay={1000}
             precision={3}
+            onTick={() => {
+                strokeDashoffset.set(28.95)
+                animate(strokeDashoffset, -128.95, {duration : 1, ease : [0.1, 0.4, 5, 0.1]})
+            }}
             renderer={({days, formatted}) => {
+
                 return <div
                     style={{
                         display : 'flex',
