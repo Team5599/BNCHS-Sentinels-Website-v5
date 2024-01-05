@@ -44,6 +44,25 @@ const getSponsorsData = async () => {
 
 }
 
+function moveElementsToEndOfArray(arr, x) {
+ 
+    let n = arr.length;
+ 
+    // if x is greater than length 
+    // of the array
+    x = x % n;
+ 
+    let first_x_elements = arr.slice(0, x);
+ 
+    let remaining_elements = arr.slice(x, n);
+ 
+    // Destructuring to create the desired array
+    arr = [...remaining_elements, ...first_x_elements];
+ 
+    return arr;
+}
+
+
 const SponsorMarquee = ({sponsorSize = 64}) => {
 
     const dateNow = new Date();
@@ -121,6 +140,52 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                         backgroundColor : '#fff',
                         minHeight : 120,
                         paddingTop : 20,
+                        paddingBottom : 0,
+                    }}
+                >
+                    {
+                        moveElementsToEndOfArray([...sponsorsData], 2).map((sponsorData) => {
+                            if (sponsorData.destinationURL !== undefined && sponsorData.destinationURL.replace(/ /g, "") !== "") {
+                                return <Link
+                                    key={sponsorData.name}
+                                    data-tooltip-id="tooltip" data-tooltip-content={sponsorData.name}
+                                    href={sponsorData.destinationURL}
+                                    target='blank'
+                                    style={{
+                                        marginLeft : 40,
+                                        marginRight : 40
+                                    }}
+                                >
+                                    <Image
+                                        src={sponsorData.srcURL}
+                                        alt={sponsorData.name}
+                                        unoptimized
+                                        height={sponsorSize}
+                                        width={sponsorData.metadata.columnWeight * sponsorSize}
+                                    />
+                                </Link>
+                            }
+                            return <Image
+                                data-tooltip-id="tooltip" data-tooltip-content={sponsorData.name}
+                                key={sponsorData.name}
+                                src={sponsorData.srcURL}
+                                alt={sponsorData.name}
+                                unoptimized
+                                height={sponsorSize}
+                                width={sponsorData.metadata.columnWeight * sponsorSize}
+                                style={{
+                                    marginLeft : 40,
+                                    marginRight : 40
+                                }}
+                            />
+                        })
+                    }
+                </Marquee>
+                <Marquee
+                    style={{
+                        backgroundColor : '#fff',
+                        minHeight : 120,
+                        paddingTop : 40,
                         paddingBottom : 0,
                     }}
                 >
