@@ -50,7 +50,7 @@ const FillerBlock = () => {
     return <AnimationOnScroll
         offset={0}
         animatePreScroll={true}
-        animateIn="animate__zoomIn"
+        animateIn="animate__fadeIn"
         animateOnce={true}
         onPointerEnter={iterateBackgroundColor}
         onPointerDown={iterateBackgroundColor}
@@ -154,7 +154,9 @@ const SponsorMasonryGrid = ({sponsorsData, displaySeasonValue}) => {
                             data-tooltip-id="tooltip" data-tooltip-content={sponsorItem.name}
                             offset={0}
                             animatePreScroll={true}
-                            animateIn="animate__zoomIn"
+                            delay={index * 200}
+                            duration={2}
+                            animateIn="animate__fadeIn"
                             animateOnce={true}
                             style={{
                                 display : 'flex',
