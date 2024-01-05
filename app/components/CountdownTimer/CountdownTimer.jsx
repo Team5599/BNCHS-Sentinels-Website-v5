@@ -232,8 +232,6 @@ const CountdownTimer = ({style = {}, date,  renderHeader = <></>, onComplete, re
 
     const [isComplete, setComplete] = useState(false);
 
-    console.log("Date", date);
-
     const [animationProps, animationAPI] = useSpring(
         () => ({
             from : {
@@ -263,7 +261,6 @@ const CountdownTimer = ({style = {}, date,  renderHeader = <></>, onComplete, re
             intervalDelay={0}
             precision={3}
             renderer={({days, formatted}) => {
-                console.log("days", days);
                 return <div
                     style={{
                         display : 'flex',
@@ -304,100 +301,5 @@ const CountdownTimer = ({style = {}, date,  renderHeader = <></>, onComplete, re
         />
     )
 }
-
-const CountdownTimerLegacy = ({style = {}, date, renderHeader = <></>, onComplete, renderComplete = <></>}) => {
-
-    const [remainingTime, setRemainingTime] = useState(getDifferenceBetween(date, new Date()));
-    const [isComplete, setComplete] = useState(false);
-
-    const [animationProps, animationAPI] = useSpring(
-        () => ({
-            from : {
-                strokeDashoffset : 25.95
-            },
-            to : {
-                strokeDashoffset : -11.65
-            },
-            loop : true,
-            config : {
-                duration : 1000,
-                mass : 5,
-                friction: 120,
-                tension : 120
-            }
-        }),
-        []
-    )
-
-    useEffect(() => {
-
-        if (isComplete) return;
-
-        const interval = setInterval(() => {
-            const remainingTime = getDifferenceBetween(date, new Date());
-
-            if (remainingTime.total <= 0) {
-                setComplete(true);
-                console.log("Complete!");
-                if (onComplete) {
-                    onComplete();
-                }
-            }
-
-            setRemainingTime(remainingTime);
-
-        }, 1000)
-
-        return (() => {
-            clearInterval(interval);
-        })
-
-    }, [date, isComplete, onComplete, animationAPI])
-
-    useEffect(() => {
-        if (isComplete && onComplete) {
-            onComplete();
-        }
-    }, [isComplete, onComplete])
-
-
-    if (isComplete && renderComplete) {
-        return renderComplete
-    }
-
-    return (
-        <div
-            style={{
-                display : 'flex',
-                flexDirection : 'column',
-                gap : 60,
-                backgroundColor : '#eaeaea',
-                justifyContent : 'center',
-                alignItems : 'center',
-                paddingTop : 80,
-                paddingBottom : 80,
-                minHeight : 260,
-                overflow : 'hidden', /* Prevents exploding during mobile */
-                ...style
-            }}
-        >
-            {renderHeader}
-            <div
-                className={styles.digitsContainer}
-            >
-                {
-                    (remainingTime.days !== "00") && <TimerSection animationProps={animationProps} digits={remainingTime.days} label={'Days'}/>
-                }
-                <TimerSection animationProps={animationProps} digits={remainingTime.hours} label={'Hours'}/>
-                <Divider/>
-                <TimerSection animationProps={animationProps} digits={remainingTime.minutes} label={'Minutes'}/>
-                <Divider/>
-                <TimerSection animationProps={animationProps} digits={remainingTime.seconds} label={'Seconds'}/>
-            </div>
-            
-        </div>
-    )
-}
-
 
 export default CountdownTimer;
