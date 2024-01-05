@@ -1,6 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
+import './carouselCSSWrapper.css'
 
 function getYoutubeVideoIDFromURL(url){
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -11,7 +12,7 @@ function getYoutubeVideoIDFromURL(url){
 
 const MediaContainer = ({robotItem}) => {
     return (
-        (robotItem.media) ? <Carousel
+        (robotItem.media && Object.keys(robotItem.media).length > 0) ? <Carousel
             dynamicHeight={false}
             preventMovementUntilSwipeScrollTolerance={true}
             swipeScrollTolerance={50}
@@ -21,7 +22,8 @@ const MediaContainer = ({robotItem}) => {
                 display: 'flex',
                 flex : 1,
                 width : '100%',
-                height : '100%'
+                height : '100%',
+                backgroundColor : '#000'
             }}
         >
             {
@@ -38,7 +40,21 @@ const MediaContainer = ({robotItem}) => {
                     />
                 })
             }
-        </Carousel> : <></>
+        </Carousel> : <div
+            style={{
+                position: 'relative',
+                display: 'flex',
+                justifyContent : 'center',
+                alignItems : 'center',
+                width : '100%',
+                height : 400,
+                backgroundColor : '#eee'
+            }}
+        >
+            <span style={{fontStyle : 'italic'}}>
+                No Media
+            </span>
+        </div>
     )
 }
 
