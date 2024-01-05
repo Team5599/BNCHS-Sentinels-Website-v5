@@ -7,6 +7,8 @@ import styles from './firstSection.module.css';
 import CountdownTimer from '../CountdownTimer/CountdownTimer';
 import { ButtonLink } from '@components/Button/Button';
 
+import { TwitchPlayer, TwitchChat } from 'react-twitch-embed';
+
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import "animate.css/animate.min.css";
 
@@ -21,9 +23,15 @@ const FIRSTSectionButton = ({label, href = '/', target = ''}) => {
     )
 }
 
-const targetDate = new Date('January 6, 2024 12:00:00');
+const targetDate = new Date('January 6, 2024 12:00:00 EST');
+const embedDisabledDate = new Date('January 13, 2024, 12:00:00 EST')
+// const targetDate = new Date('January 4, 2024 23:15:00 EST');
+
 
 const FIRSTSection = () => {
+
+    const date_TODAY = new Date();
+
     return (
         <div className='container' style={{display: 'flex', flexDirection : 'column', paddingTop : 120, paddingBottom : 120, gap : 10}}>
 
@@ -69,67 +77,62 @@ const FIRSTSection = () => {
                 </div>
             </div>
 
-            <CountdownTimer
-                date={targetDate}
-                style={{
-                    marginTop : 80
-                }}
-                renderHeader={
-                    (
-                        <div
-                            style={{
-                                textAlign : 'center',
-                                maxWidth : 600
-                            }}
-                        >
-                            <h1 style={{
-                                fontWeight : 700
-                            }}>
-                                KICKOFF 2024
-                            </h1>
-                            <span>
-                                Tune in Saturday, January 6th at 12:00PM Noon EST for the 2024 FIRST Robotics Competition Kickoff Event!
-                            </span>
-                        </div>
-                    )
-                }
-                renderComplete={
-                    (
-                        <div
-                            style={{
-                                display : 'flex',
-                                gap : 80,
-                                marginTop : 80,
-                                marginBottom : 0
-                            }}
-                        >
+            {
+                (embedDisabledDate.getTime() > date_TODAY.getTime()) &&
+                <CountdownTimer
+                    date={targetDate}
+                    style={{
+                        marginTop : 80
+                    }}
+                    renderHeader={
+                        (
                             <div
                                 style={{
-                                    flex : 3
+                                    textAlign : 'center',
+                                    maxWidth : 600
                                 }}
                             >
-                                <h2 style={{
-                                    fontWeight : 900
+                                <h1 style={{
+                                    fontWeight : 700
                                 }}>
                                     KICKOFF 2024
-                                </h2>
+                                </h1>
                                 <span>
                                     Tune in Saturday, January 6th at 12:00PM Noon EST for the 2024 FIRST Robotics Competition Kickoff Event!
                                 </span>
                             </div>
-                            <div
-                                style={{flex : 1}}
-                            >
-                                <ButtonLink
-                                    label={'Watch on Twitch.tv/FirstInspires'}
-                                    href={'https://www.twitch.tv/firstinspires'}
-                                    className={styles.firstSectionButton}
-                                />
-                            </div>     
-                        </div>
-                    )
-                }
-            />
+                        )
+                    }
+                    renderComplete={
+                        (
+                            <div className={styles.bodyContainer} style={{aspectRatio : '4.25 / 1.7', marginTop : 10}}>
+                                <div className={styles.contentContainer} style={{ display : 'flex', flexDirection : 'column', gap : '0.6rem', height : '100%'}}>
+                                    <TwitchPlayer
+                                        channel="firstinspires"
+                                        darkMode={false}
+                                        autoplay={true}
+                                        className={styles.twitchEmbed}
+                                        style={{
+                                            width : '100%',
+                                            height : '100%'
+                                        }}
+                                    />
+                                </div>
+                                <div className={`${styles.buttonContainer} ${styles.twitchChatEmbedContainer}`} style={{height : '100%'}}>
+                                    <TwitchChat
+                                        channel="firstinspires"
+                                        darkMode={true}
+                                        autoplay={true}
+                                        className={styles.twitchEmbed}
+                                        style={{width : '100%', height : '100%'}}
+                                    />
+                                </div>
+                            </div>
+                            
+                        )
+                    }
+                />
+            }
         </div>
     )
 }

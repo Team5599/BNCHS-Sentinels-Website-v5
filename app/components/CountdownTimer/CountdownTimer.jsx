@@ -7,6 +7,7 @@ const abel = Abel({ subsets: ['latin'], weight : '400' })
 import { useState, useEffect, useRef} from 'react';
 import styles from './countdownTimer.module.css'
 import { useSpring, animated } from '@react-spring/web'
+import Countdown from 'react-countdown'
 
 const AnimatedDigit = ({path, color, label, offset, animationProps}) => {
 
@@ -227,7 +228,84 @@ const Divider = () => {
     )
 }
 
-const CountdownTimer = ({style = {}, date, renderHeader = <></>, onComplete, renderComplete = <></>}) => {
+const CountdownTimer = ({style = {}, date,  renderHeader = <></>, onComplete, renderComplete = <></>}) => {
+
+    const [isComplete, setComplete] = useState(false);
+
+    console.log("Date", date);
+
+    const [animationProps, animationAPI] = useSpring(
+        () => ({
+            from : {
+                strokeDashoffset : 25.95
+            },
+            to : {
+                strokeDashoffset : -11.65
+            },
+            loop : true,
+            config : {
+                duration : 1000,
+                mass : 5,
+                friction: 120,
+                tension : 120
+            }
+        }),
+        []
+    )
+
+    if (isComplete && renderComplete) {
+        return renderComplete
+    }
+
+    return (
+        <Countdown
+            date={date}
+            intervalDelay={0}
+            precision={3}
+            renderer={({days, formatted}) => {
+                console.log("days", days);
+                return <div
+                    style={{
+                        display : 'flex',
+                        flexDirection : 'column',
+                        gap : 60,
+                        backgroundColor : '#eaeaea',
+                        justifyContent : 'center',
+                        alignItems : 'center',
+                        paddingTop : 80,
+                        paddingBottom : 80,
+                        minHeight : 260,
+                        overflow : 'hidden', /* Prevents exploding during mobile */
+                        ...style
+                    }}
+                >
+                    {renderHeader}
+                    <div
+                        className={styles.digitsContainer}
+                    >
+                        {
+                            (days > 0) && <TimerSection animationProps={animationProps} digits={formatted.days} label={days == 1 ? 'Day' : 'Days'}/>
+                        }
+                        <TimerSection animationProps={animationProps} digits={formatted.hours} label={'Hours'}/>
+                        <Divider/>
+                        <TimerSection animationProps={animationProps} digits={formatted.minutes} label={'Minutes'}/>
+                        <Divider/>
+                        <TimerSection animationProps={animationProps} digits={formatted.seconds} label={'Seconds'}/>
+                    </div>
+                    
+                </div>
+            }}
+            onComplete={() => {
+                setComplete(true);
+                if (onComplete) {
+                    onComplete();
+                }
+            }}
+        />
+    )
+}
+
+const CountdownTimerLegacy = ({style = {}, date, renderHeader = <></>, onComplete, renderComplete = <></>}) => {
 
     const [remainingTime, setRemainingTime] = useState(getDifferenceBetween(date, new Date()));
     const [isComplete, setComplete] = useState(false);

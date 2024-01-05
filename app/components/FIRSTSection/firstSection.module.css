@@ -18,11 +18,12 @@
 }
 
 .buttonContainer {
-    flex : 1;
+    flex : 1.1;
     display: flex;
     flex-direction: column;
     gap : 20px;
 }
+
 
 
 .firstSectionButton {
@@ -42,12 +43,16 @@
 
     .bodyContainer {
         flex-direction: column;
-        gap: 40px;
+        gap: 20px;
     }
 
     .titleContainer > img {
         width : 120px;
         height : 70px;
+    }
+
+    .twitchChatEmbedContainer {
+        display : none;
     }
 
     .firstSectionButton {
@@ -76,6 +81,10 @@
     .contentContainer {
         line-height: 1.25rem;
         font-size: 1rem;
+    }
+
+    .twitchChatEmbedContainer {
+        display : none;
     }
 
     .firstSectionButton {
