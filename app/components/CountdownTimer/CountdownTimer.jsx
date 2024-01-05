@@ -4,7 +4,7 @@ import { Abel } from 'next/font/google'
 
 const abel = Abel({ subsets: ['latin'], weight : '400' })
 
-import { useState, useEffect, useRef} from 'react';
+import { useState, useEffect } from 'react';
 import styles from './countdownTimer.module.css'
 import Countdown from 'react-countdown'
 
@@ -213,7 +213,6 @@ const CountdownTimer = ({style = {}, date,  renderHeader = <></>, onComplete, re
     const [isComplete, setComplete] = useState(false);
 
     const strokeDashoffset = useMotionValue(0);
-    // const strokeDashoffset = useTransform(motionAnimation, [0, -1], [25.95, -11.65], {ease : cubicBezier(0.1, 0.4, 5, 0.1)})
 
 
     if (isComplete && renderComplete) {
@@ -227,13 +226,14 @@ const CountdownTimer = ({style = {}, date,  renderHeader = <></>, onComplete, re
             precision={3}
             onTick={() => {
                 strokeDashoffset.set(28.95)
-                animate(strokeDashoffset, -128.95, {duration : 1, ease : [0.1, 0.4, 5, 0.1]})
+                animate(strokeDashoffset, -128.95, {duration : 1, ease : [0.1, 0.4, 4, 0.1]})
             }}
             renderer={({days, formatted}) => {
 
                 return <div
                     style={{
                         display : 'flex',
+                        position : 'relative',
                         flexDirection : 'column',
                         gap : 60,
                         backgroundColor : '#eaeaea',
@@ -259,7 +259,6 @@ const CountdownTimer = ({style = {}, date,  renderHeader = <></>, onComplete, re
                         <Divider/>
                         <TimerSection strokeDashoffset={strokeDashoffset} digits={formatted.seconds} label={'Seconds'}/>
                     </div>
-                    
                 </div>
             }}
             onComplete={() => {
