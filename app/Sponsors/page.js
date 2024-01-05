@@ -218,7 +218,7 @@ export default function SponsorsPage() {
 						}}
 					>
 						<h3>
-							A Special Thanks to our Sponsors!
+							A Special Thanks to Our Sponsors!
 						</h3>
 						<p>
 							Thanks to their generous support, we are able to provide more opportunities for our students.

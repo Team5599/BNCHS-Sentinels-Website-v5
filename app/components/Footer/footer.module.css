@@ -73,9 +73,11 @@
 }
 
 .footerBottomLinks {
+    display: flex;
     flex : 3;
     margin-right: calc(40px * 2); /* Column gap * unaccounted for columns */
     font-size : 0.8rem;
+    gap : 10px;
 }
 
 .footerBottomCopyright {

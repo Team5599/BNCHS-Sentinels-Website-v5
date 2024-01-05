@@ -17,7 +17,7 @@ const getSponsorsData = async () => {
 
     try {
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/sponsors/current`,
+            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/sponsors`,
             {
                 method: 'GET'
             }
@@ -44,7 +44,29 @@ const getSponsorsData = async () => {
 
 }
 
+function moveElementsToEndOfArray(arr, x) {
+ 
+    let n = arr.length;
+ 
+    // if x is greater than length 
+    // of the array
+    x = x % n;
+ 
+    let first_x_elements = arr.slice(0, x);
+ 
+    let remaining_elements = arr.slice(x, n);
+ 
+    // Destructuring to create the desired array
+    arr = [...remaining_elements, ...first_x_elements];
+ 
+    return arr;
+}
+
+
 const SponsorMarquee = ({sponsorSize = 64}) => {
+
+    const dateNow = new Date();
+    const currentSeason = (dateNow.getMonth() < 8 ?  dateNow.getFullYear() - 1 : dateNow.getFullYear());
 
     const [sponsorsData, setSponsorsData] = useState([]);
 
@@ -56,6 +78,11 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
 
             // Get SponsorsData
             let sponsorsData = await getSponsorsData();
+
+            // Filter for current season
+            sponsorsData = sponsorsData.filter((sponsorData) => {
+                return (sponsorData.seasons.includes(currentSeason.toString()));
+            })
 
             // Preload images and get their dimensions
             const sponsorImageMetadata = await Promise.allSettled( 
@@ -88,11 +115,14 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
 				return (sponsorData.hasOwnProperty('metadata'));
 			})
 
+
             setSponsorsData(sponsorsData);
 
         })();
 
     }, [])
+
+    console.log("Marquee data", sponsorsData);
 
     return (
         <div
@@ -109,8 +139,54 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                     style={{
                         backgroundColor : '#fff',
                         minHeight : 120,
+                        paddingTop : 20,
+                        paddingBottom : 0,
+                    }}
+                >
+                    {
+                        moveElementsToEndOfArray([...sponsorsData], 2).map((sponsorData) => {
+                            if (sponsorData.destinationURL !== undefined && sponsorData.destinationURL.replace(/ /g, "") !== "") {
+                                return <Link
+                                    key={sponsorData.name}
+                                    data-tooltip-id="tooltip" data-tooltip-content={sponsorData.name}
+                                    href={sponsorData.destinationURL}
+                                    target='blank'
+                                    style={{
+                                        marginLeft : 40,
+                                        marginRight : 40
+                                    }}
+                                >
+                                    <Image
+                                        src={sponsorData.srcURL}
+                                        alt={sponsorData.name}
+                                        unoptimized
+                                        height={sponsorSize}
+                                        width={sponsorData.metadata.columnWeight * sponsorSize}
+                                    />
+                                </Link>
+                            }
+                            return <Image
+                                data-tooltip-id="tooltip" data-tooltip-content={sponsorData.name}
+                                key={sponsorData.name}
+                                src={sponsorData.srcURL}
+                                alt={sponsorData.name}
+                                unoptimized
+                                height={sponsorSize}
+                                width={sponsorData.metadata.columnWeight * sponsorSize}
+                                style={{
+                                    marginLeft : 40,
+                                    marginRight : 40
+                                }}
+                            />
+                        })
+                    }
+                </Marquee>
+                <Marquee
+                    style={{
+                        backgroundColor : '#fff',
+                        minHeight : 120,
                         paddingTop : 40,
-                        paddingBottom : 20,
+                        paddingBottom : 0,
                     }}
                 >
                     {

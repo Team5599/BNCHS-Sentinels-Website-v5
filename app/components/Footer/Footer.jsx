@@ -81,6 +81,9 @@ const FooterAboutColumn = () => {
 
 
 const Footer = () => {
+
+    const date_NOW = new Date();
+
     return <div style={{display : 'flex', flexDirection : 'column', justifyContent : 'center'}}>
         <FooterTriangleTop/>
         <div className={styles.footer}>
@@ -170,9 +173,12 @@ const Footer = () => {
                         <Link href={'/404'}>
                             <span>Site Map</span>
                         </Link>
+                        <Link href={'https://legacy.team5599.com/'}>
+                            <span>Legacy Site</span>
+                        </Link>
                     </div>
                     <span className={styles.footerBottomCopyright}>
-                        © 2023 Michael Rooplall © FRC Team 5599 The Sentinels
+                        © {date_NOW.getFullYear()} Michael Rooplall © FRC Team 5599 The Sentinels
                     </span>
                 </div>
             </div>
