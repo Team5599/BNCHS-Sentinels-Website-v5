@@ -160,6 +160,7 @@ const SponsorMasonryGrid = ({sponsorsData, displaySeasonValue}) => {
                                 display : 'flex',
                                 position : 'relative',
                                 gridArea : `span 1 / span ${sponsorItem.metadata.columnWeight > numGridColumns ? numGridColumns : sponsorItem.metadata.columnWeight}`,
+                                overflow : 'hidden',
                                 backgroundColor : (() => {
                                     if (sponsorItem.metadata.hasTransparency) return '#eeeeee';
                                     const [r, g, b] = sponsorItem.metadata.palette[0];
