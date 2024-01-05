@@ -47,7 +47,11 @@ const FillerBlock = () => {
         })
     }
 
-    return <div
+    return <AnimationOnScroll
+        offset={0}
+        animatePreScroll={true}
+        animateIn="animate__zoomIn"
+        animateOnce={true}
         onPointerEnter={iterateBackgroundColor}
         onPointerDown={iterateBackgroundColor}
         style={{
@@ -145,9 +149,13 @@ const SponsorMasonryGrid = ({sponsorsData, displaySeasonValue}) => {
                     }
 
                     return (
-                        <div
+                        <AnimationOnScroll
                             key={sponsorItem.id}
                             data-tooltip-id="tooltip" data-tooltip-content={sponsorItem.name}
+                            offset={0}
+                            animatePreScroll={true}
+                            animateIn="animate__zoomIn"
+                            animateOnce={true}
                             style={{
                                 display : 'flex',
                                 position : 'relative',
@@ -162,30 +170,28 @@ const SponsorMasonryGrid = ({sponsorsData, displaySeasonValue}) => {
                                 })()
                             }}
                         >
-                            <AnimationOnScroll offset={0} animatePreScroll={true} animateIn="animate__zoomIn" animateOnce={true} style={{flex : 1}}>
-                                <NextImage
-                                    unoptimized
-                                    src={sponsorItem.srcURL}
-                                    alt={sponsorItem.name}
-                                    fill={true}
-                                    style={{
-                                        objectFit : 'contain',
-                                        // backgroundColor : sponsorItem.hasTransparency ? 'transparent' : (() => {
-                                        //     const [r, g, b] = sponsorItem.metadata.palette[0];
-                                        //     return `rgb(${r}, ${g}, ${b})`;
-                                        // })()
-                                    }}
-                                    
-                                />
-                            </AnimationOnScroll>
+                            <NextImage
+                                unoptimized
+                                src={sponsorItem.srcURL}
+                                alt={sponsorItem.name}
+                                fill={true}
+                                style={{
+                                    objectFit : 'contain',
+                                    flex : 1
+                                    // backgroundColor : sponsorItem.hasTransparency ? 'transparent' : (() => {
+                                    //     const [r, g, b] = sponsorItem.metadata.palette[0];
+                                    //     return `rgb(${r}, ${g}, ${b})`;
+                                    // })()
+                                }}
+                                
+                            />
                             {
                                 (sponsorItem.destinationURL !== undefined && sponsorItem.destinationURL.replace(/ /g, "") !== "") && <Link
                                     href={sponsorItem.destinationURL} target='blank'
                                     style={{position: 'absolute', top : 0, left : 0, right : 0, bottom : 0}}
                                 />
                             }
-                            
-                        </div>
+                        </AnimationOnScroll>
                     )
                 })
             }
