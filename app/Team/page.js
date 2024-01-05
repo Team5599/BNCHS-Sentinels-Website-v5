@@ -119,8 +119,6 @@ const getTeamData = async (season) => {
 
         const teamData = await res.json();
 
-        console.log(teamData);
-
         return teamData.payload;
 
     } catch (err) {
@@ -183,8 +181,6 @@ export default function Team() {
         if (typeof window === 'undefined') return;
 
         const fetchData = async () => {
-
-			console.log("FETCHING", displaySeasonValue);
 
             setTeamData(await getTeamData(displaySeasonValue.value));
 			setLoading(false);

@@ -66,8 +66,6 @@ const FillerBlock = () => {
 
 const SponsorMasonryGrid = ({sponsorsData, displaySeasonValue}) => {
     
-    console.log("SPONSORS", sponsorsData, displaySeasonValue);
-
     sponsorsData = sponsorsData.filter((sponsorData) => {
         return (sponsorData.seasons.includes(displaySeasonValue.value.toString()));
     })
@@ -124,7 +122,6 @@ const SponsorMasonryGrid = ({sponsorsData, displaySeasonValue}) => {
     const remainingTiles = roundUpToNearestMultiple(totalColumnWeights, numGridColumns) - totalColumnWeights;
 
     if (remainingTiles > 0) {
-        console.log("Remaining Tiles", remainingTiles);
         let fillers = new Array(remainingTiles).fill("FILLER");
         sponsorsData = sponsorsData.concat(fillers); // shuffleArray(sponsorsData.concat(fillers));
     }

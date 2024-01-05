@@ -114,10 +114,6 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
 
 const Button = ({style = {}, label, className, children, variant, ...props}) => {
 
-    if (label == "Subscribe") {
-        console.log("PROPS", props);
-    }
-
     return (
         <ButtonBase
             style={style}

@@ -4,8 +4,6 @@ import Image from 'next/image';
 
 const PersonCardTwo = ({personData, contrast, displaySeasonValue}) => {
 
-    console.log("pdata", displaySeasonValue, personData)
-
     const season = displaySeasonValue.value;
 
     return (
@@ -95,8 +93,6 @@ const PersonCardTwo = ({personData, contrast, displaySeasonValue}) => {
                                         const startYear = parseInt(roleData.season_first, 10);
                                         const endYear =  parseInt(roleData.season_last, 10);
 
-                                        console.log(startYear, season, endYear);
-                                        
                                         return (startYear <= season && season <= endYear);
                                     }).map(([roleID, roleData]) => {
                                         return (

@@ -83,9 +83,6 @@ export default function Robot({params}) {
 		}
 	})()
 
-
-	console.log("robot", robotItem, previousRobotItem, nextRobotItem, robotItem.media)
-
 	return (
 		<div>
 			<Navbar/>

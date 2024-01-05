@@ -34,8 +34,6 @@ const getSponsorsData = async () => {
             }
         });
 
-        console.log("sdata", sponsorsData);
-
         return sponsorsData;
     } catch (err) {
         console.log(err);
@@ -65,16 +63,14 @@ function moveElementsToEndOfArray(arr, x) {
 
 const SponsorMarquee = ({sponsorSize = 64}) => {
 
-    const dateNow = new Date();
-    const currentSeason = (dateNow.getMonth() < 8 ?  dateNow.getFullYear() - 1 : dateNow.getFullYear());
-
     const [sponsorsData, setSponsorsData] = useState([]);
 
     useEffect(() => {
 
         (async () => {
 
-            console.log("Getting sponsors data for marquee");
+            const dateNow = new Date();
+            const currentSeason = (dateNow.getMonth() < 8 ?  dateNow.getFullYear() - 1 : dateNow.getFullYear());
 
             // Get SponsorsData
             let sponsorsData = await getSponsorsData();
@@ -121,8 +117,6 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
         })();
 
     }, [])
-
-    console.log("Marquee data", sponsorsData);
 
     return (
         <div

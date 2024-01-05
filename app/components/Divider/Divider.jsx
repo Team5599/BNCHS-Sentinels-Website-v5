@@ -2,8 +2,6 @@ import styles from './divider.module.css';
 
 const Divider = ({style = {}, color = '#dddddd'}) => {
 
-    console.log('filter', result);
-
     return (
         <div
             className={styles.divider}

@@ -13,10 +13,6 @@ export async function generateStaticParams() {
 
 	const robotData = await getRobotData();
 
-	// console.log("Robot Data", robotData);
-
-	console.log(robotData.map((robotItem) => robotItem.name))
-   
     return robotData.map((robotItem) => {
         robotItem
     })
