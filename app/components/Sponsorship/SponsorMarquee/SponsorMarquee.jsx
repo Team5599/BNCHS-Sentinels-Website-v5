@@ -17,7 +17,7 @@ const getSponsorsData = async () => {
 
     try {
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/sponsors/current`,
+            `${process.env.NEXT_PUBLIC_API_BASE}/api/v1/sponsors`,
             {
                 method: 'GET'
             }
@@ -46,6 +46,9 @@ const getSponsorsData = async () => {
 
 const SponsorMarquee = ({sponsorSize = 64}) => {
 
+    const dateNow = new Date();
+    const currentSeason = (dateNow.getMonth() < 8 ?  dateNow.getFullYear() - 1 : dateNow.getFullYear());
+
     const [sponsorsData, setSponsorsData] = useState([]);
 
     useEffect(() => {
@@ -56,6 +59,11 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
 
             // Get SponsorsData
             let sponsorsData = await getSponsorsData();
+
+            // Filter for current season
+            sponsorsData = sponsorsData.filter((sponsorData) => {
+                return (sponsorData.seasons.includes(currentSeason.toString()));
+            })
 
             // Preload images and get their dimensions
             const sponsorImageMetadata = await Promise.allSettled( 
@@ -88,11 +96,14 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
 				return (sponsorData.hasOwnProperty('metadata'));
 			})
 
+
             setSponsorsData(sponsorsData);
 
         })();
 
     }, [])
+
+    console.log("Marquee data", sponsorsData);
 
     return (
         <div
@@ -109,8 +120,8 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                     style={{
                         backgroundColor : '#fff',
                         minHeight : 120,
-                        paddingTop : 40,
-                        paddingBottom : 20,
+                        paddingTop : 20,
+                        paddingBottom : 0,
                     }}
                 >
                     {
