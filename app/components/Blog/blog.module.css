@@ -14,13 +14,13 @@
 
 .blogTitle {
     color: #027bff;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     text-transform: uppercase;
 }
 
 .blogSubtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -33,7 +33,7 @@
     text-overflow: ellipsis;
     text-overflow: nowrap;
     text-align: justify;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .blogReadMore {
