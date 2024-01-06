@@ -137,7 +137,7 @@ export default function SponsorIncentivesPage() {
                         style={{
                             backgroundColor: '#0285ff',
                             '--hoverBackgroundColor' : '#0275ef',
-                            outlineColor : '#000',
+                            outlineColor : '#0285ff',
                             '--activeBackgroundColor' : '#444'
                         }}
                         variant={'inverted'}
@@ -145,8 +145,6 @@ export default function SponsorIncentivesPage() {
                         target={''}
                     >
                         <span style={{
-                            paddingTop : 8,
-                            paddingBottom : 8
                         }}>
                             Contact us to Donate or Sponsor now
                         </span>

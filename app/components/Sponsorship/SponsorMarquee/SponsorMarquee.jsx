@@ -238,8 +238,8 @@ const SponsorMarquee = ({sponsorSize = 64}) => {
                         target={''}
                     >
                         <span style={{
-                            paddingTop : 8,
-                            paddingBottom : 8
+                            paddingTop : 10,
+                            paddingBottom : 10
                         }}>
                             Learn more about Sponsorship Incentives and how you can help here
                         </span>

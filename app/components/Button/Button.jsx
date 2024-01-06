@@ -1,7 +1,7 @@
 "use client"
 
 import styles from './button.module.css'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Link from 'next/link';
 
 const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverColor, activeColor, disabledColor, contentContainerClass, children}) => {
@@ -40,8 +40,10 @@ const ButtonBaseInternal = ({baseColor, hoverColor, outlineColor, outlineHoverCo
     )
 }
 
-const ButtonBase = ({style = {}, children, type, variant, className, contentContainerClass = {}, href, target, ...props}) => {
-    
+const ButtonBase = ({style, children, type, variant, className, contentContainerClass = {}, href, target, ...props}) => {
+
+    const _style = {...style};
+
     const baseColor = style['backgroundColor'] || '#000';
     const outlineColor = style['outlineColor'] || baseColor;
     
@@ -51,14 +53,13 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
     const activeColor = style['--activeBackgroundColor'] || hoverColor;
     const disabledColor = style['--disabledBackgroundColor'] || '#777';
 
-    delete style['backgroundColor'];
-    delete style['--hoverBackgroundColor']
+    delete _style['backgroundColor'];
+    delete _style['outlineColor'];
+    delete _style['--hoverBackgroundColor'];
+    delete _style['--hoverOutlineColor'];
+    delete _style['--activeBackgroundColor'];
+    delete _style['--disabledBackgroundColor'];
 
-    delete style['outlineColor'];
-    delete style['--hoverOutlineColor']
-
-    delete style['--activeBackgroundColor']
-    delete style['--disabledBackgroundColor']
 
     const [activeLink, setActiveLink] = useState(false);
 
@@ -79,7 +80,7 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
                 minHeight : 16,
                 minWidth : 16,
                 position: 'relative',
-                ...style
+                ..._style
             }}
             href={href}
             target={target}
@@ -98,7 +99,7 @@ const ButtonBase = ({style = {}, children, type, variant, className, contentCont
                 minHeight : 32,
                 minWidth : 32,
                 position: 'relative',
-                ...style
+                ..._style
             }}
             type={type}
             {...props}
@@ -133,6 +134,9 @@ const Button = ({style = {}, label, className, children, variant, ...props}) => 
 }
 
 const ButtonLink = ({style = {}, label, href = '/', target = '', className, children, variant, ...props}) => {
+
+    console.log(label, style);
+
     return (
         <ButtonBase
             style={style}
