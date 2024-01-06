@@ -54,6 +54,10 @@
     height : calc(100% - (var(--blockShrinkWidth) * 2));
 }
 
+/* .button[variant="inverted"]:hover > .buttonInnerBlock {
+    --blockShrinkWidth : 2px;
+} */
+
 .button > .buttonInnerBlock {
     width : calc(100% - 4px);
     height : calc(100% - 4px);

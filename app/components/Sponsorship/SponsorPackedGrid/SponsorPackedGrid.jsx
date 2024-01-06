@@ -59,8 +59,6 @@ const FillerBlock = ({itemHeight, row_index, column_index}) => {
 
 const SponsorPackedGrid = ({sponsorsData, displaySeasonValue}) => {
 
-    console.log("SPONSORS", sponsorsData);
-
     sponsorsData = sponsorsData.filter((sponsorData) => {
         return (sponsorData.seasons.includes(displaySeasonValue.value.toString()));
     })

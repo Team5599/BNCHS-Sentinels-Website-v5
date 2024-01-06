@@ -30,8 +30,6 @@ const getSponsorsData = async () => {
 
         const data = await res.json();
 
-		console.log("PAYLOAD", data.payload);
-    
         const sponsorsData = data.payload.map((sponsorData) => {
             return {
                 id : sponsorData._id,
@@ -121,8 +119,6 @@ export default function SponsorsPage() {
 	useEffect(() => {
 
         (async () => {
-
-            console.log("Getting sponsors data");
 
             // Get SponsorsData
             let sponsorsData = await getSponsorsData();

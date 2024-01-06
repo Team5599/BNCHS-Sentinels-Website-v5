@@ -26,6 +26,7 @@
     align-items: center;
     font-size: 0.9rem;
     font-weight: 600;
+    height : 40px;
     transition: color 0.4s;
 }
 

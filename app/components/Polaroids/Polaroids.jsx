@@ -50,8 +50,6 @@ const getPolaroidData = async () => {
 
         const instagramData = await res.json();
 
-        console.log(instagramData);
-
         return instagramData;
 
     } catch (err) {

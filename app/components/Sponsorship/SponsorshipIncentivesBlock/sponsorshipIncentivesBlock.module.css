@@ -32,21 +32,6 @@
     font-weight: 500;
 }
 
-.sponsorsMoreButton {
-    color : black;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: color 0.4s;
-}
-
-.sponsorsMoreButton:hover {
-    color : #fff;
-}
-
 @media (max-width: 992px) {
 
     .blockContainer {

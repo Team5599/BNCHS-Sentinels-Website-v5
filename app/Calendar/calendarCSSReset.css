@@ -1,0 +1,21 @@
+.calendar-header h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.tooltip h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.tooltip p {
+    display: block;
+    margin : 0;
+    font-size: unset;
+    font-weight: unset;
+    line-height: unset;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

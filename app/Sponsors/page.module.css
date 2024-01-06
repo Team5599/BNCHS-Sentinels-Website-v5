@@ -27,3 +27,7 @@
     font-weight: 600;
     transition: color 0.4s;
 }
+
+.sponsorsMoreButton:hover {
+    color : #fff;
+}
