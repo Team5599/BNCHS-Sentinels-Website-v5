@@ -12,8 +12,6 @@ import GoogleCalendar from "@ericz1803/react-google-calendar";
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API;
 
-console.log(API_KEY);
-
 // TODO
 // Host this in the database so members can edit the calendars
 const CALENDAR_DATA = [

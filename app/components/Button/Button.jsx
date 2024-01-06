@@ -135,8 +135,6 @@ const Button = ({style = {}, label, className, children, variant, ...props}) => 
 
 const ButtonLink = ({style = {}, label, href = '/', target = '', className, children, variant, ...props}) => {
 
-    console.log(label, style);
-
     return (
         <ButtonBase
             style={style}
