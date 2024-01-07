@@ -4,3 +4,19 @@
     filter: brightness(75%) contrast(115%);
 }
 
+.calendarSidebarItem {
+    transition : 0.2s background-color;
+    cursor: pointer;
+}
+
+.calendarSidebarItem:hover {
+    background-color: #1f2d45;
+}
+
+.calendarSidebarItem:active {
+    background-color: #0f1d35;
+}
+
+.calendarSidebarItem > div {
+    transition : 0.1s background-color;
+}
