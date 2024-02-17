@@ -109,7 +109,7 @@ export default function SponsorIncentivesPage() {
                                 Gold 
                             </h3>
                             <h5>
-                                $5000 — $9999
+                                $10,000+
                             </h5>
                         </div>
                         <ul>

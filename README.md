@@ -5,6 +5,8 @@
 
 The official website for the BNCHS Robotics Team | FRC Team #5599 - The Sentinels!
 
+Hello World
+
 The goal is to build a beautiful modern new website, while at the same time allowing students to learn the JavaSccript ecosystem with minimal experience.
 
 Visit the live version over at [beta.team5599.com](https://beta.team5599.com/).
