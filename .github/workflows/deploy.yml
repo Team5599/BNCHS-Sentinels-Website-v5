@@ -27,6 +27,7 @@ jobs:
           git pull origin production
           git status
           npm install --only=prod
+          npm build
           pm2 restart ${{ vars.PM2_PROCESS }}
         run: |
           echo Pull request merged and deployed to Production
