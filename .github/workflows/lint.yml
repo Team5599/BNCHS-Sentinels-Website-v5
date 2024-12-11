@@ -2,7 +2,7 @@ name: ESLint
 
 on:
   pull_request:
-    branches: [main, heroku]
+    branches: [main, production]
   push:
     branches: [main]
   workflow_dispatch:

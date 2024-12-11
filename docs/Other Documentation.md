@@ -23,7 +23,7 @@ Until we have a proper storage solution, backups are currently scattered and har
 
 ## Cloudflare
 
-While the project is hosted on Heroku, Cloudflare is responsible for handlign a variety of services:
+While the project is hosted on Hetzner, Cloudflare is responsible for handling a variety of services:
 - Caching
 - Auto minificiation
 - DNS Management
@@ -31,7 +31,7 @@ While the project is hosted on Heroku, Cloudflare is responsible for handlign a 
 - Analytics
 - DDOS Protection
 
-Our SSL certificates are handled by Heroku.
+Our SSL certificates are handled by Cloudflare.
 
 > ℹ️ Did you know we average about 1.29k requests through Cloudflare a day?
 

@@ -1,5 +1,5 @@
 # BNCHS Sentinels Website v5.0 <!-- omit in toc -->
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)	![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) 	![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)     ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)	![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) 	![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)     ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
 [![Build](https://github.com/Team5599/BNCHS-Sentinels-Website-v5/actions/workflows/build.yml/badge.svg)](https://github.com/Team5599/BNCHS-Sentinels-Website-v5/actions/workflows/build.yml)    [![ESLint](https://github.com/Team5599/BNCHS-Sentinels-Website-v5/actions/workflows/lint.yml/badge.svg)](https://github.com/Team5599/BNCHS-Sentinels-Website-v5/actions/workflows/lint.yml)
 
@@ -53,19 +53,9 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - An interactive Next.js tutorial.
 
-To learn more about Redux, take a look at the following resources:
-- [Redux Fundamentals](https://redux.js.org/tutorials/fundamentals/part-1-overview) - Learn the core concepts, principles, and patterns of Redux
-- [Redux Tutorials](https://redux.js.org/tutorials/index) - More resources for learning Redux
+## Deploying to Production
 
-## Deploying to Heroku
-
-The ``heroku`` branch is responsible for deploying to our live production server Heroku.
-
-You cannot push directly to the ``heroku`` branch. You must create a pull request to merge your branch into the ``heroku`` branch. When you create a pull request, an ESLint check is run against your changes.
-
-The ESLint check is responsible for catching breaking bugs and unoptimizations before being deployed to Heroku.
-
-Once the ESLint check is successful, the pull request can be merged. When merging is complete, GitHub Actions runs our "Heroku Deploy action", uploading the changes to our Heroku host.
+The ``production`` branch is responsible for deploying to our VPS. To make changes to the website, create a pull request to merge your changes into the ``production`` branch.
 
 ## API
 
