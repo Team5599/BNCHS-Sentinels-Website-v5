@@ -11,6 +11,10 @@ const RobotItem = ({robotItem, index}) => {
 
 	const [isHovering, setHovering] = useState(false);
 
+	console.log("thumb", robotItem.thumbnail)
+
+	const thumbnail = (robotItem.thumbnail) ? `url(${robotItem.thumbnail})` : "url(https://i.ytimg.com/vi/oVSD8OBbLaM/maxresdefault.jpg)"
+
 	return (
 		<Link
 			href={`/Robots/${robotItem.name.replace(/ /g, "")}`}
@@ -20,7 +24,7 @@ const RobotItem = ({robotItem, index}) => {
 				backgroundColor : 'red',
 				aspectRatio : '1 / 1',
 				position : 'relative',
-                transform: `scale(${isHovering ? 1.05 : 1})`,
+        transform: `scale(${isHovering ? 1.05 : 1})`,
 			}}
 			onMouseEnter={() => {
 				setHovering(true);
@@ -37,11 +41,12 @@ const RobotItem = ({robotItem, index}) => {
 					bottom : 8,
 					left : -8,
 					right : 8,
-					backgroundColor : bgColor,
+					backgroundColor : isHovering ? bgColor : 'transparent',
 					backgroundSize: 'cover',
 					backgroundRepeat: 'no-repeat',
-    				backgroundBlendMode: 'multiply',
-					backgroundImage : 'url(https://i.ytimg.com/vi/oVSD8OBbLaM/maxresdefault.jpg)'
+					backgroundPosition : 'center center',
+    			backgroundBlendMode: 'multiply',
+					backgroundImage : thumbnail
 				}}
 			>
 			</div>
@@ -51,13 +56,27 @@ const RobotItem = ({robotItem, index}) => {
 					position: 'relative',
 					width : '100%',
 					height : '100%',
-					backgroundColor : isHovering ? bgColor : 'transparent',
-					backgroundSize: 'cover',
-					backgroundRepeat: 'no-repeat',
-    				backgroundBlendMode: 'multiply',
-					backgroundImage : 'url(https://i.ytimg.com/vi/oVSD8OBbLaM/maxresdefault.jpg)',
+					overflow : 'hidden',
+					display : 'flex',
+					justifyContent: 'center',
+					alignItems : 'center'
 				}}
 			>
+				<div
+					className={styles.robotItemImageBox}
+					style={{
+						position: 'relative',
+						width : isHovering ? '105%' : '100%',
+						height : isHovering ? '105%' : '100%',
+						backgroundColor : isHovering ? bgColor : 'transparent',
+						backgroundSize: 'cover',
+						backgroundRepeat: 'no-repeat',
+						backgroundPosition : 'center center',
+						backgroundBlendMode: 'multiply',
+						backgroundImage : thumbnail,
+						transition : 'width 0.4s, height 0.4s'
+					}}
+				/>
 			</div>
 			<div
 				style={{
@@ -65,7 +84,8 @@ const RobotItem = ({robotItem, index}) => {
 					flexDirection : 'column',
 					padding : 20,
 					position : 'absolute',
-					left : 0, right : 0,
+					left : 0,
+					right : 0,
 					bottom : 0,
 					background : 'linear-gradient(transparent, #000000ee)',
 					color : '#fff'

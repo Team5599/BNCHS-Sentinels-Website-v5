@@ -16,7 +16,6 @@ const MediaContainer = ({robotItem}) => {
             dynamicHeight={false}
             preventMovementUntilSwipeScrollTolerance={true}
             swipeScrollTolerance={50}
-            showThumbs={true}
             style={{
                 position: 'relative',
                 display: 'flex',
