@@ -211,7 +211,7 @@ const Navbar = () => {
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
                                     <NavbarButton label={'Calendar'} href='/Calendar'/>
-                                    <NavbarButton label={'Photos & Videos'} href='https://www.flickr.team5599.com' target='_blank'/>
+                                    <NavbarButton label={'Photos & Videos'} href='https://flickr.team5599.com' target='_blank'/>
                                     <NavbarButton label={'Team Documents'} href='/Documents'/>
                                     <NavbarButton label={'Resource Engine'} href='https://legacy.team5599.com/Resources.html' target='_blank'/>
                                 </ul>
