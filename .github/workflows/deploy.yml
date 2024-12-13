@@ -1,0 +1,40 @@
+name: Production Deployment [NextJS]
+
+on:
+  pull_request:
+    branches: [production]
+    types : [closed]
+    
+  push:
+    branches: [production]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: (github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.PRODUCTION_HOST }}
+        username: ${{ secrets.PRODUCTION_USERNAME }}
+        key: ${{ secrets.PRODUCTION_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd ${{ vars.REPOSITORY_DIRECTORY }}
+          echo "Fetching latest version from the production branch"
+          git fetch --all
+          git reset --hard origin/production
+          git status
+          echo "Installing updates"
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
+          npm ci
+          echo "Building project"
+          npm build
+          echo "Restarting PM2 Process ${{ vars.PM2_PROCESS }}"
+          PM2_HOME=/root/.pm2 pm2 restart ${{ vars.PM2_PROCESS }}
+        run: |
+          echo Pull request merged and deployed to Production

@@ -25,7 +25,7 @@ const CALENDAR_DATA = [
 		requiresAuthentication : false
 	},
 	{
-		label : 'Programming Calendar',
+		label : 'Programming Calendar', 
 		calendarID : 'classroom108355962532255578415@group.calendar.google.com',
 		color : '#ffff00',
 		enabledByDefault : true,
