@@ -14,10 +14,14 @@
 
 .navigationButtons {
     display: flex;
-    margin-top: 80px;
     flex-direction: row;
     justify-content: flex-end;
     gap : 20px;
+}
+
+.navigationButtons[visible='mobile'] {
+    display: 'none';
+    visibility: hidden;
 }
 
 .sideDataContainer {
@@ -61,6 +65,16 @@
 
     .navigationButtons {
         flex-direction: column;
+    }
+    
+    .navigationButtons[visible='desktop'] {
+        display: 'none';
+        visibility: hidden;
+    }
+
+    .navigationButtons[visible='mobile'] {
+        display: 'initial';
+        visibility: visible;
     }
     
 }
