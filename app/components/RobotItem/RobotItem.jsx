@@ -66,8 +66,8 @@ const RobotItem = ({robotItem, index}) => {
 					className={styles.robotItemImageBox}
 					style={{
 						position: 'relative',
-						width : isHovering ? '105%' : '100%',
-						height : isHovering ? '105%' : '100%',
+						width : isHovering ? '100%' : '115%',
+						height : isHovering ? '100%' : '115%',
 						backgroundColor : isHovering ? bgColor : 'transparent',
 						backgroundSize: 'cover',
 						backgroundRepeat: 'no-repeat',
