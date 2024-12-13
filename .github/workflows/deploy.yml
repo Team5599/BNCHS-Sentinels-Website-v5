@@ -31,7 +31,8 @@ jobs:
           echo "Installing updates"
           export NVM_DIR=~/.nvm
           source ~/.nvm/nvm.sh
-          npm ci
+          rm -rf ./node_modules ./package-lock.json ./.next
+          npm i
           echo "Building project"
           npm build
           echo "Restarting PM2 Process ${{ vars.PM2_PROCESS }}"
