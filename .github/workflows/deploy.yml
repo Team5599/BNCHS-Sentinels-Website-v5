@@ -24,10 +24,17 @@ jobs:
         port: 22
         script: |
           cd ${{ vars.REPOSITORY_DIRECTORY }}
-          git pull origin production
+          echo "Fetching latest version from the production branch"
+          git fetch --all
+          git reset --hard origin/production
           git status
-          npm install --only=prod
+          echo "Installing updates"
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
+          npm ci
+          echo "Building project"
           npm build
-          npx pm2 restart ${{ vars.PM2_PROCESS }}
+          echo "Restarting PM2 Process ${{ vars.PM2_PROCESS }}"
+          PM2_HOME=/root/.pm2 pm2 restart ${{ vars.PM2_PROCESS }}
         run: |
           echo Pull request merged and deployed to Production
