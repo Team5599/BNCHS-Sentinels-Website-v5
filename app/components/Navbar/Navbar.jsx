@@ -156,6 +156,8 @@ const Navbar = () => {
     const windowScroll = useScrollPosition();
 
     const SCROLL_RESIZE_TRIGGER = 80;
+
+    const [isAuthenticated, setAuthenticted] = useState(false);
     
 
     const handleNavbarItemMouseEnter = (e) => {
@@ -254,9 +256,15 @@ const Navbar = () => {
                         dropdownButtons={
                             <>
                                 <ul className={styles.navbarDropdownColumn}>
-                                    <NavbarButton label={'Sign In'} className={styles.membersSecondaryButton}/>
-                                    <NavbarButton label={'Dashboard'} className={styles.membersSecondaryButton}/>
-                                    <NavbarButton label={'Register'} className={styles.membersSecondaryButton}/>
+                                    {
+                                        (isAuthenticated) ? <>
+                                            <NavbarButton label={'Dashboard'} href='/m/Dashboard' className={styles.membersSecondaryButton}/>
+                                            <NavbarButton label={'Sign Out'} href='/m/Dashboard' className={styles.membersSecondaryButton}/>
+                                        </> : <>
+                                            <NavbarButton label={'Sign In'} href='/m/SignIn' className={styles.membersSecondaryButton}/>
+                                            <NavbarButton label={'Register'} href='/m/Register' className={styles.membersSecondaryButton}/>
+                                        </>
+                                    } 
                                 </ul>
                             </>
                         }

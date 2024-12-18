@@ -1,0 +1,44 @@
+.headerOne {
+    background-image : url('/images/headers/header.jpg');
+    background-position: 50% 80%;
+    filter: brightness(75%) contrast(115%);
+}
+
+.button {
+    color : #fff;
+    text-transform: uppercase;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height : 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    width : 100%
+}
+
+.authenticationLink {
+    color : #fff;
+    font-size : 12px;
+    transition : color 0.4s;
+    font-weight : 700
+}
+
+.authenticationLink:hover {
+    color : #0059b6
+}
+
+.authenticationHover{
+    background-color: transparent;
+    transition : background-color 0.4s;
+    position: relative;
+    padding : 8px;
+    margin-left : -8px;
+    margin-right : -8px;
+    border-radius: 4px;
+}
+
+
+.authenticationHover:hover {
+    background-color: #00000060;
+}
